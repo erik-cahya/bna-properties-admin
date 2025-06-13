@@ -34,6 +34,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
+
         <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
@@ -41,26 +42,26 @@
                     <div class="navbar-brand-box">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ 'admin' }}/assets/images/logo-sm.svg" alt="" height="24">
+                                <img src="{{ asset('admin') }}/assets/images/logo-sm.svg" alt="" height="24">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ 'admin' }}/assets/images/logo-sm.svg" alt="" height="24"> <span
+                                <img src="{{ asset('admin') }}/assets/images/logo-sm.svg" alt="" height="24"> <span
                                     class="logo-txt">Minia</span>
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ 'admin' }}/assets/images/logo-sm.svg" alt="" height="24">
+                                <img src="{{ asset('admin') }}/assets/images/logo-sm.svg" alt="" height="24">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ 'admin' }}/assets/images/logo-sm.svg" alt="" height="24"> <span
+                                <img src="{{ asset('admin') }}/assets/images/logo-sm.svg" alt="" height="24"> <span
                                     class="logo-txt">Minia</span>
                             </span>
                         </a>
                     </div>
 
-                    <button type="button" class="btn btn-sm font-size-16 header-item px-3" id="vertical-menu-btn">
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
 
@@ -101,37 +102,37 @@
                     <div class="dropdown d-none d-sm-inline-block">
                         <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img id="header-lang-img" src="{{ 'admin' }}/assets/images/flags/us.jpg" alt="Header Language"
+                            <img id="header-lang-img" src="{{ asset('admin') }}/assets/images/flags/us.jpg" alt="Header Language"
                                 height="16">
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                                <img src="{{ 'admin' }}/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="{{ asset('admin') }}/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">English</span>
                             </a>
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                                <img src="{{ 'admin' }}/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="{{ asset('admin') }}/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                                <img src="{{ 'admin' }}/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="{{ asset('admin') }}/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                                <img src="{{ 'admin' }}/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="{{ asset('admin') }}/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                                <img src="{{ 'admin' }}/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="{{ asset('admin') }}/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Russian</span>
                             </a>
                         </div>
@@ -154,19 +155,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/github.png" alt="Github">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/github.png" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/bitbucket.png" alt="bitbucket">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/bitbucket.png" alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/dribbble.png" alt="dribbble">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/dribbble.png" alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
                                     </div>
@@ -175,19 +176,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/dropbox.png" alt="dropbox">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/dropbox.png" alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/mail_chimp.png" alt="mail_chimp">
                                             <span>Mail Chimp</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ 'admin' }}/assets/images/brands/slack.png" alt="slack">
+                                            <img src="{{ asset('admin') }}/assets/images/brands/slack.png" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
@@ -218,8 +219,8 @@
                             <div data-simplebar style="max-height: 230px;">
                                 <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <div class="me-3 flex-shrink-0">
-                                            <img src="{{ 'admin' }}/assets/images/users/avatar-3.jpg" class="rounded-circle avatar-sm"
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="{{ asset('admin') }}/assets/images/users/avatar-3.jpg" class="rounded-circle avatar-sm"
                                                 alt="user-pic">
                                         </div>
                                         <div class="flex-grow-1">
@@ -234,7 +235,7 @@
                                 </a>
                                 <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <div class="avatar-sm me-3 flex-shrink-0">
+                                        <div class="flex-shrink-0 avatar-sm me-3">
                                             <span class="avatar-title bg-primary rounded-circle font-size-16">
                                                 <i class="bx bx-cart"></i>
                                             </span>
@@ -251,7 +252,7 @@
                                 </a>
                                 <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <div class="avatar-sm me-3 flex-shrink-0">
+                                        <div class="flex-shrink-0 avatar-sm me-3">
                                             <span class="avatar-title bg-success rounded-circle font-size-16">
                                                 <i class="bx bx-badge-check"></i>
                                             </span>
@@ -269,8 +270,8 @@
 
                                 <a href="#!" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <div class="me-3 flex-shrink-0">
-                                            <img src="{{ 'admin' }}/assets/images/users/avatar-6.jpg" class="rounded-circle avatar-sm"
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="{{ asset('admin') }}/assets/images/users/avatar-6.jpg" class="rounded-circle avatar-sm"
                                                 alt="user-pic">
                                         </div>
                                         <div class="flex-grow-1">
@@ -284,7 +285,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="border-top d-grid p-2">
+                            <div class="p-2 border-top d-grid">
                                 <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
                                     <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
                                 </a>
@@ -302,25 +303,24 @@
                         <button type="button" class="btn header-item bg-light-subtle border-start border-end"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{ 'admin' }}/assets/images/users/avatar-1.jpg"
+                            <img class="rounded-circle header-profile-user" src="{{ asset('admin') }}/assets/images/users/avatar-1.jpg"
                                 alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block fw-medium ms-1">Shawn L.</span>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium">Shawn L.</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <a class="dropdown-item" href="apps-contacts-profile.html"><i
-                                    class="mdi mdi mdi-face-man font-size-16 me-1 align-middle"></i> Profile</a>
+                                    class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i> Profile</a>
                             <a class="dropdown-item" href="auth-lock-screen.html"><i
-                                    class="mdi mdi-lock font-size-16 me-1 align-middle"></i> Lock Screen</a>
+                                    class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>
                             <div class="dropdown-divider"></div>
-
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();"><i
-                                        class="mdi mdi-logout font-size-16 me-1 align-middle"></i> Logout</a>
-                            </form>
-
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                                <i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout
+                            </a>
+                            <form>
                         </div>
                     </div>
 
@@ -504,7 +504,7 @@
                         <li>
                             <a href="javascript: void(0);">
                                 <i data-feather="box"></i>
-                                <span class="badge rounded-pill badge-soft-danger text-danger float-end">7</span>
+                                <span class="badge rounded-pill badge-soft-danger  text-danger float-end">7</span>
                                 <span data-key="t-forms">Forms</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -591,9 +591,9 @@
 
                     </ul>
 
-                    <div class="card sidebar-alert mx-4 mb-0 mt-5 border-0 text-center">
+                    <div class="card sidebar-alert border-0 text-center mx-4 mb-0 mt-5">
                         <div class="card-body">
-                            <img src="{{ 'admin' }}/assets/images/giftbox.png" alt="">
+                            <img src="{{ asset('admin') }}/assets/images/giftbox.png" alt="">
                             <div class="mt-4">
                                 <h5 class="alertcard-title font-size-16">Unlimited Access</h5>
                                 <p class="font-size-13">Upgrade your plan from a Free trial, to select ‘Business Plan’.
@@ -607,6 +607,8 @@
             </div>
         </div>
         <!-- Left Sidebar End -->
+
+
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -642,7 +644,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <span class="text-muted lh-1 d-block text-truncate mb-3">My Wallet</span>
+                                            <span class="text-muted mb-3 lh-1 d-block text-truncate">My Wallet</span>
                                             <h4 class="mb-3">
                                                 $<span class="counter-value" data-target="865.2">0</span>k
                                             </h4>
@@ -655,7 +657,7 @@
                                     </div>
                                     <div class="text-nowrap">
                                         <span class="badge bg-success-subtle text-success">+$20.9k</span>
-                                        <span class="text-muted font-size-13 ms-1">Since last week</span>
+                                        <span class="ms-1 text-muted font-size-13">Since last week</span>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
@@ -668,7 +670,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <span class="text-muted lh-1 d-block text-truncate mb-3">Number of
+                                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Number of
                                                 Trades</span>
                                             <h4 class="mb-3">
                                                 <span class="counter-value" data-target="6258">0</span>
@@ -681,7 +683,7 @@
                                     </div>
                                     <div class="text-nowrap">
                                         <span class="badge bg-danger-subtle text-danger">-29 Trades</span>
-                                        <span class="text-muted font-size-13 ms-1">Since last week</span>
+                                        <span class="ms-1 text-muted font-size-13">Since last week</span>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
@@ -694,7 +696,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <span class="text-muted lh-1 d-block text-truncate mb-3">Invested
+                                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Invested
                                                 Amount</span>
                                             <h4 class="mb-3">
                                                 $<span class="counter-value" data-target="4.32">0</span>M
@@ -707,7 +709,7 @@
                                     </div>
                                     <div class="text-nowrap">
                                         <span class="badge bg-success-subtle text-success">+ $2.8k</span>
-                                        <span class="text-muted font-size-13 ms-1">Since last week</span>
+                                        <span class="ms-1 text-muted font-size-13">Since last week</span>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
@@ -720,7 +722,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <span class="text-muted lh-1 d-block text-truncate mb-3">Profit
+                                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Profit
                                                 Ration</span>
                                             <h4 class="mb-3">
                                                 <span class="counter-value" data-target="12.57">0</span>%
@@ -733,7 +735,7 @@
                                     </div>
                                     <div class="text-nowrap">
                                         <span class="badge bg-success-subtle text-success">+2.95%</span>
-                                        <span class="text-muted font-size-13 ms-1">Since last week</span>
+                                        <span class="ms-1 text-muted font-size-13">Since last week</span>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
@@ -746,7 +748,7 @@
                             <div class="card card-h-100">
                                 <!-- card body -->
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center mb-4 flex-wrap">
+                                    <div class="d-flex flex-wrap align-items-center mb-4">
                                         <h5 class="card-title me-2">Wallet Balance</h5>
                                         <div class="ms-auto">
                                             <div>
@@ -772,10 +774,10 @@
                                                 class="apex-charts"></div>
                                         </div>
                                         <div class="col-sm align-self-center">
-                                            <div class="mt-sm-0 mt-4">
+                                            <div class="mt-4 mt-sm-0">
                                                 <div>
                                                     <p class="mb-2"><i
-                                                            class="mdi mdi-circle font-size-10 text-success me-2 align-middle"></i>
+                                                            class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i>
                                                         Bitcoin</p>
                                                     <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$
                                                             4025.32</span></h6>
@@ -783,7 +785,7 @@
 
                                                 <div class="mt-4 pt-2">
                                                     <p class="mb-2"><i
-                                                            class="mdi mdi-circle font-size-10 text-primary me-2 align-middle"></i>
+                                                            class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i>
                                                         Ethereum</p>
                                                     <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$
                                                             1123.64</span></h6>
@@ -791,7 +793,7 @@
 
                                                 <div class="mt-4 pt-2">
                                                     <p class="mb-2"><i
-                                                            class="mdi mdi-circle font-size-10 text-info me-2 align-middle"></i>
+                                                            class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i>
                                                         Litecoin</p>
                                                     <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$
                                                             2263.09</span></h6>
@@ -811,10 +813,10 @@
                                     <div class="card card-h-100">
                                         <!-- card body -->
                                         <div class="card-body">
-                                            <div class="d-flex align-items-center mb-4 flex-wrap">
+                                            <div class="d-flex flex-wrap align-items-center mb-4">
                                                 <h5 class="card-title me-2">Invested Overview</h5>
                                                 <div class="ms-auto">
-                                                    <select class="form-select-sm form-select">
+                                                    <select class="form-select form-select-sm">
                                                         <option value="MAY" selected="">May</option>
                                                         <option value="AP">April</option>
                                                         <option value="MA">March</option>
@@ -831,18 +833,18 @@
                                                         class="apex-charts"></div>
                                                 </div>
                                                 <div class="col-sm align-self-center">
-                                                    <div class="mt-sm-0 mt-4">
+                                                    <div class="mt-4 mt-sm-0">
                                                         <p class="mb-1">Invested Amount</p>
                                                         <h4>$ 6134.39</h4>
 
                                                         <p class="text-muted mb-4"> + 0.0012.23 ( 0.2 % ) <i
-                                                                class="mdi mdi-arrow-up text-success ms-1"></i></p>
+                                                                class="mdi mdi-arrow-up ms-1 text-success"></i></p>
 
                                                         <div class="row g-0">
                                                             <div class="col-6">
                                                                 <div>
                                                                     <p
-                                                                        class="text-muted text-uppercase font-size-11 mb-2">
+                                                                        class="mb-2 text-muted text-uppercase font-size-11">
                                                                         Income</p>
                                                                     <h5 class="fw-medium">$ 2632.46</h5>
                                                                 </div>
@@ -850,7 +852,7 @@
                                                             <div class="col-6">
                                                                 <div>
                                                                     <p
-                                                                        class="text-muted text-uppercase font-size-11 mb-2">
+                                                                        class="mb-2 text-muted text-uppercase font-size-11">
                                                                         Expenses</p>
                                                                     <h5 class="fw-medium">-$ 924.38</h5>
                                                                 </div>
@@ -871,23 +873,23 @@
 
                                 <div class="col-xl-4">
                                     <!-- card -->
-                                    <div class="card bg-primary shadow-primary card-h-100 text-white">
+                                    <div class="card bg-primary text-white shadow-primary card-h-100">
                                         <!-- card body -->
                                         <div class="card-body p-0">
                                             <div id="carouselExampleCaptions"
-                                                class="carousel slide widget-carousel text-center"
+                                                class="carousel slide text-center widget-carousel"
                                                 data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <div class="p-4 text-center">
+                                                        <div class="text-center p-4">
                                                             <i class="mdi mdi-bitcoin widget-box-1-icon"></i>
                                                             <div class="avatar-md m-auto">
                                                                 <span
-                                                                    class="avatar-title rounded-circle bg-light-subtle font-size-24 text-white">
+                                                                    class="avatar-title rounded-circle bg-light-subtle text-white font-size-24">
                                                                     <i class="mdi mdi-currency-btc"></i>
                                                                 </span>
                                                             </div>
-                                                            <h4 class="lh-base fw-normal mt-3 text-white"><b>Bitcoin</b>
+                                                            <h4 class="mt-3 lh-base fw-normal text-white"><b>Bitcoin</b>
                                                                 News</h4>
                                                             <p class="text-white-50 font-size-13">Bitcoin prices fell
                                                                 sharply amid the global sell-off in equities. Negative
@@ -901,15 +903,15 @@
                                                     </div>
                                                     <!-- end carousel-item -->
                                                     <div class="carousel-item">
-                                                        <div class="p-4 text-center">
+                                                        <div class="text-center p-4">
                                                             <i class="mdi mdi-ethereum widget-box-1-icon"></i>
                                                             <div class="avatar-md m-auto">
                                                                 <span
-                                                                    class="avatar-title rounded-circle bg-light-subtle font-size-24 text-white">
+                                                                    class="avatar-title rounded-circle bg-light-subtle text-white font-size-24">
                                                                     <i class="mdi mdi-ethereum"></i>
                                                                 </span>
                                                             </div>
-                                                            <h4 class="lh-base fw-normal mt-3 text-white"><b>ETH</b>
+                                                            <h4 class="mt-3 lh-base fw-normal text-white"><b>ETH</b>
                                                                 News</h4>
                                                             <p class="text-white-50 font-size-13">Bitcoin prices fell
                                                                 sharply amid the global sell-off in equities. Negative
@@ -923,17 +925,16 @@
                                                     </div>
                                                     <!-- end carousel-item -->
                                                     <div class="carousel-item">
-                                                        <div class="p-4 text-center">
+                                                        <div class="text-center p-4">
                                                             <i class="mdi mdi-litecoin widget-box-1-icon"></i>
                                                             <div class="avatar-md m-auto">
                                                                 <span
-                                                                    class="avatar-title rounded-circle bg-light-subtle font-size-24 text-white">
+                                                                    class="avatar-title rounded-circle bg-light-subtle text-white font-size-24">
                                                                     <i class="mdi mdi-litecoin"></i>
                                                                 </span>
                                                             </div>
-                                                            <h4 class="lh-base fw-normal mt-3 text-white">
-                                                                <b>Litecoin</b> News
-                                                            </h4>
+                                                            <h4 class="mt-3 lh-base fw-normal text-white">
+                                                                <b>Litecoin</b> News</h4>
                                                             <p class="text-white-50 font-size-13">Bitcoin prices fell
                                                                 sharply amid the global sell-off in equities. Negative
                                                                 news
@@ -978,7 +979,7 @@
                             <div class="card">
                                 <!-- card body -->
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center mb-4 flex-wrap">
+                                    <div class="d-flex flex-wrap align-items-center mb-4">
                                         <h5 class="card-title me-2">Market Overview</h5>
                                         <div class="ms-auto">
                                             <div>
@@ -1121,7 +1122,7 @@
                             <div class="card">
                                 <!-- card body -->
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center mb-4 flex-wrap">
+                                    <div class="d-flex flex-wrap align-items-center mb-4">
                                         <h5 class="card-title me-2">Sales by Locations</h5>
                                         <div class="ms-auto">
                                             <div class="dropdown">
@@ -1154,7 +1155,7 @@
                                             </div>
                                         </div>
 
-                                        <p class="mb-1 mt-3">Russia <span class="float-end">55%</span></p>
+                                        <p class="mt-3 mb-1">Russia <span class="float-end">55%</span></p>
                                         <div class="progress mt-2" style="height: 6px;">
                                             <div class="progress-bar progress-bar-striped bg-primary" role="progressbar"
                                                 style="width: 55%" aria-valuenow="55" aria-valuemin="0"
@@ -1162,7 +1163,7 @@
                                             </div>
                                         </div>
 
-                                        <p class="mb-1 mt-3">Australia <span class="float-end">85%</span></p>
+                                        <p class="mt-3 mb-1">Australia <span class="float-end">85%</span></p>
                                         <div class="progress mt-2" style="height: 6px;">
                                             <div class="progress-bar progress-bar-striped bg-primary" role="progressbar"
                                                 style="width: 85%" aria-valuenow="85" aria-valuemin="0"
@@ -1183,7 +1184,7 @@
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title flex-grow-1 mb-0">Trading</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Trading</h4>
                                     <div class="flex-shrink-0">
                                         <ul class="nav nav-tabs-custom card-header-tabs" role="tablist">
                                             <li class="nav-item">
@@ -1203,10 +1204,9 @@
                                         <div class="tab-pane active" id="buy-tab" role="tabpanel">
                                             <div class="float-end ms-2">
                                                 <h5 class="font-size-14"><i
-                                                        class="bx bx-wallet text-primary font-size-16 me-1 align-middle"></i>
+                                                        class="bx bx-wallet text-primary font-size-16 align-middle me-1"></i>
                                                     <a href="#!"
-                                                        class="text-reset text-decoration-underline">$4335.23</a>
-                                                </h5>
+                                                        class="text-reset text-decoration-underline">$4335.23</a></h5>
                                             </div>
                                             <h5 class="font-size-14 mb-4">Buy Coins</h5>
                                             <div>
@@ -1256,10 +1256,9 @@
                                         <div class="tab-pane" id="sell-tab" role="tabpanel">
                                             <div class="float-end ms-2">
                                                 <h5 class="font-size-14"><i
-                                                        class="bx bx-wallet text-primary font-size-16 me-1 align-middle"></i>
+                                                        class="bx bx-wallet text-primary font-size-16 align-middle me-1"></i>
                                                     <a href="#!"
-                                                        class="text-reset text-decoration-underline">$4235.23</a>
-                                                </h5>
+                                                        class="text-reset text-decoration-underline">$4235.23</a></h5>
                                             </div>
                                             <h5 class="font-size-14 mb-4">Sell Coins</h5>
 
@@ -1319,9 +1318,9 @@
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title flex-grow-1 mb-0">Transactions</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Transactions</h4>
                                     <div class="flex-shrink-0">
-                                        <ul class="nav justify-content-end nav-tabs-custom card-header-tabs rounded"
+                                        <ul class="nav justify-content-end nav-tabs-custom rounded card-header-tabs"
                                             role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" data-bs-toggle="tab"
@@ -1351,7 +1350,7 @@
                                         <div class="tab-pane active" id="transactions-all-tab" role="tabpanel">
                                             <div class="table-responsive px-3" data-simplebar
                                                 style="max-height: 352px;">
-                                                <table class="table-nowrap table-borderless table align-middle">
+                                                <table class="table align-middle table-nowrap table-borderless">
                                                     <tbody>
                                                         <tr>
                                                             <td style="width: 50px;">
@@ -1363,7 +1362,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1371,7 +1370,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1380,7 +1379,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1395,7 +1394,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1403,7 +1402,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1412,7 +1411,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1427,7 +1426,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">16 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">16 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1435,7 +1434,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">1.88 LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1443,7 +1442,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$94.22</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1458,7 +1457,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">17 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">17 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1466,7 +1465,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.42 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1474,7 +1473,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$84.32</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1489,7 +1488,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">18 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">18 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1497,7 +1496,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.018 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1506,7 +1505,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$145.80
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1521,7 +1520,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1529,7 +1528,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1538,7 +1537,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1553,7 +1552,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1561,7 +1560,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1570,7 +1569,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1582,7 +1581,7 @@
                                         <div class="tab-pane" id="transactions-buy-tab" role="tabpanel">
                                             <div class="table-responsive px-3" data-simplebar
                                                 style="max-height: 352px;">
-                                                <table class="table-nowrap table-borderless table align-middle">
+                                                <table class="table align-middle table-nowrap table-borderless">
                                                     <tbody>
                                                         <tr>
                                                             <td style="width: 50px;">
@@ -1594,7 +1593,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1602,7 +1601,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1611,7 +1610,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1626,7 +1625,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">18 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">18 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1634,7 +1633,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.018 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1643,7 +1642,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$145.80
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1658,7 +1657,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">16 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">16 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1666,7 +1665,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">1.88 LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1674,7 +1673,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$94.22</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1689,7 +1688,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1697,7 +1696,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1706,7 +1705,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1721,7 +1720,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">17 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">17 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1729,7 +1728,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.42 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1737,7 +1736,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$84.32</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1752,7 +1751,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1760,7 +1759,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1769,7 +1768,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1784,7 +1783,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Buy BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1792,7 +1791,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1801,10 +1800,11 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
+
 
                                                     </tbody>
                                                 </table>
@@ -1814,7 +1814,7 @@
                                         <div class="tab-pane" id="transactions-sell-tab" role="tabpanel">
                                             <div class="table-responsive px-3" data-simplebar
                                                 style="max-height: 352px;">
-                                                <table class="table-nowrap table-borderless table align-middle">
+                                                <table class="table align-middle table-nowrap table-borderless">
                                                     <tbody>
                                                         <tr>
                                                             <td>
@@ -1826,7 +1826,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1834,7 +1834,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1843,7 +1843,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1858,7 +1858,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1866,7 +1866,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1875,7 +1875,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1890,7 +1890,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">18 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">18 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1898,7 +1898,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.018 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1907,7 +1907,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$145.80
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1922,7 +1922,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">15 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">15 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1930,7 +1930,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.56 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1939,7 +1939,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$112.34
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1954,7 +1954,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">16 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">16 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1962,7 +1962,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">1.88 LTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1970,7 +1970,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$94.22</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1985,7 +1985,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">17 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">17 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -1993,7 +1993,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.42 ETH</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -2001,10 +2001,12 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$84.32</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
+
+
 
                                                         <tr>
                                                             <td style="width: 50px;">
@@ -2016,7 +2018,7 @@
                                                             <td>
                                                                 <div>
                                                                     <h5 class="font-size-14 mb-1">Sell BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">14 Mar, 2021
+                                                                    <p class="text-muted mb-0 font-size-12">14 Mar, 2021
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -2024,7 +2026,7 @@
                                                             <td>
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 mb-0">0.016 BTC</h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Coin Value
+                                                                    <p class="text-muted mb-0 font-size-12">Coin Value
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -2033,7 +2035,7 @@
                                                                 <div class="text-end">
                                                                     <h5 class="font-size-14 text-muted mb-0">$125.20
                                                                     </h5>
-                                                                    <p class="text-muted font-size-12 mb-0">Amount</p>
+                                                                    <p class="text-muted mb-0 font-size-12">Amount</p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -2054,9 +2056,9 @@
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title flex-grow-1 mb-0">Recent Activity</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Recent Activity</h4>
                                     <div class="flex-shrink-0">
-                                        <select class="form-select-sm my-n1 form-select mb-0">
+                                        <select class="form-select form-select-sm mb-0 my-n1">
                                             <option value="Today" selected="">Today</option>
                                             <option value="Yesterday">Yesterday</option>
                                             <option value="Week">Last Week</option>
@@ -2078,13 +2080,13 @@
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">+0.5 BTC</h6>
                                                             <div class="font-size-13">$178.53</div>
                                                         </div>
@@ -2114,19 +2116,19 @@
                                             <li class="activity-list activity-border">
                                                 <div class="activity-icon avatar-md">
                                                     <span
-                                                        class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                        class="avatar-title  bg-primary-subtle text-primary rounded-circle">
                                                         <i class="mdi mdi-ethereum font-size-24"></i>
                                                     </span>
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">-20.5 ETH</h6>
                                                             <div class="font-size-13">$3541.45</div>
                                                         </div>
@@ -2162,13 +2164,13 @@
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">+0.5 BTC</h6>
                                                             <div class="font-size-13">$5791.45</div>
                                                         </div>
@@ -2198,19 +2200,19 @@
                                             <li class="activity-list activity-border">
                                                 <div class="activity-icon avatar-md">
                                                     <span
-                                                        class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                        class="avatar-title  bg-primary-subtle text-primary rounded-circle">
                                                         <i class="mdi mdi-litecoin font-size-24"></i>
                                                     </span>
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">-1.5 LTC</h6>
                                                             <div class="font-size-13">$5791.45</div>
                                                         </div>
@@ -2237,6 +2239,7 @@
                                                 </div>
                                             </li>
 
+
                                             <li class="activity-list activity-border">
                                                 <div class="activity-icon avatar-md">
                                                     <span
@@ -2246,13 +2249,13 @@
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">+0.5 BTC</h6>
                                                             <div class="font-size-13">$5791.45</div>
                                                         </div>
@@ -2282,19 +2285,19 @@
                                             <li class="activity-list">
                                                 <div class="activity-icon avatar-md">
                                                     <span
-                                                        class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                        class="avatar-title  bg-primary-subtle text-primary rounded-circle">
                                                         <i class="mdi mdi-litecoin font-size-24"></i>
                                                     </span>
                                                 </div>
                                                 <div class="timeline-list-item">
                                                     <div class="d-flex">
-                                                        <div class="flex-grow-1 me-4 overflow-hidden">
+                                                        <div class="flex-grow-1 overflow-hidden me-4">
                                                             <h5 class="font-size-14 mb-1">24/05/2021, 18:24:56</h5>
                                                             <p class="text-truncate text-muted font-size-13">
                                                                 0xb77ad0099e21d4fca87fa4ca92dda1a40af9e05d205e53f38bf026196fa2e431
                                                             </p>
                                                         </div>
-                                                        <div class="me-3 flex-shrink-0 text-end">
+                                                        <div class="flex-shrink-0 text-end me-3">
                                                             <h6 class="mb-1">+.55 LTC</h6>
                                                             <div class="font-size-13">$91.45</div>
                                                         </div>
@@ -2334,13 +2337,12 @@
             </div>
             <!-- End Page-content -->
 
+
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Minia.
+                            <script>document.write(new Date().getFullYear())</script> © Minia.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
@@ -2355,6 +2357,7 @@
 
     </div>
     <!-- END layout-wrapper -->
+
 
     <!-- Right Sidebar -->
     <div class="right-bar">
@@ -2383,7 +2386,7 @@
                     <label class="form-check-label" for="layout-horizontal">Horizontal</label>
                 </div>
 
-                <h6 class="mb-3 mt-4 pt-2">Layout Mode</h6>
+                <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-light"
@@ -2395,7 +2398,7 @@
                     <label class="form-check-label" for="layout-mode-dark">Dark</label>
                 </div>
 
-                <h6 class="mb-3 mt-4 pt-2">Layout Width</h6>
+                <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild"
@@ -2408,7 +2411,7 @@
                     <label class="form-check-label" for="layout-width-boxed">Boxed</label>
                 </div>
 
-                <h6 class="mb-3 mt-4 pt-2">Layout Position</h6>
+                <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed"
@@ -2421,7 +2424,7 @@
                     <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
                 </div>
 
-                <h6 class="mb-3 mt-4 pt-2">Topbar Color</h6>
+                <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light"
@@ -2434,7 +2437,7 @@
                     <label class="form-check-label" for="topbar-color-dark">Dark</label>
                 </div>
 
-                <h6 class="sidebar-setting mb-3 mt-4 pt-2">Sidebar Size</h6>
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
 
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default"
@@ -2452,7 +2455,7 @@
                     <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
                 </div>
 
-                <h6 class="sidebar-setting mb-3 mt-4 pt-2">Sidebar Color</h6>
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
 
                 <div class="form-check sidebar-setting">
                     <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light"
@@ -2470,7 +2473,7 @@
                     <label class="form-check-label" for="sidebar-color-brand">Brand</label>
                 </div>
 
-                <h6 class="mb-3 mt-4 pt-2">Direction</h6>
+                <h6 class="mt-4 mb-3 pt-2">Direction</h6>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr"
@@ -2493,25 +2496,25 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{ 'admin' }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/node-waves/waves.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/jquery/jquery.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/node-waves/waves.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/feather-icons/feather.min.js"></script>
     <!-- pace js -->
-    <script src="{{ 'admin' }}/assets/libs/pace-js/pace.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/pace-js/pace.min.js"></script>
 
     <!-- apexcharts -->
-    <script src="{{ 'admin' }}/assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/apexcharts/apexcharts.min.js"></script>
 
     <!-- Plugins js-->
-    <script src="{{ 'admin' }}/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="{{ 'admin' }}/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
     <!-- dashboard init -->
-    <script src="{{ 'admin' }}/assets/js/pages/dashboard.init.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/pages/dashboard.init.js"></script>
 
-    <script src="{{ 'admin' }}/assets/js/app.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/app.js"></script>
 
 </body>
 
