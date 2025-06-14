@@ -1,151 +1,100 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-menu-color="dark" data-topbar-color="light">
 
 <head>
-
     <meta charset="utf-8" />
-    <title>Login | Minia - Minimal Admin & Dashboard Template</title>
+    <title>Log In | Drezoc - Responsive Bootstrap 5 Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
+    <meta content="Drezoc - Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="MyraStudio" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin') }}/assets/images/favicon.ico">
 
-    <!-- preloader css -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/preloader.min.css" type="text/css" />
-
-    <!-- Bootstrap Css -->
-    <link href="{{ asset('admin') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{ asset('admin') }}/assets/css/app.css" id="app-style" rel="stylesheet" type="text/css" />
-
+    <!-- App css -->
+    <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <script src="{{ asset('admin') }}/assets/js/config.js"></script>
 </head>
 
 <body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center min-vh-100">
+                        <div class="w-100 d-block card shadow-lg rounded my-5 overflow-hidden">
+                            <div class="row">
+                                <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <div class="text-center w-75 mx-auto auth-logo mb-4">
+                                            <a href="index.html" class="logo-dark">
+                                                <span><img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="" height="32"></span>
+                                            </a>
 
-    <!-- <body data-layout="horizontal"> -->
-    <div class="auth-page">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-xxl-12 col-lg-12 col-md-12">
-                    <div class="auth-bg d-flex justify-content-center p-4" style="height: 100vh">
-                        <div class="bg-overlay bg-primary"></div>
-
-                        <div class="col-xxl-4 col-lg-4 col-md-5 w-login">
-                            <div class="d-flex p-sm-5 p-4">
-                                <div class="w-100">
-                                    <div class="d-flex flex-column h-100">
-                                        <div class="mb-md-5 mb-4 text-center">
-                                            <a href="index.html" class="d-block auth-logo">
-                                                <img src="{{ asset('admin') }}/assets/images/logo-sm.svg" alt="" height="28"> <span class="logo-txt">Minia</span>
+                                            <a href="index.html" class="logo-light">
+                                                <span><img src="{{ asset('admin') }}/assets/images/logo-light.png" alt="" height="32"></span>
                                             </a>
                                         </div>
-                                        <div class="auth-content my-auto">
-                                            <div class="text-center">
-                                                <h5 class="mb-0">Welcome Back !</h5>
-                                                <p class="text-muted mt-2">Sign in to continue to Admin Panel.</p>
-                                            </div>
-                                            <form class="mt-4 pt-2" action="{{ route('login') }}" method="POST">
-                                                @csrf
-                                                <div class="mb-3">
-                                                    <label class="form-label">Email</label>
-                                                    <input type="text" name="email" class="form-control" id="Email" placeholder="Enter Your Email" value="{{ old('email') }}">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <div class="d-flex align-items-start">
-                                                        <div class="flex-grow-1">
-                                                            <label class="form-label">Password</label>
-                                                        </div>
-                                                        <div class="flex-shrink-0">
-                                                            <div class="">
-                                                                <a href="auth-recoverpw.html" class="text-muted">Forgot password?</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="input-group auth-pass-inputgroup">
-                                                        <input type="password" name="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
-                                                        <button class="btn btn-light ms-0 shadow-none" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-4">
-                                                    <div class="col">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="remember-check">
-                                                            <label class="form-check-label" for="remember-check">
-                                                                Remember me
-                                                            </label>
-                                                        </div>
-                                                    </div>
 
-                                                </div>
-                                                <div class="mb-3">
-                                                    <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
-                                                </div>
-                                            </form>
+                                        <h1 class="h5 mb-1">Welcome Back!</h1>
 
-                                            <div class="mt-4 pt-2 text-center">
-                                                <div class="signin-other-title">
-                                                    <h5 class="font-size-14 text-muted fw-medium mb-3">- Sign in with -</h5>
-                                                </div>
+                                        <p class="text-muted mb-4">Enter your email address and password to access admin
+                                            panel.</p>
 
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void()"
-                                                            class="social-list-item bg-primary border-primary text-white">
-                                                            <i class="mdi mdi-facebook"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void()"
-                                                            class="social-list-item bg-info border-info text-white">
-                                                            <i class="mdi mdi-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void()"
-                                                            class="social-list-item bg-danger border-danger text-white">
-                                                            <i class="mdi mdi-google"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                        <form class="mt-4 pt-2" action="{{ route('login') }}" method="POST">
+                                            @csrf
+
+                                            <div class="form-group mb-3">
+                                                <label class="form-label" for="emailaddress">Email address</label>
+                                                <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email">
                                             </div>
 
-                                            <div class="mt-5 text-center">
-                                                <p class="text-muted mb-0">Don't have an account ? <a href="auth-register.html"
-                                                        class="text-primary fw-semibold"> Signup now </a> </p>
+                                            <div class="form-group mb-3">
+                                                <a href="pages-recoverpw.html" class="text-muted float-end"><small></small></a>
+                                                <label class="form-label" for="password">Password</label>
+                                                <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                             </div>
+
+                                            <div class="form-group mb-3">
+                                                <div class="">
+                                                    <input class="form-check-input" type="checkbox" id="checkbox-signin" checked>
+                                                    <label class="form-check-label ms-2" for="checkbox-signin">Remember
+                                                        me</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group mb-0 text-center">
+                                                <button class="btn btn-primary w-100" type="submit"> Log In </button>
+                                            </div>
+                                        </form>
+
+                                        <div class="row mt-4">
+                                            <div class="col-12 text-center">
+                                                <p class="text-muted mb-0">Don't have an account?
+                                                    <a class="text-muted font-weight-medium ms-1" href='{{ route('register') }}'><b>Sign Up</b></a>
+                                                </p>
+                                            </div> <!-- end col -->
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end auth full page content -->
-                        </div>
-
-                        <!-- end bubble effect -->
-
-                    </div>
-                </div>
-                <!-- end col -->
-            </div>
-            <!-- end row -->
+                                        <!-- end row -->
+                                    </div> <!-- end .padding-5 -->
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+                        </div> <!-- end .w-100 -->
+                    </div> <!-- end .d-flex -->
+                </div> <!-- end col-->
+            </div> <!-- end row -->
         </div>
-        <!-- end container fluid -->
+        <!-- end container -->
     </div>
+    <!-- end page -->
 
-    <!-- JAVASCRIPT -->
-    <script src="{{ asset('admin') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/node-waves/waves.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/feather-icons/feather.min.js"></script>
-    <!-- pace js -->
-    <script src="{{ asset('admin') }}/assets/libs/pace-js/pace.min.js"></script>
-    <!-- password addon init -->
-    <script src="{{ asset('admin') }}/assets/js/pages/pass-addon.init.js"></script>
+    <!-- App js -->
+    <script src="{{ asset('admin') }}/assets/js/vendor.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/app.js"></script>
 
 </body>
 

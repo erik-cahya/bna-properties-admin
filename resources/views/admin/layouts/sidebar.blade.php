@@ -1,0 +1,60 @@
+ <div class="main-menu">
+     <!-- Brand Logo -->
+     <div class="logo-box">
+         <!-- Brand Logo Light -->
+         <a href="index.html" class="logo-light">
+             <img src="{{ asset('admin') }}/assets/images/logo-light.png" alt="logo" class="logo-lg" height="18">
+             <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="24">
+         </a>
+
+         <!-- Brand Logo Dark -->
+         <a href="index.html" class="logo-dark">
+             <img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="dark logo" class="logo-lg" height="18">
+             <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="24">
+         </a>
+     </div>
+
+     <!--- Menu -->
+     <div data-simplebar>
+         <ul class="app-menu">
+
+             <li class="menu-title">Menu</li>
+
+             <li class="menu-item">
+                 <a href="{{ route('dashboard') }}" class="menu-link waves-effect">
+                     <span class="menu-icon"><i data-lucide="airplay "></i></span>
+                     <span class="menu-text"> Dashboards </span>
+                     <span class="badge bg-info rounded-pill ms-auto">3</span>
+                 </a>
+             </li>
+
+             <li class="menu-title">Management</li>
+
+
+
+             <li class="menu-item">
+                 <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect">
+                     <span class="menu-icon"><i data-lucide="copy"></i></span>
+                     <span class="menu-text"> Properties </span>
+                     <span class="menu-arrow"></span>
+                 </a>
+                 <div class="collapse" id="menuExpages">
+                     <ul class="sub-menu">
+                         <li class="menu-item">
+                             <a href="{{ route('properties.index') }}" class="menu-link">
+                                 <span class="menu-text">List Properties</span>
+                             </a>
+                         </li>
+                         <li class="menu-item">
+                             <a href="pages-invoice.html" class="menu-link">
+                                 <span class="menu-text">Create Properties</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </li>
+
+
+         </ul>
+     </div>
+ </div>

@@ -1,22 +1,16 @@
-/*! DataTables 1.13.5
+/*! DataTables 1.13.2
  * ©2008-2023 SpryMedia Ltd - datatables.net/license
  */
 
 import jQuery from 'jquery';
 
 // DataTables code uses $ internally, but we want to be able to
-// reassign $ with the `use` method, so it is a regular var.
-var $ = jQuery;
+// reassign $ with the `use` method below, so it is a regular var.
+let $ = jQuery;
 
 
 var DataTable = function ( selector, options )
 {
-	// Check if called with a window or jQuery object for DOM less applications
-	// This is for backwards compatibility
-	if (DataTable.factory(selector, options)) {
-		return DataTable;
-	}
-
 	// When creating with `new`, create a new DataTable, returning the API instance
 	if (this instanceof DataTable) {
 		return $(selector).DataTable(options);
@@ -1121,7 +1115,6 @@ var DataTable = function ( selector, options )
 							type:   sort !== null   ? i+'.@data-'+sort   : undefined,
 							filter: filter !== null ? i+'.@data-'+filter : undefined
 						};
-						col._isArrayHost = true;
 		
 						_fnColumnOptions( oSettings, i );
 					}
@@ -1327,7 +1320,7 @@ var _numToDecimal = function ( num, decimalPoint ) {
 
 
 var _isNumber = function ( d, decimalPoint, formatted ) {
-	var type = typeof d;
+	let type = typeof d;
 	var strType = type === 'string';
 
 	if ( type === 'number' || type === 'bigint') {
@@ -1461,9 +1454,7 @@ var _removeEmpty = function ( a )
 
 
 var _stripHtml = function ( d ) {
-	return d
-		.replace( _re_html, '' ) // Complete tags
-		.replace(/<script/i, ''); // Safety for incomplete script tag
+	return d.replace( _re_html, '' );
 };
 
 
@@ -1837,10 +1828,7 @@ DataTable.util = {
 							continue;
 						}
 	
-						if (data === null || data[ a[i] ] === null) {
-							return null;
-						}
-						else if ( data === undefined || data[ a[i] ] === undefined ) {
+						if ( data === null || data[ a[i] ] === undefined ) {
 							return undefined;
 						}
 
@@ -2315,7 +2303,7 @@ function _fnColumnOptions( oSettings, iCol, oOptions )
 
 	// Indicate if DataTables should read DOM data as an object or array
 	// Used in _fnGetRowElements
-	if ( typeof mDataSrc !== 'number' && ! oCol._isArrayHost ) {
+	if ( typeof mDataSrc !== 'number' ) {
 		oSettings._rowReadObject = true;
 	}
 
@@ -4011,16 +3999,11 @@ function _fnAjaxUpdate( settings )
 	settings.iDraw++;
 	_fnProcessingDisplay( settings, true );
 
-	// Keep track of drawHold state to handle scrolling after the Ajax call
-	var drawHold = settings._drawHold;
-
 	_fnBuildAjax(
 		settings,
 		_fnAjaxParameters( settings ),
 		function(json) {
-			settings._drawHold = drawHold;
 			_fnAjaxUpdateDraw( settings, json );
-			settings._drawHold = false;
 		}
 	);
 }
@@ -4284,7 +4267,7 @@ function _fnFeatureHtmlFilter ( settings )
 				_fnThrottle( searchFn, searchDelay ) :
 				searchFn
 		)
-		.on( 'mouseup.DT', function(e) {
+		.on( 'mouseup', function(e) {
 			// Edge fix! Edge 17 does not trigger anything other than mouse events when clicking
 			// on the clear icon (Edge bug 17584515). This is safe in other browsers as `searchFn`
 			// checks the value to see if it has changed. In other browsers it won't have.
@@ -4350,7 +4333,7 @@ function _fnFilterComplete ( oSettings, oInput, iForce )
 	if ( _fnDataSource( oSettings ) != 'ssp' )
 	{
 		/* Global filter */
-		_fnFilter( oSettings, oInput.sSearch, iForce, fnRegex(oInput), oInput.bSmart, oInput.bCaseInsensitive );
+		_fnFilter( oSettings, oInput.sSearch, iForce, fnRegex(oInput), oInput.bSmart, oInput.bCaseInsensitive, oInput.return );
 		fnSaveFilter( oInput );
 
 		/* Now do the individual column filter */
@@ -4519,13 +4502,9 @@ function _fnFilterCreateSearch( search, regex, smart, caseInsensitive )
 		 * 
 		 * ^(?=.*?\bone\b)(?=.*?\btwo three\b)(?=.*?\bfour\b).*$
 		 */
-		var a = $.map( search.match( /["\u201C][^"\u201D]+["\u201D]|[^ ]+/g ) || [''], function ( word ) {
+		var a = $.map( search.match( /"[^"]+"|[^ ]+/g ) || [''], function ( word ) {
 			if ( word.charAt(0) === '"' ) {
 				var m = word.match( /^"(.*)"$/ );
-				word = m ? m[1] : word;
-			}
-			else if ( word.charAt(0) === '\u201C' ) {
-				var m = word.match( /^\u201C(.*)\u201D$/ );
 				word = m ? m[1] : word;
 			}
 
@@ -5078,8 +5057,7 @@ function _fnFeatureHtmlProcessing ( settings )
 {
 	return $('<div/>', {
 			'id': ! settings.aanFeatures.r ? settings.sTableId+'_processing' : null,
-			'class': settings.oClasses.sProcessing,
-			'role': 'status'
+			'class': settings.oClasses.sProcessing
 		} )
 		.html( settings.oLanguage.sProcessing )
 		.append('<div><div></div><div></div><div></div><div></div></div>')
@@ -9328,52 +9306,6 @@ _api_register( 'state.save()', function () {
 
 
 /**
- * Set the jQuery or window object to be used by DataTables
- *
- * @param {*} module Library / container object
- * @param {string} [type] Library or container type `lib`, `win` or `datetime`.
- *   If not provided, automatic detection is attempted.
- */
-DataTable.use = function (module, type) {
-	if (type === 'lib' || module.fn) {
-		$ = module;
-	}
-	else if (type == 'win' || module.document) {
-		window = module;
-		document = module.document;
-	}
-	else if (type === 'datetime' || module.type === 'DateTime') {
-		DataTable.DateTime = module;
-	}
-}
-
-/**
- * CommonJS factory function pass through. This will check if the arguments
- * given are a window object or a jQuery object. If so they are set
- * accordingly.
- * @param {*} root Window
- * @param {*} jq jQUery
- * @returns {boolean} Indicator
- */
-DataTable.factory = function (root, jq) {
-	var is = false;
-
-	// Test if the first parameter is a window object
-	if (root && root.document) {
-		window = root;
-		document = root.document;
-	}
-
-	// Test if the second parameter is a jQuery object
-	if (jq && jq.fn && jq.fn.jquery) {
-		$ = jq;
-		is = true;
-	}
-
-	return is;
-}
-
-/**
  * Provide a common method for plug-ins to check the version of DataTables being
  * used, in order to ensure compatibility.
  *
@@ -9704,9 +9636,7 @@ _api_register( 'i18n()', function ( token, def, plural ) {
 			resolved._;
 	}
 
-	return typeof resolved === 'string'
-		? resolved.replace( '%d', plural ) // nb: plural might be undefined,
-		: resolved;
+	return resolved.replace( '%d', plural ); // nb: plural might be undefined,
 } );
 /**
  * Version string for plug-ins to check compatibility. Allowed format is
@@ -9716,7 +9646,7 @@ _api_register( 'i18n()', function ( token, def, plural ) {
  *  @type string
  *  @default Version number
  */
-DataTable.version = "1.13.5";
+DataTable.version = "1.13.2";
 
 /**
  * Private data store, containing all of the settings objects that are
@@ -14858,7 +14788,7 @@ $.extend( true, DataTable.ext.renderer, {
 									'aria-controls': settings.sTableId,
 									'aria-disabled': disabled ? 'true' : null,
 									'aria-label': aria[ button ],
-									'role': 'link',
+									'aria-role': 'link',
 									'aria-current': btnClass === classes.sPageButtonActive ? 'page' : null,
 									'data-dt-idx': button,
 									'tabindex': tabIndex,
@@ -14992,7 +14922,7 @@ var __numericReplace = function ( d, decimalPlace, re1, re2 ) {
 		return -Infinity;
 	}
 	
-	var type = typeof d;
+	let type = typeof d;
 
 	if (type === 'number' || type === 'bigint') {
 		return d;
@@ -15366,7 +15296,7 @@ function __mlHelper (localeString) {
 var __thousands = ',';
 var __decimal = '.';
 
-if (window.Intl !== undefined) {
+if (Intl) {
 	try {
 		var num = new Intl.NumberFormat().formatToParts(100000.1);
 	
@@ -15644,5 +15574,14 @@ $.fn.DataTable = function ( opts ) {
 $.each( DataTable, function ( prop, val ) {
 	$.fn.DataTable[ prop ] = val;
 } );
+
+DataTable.use = function (module, type) {
+	if (type === 'lib' || module.fn) {
+		$ = module;
+	}
+	else if (type == 'win' || module.document) {
+		window = module;
+	}
+}
 
 export default DataTable;
