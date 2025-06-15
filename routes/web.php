@@ -15,17 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing.index');
 });
 
-
-Route::get('/login-2', function () {
-    return view('login-custom');
-});
-
-
-Route::get('/dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -34,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('/properties', PropertyController::class);
+    Route::resource('/admin/properties', PropertyController::class);
 });
 
 require __DIR__ . '/auth.php';

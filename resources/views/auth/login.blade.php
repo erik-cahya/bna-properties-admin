@@ -16,6 +16,8 @@
     <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -23,13 +25,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex align-items-center min-vh-100">
-                        <div class="w-100 d-block card shadow-lg rounded my-5 overflow-hidden">
+                    <div class="d-flex align-items-center min-vh-100 justify-content-center">
+                        <div class="card my-5 overflow-hidden rounded shadow-lg">
                             <div class="row">
-                                <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div>
-                                <div class="col-lg-7">
+                                {{-- <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div> --}}
+                                <div class="col-lg-12">
                                     <div class="p-5">
-                                        <div class="text-center w-75 mx-auto auth-logo mb-4">
+                                        <div class="w-75 auth-logo mx-auto mb-4 text-center">
                                             <a href="index.html" class="logo-dark">
                                                 <span><img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="" height="32"></span>
                                             </a>
@@ -39,11 +41,15 @@
                                             </a>
                                         </div>
 
-
+                                        @error('email')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert" bis_skin_checked="1">
+                                                <i class="mdi mdi-block-helper me-2"></i>
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <h1 class="h5 mb-1">Welcome Back!</h1>
 
-                                        <p class="text-muted mb-4">Enter your email address and password to access admin
-                                            panel.</p>
+                                        <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
 
                                         <form class="mt-4 pt-2" action="{{ route('login') }}" method="POST">
                                             @csrf
@@ -56,14 +62,18 @@
                                             <div class="form-group mb-3">
                                                 <a href="pages-recoverpw.html" class="text-muted float-end"><small></small></a>
                                                 <label class="form-label" for="password">Password</label>
-                                                <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                                                    <button class="btn btn-outline-light toggle-password" type="button">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </div>
                                             </div>
 
                                             <div class="form-group mb-3">
                                                 <div class="">
-                                                    <input class="form-check-input" type="checkbox" id="checkbox-signin" checked>
-                                                    <label class="form-check-label ms-2" for="checkbox-signin">Remember
-                                                        me</label>
+                                                    <input class="form-check-input" type="checkbox" id="checkbox-signin">
+                                                    <label class="form-check-label ms-2" for="checkbox-signin">Remember me</label>
                                                 </div>
                                             </div>
 
@@ -95,6 +105,21 @@
     <!-- App js -->
     <script src="{{ asset('admin') }}/assets/js/vendor.min.js"></script>
     <script src="{{ asset('admin') }}/assets/js/app.js"></script>
+
+    <!-- Tambahkan Font Awesome untuk ikon mata -->
+
+    <script>
+        document.querySelector('.toggle-password').addEventListener('click', function(e) {
+            // Toggle type attribute
+            const password = document.querySelector('#password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    </script>
 
 </body>
 

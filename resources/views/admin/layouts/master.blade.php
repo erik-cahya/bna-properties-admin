@@ -18,6 +18,8 @@
     <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
+
+    @stack('styles')
 </head>
 
 <body>
@@ -27,8 +29,6 @@
 
         <!-- ========== Left Sidebar ========== -->
         @include('admin.layouts.sidebar')
-
-
 
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="d-none d-md-flex gap-4 align-item-center justify-content-md-end">
+                            <div class="d-none d-md-flex align-item-center justify-content-md-end gap-4">
                                 <p class="mb-0">Design & Develop by <a href="https://myrathemes.com/" target="_blank">MyraStudio</a> </p>
                             </div>
                         </div>
@@ -82,7 +82,6 @@
     <!-- Jquery-knob Chart Js-->
     <script src="{{ asset('admin') }}/assets/libs/jquery-knob/jquery.knob.min.js"></script>
 
-
     <!-- Morris Chart Js-->
     <script src="{{ asset('admin') }}/assets/libs/morris.js/morris.min.js"></script>
 
@@ -90,6 +89,8 @@
 
     <!-- Dashboard init-->
     <script src="{{ asset('admin') }}/assets/js/pages/dashboard.js"></script>
+
+    @stack('script')
 
 </body>
 
