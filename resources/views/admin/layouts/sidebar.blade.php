@@ -3,8 +3,8 @@
      <div class="logo-box">
          <!-- Brand Logo Light -->
          <a href="index.html" class="logo-light">
-             <img src="{{ asset('admin') }}/assets/images/logo-light.png" alt="logo" class="logo-lg" height="18">
-             <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="24">
+             <img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="logo" class="logo-lg" height="80">
+             <img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="small logo" class="logo-sm" height="30">
          </a>
 
          <!-- Brand Logo Dark -->
@@ -30,8 +30,6 @@
 
              <li class="menu-title">Management</li>
 
-
-
              <li class="menu-item">
                  <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect">
                      <span class="menu-icon"><i data-lucide="copy"></i></span>
@@ -53,7 +51,6 @@
                      </ul>
                  </div>
              </li>
-
 
          </ul>
      </div>

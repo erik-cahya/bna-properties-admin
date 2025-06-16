@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -59,8 +59,7 @@
                             </div>
                             <div class="col-lg-2 col-md-6 col-6">
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="index.html"><img src="{{ asset('landing') }}/assets/images/logo.svg"
-                                            alt="logo"></a>
+                                    <a class="navbar-brand" href="index.html"><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="logo" width="140px"></a>
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-1 col-1">
@@ -118,10 +117,8 @@
                                                     <ul class="sub-menu">
                                                         <li><a href="blog-single.html">Blog details right sidebar</a>
                                                         </li>
-                                                        <li><a href="blog-single-left-sidebar.html">Blog details left
-                                                                sidebar</a></li>
-                                                        <li><a href="blog-single-fullwidth.html">Blog details
-                                                                fullwidth</a></li>
+                                                        <li><a href="blog-single-left-sidebar.html">Blog details left sidebar</a></li>
+                                                        <li><a href="blog-single-fullwidth.html">Blog details fullwidth</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>

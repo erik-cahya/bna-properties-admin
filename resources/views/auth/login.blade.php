@@ -30,14 +30,14 @@
                             <div class="row">
                                 {{-- <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div> --}}
                                 <div class="col-lg-12">
-                                    <div class="p-5">
+                                    <div class="px-5 pb-5">
                                         <div class="w-75 auth-logo mx-auto mb-4 text-center">
-                                            <a href="index.html" class="logo-dark">
-                                                <span><img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="" height="32"></span>
+                                            <a href="index.html" class="logo-dark pt-4">
+                                                <span><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" height="100"></span>
                                             </a>
 
                                             <a href="index.html" class="logo-light">
-                                                <span><img src="{{ asset('admin') }}/assets/images/logo-light.png" alt="" height="32"></span>
+                                                <span><img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="" height="120"></span>
                                             </a>
                                         </div>
 
@@ -63,7 +63,7 @@
                                                 <a href="pages-recoverpw.html" class="text-muted float-end"><small></small></a>
                                                 <label class="form-label" for="password">Password</label>
                                                 <div class="input-group">
-                                                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                                                     <button class="btn btn-outline-light toggle-password" type="button">
                                                         <i class="fa fa-eye"></i>
                                                     </button>
