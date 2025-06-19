@@ -36,7 +36,7 @@
 			font-size: calc-rem-value(16);
 			font-weight: 600;
 			color: $dark-gray;
-			background: $section-bg-color;
+			background: transparentize($theme-primary-color, .9);
 			display: block;
 
 			@include media-query(991px) {
@@ -52,7 +52,7 @@
 		li a:hover {
 			background: $theme-primary-color;
 			border-color: $theme-primary-color;
-			color: $dark-gray;
+			color: $white;
 		}
 
 		.fi:before {

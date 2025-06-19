@@ -1,7 +1,7 @@
 // page-title
 .wpo-page-title{
     background: url(../images/page-title.jpg) no-repeat center top / cover;
-    min-height: 380px;
+    min-height: 450px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -18,17 +18,13 @@
 		top: 0;
 		width: 100%;
 		height: 100%;
-		background: $dark-gray;
+		background: $black-bg-color;
 		content: "";
 		z-index: -1;
-		opacity: .60;
+		opacity: .50;
 	}
 	.wpo-breadcumb-wrap {
 		text-align: center;
-		margin-top: 10px;
-		@media (max-width:991px) {
-			margin-top: 0;
-		}
 
 		h2{
 			font-size: 60px;
@@ -36,7 +32,7 @@
 			line-height: 60px;
 			margin-top: -10px;
 			margin-bottom: 20px;
-			font-weight: 400;
+			font-weight: 700;
 
 			@media(max-width: 767px) {
 				font-size: 30px;
@@ -55,7 +51,7 @@
 				color: #fff;
 				position: relative;
 				font-size: 20px;
-				font-family: $base-font;
+				font-family: $heading-font;
 
 				@media(max-width:767px){
 					font-size: 18px;
@@ -67,10 +63,10 @@
 					right: 0;
 					top: 50%;
 					transform: translateY(-50%);
-					width: 10px;
-					height: 5px;
+					width: 8px;
+					height: 8px;
 					background: $white;
-					border-radius: 30px;
+					border-radius: 50%;
 				}
 
 				&:last-child{

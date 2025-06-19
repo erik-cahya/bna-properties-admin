@@ -1,10 +1,9 @@
 @charset "UTF-8";
 @font-face {
   font-family: "flaticon";
-  src: url("./flaticon.ttf?7be827e199392bb56ae95dacf43f5036") format("truetype"), url("./flaticon.woff?7be827e199392bb56ae95dacf43f5036") format("woff"), url("./flaticon.woff2?7be827e199392bb56ae95dacf43f5036") format("woff2"), url("./flaticon.eot?7be827e199392bb56ae95dacf43f5036#iefix") format("embedded-opentype"), url("./flaticon.svg?7be827e199392bb56ae95dacf43f5036#flaticon") format("svg");
+  src: url("./flaticon.ttf?f292c07b15c77b4e938a4b83b18f04e8") format("truetype"), url("./flaticon.woff?f292c07b15c77b4e938a4b83b18f04e8") format("woff"), url("./flaticon.woff2?f292c07b15c77b4e938a4b83b18f04e8") format("woff2"), url("./flaticon.eot?f292c07b15c77b4e938a4b83b18f04e8#iefix") format("embedded-opentype"), url("./flaticon.svg?f292c07b15c77b4e938a4b83b18f04e8#flaticon") format("svg");
 }
-
-i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
   font-family: flaticon !important;
   font-style: normal;
   font-weight: normal !important;
@@ -15,103 +14,70 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.flaticon-loupe:before {
+.flaticon-shopping-cart:before {
   content: "";
 }
 
-.flaticon-shopping-cart:before {
+.flaticon-search:before {
   content: "";
 }
 
-.flaticon-shopping-cart-1:before {
+.flaticon-play:before {
   content: "";
 }
 
-.flaticon-shopping-bag:before {
+.flaticon-email:before {
   content: "";
 }
 
-.flaticon-shopping-cart-2:before {
+.flaticon-location:before {
   content: "";
 }
 
-.flaticon-placeholder:before {
+.flaticon-telephone:before {
   content: "";
 }
 
-.flaticon-email:before {
+.flaticon-linkedin:before {
   content: "";
 }
 
-.flaticon-play-button:before {
+.flaticon-twitter:before {
   content: "";
 }
 
-.flaticon-user:before {
+.flaticon-facebook-app-symbol:before {
   content: "";
 }
 
-.flaticon-quotation:before {
+.flaticon-instagram:before {
   content: "";
 }
 
-.flaticon-quotation-1:before {
+.flaticon-quote:before {
   content: "";
 }
 
-.flaticon-house:before {
+.flaticon-planning:before {
   content: "";
 }
 
-.flaticon-phone-call:before {
+.flaticon-blueprint:before {
   content: "";
 }
 
-.flaticon-badge:before {
+.flaticon-double-bed:before {
   content: "";
 }
 
-.flaticon-vegan:before {
+.flaticon-armchair:before {
   content: "";
 }
 
-.flaticon-diary:before {
+.flaticon-furniture:before {
   content: "";
 }
 
-.flaticon-support:before {
+.flaticon-interior-design:before {
   content: "";
-}
-
-.flaticon-family:before {
-  content: "";
-}
-
-.flaticon-broken-arm:before {
-  content: "";
-}
-
-.flaticon-wounded:before {
-  content: "";
-}
-
-.flaticon-handcuffs:before {
-  content: "";
-}
-
-.flaticon-graduation-cap:before {
-  content: "";
-}
-
-.flaticon-book:before {
-  content: "";
-}
-
-.flaticon-auction:before {
-  content: "";
-}
-
-.flaticon-balance:before {
-  content: "";
-}
-/*# sourceMappingURL=flaticon.css.map */
+}/*# sourceMappingURL=flaticon.css.map */

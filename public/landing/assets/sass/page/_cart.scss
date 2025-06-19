@@ -237,27 +237,25 @@
         button {
             padding: 17px 40px;
             border: none;
-            background: $theme-primary-color;
-            color: $dark-gray;
+            background: $small-black;
+            color: $white;
             transition: all .3s;
             outline: none;
-            font-weight: 500;
+            border-radius: 40px;
              
             &:hover{
                 background: $theme-primary-color;
             }
         }
-        .theme-btn{
-            padding: 17px 40px;
-            border: none;
-            background:$theme-primary-color;
-            color: $dark-gray;
-            transition: all 0.3s;
-            outline: none;
+        .theme-btn-s4{
+            text-transform: capitalize;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 27px;
+            border-radius: 40px;
 
-            &::before{
-               display: none;
-               position: unset;
+            &:after{
+                display: none;
             }
         }
     }
@@ -283,7 +281,7 @@
             &.cart-b{
                 border-top: 1px solid #f0f0f094;
                 border-bottom: 1px solid #f0f0f094;
-                color:$theme-primary-color-s2;
+                color:$theme-primary-color;
                 padding-top: 30px;
                 font-weight: 600;
               }

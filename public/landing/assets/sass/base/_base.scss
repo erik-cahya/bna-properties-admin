@@ -1,4 +1,4 @@
-/* 1.1 Theme Reset Style */
+/* 1.1	Theme Reset Style */
 html {
     font-size: $base-font-size + px;
 }
@@ -9,20 +9,16 @@ body {
     font-family: $base-font;
     color:$body-color;
     background-color: $body-bg-color;
-    font-size: 15px;
-    font-size: calc-rem-value(15);
+    font-size: 16px;
+    font-size: calc-rem-value(16);
     overflow-x: hidden;
     @include media-query( 767px ) {
         font-size: 14px;
     }
 }
 
-.hidden {
-    display: none;
-}
-
 p {
-    font-size: 15px;
+    font-size: 16px;
     color: $body-color;
     line-height: 1.8em;
 }
@@ -56,11 +52,31 @@ img{
     max-width: 100%;
 }
 
+.wpo-box-style{
+    padding:0 50px;
+
+    @media(max-width:1700px){
+        padding:0 30px;
+    }
+
+    @media(max-width:575px){
+        padding:0 10px;
+    }
+}
+
+
+.hidden{
+    display: none;
+}
 
 .sr-only {
     display: none !important;
     opacity: 0;
     visibility: hidden;
+}
+
+.section-bg{
+    background: $section-bg-color;
 }
 
 /* 1.2 Global Elements */
@@ -87,6 +103,28 @@ img{
         padding: 80px 0;
     }
 }
+
+.pt-120 {
+    padding-top: 120px;
+
+    @include media-query( 991px ) {
+        padding-top: 90px;
+    }
+    @include media-query( 767px ) {
+        padding-top: 80px;
+    }
+}
+.pb-120 {
+    padding-bottom: 120px;
+
+    @include media-query( 991px ) {
+        padding-bottom: 90px;
+    }
+    @include media-query( 767px ) {
+        padding-bottom: 80px;
+    }
+}
+
 
 
 /*** contact form error handling ***/
@@ -210,7 +248,7 @@ img{
 .back-to-top i {
     font-size: 18px;
     font-size: calc-rem-value(18);
-    color: $dark-gray;
+    color: #fff;
     position: absolute;
     left: 50%;
     top: 50%;

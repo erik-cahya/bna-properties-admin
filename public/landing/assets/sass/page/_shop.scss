@@ -1,6 +1,6 @@
 
 /*--------------------------------------------------------------
-10. wpo-shop-page
+14. wpo-shop-page
 --------------------------------------------------------------*/
 .wpo-shop-section {
 	.shop-grids {
@@ -42,20 +42,22 @@
 
 		h3 {
 			font-size: 20px;
+			font-size: calc-rem-value(20);
 			margin: 0 0 0.5em;
+			font-weight: 700;
 
 			@include media-query(991px) {
 				font-size: 16px;
+				font-size: calc-rem-value(16);
 			}
 		}
 
 		h3 a {
 			color: $heading-color;
-            font-family: $heading-font;
 		}
 
 		h3 a:hover {
-			color: $theme-primary-color-s2;
+			color: $theme-primary-color;
 		}
 
 		del {
@@ -76,33 +78,35 @@
 			font-size: 15px;
 			font-size: calc-rem-value(15);
 			font-weight: 600;
-			color: $theme-primary-color-s2;
+			color: $theme-primary-color;
 			padding: 12px 20px;
-			border: 2px solid $theme-primary-color-s2;
+			border: 2px solid $theme-primary-color;
 			display: inline-block;
 			border-radius: 50px;
 
 
 			@include media-query(767px) {
 				font-size: 12px;
+				font-size: calc-rem-value(12);
 				padding: 8px 18px;
 			}
 		}
 
 		a:hover {
-			background-color: $theme-primary-color-s2;
+			background-color: $theme-primary-color;
 			color: $white;
 		}
 
 		a i {
 			font-size: 15px;
+			font-size: calc-rem-value(15);
 			display: inline-block;
 			padding-left: 5px;
 		}
 	}
 
 	.grid:hover .add-to-cart a {
-		background-color: $theme-primary-color-s2;
+		background-color: $theme-primary-color;
 		color: $white;
 	}
 }

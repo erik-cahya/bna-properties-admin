@@ -7,16 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="wpOceans">
     <link rel="shortcut icon" type="image/png" href="{{ asset('landing') }}/assets/images/favicon.png">
-    <title> BNA Properties - Rent Property</title>
+    <title> Arkio - Architecture & Interior HTML Template</title>
     <link href="{{ asset('landing') }}/assets/css/themify-icons.css" rel="stylesheet">
+    <link href="{{ asset('landing') }}/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/flaticon.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('landing') }}/assets/css/magnific-popup.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/animate.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/owl.carousel.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/owl.theme.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/slick.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/slick-theme.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/swiper.min.css" rel="stylesheet">
+    <link href="{{ asset('landing') }}/assets/css/nice-select.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/owl.transitions.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/jquery.fancybox.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/odometer-theme-default.css" rel="stylesheet">
@@ -40,10 +43,9 @@
             </div>
         </div>
         <!-- end preloader -->
-
-        <!-- start header -->
+        <!-- Start header -->
         <header id="header">
-            <div class="wpo-site-header wpo-header-style-1">
+            <div class="wpo-site-header wpo-header-style-3">
                 <nav class="navigation navbar navbar-expand-lg navbar-light">
                     <div class="container-fluid">
                         <div class="row align-items-center">
@@ -59,55 +61,41 @@
                             </div>
                             <div class="col-lg-2 col-md-6 col-6">
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="index.html"><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="logo" width="140px"></a>
+                                    <a class="navbar-brand logo" href="index.html"><img src="{{ asset('bna-assets/logo-bna-light.png') }}" width="90"
+                                            alt=""></a>
                                 </div>
                             </div>
-                            <div class="col-lg-8 col-md-1 col-1">
+                            <div class="col-lg-9 col-md-2 col-1">
                                 <div id="navbar" class="navbar-collapse navigation-holder collapse">
                                     <button class="menu-close"><i class="ti-close"></i></button>
                                     <ul class="nav navbar-nav mb-lg-0 mb-2">
                                         <li class="menu-item-has-children">
                                             <a class="active" href="#">Home</a>
                                             <ul class="sub-menu">
-                                                <li><a class="active" href="index.html">Home style 1</a></li>
-                                                <li><a href="index-2.html">Home style 2</a></li>
-                                                <li><a href="index-3.html">Home style 3</a></li>
+                                                <li><a href="index.html">Home Style 1</a></li>
+                                                <li><a href="index-2.html">Home Style 2</a></li>
+                                                <li><a href="index-3.html">Home Style 3</a></li>
+                                                <li><a class="active" href="index-4.html">Home Style 4</a></li>
+                                                <li><a href="index-5.html">Home Style 5</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="about.html">about us</a></li>
+                                        <li><a href="about.html">About</a></li>
                                         <li class="menu-item-has-children">
-                                            <a href="#">Services</a>
+                                            <a href="service.html">Service</a>
                                             <ul class="sub-menu">
-                                                <li><a href="service.html">Services</a></li>
-                                                <li><a href="service-2.html">Service Style 2</a></li>
-                                                <li><a href="service-3.html">Service Style 3</a></li>
+                                                <li><a href="service.html">Service</a></li>
                                                 <li><a href="service-single.html">Service Single</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#">Property</a>
+                                            <a href="project.html">Project</a>
                                             <ul class="sub-menu">
-                                                <li><a href="property.html">Property</a></li>
-                                                <li><a href="property-2.html">Property Style 2</a></li>
-                                                <li><a href="property-single.html">Property Single</a></li>
+                                                <li><a href="project.html">Project</a></li>
+                                                <li><a href="project-single.html">Project Single</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#">Pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-single.html">Team Single</a></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-single.html">Shop Single</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="404.html">404 Error</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Blog</a>
+                                            <a href="blog.html">Blog</a>
                                             <ul class="sub-menu">
                                                 <li><a href="blog.html">Blog right sidebar</a></li>
                                                 <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
@@ -115,21 +103,99 @@
                                                 <li class="menu-item-has-children">
                                                     <a href="#">Blog details</a>
                                                     <ul class="sub-menu">
-                                                        <li><a href="blog-single.html">Blog details right sidebar</a>
+                                                        <li><a href="blog-single.html">Blog details right
+                                                                sidebar</a>
                                                         </li>
-                                                        <li><a href="blog-single-left-sidebar.html">Blog details left sidebar</a></li>
-                                                        <li><a href="blog-single-fullwidth.html">Blog details fullwidth</a></li>
+                                                        <li><a href="blog-single-left-sidebar.html">Blog details
+                                                                left
+                                                                sidebar</a></li>
+                                                        <li><a href="blog-single-fullwidth.html">Blog details
+                                                                fullwidth</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-single.html">Shop Single</a></li>
+                                                <li><a href="cart.html">Cart</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="team-single.html">Team Single</a></li>
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
+
                                 </div><!-- end of nav-collapse -->
                             </div>
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-1 col-md-1 col-2">
                                 <div class="header-right">
-                                    <a href="property.html" class="theme-btn">get started</a>
+                                    <div class="header-right-menu-wrapper">
+                                        <div class="header-right-menu">
+                                            <div class="right-menu-toggle-btn">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                            <div class="header-right-menu-wrap">
+                                                <button class="right-menu-close"><i class="ti-close"></i></button>
+                                                <div class="logo"><img src="{{ asset('landing') }}/assets/images/logo2.svg" alt=""></div>
+                                                <div class="header-right-sec">
+                                                    <div class="project-widget widget">
+                                                        <h3>Our Latest Projects</h3>
+                                                        <ul>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/1.jpg" alt=""></a></li>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/2.jpg" alt=""></a></li>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/3.jpg" alt=""></a></li>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/4.jpg" alt=""></a></li>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/6.jpg" alt=""></a></li>
+                                                            <li><a href="project-single.html"><img
+                                                                        src="{{ asset('landing') }}/assets/images/projects/7.jpg" alt=""></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="widget wpo-contact-widget">
+                                                        <div class="widget-title">
+                                                            <h3>Contact Us</h3>
+                                                        </div>
+                                                        <div class="contact-ft">
+                                                            <ul>
+                                                                <li><i class="fi flaticon-location"></i>68D, Belsion Town
+                                                                    2365 <br> Fna city, LH 3656, USA</li>
+                                                                <li><i class="fi flaticon-telephone"></i>+ 8 (123) 123 456
+                                                                    789 <br>
+                                                                    + 8 (123) 123 456 789</li>
+                                                                <li><i class="fi flaticon-email"></i>arkio@gmail.com</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="widget newsletter-widget">
+                                                        <div class="widget-title">
+                                                            <h3>Newsletter</h3>
+                                                        </div>
+                                                        <form>
+                                                            <div class="input-1">
+                                                                <input type="email" class="form-control"
+                                                                    placeholder="Email Address *" required="">
+                                                                <div class="submit clearfix">
+                                                                    <button type="submit"><i class="ti-email"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -138,1113 +204,407 @@
             </div>
         </header>
         <!-- end of header -->
-
-        <!-- start of wpo-hero-section-1 -->
-        <section class="wpo-hero-slider-1">
-            <div class="noise" style="background-image: url(assets/images/slider/noise.png);"></div>
-            <div class="hero-slider">
-                <div class="slide">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col col-lg-6 col-md-5 col-sm-12 slide-left">
-                                <div class="slide-caption">
-                                    <div class="slide-item">
-                                        <div class="slide-text">
-                                            <div class="slide-title-sub">
-                                                <span><i class="fi flaticon-placeholder"></i> Tucson, Arizona(AZ),
-                                                    85719</span>
-                                            </div>
-                                            <div class="slide-title">
-                                                <h2><small>Where</small> <span>Nature</span> Meets Refinement.</h2>
-                                            </div>
-                                            <div class="btns">
-                                                <a href="about.html" class="hero-btn">
-                                                    <span>initial price:</span>
-                                                    <p>$668,237</p>
-                                                    <i class="ti-arrow-top-right"></i>
-                                                </a>
-                                            </div>
-                                            <div class="hero-left-img">
-                                                <img src="{{ asset('landing') }}/assets/images/slider/shape-img.jpg" alt="">
-                                            </div>
-                                        </div>
+        <!-- start of hero -->
+        <section class="wpo-hero-slider wpo-hero-style-3">
+            <div class="wpo-line-animated">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-4.jpg">
+                            <!-- <div class="gradient-overlay"></div> -->
+                            <div class="container-fluid">
+                                <div class="slide-content">
+                                    <div data-swiper-parallax="300" class="slide-title">
+                                        <h2>Best Interior Design</h2>
                                     </div>
-                                    <div class="slide-item">
-                                        <div class="slide-text">
-                                            <div class="slide-title-sub">
-                                                <span><i class="fi flaticon-placeholder"></i> Tucson, Arizona(AZ),
-                                                    85719</span>
-                                            </div>
-                                            <div class="slide-title">
-                                                <h2><small>Where</small> <span>Nature</span> Meets Refinement.</h2>
-                                            </div>
-                                            <div class="btns">
-                                                <a href="about.html" class="hero-btn">
-                                                    <span>initial price:</span>
-                                                    <p>$668,237</p>
-                                                    <i class="ti-arrow-top-right"></i>
-                                                </a>
-                                            </div>
-                                            <div class="hero-left-img">
-                                                <img src="{{ asset('landing') }}/assets/images/slider/shape-img2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-item">
-                                        <div class="slide-text">
-                                            <div class="slide-title-sub">
-                                                <span><i class="fi flaticon-placeholder"></i> Tucson, Arizona(AZ),
-                                                    85719</span>
-                                            </div>
-                                            <div class="slide-title">
-                                                <h2><small>Where</small> <span>Nature</span> Meets Refinement.</h2>
-                                            </div>
-                                            <div class="btns">
-                                                <a href="about.html" class="hero-btn">
-                                                    <span>initial price:</span>
-                                                    <p>$668,237</p>
-                                                    <i class="ti-arrow-top-right"></i>
-                                                </a>
-                                            </div>
-                                            <div class="hero-left-img">
-                                                <img src="{{ asset('landing') }}/assets/images/slider/shape-img3.jpg" alt="">
-                                            </div>
-                                        </div>
+                                    <div class="clearfix"></div>
+                                    <div data-swiper-parallax="500" class="slide-btns">
+                                        <a href="about.html" class="theme-btn-s2">Learn More</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-pic">
-                                <div class="slider-item">
-                                    <img src="{{ asset('landing') }}/assets/images/slider/slide-1.jpg" alt>
+                        </div> <!-- end slide-inner -->
+                    </div> <!-- end swiper-slide -->
+
+                    <div class="swiper-slide">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-6.jpg">
+                            <!-- <div class="gradient-overlay"></div> -->
+                            <div class="container-fluid">
+                                <div class="slide-content">
+                                    <div data-swiper-parallax="300" class="slide-title">
+                                        <h2>Best Interior Design</h2>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div data-swiper-parallax="500" class="slide-btns">
+                                        <a href="about.html" class="theme-btn-s2">Learn More</a>
+                                    </div>
                                 </div>
-                                <div class="slider-item">
-                                    <img src="{{ asset('landing') }}/assets/images/slider/slide-2.jpg" alt>
+                            </div>
+                        </div> <!-- end slide-inner -->
+                    </div> <!-- end swiper-slide -->
+
+                    <div class="swiper-slide">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-5.jpg">
+                            <!-- <div class="gradient-overlay"></div> -->
+                            <div class="container-fluid">
+                                <div class="slide-content">
+                                    <div data-swiper-parallax="300" class="slide-title">
+                                        <h2>Best Interior Design</h2>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div data-swiper-parallax="500" class="slide-btns">
+                                        <a href="about.html" class="theme-btn-s2">Learn More</a>
+                                    </div>
                                 </div>
-                                <div class="slider-item">
-                                    <img src="{{ asset('landing') }}/assets/images/slider/slide-3.jpg" alt>
+                            </div>
+                        </div> <!-- end slide-inner -->
+                    </div> <!-- end swiper-slide -->
+                </div>
+                <!-- end swiper-wrapper -->
+                <!-- swipper controls -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+        <!-- end of wpo-hero-slide-section-->
+        <!-- start of wpo-about-area -->
+        <div class="wpo-about-area-s4 section-padding">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="wpo-about-img">
+                            <img src="{{ asset('landing') }}/assets/images/about5.jpg" alt="">
+                            <div class="wpo-about-img-text">
+                                <h2>25+</h2>
+                                <p>Years of Experience</p>
+                                <div class="about-shape">
+                                    <img src="{{ asset('landing') }}/assets/images/about-shape3.png" alt="">
                                 </div>
+                            </div>
+                            <div class="left-shape">
+                                <div class="square-shape"></div>
+                                <div class="shape-top">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="shape-left">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 colsm-12">
+                        <div class="wpo-about-text">
+                            <div class="wpo-about-title">
+                                <span>About Us</span>
+                                <h2>We Offer You Profesional Interior Design</h2>
+                            </div>
+                            <h5>Over 25 years Liarch helping investors building their drea & business goals go to the perfection</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac enim aliquam feugiat ullamcorper. Id risus mattis neque, ullamcorper. Sed sit commodo vestibulum cras in cras. Nec proin scelerisque quis nisl vitae, egestas non. Fringilla auctor.</p>
+                            <div class="btns">
+                                <a href="#" class="theme-btn" tabindex="0">Discover More</a>
+                                <ul>
+                                    <li class="video-holder">
+                                        <a href="https://www.youtube.com/embed/NjIkTXmPycY?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
+                                    </li>
+                                    <li class="video-text">
+                                        <a href="https://www.youtube.com/embed/NjIkTXmPycY?autoplay=1" class="video-btn" data-type="iframe" tabindex="0">
+                                            Watch Our Video
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="shape">
-                <img src="{{ asset('landing') }}/assets/images/slider/shape.png" alt="">
+            <div class="invisible-title1">
+                <h2>About</h2>
             </div>
-        </section>
-        <div class="hero-left-content">
-            <div class="hero-left-content-inner">
-                <div class="hero-left-content-item">
-                    <h2>5</h2>
-                    <span>bed room</span>
+        </div>
+        <!-- end of wpo-about-area -->
+
+        <!-- start of wpo-service-area -->
+        <div class="wpo-service-area-s3 section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="wpo-section-title-s3">
+                        <span>Our Capabilities</span>
+                        <h2>What We Do</h2>
+                    </div>
                 </div>
-                <div class="hero-left-content-item">
-                    <h2>2</h2>
-                    <span>full baths</span>
-                </div>
-                <div class="hero-left-content-item">
-                    <h2>4</h2>
-                    <span>half baths</span>
-                </div>
-                <div class="hero-left-content-item">
-                    <h2>2</h2>
-                    <span>car parking</span>
-                </div>
-                <div class="hero-left-content-item">
-                    <h2>6,382</h2>
-                    <span>square feet</span>
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="wpo-service-item">
+                            <div class="wpo-service-img">
+                                <img src="{{ asset('landing') }}/assets/images/service/img-5.jpg" alt="">
+                            </div>
+                            <div class="wpo-service-text">
+                                <h2><a href="service-single.html">Interior Design</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="wpo-service-item">
+                            <div class="wpo-service-img">
+                                <img src="{{ asset('landing') }}/assets/images/service/img-6.jpg" alt="">
+                            </div>
+                            <div class="wpo-service-text">
+                                <h2><a href="service-single.html">Room Decoration</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="wpo-service-item">
+                            <div class="wpo-service-img">
+                                <img src="{{ asset('landing') }}/assets/images/service/img-7.jpg" alt="">
+                            </div>
+                            <div class="wpo-service-text">
+                                <h2><a href="service-single.html">Planning</a></h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-left-video">
-                <div class="hero-left-video-wrap">
-                    <div class="circular-text text-roted">
-                        <p class="text">Watch Intro Video</p>
-                        <a href="https://www.youtube.com/embed/NjIkTXmPycY" class="video-btn" data-type="iframe"></a>
+            <div class="invisible-title2">
+                <h2>Services</h2>
+            </div>
+        </div>
+        <!-- end of wpo-service-area -->
+        <!-- start of wpo-project-area -->
+        <div class="wpo-project-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="wpo-project-wrap project-active owl-carousel">
+                        <div class="wpo-project-item">
+                            <div class="wpo-project-img">
+                                <img src="{{ asset('landing') }}/assets/images/projects/11.jpg" alt="">
+                                <div class="left-border"></div>
+                                <div class="right-border"></div>
+                            </div>
+                            <div class="wpo-project-text">
+                                <h2><a href="project-single.html">Architecture</a></h2>
+                                <span>Architecture Design</span>
+                            </div>
+                        </div>
+                        <div class="wpo-project-item">
+                            <div class="wpo-project-img">
+                                <img src="{{ asset('landing') }}/assets/images/projects/12.jpg" alt="">
+                                <div class="left-border"></div>
+                                <div class="right-border"></div>
+                            </div>
+                            <div class="wpo-project-text">
+                                <h2><a href="project-single.html">Architecture</a></h2>
+                                <span>Architecture Design</span>
+                            </div>
+                        </div>
+                        <div class="wpo-project-item">
+                            <div class="wpo-project-img">
+                                <img src="{{ asset('landing') }}/assets/images/projects/13.jpg" alt="">
+                                <div class="left-border"></div>
+                                <div class="right-border"></div>
+                            </div>
+                            <div class="wpo-project-text">
+                                <h2><a href="project-single.html">Architecture</a></h2>
+                                <span>Architecture Design</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- end of wpo-hero-section-1 slider -->
-
-        <!-- start wpo-about-section -->
-        <section class="wpo-about-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="wpo-section-title">
-                            <small>About Us</small>
-                            <h2>Create Your Story in a Place <span>Where Dreams</span> and Reality Merge.</h2>
-                            <a href="contact.html" class="theme-btn">contact our agent</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-about-wrap">
-                    <div class="row">
-                        <div class="col col-lg-4 col-12">
-                            <div class="about-content">
-                                <div class="info">
-                                    <h3>our mission:</h3>
-                                    <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</span> do
-                                        eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Est ante in nibh mauris cursus
-                                        mattis molestie a iaculis.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4">
-                            <div class="about-img">
-                                <img src="{{ asset('landing') }}/assets/images/about/img-1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-12">
-                            <div class="about-content">
-                                <div class="info">
-                                    <h3>our vision:</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. <span>Est ante in nibh mauris
-                                            cursus
-                                            mattis molestie a iaculis.</span></p>
-                                </div>
-                            </div>
-                            <div class="ab-right">
-                                <img src="{{ asset('landing') }}/assets/images/about/img-2.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- end wpo-about-section-->
-        <!-- start wpo-payment-section -->
-        <section class="wpo-payment-section section-padding">
-            <div class="container">
-                <div class="wpo-payment-wrap">
-                    <div class="row">
-                        <div class="col col-lg-3 col-12">
-                            <div class="wpo-section-title">
-                                <small>estimate</small>
-                                <h2>your <span>payment</span> Estimate</h2>
-                            </div>
-                        </div>
-                        <div class="col col-lg-6">
-                            <div class="payment-form-area">
-                                <div class="form-group">
-                                    <label>purchase price:</label>
-                                    <input type="number" value="6382" id="purchase_price">
-                                </div>
-                                <div class="form-group">
-                                    <label>down payment %:</label>
-                                    <input type="number" value="20" id="down_payment">
-                                </div>
-                                <div class="form-group">
-                                    <label>loan term Year:</label>
-                                    <input type="number" value="35" id="loan_term">
-                                </div>
-                                <div class="form-group">
-                                    <label>interest rate %:</label>
-                                    <input type="number" value="5.5" id="interest_rate">
-                                </div>
-                                <div class="form-group">
-                                    <button class="theme-btn" onclick="estimatePayment()">estimate payment</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3 col-12">
-                            <div class="payment-result">
-                                <div class="result-item">
-                                    <span>down payment:</span>
-                                    <h3 id="down_payment_value">$1276.40</h3>
-                                </div>
-                                <div class="result-item">
-                                    <span>monthly payment:</span>
-                                    <h3 id="monthly_payment_value">$12.82</h3>
-                                </div>
-                                <div class="result-item">
-                                    <span>Total loan amount:</span>
-                                    <h3 id="load_amount_value">$5386.41</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- end wpo-payment-section-->
-
-        <!-- start wpo-service-section -->
-        <section class="wpo-service-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="wpo-section-title-s2">
-                            <h2>modern <span>facilities</span> of the property.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="wpo-section-title-img">
-                            <img src="{{ asset('landing') }}/assets/images/service/title.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-service-wrap">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/1.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">concrete tile</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/2.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">family room</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/3.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">guest quaters</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/4.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">heated floors</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/5.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">swimming pool</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="wpo-service-item">
-                                <div class="wpo-service-icon">
-                                    <span><img src="{{ asset('landing') }}/assets/images/service/6.svg" alt=""></span>
-                                </div>
-                                <div class="wpo-service-text">
-                                    <h3><a href="service-single.html">ocean view</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-service-section-->
-
-        <!-- start wpo-plan-section -->
-        <section class="wpo-plan-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="wpo-section-title">
-                            <small>floor plans</small>
-                            <h2>spilon squat <span>property</span> floor plans.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-plan-wrap">
-                    <div class="wpo-plan-tab-menu">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="basement-tab" data-bs-toggle="tab" href="#basement" role="tab"
-                                    aria-controls="basement" aria-selected="true">Basement</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="ground-floor-tab" data-bs-toggle="tab"
-                                    href="#ground-floor" role="tab" aria-controls="ground-floor"
-                                    aria-selected="false">ground floor</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="first-floor-tab" data-bs-toggle="tab" href="#first-floor"
-                                    role="tab" aria-controls="first-floor" aria-selected="false">1st floor</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="second-floor-tab" data-bs-toggle="tab" href="#second-floor"
-                                    role="tab" aria-controls="second-floor" aria-selected="false">2nd floor</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="rooftop-tab" data-bs-toggle="tab" href="#rooftop" role="tab"
-                                    aria-controls="rooftop" aria-selected="false">rooftop</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in" id="basement">
-                            <div class="wpo-plan-item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-8 col-md-12">
-                                        <div class="wpo-plan-img">
-                                            <img src="{{ asset('landing') }}/assets/images/plan/plan.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="wpo-plan-content-box">
-                                            <div class="wpo-plan-content">
-                                                <img src="{{ asset('landing') }}/assets/images/plan/img-2.jpg" alt="">
-                                                <ul>
-                                                    <li>square feet <span>2,537</span></li>
-                                                    <li>car parking<span>2</span></li>
-                                                    <li>half baths<span>4</span></li>
-                                                    <li>full baths<span>2</span></li>
-                                                    <li>bed room<span>5</span></li>
-                                                </ul>
-                                                <a href="#">started now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade in show active" id="ground-floor">
-                            <div class="wpo-plan-item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-8 col-md-12">
-                                        <div class="wpo-plan-img">
-                                            <img src="{{ asset('landing') }}/assets/images/plan/plan.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="wpo-plan-content-box">
-                                            <div class="wpo-plan-content">
-                                                <img src="{{ asset('landing') }}/assets/images/plan/img-1.jpg" alt="">
-                                                <ul>
-                                                    <li>square feet <span>2,537</span></li>
-                                                    <li>car parking<span>2</span></li>
-                                                    <li>half baths<span>4</span></li>
-                                                    <li>full baths<span>2</span></li>
-                                                    <li>bed room<span>5</span></li>
-                                                </ul>
-                                                <a href="#">started now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="first-floor">
-                            <div class="wpo-plan-item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-8 col-md-12">
-                                        <div class="wpo-plan-img">
-                                            <img src="{{ asset('landing') }}/assets/images/plan/plan.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="wpo-plan-content-box">
-                                            <div class="wpo-plan-content">
-                                                <img src="{{ asset('landing') }}/assets/images/plan/img-3.jpg" alt="">
-                                                <ul>
-                                                    <li>square feet <span>2,537</span></li>
-                                                    <li>car parking<span>2</span></li>
-                                                    <li>half baths<span>4</span></li>
-                                                    <li>full baths<span>2</span></li>
-                                                    <li>bed room<span>5</span></li>
-                                                </ul>
-                                                <a href="#">started now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="second-floor">
-                            <div class="wpo-plan-item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-8 col-md-12">
-                                        <div class="wpo-plan-img">
-                                            <img src="{{ asset('landing') }}/assets/images/plan/plan.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="wpo-plan-content-box">
-                                            <div class="wpo-plan-content">
-                                                <img src="{{ asset('landing') }}/assets/images/plan/img-4.jpg" alt="">
-                                                <ul>
-                                                    <li>square feet <span>2,537</span></li>
-                                                    <li>car parking<span>2</span></li>
-                                                    <li>half baths<span>4</span></li>
-                                                    <li>full baths<span>2</span></li>
-                                                    <li>bed room<span>5</span></li>
-                                                </ul>
-                                                <a href="#">started now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="rooftop">
-                            <div class="wpo-plan-item">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-8 col-md-12">
-                                        <div class="wpo-plan-img">
-                                            <img src="{{ asset('landing') }}/assets/images/plan/plan.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="wpo-plan-content-box">
-                                            <div class="wpo-plan-content">
-                                                <img src="{{ asset('landing') }}/assets/images/plan/img-5.jpg" alt="">
-                                                <ul>
-                                                    <li>square feet <span>2,537</span></li>
-                                                    <li>car parking<span>2</span></li>
-                                                    <li>half baths<span>4</span></li>
-                                                    <li>full baths<span>2</span></li>
-                                                    <li>bed room<span>5</span></li>
-                                                </ul>
-                                                <a href="#">started now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-plan-section-->
-        <!-- start of wpo-property-section -->
-        <section class="wpo-property-section section-padding">
+        <!-- end of wpo-project-area -->
+        <!-- start wpo-pricing-section -->
+        <section class="wpo-pricing-section-s2 section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 col-12">
-                        <div class="wpo-section-title">
-                            <h2>Discover our <span>featured</span> property.</h2>
+                    <div class="wpo-section-title-s3">
+                        <span>Pricing Plan</span>
+                        <h2>Choose Your Optimal Plan</h2>
+                    </div>
+                </div>
+                <div class="wpo-pricing-wrap">
+                    <div class="row">
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-pricing-item">
+                                <div class="wpo-pricing-top">
+                                    <div class="pricing-thumb">
+                                        <span>Basic</span>
+                                    </div>
+                                    <div class="wpo-pricing-text">
+                                        <h2>$120<span>/per m²</span></h2>
+                                        <p>Interior represents the way to feel
+                                            happy and complete.</p>
+                                    </div>
+                                </div>
+                                <div class="wpo-pricing-bottom">
+                                    <div class="wpo-pricing-bottom-text">
+                                        <ul>
+                                            <li>General living space advices</li>
+                                            <li>Interior design advices</li>
+                                            <li>Complete home redesign</li>
+                                            <li>Modern interior planning</li>
+                                            <li>Kitchen design</li>
+                                        </ul>
+                                        <a href="pricing.html">CHOOSE PLAN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-pricing-item">
+                                <div class="wpo-pricing-top">
+                                    <div class="pricing-thumb">
+                                        <span>Premium</span>
+                                    </div>
+                                    <div class="wpo-pricing-text">
+                                        <h2>$210<span>/per m²</span></h2>
+                                        <p>Interior represents the way to feel
+                                            happy and complete.</p>
+                                    </div>
+                                </div>
+                                <div class="wpo-pricing-bottom">
+                                    <div class="wpo-pricing-bottom-text">
+                                        <ul>
+                                            <li>General living space advices</li>
+                                            <li>Interior design advices</li>
+                                            <li>Complete home redesign</li>
+                                            <li>Modern interior planning</li>
+                                            <li>Kitchen design</li>
+                                        </ul>
+                                        <a href="pricing.html">CHOOSE PLAN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-pricing-item">
+                                <div class="wpo-pricing-top">
+                                    <div class="pricing-thumb">
+                                        <span>Advanced</span>
+                                    </div>
+                                    <div class="wpo-pricing-text">
+                                        <h2>$373<span>/per m²</span></h2>
+                                        <p>Interior represents the way to feel
+                                            happy and complete.</p>
+                                    </div>
+                                </div>
+                                <div class="wpo-pricing-bottom">
+                                    <div class="wpo-pricing-bottom-text">
+                                        <ul>
+                                            <li>General living space advices</li>
+                                            <li>Interior design advices</li>
+                                            <li>Complete home redesign</li>
+                                            <li>Modern interior planning</li>
+                                            <li>Kitchen design</li>
+                                        </ul>
+                                        <a href="pricing.html">CHOOSE PLAN</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="property-slider property-active owl-carousel">
-                    <div class="card-single">
-                        <div class="image">
-                            <img src="{{ asset('landing') }}/assets/images/property/1.jpg" alt="">
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/1.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        03 beds
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/2.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        04 baths
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/3.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        02 garage
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/4.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        800 sq ft
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text">
-                            <h2><a href="property-single.html">Beautiful Modern Villa</a></h2>
-                            <span>12 Avenue, New York</span>
-                        </div>
-                    </div>
-                    <div class="card-single">
-                        <div class="image">
-                            <img src="{{ asset('landing') }}/assets/images/property/2.jpg" alt="">
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/1.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        03 beds
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/2.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        04 baths
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/3.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        02 garage
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/4.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        800 sq ft
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text">
-                            <h2><a href="property-single.html">Modern Hill House</a></h2>
-                            <span>120 Avenue, Willowville</span>
-                        </div>
-                    </div>
-                    <div class="card-single">
-                        <div class="image">
-                            <img src="{{ asset('landing') }}/assets/images/property/3.jpg" alt="">
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/1.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        03 beds
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/2.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        04 baths
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/3.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        02 garage
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/4.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        800 sq ft
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text">
-                            <h2><a href="property-single.html">Lake View Modern House</a></h2>
-                            <span>121 Avenue, USA</span>
-                        </div>
-                    </div>
-                    <div class="card-single">
-                        <div class="image">
-                            <img src="{{ asset('landing') }}/assets/images/property/4.jpg" alt="">
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/1.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        03 beds
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/2.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        04 baths
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/3.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        02 garage
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="{{ asset('landing') }}/assets/images/property/4.svg" alt="">
-                                    </div>
-                                    <div class="text-dos">
-                                        800 sq ft
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text">
-                            <h2><a href="property-single.html">Maplewood Estates</a></h2>
-                            <span>123 Oak Avenue, Willowville</span>
-                        </div>
-                    </div>
-                </div>
+            </div> <!-- end container -->
+            <div class="invisible-title1">
+                <h2>Pricing</h2>
             </div>
         </section>
-        <!-- end of wpo-property-section -->
-        <!-- start wpo-fun-fact-section -->
-        <section class="wpo-fun-fact-section section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="wpo-fun-fact-grids clearfix">
-                            <div class="grid">
-                                <div class="info">
-                                    <h3><span class="odometer" data-count="215">00</span>+</h3>
-                                    <p>CURRENT CLIENTS</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="info">
-                                    <h3><span class="odometer" data-count="50">00</span>+</h3>
-                                    <p>AWARDS WINNING</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="info">
-                                    <h3><span class="odometer" data-count="15">00</span>+</h3>
-                                    <p>YEARS OF EXPERIENCE</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="info">
-                                    <h3><span class="odometer" data-count="150">00</span>+</h3>
-                                    <p>Property</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-fun-fact-section -->
-        <!-- start wpo-place-section -->
-        <section class="wpo-place-section section-padding">
-            <div class="container-fluid">
-                <div class="place-wrap">
-                    <div class="row align-items-center">
-                        <div class="col-xl-5 col-md-5">
-                            <div class="wpo-section-title-s2">
-                                <small>nearby places</small>
-                                <h2>nearby <span>places of</span> the property</h2>
-
-                                <ul class="tabs">
-                                    <li><button id="Location1" class="tab">school <span>- 1.8 Km</span></button></li>
-                                    <li><button id="Location2" class="tab">restaurant <span>- 1.6 Km</span></button>
-                                    </li>
-                                    <li><button id="Location3" class="tab">mosque <span>- 2.0 Km</span></button></li>
-                                    <li><button id="Location4" class="tab">park <span>- 0.96 Km</span></button></li>
-                                    <li><button id="Location5" class="tab">hospital <span>- 1.6 Km</span></button></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-7">
-                            <div class="place-right-wrap clearfix">
-                                <img src="{{ asset('landing') }}/assets/images/nearby/place.jpg" alt="">
-                                <div id="location-wrap">
-                                    <div id="location1" class="location s1">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/1.svg" alt="">
-                                            <span>Corpus Christi School</span>
-                                        </div>
-                                    </div>
-                                    <div id="location2" class="location s2">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/2.svg" alt="">
-                                            <span>KFC Resturent</span>
-                                        </div>
-                                    </div>
-                                    <div id="location3" class="location s3">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/3.svg" alt="">
-                                            <span>Baitun Nor mosque</span>
-                                        </div>
-                                    </div>
-                                    <div id="location4" class="location s4">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/4.svg" alt="">
-                                            <span>Central Park</span>
-                                        </div>
-                                    </div>
-                                    <div id="location5" class="location s5">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/5.svg" alt="">
-                                            <span>Central Hospital</span>
-                                        </div>
-                                    </div>
-                                    <div id="location6" class="location s6">
-                                        <div class="pin">
-                                            <img src="{{ asset('landing') }}/assets/images/nearby/6.svg" alt="">
-                                            <span>Prime Hospital</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-place-section -->
-        <!-- start wpo-team-section -->
-        <section class="wpo-team-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="wpo-section-title">
-                            <h2>Our Team Your Key <span>to Finding</span> the Perfect Home.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-team-wrap owl-carousel">
-                    <div class="wpo-team-item">
-                        <div class="wpo-team-img">
-                            <img src="{{ asset('landing') }}/assets/images/team/1.jpg" alt="">
-                        </div>
-                        <div class="wpo-team-content">
-                            <p>Brooklyn Simmons</p>
-                            <span>property agent</span>
-                            <h3>+00-569-845-79</h3>
-                            <span>E-mail: property@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="wpo-team-item">
-                        <div class="wpo-team-img">
-                            <img src="{{ asset('landing') }}/assets/images/team/2.jpg" alt="">
-                        </div>
-                        <div class="wpo-team-content">
-                            <p>Ken Williamson</p>
-                            <span>property agent</span>
-                            <h3>+00-569-845-79</h3>
-                            <span>E-mail: property@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="wpo-team-item">
-                        <div class="wpo-team-img">
-                            <img src="{{ asset('landing') }}/assets/images/team/3.jpg" alt="">
-                        </div>
-                        <div class="wpo-team-content">
-                            <p>Robert Miller</p>
-                            <span>property agent</span>
-                            <h3>+00-569-845-79</h3>
-                            <span>E-mail: property@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-team-section-->
-
-        <!-- start wpo-testimonial-section -->
-        <section class="wpo-testimonial-section section-padding">
-            <div class="container">
-                <div class="wpo-section-title-tp">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3">
-                            <div class="wpo-section-title-img">
-                                <img src="{{ asset('landing') }}/assets/images/testimonial/tsml.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 offset-lg-1">
-                            <div class="wpo-section-title-s2">
-                                <h2>Discover the Smiles <span>Behind Our</span> Success.</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-testimonial-wrap owl-carousel">
-                    <div class="item">
-                        <div class="testimonial-top-wrap">
-                            <div class="testimonial-left-item">
-                                <div class="image">
-                                    <img src="{{ asset('landing') }}/assets/images/testimonial/1.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <h4>Kristin Watson</h4>
-                                    <span>Home Owner</span>
-                                </div>
-                            </div>
-                            <div class="ratting">
-                                <ul>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>“Quam viverra orci sagittis eu. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                Adipiscing elit pellentesque habitant morbi tristique senectus et netus amet consectetur
-                                adipiscing suspendisse.” </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-top-wrap">
-                            <div class="testimonial-left-item">
-                                <div class="image">
-                                    <img src="{{ asset('landing') }}/assets/images/testimonial/2.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <h4>Arlene McCoy</h4>
-                                    <span>Home Owner</span>
-                                </div>
-                            </div>
-                            <div class="ratting">
-                                <ul>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                    <li><i class="ti-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>“Quam viverra orci sagittis eu. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                                Adipiscing elit pellentesque habitant morbi tristique senectus et netus amet consectetur
-                                adipiscing suspendisse.” </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-testimonial-section -->
-
+        <!-- end wpo-pricing-section -->
         <!-- start wpo-blog-section -->
-        <section class="wpo-blog-section section-padding">
-            <div class="container-fluid">
-                <div class="blog-wrap">
+        <section class="wpo-blog-section-s2 section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="wpo-section-title-s3">
+                        <span>Our Blog</span>
+                        <h2>Our Latest News</h2>
+                    </div>
+                </div>
+                <div class="wpo-blog-items">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-5">
-                            <div class="wpo-section-title-s2">
-                                <small>blog & article</small>
-                                <h2>check our <span>latest blog</span> and article.</h2>
-                                <a class="theme-btn" href="blog-single.html">others blog post</a>
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-blog-item">
+                                <div class="wpo-blog-img">
+                                    <img src="{{ asset('landing') }}/assets/images/blog/img-1.jpg" alt="">
+                                    <div class="thumb">Architecture</div>
+                                </div>
+                                <div class="wpo-blog-content">
+                                    <ul>
+                                        <li>25 Sep 2022</li>
+                                        <li>By <a href="blog-single.html">Admin</a></li>
+                                    </ul>
+                                    <h2><a href="blog.html">Best Architecture Design</a></h2>
+                                    <p>Consectetur adipiscing elit. Purusout phasellus malesuada lectus.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-7">
-                            <div class="blog-right-wrap clearfix">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 colo-12">
-                                        <div class="blog-item">
-                                            <div class="image">
-                                                <img src="{{ asset('landing') }}/assets/images/blog/img-1.jpg" alt="">
-                                                <div class="thumb">
-                                                    <span>April 26, 2023</span>
-                                                </div>
-                                            </div>
-                                            <div class="blog-content">
-                                                <h2><a href="blog-single.html">Making Informed Decisions for Home
-                                                        Financing.</a></h2>
-                                                <a class="read-more" href="blog-single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 colo-12">
-                                        <div class="blog-item s2">
-                                            <div class="image">
-                                                <img src="{{ asset('landing') }}/assets/images/blog/img-2.jpg" alt="">
-                                                <div class="thumb">
-                                                    <span>April 24, 2023</span>
-                                                </div>
-                                            </div>
-                                            <div class="blog-content">
-                                                <h2><a href="blog-single.html">Selling Your Home? How to Stage it for
-                                                        Maximum Impact.</a></h2>
-                                                <a class="read-more" href="blog-single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-blog-item">
+                                <div class="wpo-blog-img">
+                                    <img src="{{ asset('landing') }}/assets/images/blog/img-2.jpg" alt="">
+                                    <div class="thumb">Interior</div>
+                                </div>
+                                <div class="wpo-blog-content">
+                                    <ul>
+                                        <li>26 Sep 2022</li>
+                                        <li>By <a href="blog-single.html">Admin</a></li>
+                                    </ul>
+                                    <h2><a href="blog.html">Modern Bedrooms Tips</a></h2>
+                                    <p>Consectetur adipiscing elit. Purusout phasellus malesuada lectus.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="wpo-blog-item">
+                                <div class="wpo-blog-img">
+                                    <img src="{{ asset('landing') }}/assets/images/blog/img-3.jpg" alt="">
+                                    <div class="thumb">Architecture</div>
+                                </div>
+                                <div class="wpo-blog-content">
+                                    <ul>
+                                        <li>28 Sep 2022</li>
+                                        <li>By <a href="blog-single.html">Admin</a></li>
+                                    </ul>
+                                    <h2><a href="blog.html">Decoration Apartment</a></h2>
+                                    <p>Consectetur adipiscing elit. Purusout phasellus malesuada lectus.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div> <!-- end container -->
+            <div class="vector-1">
+                <img src="{{ asset('landing') }}/assets/images/blog/Vector3.png" alt="">
+            </div>
+            <div class="vector-2">
+                <img src="{{ asset('landing') }}/assets/images/blog/Vector4.png" alt="">
             </div>
         </section>
         <!-- end wpo-blog-section -->
-
         <!-- start of wpo-site-footer-section -->
-        <footer class="wpo-site-footer">
+        <footer class="wpo-site-footer-s2">
             <div class="wpo-upper-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="widget newsletter-widget">
-                                <div class="widget-title">
-                                    <h3>subscribe now</h3>
+                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="widget about-widget">
+                                <div class="logo widget-title">
+                                    <a class="logo" href="index.html"><img src="{{ asset('landing') }}/assets/images/logo2.svg" alt=""></a>
                                 </div>
-                                <form>
-                                    <div class="input-1">
-                                        <input type="email" class="form-control" placeholder="Enter your email:"
-                                            required="">
-                                    </div>
-                                    <div class="submit clearfix">
-                                        <button type="submit">Subscrib now</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3 offset-lg-1 col-md-6 col-sm-12 col-12">
-                            <div class="widget wpo-contact-widget">
-                                <div class="widget-title">
-                                    <h3>united state</h3>
-                                </div>
-                                <div class="contact-ft">
-                                    <ul>
-                                        <li><i class="fi flaticon-placeholder"></i>738 Mill Run RdMill Run,
-                                            Pennsylvania(PA), 15464</li>
-                                        <li><i class="fi flaticon-phone-call"></i>(623) 271-7323</li>
-                                        <li><i class="fi flaticon-email"></i>support247@gmail.com</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3 offset-lg-1 col-md-6 col-sm-12 col-12">
-                            <div class="widget wpo-contact-widget">
-                                <div class="widget-title">
-                                    <h3>Portugal</h3>
-                                </div>
-                                <div class="contact-ft">
-                                    <ul>
-                                        <li><i class="fi flaticon-placeholder"></i>1454 Gateway Lakes Grove City,
-                                            Ohio(OH), 43123</li>
-                                        <li><i class="fi flaticon-phone-call"></i>(614) 277-1511</li>
-                                        <li><i class="fi flaticon-email"></i>squatinfo247@gmail.com</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end container -->
-            </div>
-            <div class="wpo-middle-footer">
-                <div class="container">
-                    <div class="instagram-widget">
-                        <h2>- follow Instagram -</h2>
-
-                        <div class="instagram-wrap">
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/1.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/2.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/3.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/4.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/5.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/6.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/7.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/8.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/9.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="instagram-item">
-                                <a href="property-single.html">
-                                    <img src="{{ asset('landing') }}/assets/images/instragram/10.jpg" alt="">
-                                    <i class="ti-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wpo-lower-footer">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col col-lg-6 col-md-12 col-12">
-                            <div class="social">
+                                <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Viverra laoreet ultrices
+                                    donec placerat commodo elementum justo, consequat.</p>
                                 <ul>
                                     <li>
                                         <a href="#">
@@ -1253,25 +613,85 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="ti-twitter"></i>
+                                            <i class="ti-twitter-alt"></i>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="ti-linkedin"></i>
+                                            <i class="ti-instagram"></i>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="ti-pinterest"></i>
+                                            <i class="ti-google"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col col-lg-6 col-md-12 col-12">
-                            <ul class="copyright">
-                                <li>Copyright &copy; 2023 <a href="#">Squat</a> || All Rights Reserved</li>
+                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="widget link-widget">
+                                <div class="widget-title">
+                                    <h3>Our Services</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="service-single.html">Perfect Planning</a></li>
+                                    <li><a href="service-single.html">Profesional Design</a></li>
+                                    <li><a href="service-single.html">Best Interior</a></li>
+                                    <li><a href="service-single.html">Modern Furniture</a></li>
+                                    <li><a href="service-single.html">Complete Decoration</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="widget wpo-service-link-widget">
+                                <div class="widget-title">
+                                    <h3>Contact </h3>
+                                </div>
+                                <div class="contact-ft">
+                                    <ul>
+                                        <li><i class="fi flaticon-location"></i>68D, Belsion Town 2365 <br> Fna city, LH
+                                            3656, USA</li>
+                                        <li><i class="fi flaticon-telephone"></i>+ 8 (123) 123 456 789 <br>
+                                            + 8 (123) 123 456 789</li>
+                                        <li><i class="fi flaticon-email"></i>arkio@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="widget instagram">
+                                <div class="widget-title">
+                                    <h3>Our Gellery</h3>
+                                </div>
+                                <ul class="d-flex">
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/1.jpg"
+                                                alt=""></a></li>
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/2.jpg"
+                                                alt=""></a></li>
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/3.jpg"
+                                                alt=""></a></li>
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/4.jpg"
+                                                alt=""></a></li>
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/5.jpg"
+                                                alt=""></a></li>
+                                    <li><a href="project-single.html"><img src="{{ asset('landing') }}/assets/images/instragram/6.jpg"
+                                                alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end container -->
+            </div>
+            <div class="wpo-lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xs-12">
+                            <ul>
+                                <li>&copy; 2022 Arkio Template. Design By <a href="index.html">wpOceans</a>. All Rights
+                                    Reserved.</li>
+                                <li><a href="#">Terms of use |</a> <a href="#">Privacy Environmental Policy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1289,8 +709,8 @@
     <script src="{{ asset('landing') }}/assets/js/bootstrap.bundle.min.js"></script>
     <!-- Plugins for this template -->
     <script src="{{ asset('landing') }}/assets/js/modernizr.custom.js"></script>
+    <script src="{{ asset('landing') }}/assets/js/jquery.dlmenu.js"></script>
     <script src="{{ asset('landing') }}/assets/js/jquery-plugin-collection.js"></script>
-    <script src="{{ asset('landing') }}/assets/js/payment-cal.js"></script>
     <!-- Custom script for this template -->
     <script src="{{ asset('landing') }}/assets/js/script.js"></script>
 </body>

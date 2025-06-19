@@ -1,11 +1,11 @@
 /*--------------------------------------------------------------
-15. wpo-blog-single-section
+18. wpo-blog-single-section
 --------------------------------------------------------------*/
 .wpo-blog-single-section {
 
-	.container {
-		@media(min-width:1440px) {
-			max-width: 1320px;
+	.container{
+		@media(min-width:1440px){
+          max-width: 1320px;
 		}
 	}
 
@@ -18,7 +18,7 @@
 			margin: 25px 0;
 		}
 
-		ul {
+		ul{
 			list-style: none;
 
 			li {
@@ -27,28 +27,27 @@
 				font-size: calc-rem-value(14);
 				float: left;
 				text-transform: uppercase;
-				color: $text-light-color;
 
 				a {
 					color: #636893;
-
+		
 					&:hover {
-						color: $theme-primary-color-s2;
+						color: $theme-primary-color;
 					}
 				}
 
-				i {
+				i{
 					position: relative;
 					top: 2px;
 					margin-right: 3px;
 				}
-
-				&+li {
+	
+				&+li{
 					margin-left: 20px;
 					padding-left: 20px;
 					position: relative;
 
-					&:before {
+					&:before{
 						position: absolute;
 						left: 0;
 						top: 50%;
@@ -69,25 +68,25 @@
 						padding-left: 0;
 					}
 				}
-
+	
 				@include media-query(767px) {
 					font-size: 12px;
 					font-size: calc-rem-value(12);
 				}
-
+	
 				@include media-query(440px) {
 					float: none;
 					display: block;
 					margin-bottom: 5px;
 				}
-
+	
 			}
 		}
-
+		
 	}
 
-	.entry-media {
-		img {
+	.entry-media{
+		img{
 			width: 100%;
 		}
 	}
@@ -99,7 +98,7 @@
 			margin: -0.22em 0 0.7em;
 			line-height: 1.3em;
 			font-family: $heading-font;
-			font-weight: 400;
+			font-weight: 600;
 
 			@include media-query(991px) {
 				font-size: 30px;
@@ -114,13 +113,12 @@
 
 		p {
 			margin-bottom: 1.5em;
-			color: $text-light-color;
 		}
 
 		h3 {
 			font-size: 24px;
 			font-size: calc-rem-value(24);
-			font-weight: 400;
+			font-weight: 600;
 			line-height: 1.3em;
 			margin: 1.8em 0 1em;
 
@@ -138,16 +136,16 @@
 
 
 		blockquote {
-			background-color: $section-bg-color-s2;
+			background-color: $section-bg-color;
 			color: #233d62;
-			font-size: 18px;
+			font-size: 19px;
 			padding: 65px;
 			margin-top: 60px;
 			margin-bottom: 40px;
 			border: 0;
 			text-align: center;
 			position: relative;
-			font-weight: 400;
+			font-weight: 600;
 			line-height: 35px;
 			padding-bottom: 45px;
 
@@ -157,7 +155,7 @@
 
 			&:before {
 				font-family: "Flaticon";
-				content: "\f10a";
+				content: "\f10b";
 				font-size: 20px;
 				font-size: calc-rem-value(20);
 				color: transparentize($white, 0.5);
@@ -168,11 +166,11 @@
 				width: 60px;
 				height: 60px;
 				line-height: 60px;
-				border: 2px solid $section-bg-color;
+				border:2px solid $section-bg-color;
 				background: $white;
-				color: $theme-primary-color-s2;
+				color: $theme-primary-color;
 				border-radius: 50%;
-
+				
 			}
 
 
@@ -182,13 +180,13 @@
 			overflow: hidden;
 			margin: 40px -7.5px 0;
 
-			>div {
+			> div {
 				width: calc(50% - 15px);
 				float: left;
 				margin: 0 7.5px 15px;
 			}
 
-			img {
+			img{
 				width: 100%;
 			}
 		}
@@ -196,15 +194,14 @@
 
 
 	/*** tag-share ***/
-	.tag-share,
-	.tag-share-s2 {
-		border-bottom: 1px solid $section-bg-color-s2;
+	.tag-share,.tag-share-s2 {
+		border-bottom: 1px solid $border-color;
 		margin: 75px 0 0;
 		padding-bottom: 30px;
 		color: $heading-color;
 
-		@media(max-width:767px) {
-			margin-top: 40px;
+		@media(max-width:767px){
+          margin-top: 40px;
 		}
 
 		ul {
@@ -220,7 +217,7 @@
 				}
 			}
 
-			>li+li {
+			> li + li {
 				margin-left: 10px;
 
 				@include media-query(767px) {
@@ -234,10 +231,10 @@
 			display: flex;
 			align-items: center;
 
-			>span {
+			> span {
 				font-family: $heading-font;
 				color: $heading-color;
-				font-weight: 400;
+				font-weight: 600;
 				display: inline-block;
 				padding-right: 15px;
 				text-transform: uppercase;
@@ -259,9 +256,9 @@
 				display: inline-block;
 				padding: 5px 18px;
 				color: $dark-gray;
-				background: $section-bg-color;
+				background: transparentize($theme-primary-color, .9);
 				border-radius: 5px;
-				font-weight: 400;
+				font-weight: 600;
 
 				@include media-query(767px) {
 					font-size: 13px;
@@ -269,104 +266,102 @@
 				}
 
 				&:hover {
-					color: $dark-gray;
+					color: $theme-primary-color;
 				}
 			}
 		}
 
 
 	}
+	.tag-share-s2{
+     margin: 0;
+	 margin-top: 30px;
+	 border-bottom: 0;
 
-	.tag-share-s2 {
-		margin: 0;
-		margin-top: 30px;
-		border-bottom: 0;
-
-		.tag {
-			a {
-				padding: 0;
-				font-size: 16px;
-				font-size: calc-rem-value(16);
-				text-transform: capitalize;
-				background: none;
-				text-decoration: underline;
-				color: $text-color;
-			}
-		}
+	 .tag{
+		 a{
+			 padding: 0;
+			 font-size: 16px;
+			 font-size: calc-rem-value(16);
+			 text-transform: capitalize;
+			 background: none;
+			 text-decoration: underline;
+			 color: $text-color;
+		 }
+	 }
 	}
 
 
 	/*** author-box ***/
 	.author-box {
-		margin: 35px 0 60px;
+	    margin: 35px 0 60px;
+	    
+	    .author-avatar {
+	    	float: left;
 
-		.author-avatar {
-			float: left;
+	    	@include media-query(767px) {
+	    		float: none;
+	    	}
 
-			@include media-query(767px) {
-				float: none;
-			}
-
-			img {
+			img{
 				border-radius: 50%;
 			}
-		}
+	    }
 
-		.author-content {
-			display: block;
-			overflow: hidden;
-			padding-left: 25px;
+	    .author-content {
+	    	display: block;
+		    overflow: hidden;
+		    padding-left: 25px;
 
-			@include media-query(767px) {
-				padding: 0;
-				margin: 15px 0 0 0;
-			}
-		}
+		    @include media-query(767px) {
+	    		padding: 0;
+	    		margin: 15px 0 0 0;
+	    	}
+	    }
 
-		.author-content p {
-			margin-bottom: 20px;
-			color: $text-light-color;
-		}
+	    .author-content p {
+	    	margin-bottom: 20px;
+	    }
 
-		.author-name {
-			font-family: $heading-font;
-			font-size: 24px;
-			font-size: calc-rem-value(24);
-			font-weight: 400;
-			display: inline-block;
-			margin-bottom: 10px;
-			color: $heading-color;
-		}
+	    .author-name {
+	    	font-family: $heading-font;
+	    	font-size: 24px;
+	    	font-size: calc-rem-value(24);
+	    	font-weight: 600;
+	    	display: inline-block;
+		    margin-bottom: 10px;
+		    color: $heading-color;
+	    }
 
-		.social-link {
-			display: inline-block;
-			list-style: none;
-		}
+	    .social-link {
+	    	display: inline-block;
+	    	list-style: none;
+	    }
 
-		.social-link li {
-			float: left;
-			margin-right: 12px;
-		}
+	    .social-link li {
+	    	float: left;
+	    	margin-right: 12px;
+	    }
 
-		.social-link a {
-			display: block;
-			font-size: 13px;
-			font-size: calc-rem-value(13);
-			color: $heading-color;
-		}
+	    .social-link a {
+	    	display: block;
+	    	font-size: 13px;
+	    	font-size: calc-rem-value(13);
+	    	color: $heading-color;
+	    }
 
-		.social-link a:hover {
-			color: $theme-primary-color-s2;
-		}
+	    .social-link a:hover {
+	    	color: $theme-primary-color;
+	    }
 	}
 
 	/*** more-posts ***/
 	.more-posts {
 		overflow: hidden;
-		border: 1px solid $border-color;
-		padding: 0 25px;
+	    border: 1px solid $border-color-s2;
+	    padding: 0 25px;
 
-		>div {
+		> div {
 			width: 50%;
 			float: left;
 
@@ -376,29 +371,29 @@
 			}
 		}
 
-		>div>a {
+		> div > a {
 			display: inline-block;
 		}
 
 		.previous-post,
 		.next-post {
-			padding: 40px 0;
+		    padding: 40px 0;
 
-			@include media-query(767px) {
+		     @include media-query(767px) {
 				padding: 25px 15px !important;
 			}
 		}
 
 		.next-post {
 			text-align: right;
-			border-left: 1px solid $border-color;
-			padding-left: 15px;
-			padding-right: 5px;
+		    border-left: 1px solid $border-color-s2;
+		    padding-left: 15px;
+		    padding-right: 5px;
 
-			@include media-query(767px) {
+		    @include media-query(767px) {
 				border-left: 0;
 				text-align: left;
-				border-top: 1px solid $border-color;
+				border-top: 1px solid $border-color-s2;
 			}
 
 			.post-control-link {
@@ -450,8 +445,8 @@
 			}
 		}
 
-		.previous-post>a>span,
-		.next-post>a>span {
+		.previous-post > a > span,
+		.next-post > a > span {
 			display: block;
 		}
 
@@ -460,7 +455,7 @@
 			font-size: calc-rem-value(14);
 			color: $text-color;
 			text-transform: uppercase;
-			font-weight: 400;
+			font-weight: 600;
 			letter-spacing: 2px;
 		}
 
@@ -477,8 +472,8 @@
 			}
 		}
 
-		a:hover .post-control-link {
-			color: $theme-primary-color-s2;
+		a:hover .post-control-link  {
+			color: $theme-primary-color;
 		}
 	}
 
@@ -487,8 +482,8 @@
 		margin-top: 70px;
 
 
-		li>div {
-			border-bottom: 1px solid #ebebeb;
+		li > div {
+			border-bottom: 1px solid #e4effb;
 			padding: 35px;
 
 			@include media-query(991px) {
@@ -505,7 +500,7 @@
 				list-style-type: none;
 			}
 
-			>li:last-child div {
+			> li:last-child div {
 				border-bottom: 0;
 			}
 		}
@@ -524,7 +519,7 @@
 			}
 		}
 
-		li>div {
+		li > div {
 			position: relative;
 		}
 
@@ -551,7 +546,6 @@
 
 			p {
 				margin-bottom: 20px;
-				color: $text-light-color;
 			}
 		}
 
@@ -586,18 +580,18 @@
 			font-family: $heading-font;
 			font-size: 14px;
 			font-size: calc-rem-value(14);
-			font-weight: 400;
+			font-weight: 600;
 			color: $dark-gray;
 			text-align: center;
 			border-radius: 50px;
 			display: inline-block;
-			font-family: $base-font;
+            font-family: $base-font;
 			text-decoration: underline;
 			text-transform: uppercase;
 			letter-spacing: 1px;
 
-			&:hover {
-				color: $theme-primary-color-s2;
+			&:hover{
+				color: $theme-primary-color;
 			}
 		}
 	}
@@ -628,10 +622,10 @@
 			border: 1px solid #a4adbe;
 			padding: 6px 15px;
 			margin-bottom: 15px;
-			outline: 0;
-			border-radius: 30px;
-			box-shadow: none;
-			@include transition-time(0.3s);
+	        outline: 0;
+	        border-radius: 30px;
+	        box-shadow: none;
+	        @include transition-time(0.3s);
 
 			&:focus {
 				box-shadow: none;
@@ -656,7 +650,7 @@
 			overflow: hidden;
 		}
 
-		.form-inputs>input:nth-child(1) {
+		.form-inputs > input:nth-child(1) {
 			width: 49%;
 			float: left;
 
@@ -666,7 +660,7 @@
 			}
 		}
 
-		.form-inputs>input:nth-child(2) {
+		.form-inputs > input:nth-child(2) {
 			width: 49%;
 			float: right;
 
@@ -680,7 +674,7 @@
 			font-family: $heading-font;
 			max-width: 180px;
 			background-color: $theme-primary-color;
-			color: $dark-gray;
+			color: $white;
 			margin-bottom: 0;
 			border: 0;
 			outline: 0;
@@ -688,15 +682,11 @@
 			font-size: 15px;
 			letter-spacing: 2px;
 			border-radius: 30px;
-			line-height: 42px;
-
-			@media(max-width:991px) {
-				line-height: 32px;
-			}
+			line-height: 41px;
 		}
 
 		.form-submit input:hover {
-			background-color: darken($theme-primary-color, 9%);
+			background-color:darken($theme-primary-color, 9%);
 		}
 	}
 }

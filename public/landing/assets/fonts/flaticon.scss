@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?7be827e199392bb56ae95dacf43f5036") format("truetype"),
-url("./flaticon.woff?7be827e199392bb56ae95dacf43f5036") format("woff"),
-url("./flaticon.woff2?7be827e199392bb56ae95dacf43f5036") format("woff2"),
-url("./flaticon.eot?7be827e199392bb56ae95dacf43f5036#iefix") format("embedded-opentype"),
-url("./flaticon.svg?7be827e199392bb56ae95dacf43f5036#flaticon") format("svg");
+    src: url("./flaticon.ttf?f292c07b15c77b4e938a4b83b18f04e8") format("truetype"),
+url("./flaticon.woff?f292c07b15c77b4e938a4b83b18f04e8") format("woff"),
+url("./flaticon.woff2?f292c07b15c77b4e938a4b83b18f04e8") format("woff2"),
+url("./flaticon.eot?f292c07b15c77b4e938a4b83b18f04e8#iefix") format("embedded-opentype"),
+url("./flaticon.svg?f292c07b15c77b4e938a4b83b18f04e8#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -21,105 +21,73 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 }
 
 $flaticon-map: (
-    "loupe": "\f101",
-    "shopping-cart": "\f102",
-    "shopping-cart-1": "\f103",
-    "shopping-bag": "\f104",
-    "shopping-cart-2": "\f105",
-    "placeholder": "\f106",
-    "email": "\f107",
-    "play-button": "\f108",
-    "user": "\f109",
-    "quotation": "\f10a",
-    "quotation-1": "\f10b",
-    "house": "\f10c",
-    "phone-call": "\f10d",
-    "badge": "\f10e",
-    "vegan": "\f10f",
-    "diary": "\f110",
-    "support": "\f111",
-    "family": "\f112",
-    "broken-arm": "\f113",
-    "wounded": "\f114",
-    "handcuffs": "\f115",
-    "graduation-cap": "\f116",
-    "book": "\f117",
-    "auction": "\f118",
-    "balance": "\f119",
+    "shopping-cart": "\f101",
+    "search": "\f102",
+    "play": "\f103",
+    "email": "\f104",
+    "location": "\f105",
+    "telephone": "\f106",
+    "linkedin": "\f107",
+    "twitter": "\f108",
+    "facebook-app-symbol": "\f109",
+    "instagram": "\f10a",
+    "quote": "\f10b",
+    "planning": "\f10c",
+    "blueprint": "\f10d",
+    "double-bed": "\f10e",
+    "armchair": "\f10f",
+    "furniture": "\f110",
+    "interior-design": "\f111",
 );
 
-.flaticon-loupe:before {
-    content: map-get($flaticon-map, "loupe");
-}
 .flaticon-shopping-cart:before {
     content: map-get($flaticon-map, "shopping-cart");
 }
-.flaticon-shopping-cart-1:before {
-    content: map-get($flaticon-map, "shopping-cart-1");
+.flaticon-search:before {
+    content: map-get($flaticon-map, "search");
 }
-.flaticon-shopping-bag:before {
-    content: map-get($flaticon-map, "shopping-bag");
-}
-.flaticon-shopping-cart-2:before {
-    content: map-get($flaticon-map, "shopping-cart-2");
-}
-.flaticon-placeholder:before {
-    content: map-get($flaticon-map, "placeholder");
+.flaticon-play:before {
+    content: map-get($flaticon-map, "play");
 }
 .flaticon-email:before {
     content: map-get($flaticon-map, "email");
 }
-.flaticon-play-button:before {
-    content: map-get($flaticon-map, "play-button");
+.flaticon-location:before {
+    content: map-get($flaticon-map, "location");
 }
-.flaticon-user:before {
-    content: map-get($flaticon-map, "user");
+.flaticon-telephone:before {
+    content: map-get($flaticon-map, "telephone");
 }
-.flaticon-quotation:before {
-    content: map-get($flaticon-map, "quotation");
+.flaticon-linkedin:before {
+    content: map-get($flaticon-map, "linkedin");
 }
-.flaticon-quotation-1:before {
-    content: map-get($flaticon-map, "quotation-1");
+.flaticon-twitter:before {
+    content: map-get($flaticon-map, "twitter");
 }
-.flaticon-house:before {
-    content: map-get($flaticon-map, "house");
+.flaticon-facebook-app-symbol:before {
+    content: map-get($flaticon-map, "facebook-app-symbol");
 }
-.flaticon-phone-call:before {
-    content: map-get($flaticon-map, "phone-call");
+.flaticon-instagram:before {
+    content: map-get($flaticon-map, "instagram");
 }
-.flaticon-badge:before {
-    content: map-get($flaticon-map, "badge");
+.flaticon-quote:before {
+    content: map-get($flaticon-map, "quote");
 }
-.flaticon-vegan:before {
-    content: map-get($flaticon-map, "vegan");
+.flaticon-planning:before {
+    content: map-get($flaticon-map, "planning");
 }
-.flaticon-diary:before {
-    content: map-get($flaticon-map, "diary");
+.flaticon-blueprint:before {
+    content: map-get($flaticon-map, "blueprint");
 }
-.flaticon-support:before {
-    content: map-get($flaticon-map, "support");
+.flaticon-double-bed:before {
+    content: map-get($flaticon-map, "double-bed");
 }
-.flaticon-family:before {
-    content: map-get($flaticon-map, "family");
+.flaticon-armchair:before {
+    content: map-get($flaticon-map, "armchair");
 }
-.flaticon-broken-arm:before {
-    content: map-get($flaticon-map, "broken-arm");
+.flaticon-furniture:before {
+    content: map-get($flaticon-map, "furniture");
 }
-.flaticon-wounded:before {
-    content: map-get($flaticon-map, "wounded");
-}
-.flaticon-handcuffs:before {
-    content: map-get($flaticon-map, "handcuffs");
-}
-.flaticon-graduation-cap:before {
-    content: map-get($flaticon-map, "graduation-cap");
-}
-.flaticon-book:before {
-    content: map-get($flaticon-map, "book");
-}
-.flaticon-auction:before {
-    content: map-get($flaticon-map, "auction");
-}
-.flaticon-balance:before {
-    content: map-get($flaticon-map, "balance");
+.flaticon-interior-design:before {
+    content: map-get($flaticon-map, "interior-design");
 }
