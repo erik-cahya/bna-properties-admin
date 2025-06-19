@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="wpOceans">
     <link rel="shortcut icon" type="image/png" href="{{ asset('landing') }}/assets/images/favicon.png">
-    <title> Arkio - Architecture & Interior HTML Template</title>
+    <title> BNA Properties </title>
     <link href="{{ asset('landing') }}/assets/css/themify-icons.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('landing') }}/assets/css/flaticon.css" rel="stylesheet">
