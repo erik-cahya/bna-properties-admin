@@ -24,7 +24,6 @@
                  <a href="{{ route('dashboard') }}" class="menu-link waves-effect">
                      <span class="menu-icon"><i data-lucide="airplay "></i></span>
                      <span class="menu-text"> Dashboards </span>
-                     <span class="badge bg-info rounded-pill ms-auto">3</span>
                  </a>
              </li>
 
@@ -44,12 +43,19 @@
                              </a>
                          </li>
                          <li class="menu-item">
-                             <a href="pages-invoice.html" class="menu-link">
+                             <a href="{{ route('properties.create') }}" class="menu-link">
                                  <span class="menu-text">Create Properties</span>
                              </a>
                          </li>
                      </ul>
                  </div>
+             </li>
+
+             <li class="menu-item">
+                 <a href="{{ route('features.index') }}" class="menu-link waves-effect">
+                     <span class="menu-icon"><i class="mdi mdi-fan"></i></span>
+                     <span class="menu-text">Properties Feature</span>
+                 </a>
              </li>
 
          </ul>

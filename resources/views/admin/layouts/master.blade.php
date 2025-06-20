@@ -50,12 +50,7 @@
                             <div>
                                 <script>
                                     document.write(new Date().getFullYear())
-                                </script> © Drezoc
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-none d-md-flex align-item-center justify-content-md-end gap-4">
-                                <p class="mb-0">Design & Develop by <a href="https://myrathemes.com/" target="_blank">MyraStudio</a> </p>
+                                </script> © BNA Property
                             </div>
                         </div>
                     </div>
@@ -89,6 +84,20 @@
 
     <!-- Dashboard init-->
     <script src="{{ asset('admin') }}/assets/js/pages/dashboard.js"></script>
+    <script src="{{ asset('admin/assets/js/sweetalert2.min.js') }}"></script>
+
+    <script>
+        @if (session('flashData'))
+            var flashData = @json(session('flashData'));
+
+            Swal.fire({
+                title: flashData.judul,
+                text: flashData.pesan,
+                icon: flashData.swalFlashIcon,
+                confirmButtonText: 'OK'
+            });
+        @endif
+    </script>
 
     @stack('script')
 

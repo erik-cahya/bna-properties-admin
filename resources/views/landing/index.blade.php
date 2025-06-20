@@ -216,7 +216,7 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-4.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('bna-assets/Property/p-9.jpg') }}">
                             <!-- <div class="gradient-overlay"></div> -->
                             <div class="container-fluid">
                                 <div class="slide-content">
@@ -233,7 +233,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-6.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('bna-assets/Property/p-8.jpg') }}">
                             <!-- <div class="gradient-overlay"></div> -->
                             <div class="container-fluid">
                                 <div class="slide-content">
@@ -250,7 +250,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('landing') }}/assets/images/slider/slide-5.jpg">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('bna-assets/Property/p-12.jpg') }}">
                             <!-- <div class="gradient-overlay"></div> -->
                             <div class="container-fluid">
                                 <div class="slide-content">
@@ -280,12 +280,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="wpo-about-img">
-                            <img src="{{ asset('landing') }}/assets/images/about5.jpg" alt="">
+                            <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="">
                             <div class="wpo-about-img-text">
                                 <h2>25+</h2>
                                 <p>Years of Experience</p>
                                 <div class="about-shape">
-                                    <img src="{{ asset('landing') }}/assets/images/about-shape3.png" alt="">
+                                    <img src="{{ asset('bna-assets/Property/p-6.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="left-shape">

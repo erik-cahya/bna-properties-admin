@@ -60,7 +60,6 @@
                                             </div>
 
                                             <div class="form-group mb-3">
-                                                <a href="pages-recoverpw.html" class="text-muted float-end"><small></small></a>
                                                 <label class="form-label" for="password">Password</label>
                                                 <div class="input-group">
                                                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
