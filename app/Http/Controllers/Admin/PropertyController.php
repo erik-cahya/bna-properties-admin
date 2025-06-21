@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\FeatureListModel;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -20,7 +21,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.properties.create');
+        $data['data_features'] = FeatureListModel::get();
+        return view('admin.properties.create', $data);
     }
 
     /**

@@ -61,9 +61,9 @@
                             <table id="basic-datatable" class="dt-responsive nowrap w-100 table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
+                                        <th width="20">No</th>
+                                        <th width="100">Name</th>
+                                        <th width="100">Action</th>
                                     </tr>
                                 </thead>
 
@@ -71,15 +71,16 @@
                                     @foreach ($data_features as $feature)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $feature->name }}</td>
+                                            <td>
+                                                <div class="d-flex flex-column">
+                                                    {{ $feature->name }}
+                                                </div>
+                                            </td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-warning waves-effect waves-light"><i class="mdi mdi-book-edit-outline"></i></button>
-                                                {{-- <button type="button" class="btn btn-sm btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i></button> --}}
 
-                                                {{-- Delete Button --}}
                                                 <input type="hidden" class="propertyId" value="{{ $feature->id }}">
                                                 <button type="button" class="btn btn-sm btn-danger waves-effect waves-light deleteButton" data-nama="{{ $feature->name }}"><i class="mdi mdi-trash-can"></i></button>
-                                                {{-- /. Delete Button --}}
                                             </td>
                                         </tr>
                                     @endforeach

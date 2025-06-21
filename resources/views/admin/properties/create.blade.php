@@ -45,12 +45,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
-                                            <select class="form-select" id="ownerShipStatus" name="ownerShipStatus" aria-label="Floating label select example">
-                                                <option selected="" disabled readonly>Choose Ownership Status</option>
-                                                <option value="Leashold">Leashold</option>
-                                                <option value="Freehold">Freehold</option>
+                                            <select class="form-select" id="statusListing" name="statusListing" aria-label="Floating label select example">
+                                                <option selected="" disabled readonly>Choose Status Listing</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Listing">Listing</option>
                                             </select>
-                                            <label for="ownerShipStatus">Ownership Status</label>
+                                            <label for="statusListing">Status Listing</label>
                                         </div>
                                     </div>
 
@@ -67,24 +67,31 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="numberBedroom" name="numberBedroom" placeholder="Enter Email address" value="name@example.com">
+                                            <input type="number" class="form-control" id="numberBedroom" name="numberBedroom" placeholder="Enter Email address">
                                             <label for="numberBedroom">Number Bedroom</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="numberBedroom" name="numberBedroom" placeholder="Enter Email address" value="name@example.com">
-                                            <label for="numberBedroom">Number Bathroom</label>
+                                            <input type="number" class="form-control" id="numberBathroom" name="numberBathroom" placeholder="Enter Email address">
+                                            <label for="numberBathroom">Number Bathroom</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="yearBuild" name="yearBuild" placeholder="Enter Email address" value="name@example.com">
+                                            <input type="number" class="form-control" id="yearBuild" name="yearBuild" placeholder="Enter Email address">
                                             <label for="yearBuild">Year Build</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="maxPeople" name="maxPeople" placeholder="Enter Email address">
+                                            <label for="maxPeople">Max People</label>
                                         </div>
                                     </div>
                                 </div>
@@ -92,14 +99,38 @@
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="priceIDR" name="priceIDR" placeholder="Input IDR Price">
-                                            <label for="priceIDR">Price IDR</label>
+                                            <label for="priceIDR">Price Per Month (IDR)</label>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="priceUSD" name="priceUSD" placeholder="Input USD Price">
-                                            <label for="priceUSD">Price USD</label>
+                                            <label for="priceUSD">Price Per Month (USD)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" id="region" name="region" aria-label="Floating label select example">
+                                                <option selected="" disabled readonly>Choose Region</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Listing">Listing</option>
+                                            </select>
+                                            <label for="region">Region</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" id="subRegion" name="subRegion" aria-label="Floating label select example">
+                                                <option selected="" disabled readonly>Choose Sub Region</option>
+                                                <option value="Villa">Villa</option>
+                                                <option value="Appartement">Appartement</option>
+                                            </select>
+                                            <label for="subRegion">Sub Region</label>
                                         </div>
                                     </div>
                                 </div>
@@ -112,36 +143,14 @@
                                 <h4 class="my-3">Features</h4>
 
                                 <div class="row mb-3">
-                                    <div class="col-3">
-                                        <div class="form-check my-2" bis_skin_checked="1">
-                                            <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="Backyard" data-size="small" />
-                                            <label class="form-check-label" for="flexCheckChecked">Backyard</label>
+                                    @foreach ($data_features as $features)
+                                        <div class="col-4">
+                                            <div class="form-check my-2">
+                                                <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="{{ $features->slug }}" data-size="small" />
+                                                <label class="form-check-label" for="flexCheckChecked">{{ $features->name }}</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-check my-2" bis_skin_checked="1">
-                                            <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="Car Park" data-size="small" />
-                                            <label class="form-check-label" for="flexCheckChecked">Car Park</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-check my-2" bis_skin_checked="1">
-                                            <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="Swimming Pool" data-size="small" />
-                                            <label class="form-check-label" for="flexCheckChecked">Swimming Pool</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-check my-2" bis_skin_checked="1">
-                                            <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="Balcony" data-size="small" />
-                                            <label class="form-check-label" for="flexCheckChecked">Balcony</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="form-check my-2" bis_skin_checked="1">
-                                            <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="Kitchen" data-size="small" />
-                                            <label class="form-check-label" for="flexCheckChecked">Kitchen</label>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                                 <div>
