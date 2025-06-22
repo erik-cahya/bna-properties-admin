@@ -39,22 +39,29 @@
                             <form method="POST" action="{{ route('properties.store') }}">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="propertiesName" name="propertiesName" placeholder="Input Properties Name">
+                                    <input type="text" class="form-control @error('propertiesName') border-invalid-form @enderror" id="propertiesName" name="propertiesName" placeholder="Input Properties Name">
                                     <label for="propertiesName">Properties Name</label>
+
+                                    @error('propertiesName')
+                                        <div class="invalid-form">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="statusListing" name="statusListing" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>Choose Status Listing</option>
                                                 <option value="Pending">Pending</option>
-                                                <option value="Listing">Listing</option>
+                                                <option value="Listed">Listed</option>
                                             </select>
                                             <label for="statusListing">Status Listing</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="typeProperties" name="typeProperties" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>Choose Type of Properties</option>
@@ -62,6 +69,13 @@
                                                 <option value="Appartement">Appartement</option>
                                             </select>
                                             <label for="typeProperties">Property Type</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="propertiesSize" name="propertiesSize" placeholder="Enter Email address">
+                                            <label for="propertiesSize">Properties Size</label>
                                         </div>
                                     </div>
                                 </div>

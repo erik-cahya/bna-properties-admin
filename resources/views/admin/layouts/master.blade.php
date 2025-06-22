@@ -19,6 +19,23 @@
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
 
+    <style>
+        .invalid-form {
+            z-index: 5;
+            margin-top: 0.1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.2rem;
+            position: absolute;
+            top: 100%;
+            color: rgb(255, 255, 255);
+            background-color: var(--bs-danger);
+        }
+
+        .border-invalid-form {
+            border-color: var(--bs-danger);
+        }
+    </style>
+
     @stack('styles')
 </head>
 

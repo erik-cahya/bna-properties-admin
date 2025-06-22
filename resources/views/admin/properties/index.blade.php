@@ -31,61 +31,67 @@
                             This data will appear in each detailed properties.
                         </p>
 
-                        <table id="basic-datatable" class="dt-responsive nowrap table">
+                        <table id="basic-datatable" class="dt-responsive table-nowrap table">
                             <thead>
                                 <tr>
-                                    <th width="20" class="text-center">No</th>
-                                    <th width="100">Name Properties</th>
-                                    <th width="100" class="text-center">Property Details</th>
-                                    <th width="100" class="text-center">Price</th>
-                                    <th width="100" class="text-center">Action</th>
+                                    <th class="text-center">No</th>
+                                    <th>Name Properties</th>
+                                    <th class="text-center">Property Details</th>
+                                    <th class="text-center">Rooms</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
-                                <tr>
+                                <tr class="text-center">
                                     <td>1</td>
                                     <td>
-                                        <div class="d-flex gap-2">
-                                            <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="" class="avatar-lg rounded-circle me-2">
+                                        <div class="d-flex gap-2 text-start">
+                                            <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="" class="avatar-md border-light border-3 rounded border">
                                             <div class="align-self-center d-flex flex-column">
                                                 <span class="fw-medium fs-5">Grand Resort Bali Tabanan</span>
                                                 <hr class="m-1">
-                                                <span class="fst-italic text-muted font-size-12"><i class="mdi mdi-map-marker"></i> Jln. Raya Bedugul Singaraja, Baturiti</span>
+                                                <span class="font-size-12 fw-medium fst-italic">BNA-2131232123</span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td style="max-width: 120px">
-                                        <div class="d-flex justify-content-center mb-2 gap-2">
-                                            <span class="badge bg-dark font-size-12 text-light"><i class="mdi mdi-shower-head"></i> 20</span>
-                                            <span class="badge bg-blue font-size-12"><i class="mdi mdi-bed"></i> 30</span>
-                                            <span class="badge bg-blue font-size-12"><i class="mdi mdi-bed"></i> 2022</span>
-                                        </div>
-                                        <div class="d-flex flex-column gap-2">
-                                            <span class="badge bg-dark text-light">Leasehold</span>
-                                            <span class="badge bg-blue">Villa</span>
-                                        </div>
+                                    <td>
+                                        <div class="d-flex flex-column">
 
+                                            <span class="fst-italic fw-bold font-size-16"><i class="mdi mdi-map-marker"></i> Singaraja, Buleleng</span>
+                                            <span class="fst-italic text-muted font-size-12"> Jln. Raya Bedugul Singaraja, Baturiti, Bali</span>
+                                        </div>
                                     </td>
-                                    <td style="max-width: 120px">
-                                        <div class="d-flex flex-column gap-2">
-                                            <span class="fst-italic fw-bold font-size-14"><i class="mdi mdi-map-marker"></i> IDR 200.000.000</span>
-                                            <span class="fst-italic fw-bold font-size-14"><i class="mdi mdi-map-marker"></i> USD 43.000</span>
-                                        </div>
+                                    <td>
+                                        <div class="d-flex flex-column gap-1">
 
+                                            <span class="font-size-12"><i class="mdi mdi-bed"></i> 20 Bedroom</span>
+                                            <span class="font-size-12"><i class="mdi mdi-shower"></i> 20 Bathroom</span>
+                                        </div>
                                     </td>
-                                    <td style="max-width: 120px">
-                                        <div class="d-flex justify-content-center mb-2 gap-2">
-                                            <span class="badge bg-dark font-size-12"><i class="mdi mdi-shower-head"></i> 20</span>
-                                            <span class="badge bg-blue font-size-12"><i class="mdi mdi-bed"></i> 30</span>
-                                            <span class="badge bg-blue font-size-12"><i class="mdi mdi-bed"></i> 2022</span>
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <span class="fst-italic fw-medium font-size-12"> IDR 20.000.000.000</span>
+                                            <hr class="m-1">
+                                            <span class="fst-italic fw-medium font-size-12"> USD 231,0020</span>
                                         </div>
-                                        <div class="d-flex flex-column gap-2">
-                                            <span class="badge bg-dark">Leasehold</span>
-                                            <span class="badge bg-blue">Villa</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-column gap-1">
+                                            <span class="badge bg-danger ms-auto">Cancelled</span>
+                                            <span class="badge bg-dark text-light ms-auto">Apartement</span>
+                                            <span class="badge bg-dark text-light ms-auto">20 Max People</span>
                                         </div>
-
+                                    </td>
+                                    <td>
+                                        <div class="btn-group mb-2 me-1">
+                                            <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></button>
+                                            <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
+                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i></button>
+                                        </div>
                                     </td>
 
                                 </tr>

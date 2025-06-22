@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeatureListModel;
+use App\Models\PropertiesModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class PropertyController extends Controller
 {
@@ -30,7 +33,45 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'propertiesName' => 'required:min:4',
+            'statusListing' => 'required',
+            'typeProperties' => 'required',
+            'numberBedroom' => 'required',
+            'numberBathroom' => 'required',
+            'yearBuild' => 'required',
+            'maxPeople' => 'required',
+            'priceIDR' => 'required',
+            'priceUSD' => 'required',
+            'region' => 'required',
+            'subRegion' => 'required',
+            'address' => 'required',
+        ]);
+
         dd($request->all());
+
+        PropertiesModel::create([
+            'properties_name' => $request->propertiesName,
+            'slug' => Str::slug($request->propertiesName),
+            'region' => $request->region,
+            'sub_region' => $request->subRegion,
+            'address' => $request->address,
+            'type_properties' => $request->typeProperties,
+            'number_bedroom' => $request->numberBedroom,
+            'number_bathroom' => $request->numberBathroom,
+            'properties_size' => $request->propertiesSize,
+            'year_build' => $request->yearBuild,
+            'max_people' => $request->maxPeople,
+            'price_idr' => $request->priceIDR,
+            'price_usd' => $request->priceUSD,
+        ]);
+
+        $flashData = [
+            'judul' => 'Listing Success',
+            'pesan' => 'New Properties Added Successfully',
+            'swalFlashIcon' => 'success',
+        ];
+        return redirect()->route('properties.index')->with('flashData', $flashData);
     }
 
     /**

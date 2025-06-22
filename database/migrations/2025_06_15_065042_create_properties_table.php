@@ -14,6 +14,19 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('properties_name');
+            $table->text('slug');
+            $table->string('region');
+            $table->string('sub_region');
+            $table->text('address');
+            $table->tinyInteger('type_properties');
+            $table->integer('number_bedroom');
+            $table->integer('number_bathroom');
+            $table->float('properties_size');
+            $table->integer('year_build');
+            $table->integer('max_people');
+            $table->decimal('price_idr', 18, 2);
+            $table->decimal('price_usd', 18, 2);
+
             $table->timestamps();
         });
     }
