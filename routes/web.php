@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/properties', PropertyController::class);
     Route::resource('/features', PropertiesFeatureController::class);
+
+    Route::get('/get-subregions/{regionId}', [PropertyController::class, 'getSubregions']);
 });
 
 require __DIR__ . '/auth.php';

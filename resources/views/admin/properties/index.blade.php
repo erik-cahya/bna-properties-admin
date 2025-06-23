@@ -46,55 +46,60 @@
 
                             <tbody>
 
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>
-                                        <div class="d-flex gap-2 text-start">
-                                            <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="" class="avatar-md border-light border-3 rounded border">
-                                            <div class="align-self-center d-flex flex-column">
-                                                <span class="fw-medium fs-5">Grand Resort Bali Tabanan</span>
-                                                <hr class="m-1">
-                                                <span class="font-size-12 fw-medium fst-italic">BNA-2131232123</span>
+                                @foreach ($data_properties as $properties)
+                                    <tr class="text-center">
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2 text-start">
+                                                <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="" class="avatar-md border-light border-3 rounded border">
+                                                <div class="align-self-center d-flex flex-column">
+                                                    <span class="fw-medium fs-5">{{ $properties->properties_name }}</span>
+                                                    <hr class="m-1">
+                                                    <span class="font-size-12 fw-medium fst-italic">{{ $properties->properties_code }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column">
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
 
-                                            <span class="fst-italic fw-bold font-size-16"><i class="mdi mdi-map-marker"></i> Singaraja, Buleleng</span>
-                                            <span class="fst-italic text-muted font-size-12"> Jln. Raya Bedugul Singaraja, Baturiti, Bali</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1">
+                                                <span class="fst-italic fw-bold font-size-16"><i class="mdi mdi-map-marker"></i> {{ $properties->sub_region . ', ' . $properties->region }}</span>
+                                                <span class="fst-italic text-muted font-size-12"> {{ $properties->address }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column gap-1">
 
-                                            <span class="font-size-12"><i class="mdi mdi-bed"></i> 20 Bedroom</span>
-                                            <span class="font-size-12"><i class="mdi mdi-shower"></i> 20 Bathroom</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column">
-                                            <span class="fst-italic fw-medium font-size-12"> IDR 20.000.000.000</span>
-                                            <hr class="m-1">
-                                            <span class="fst-italic fw-medium font-size-12"> USD 231,0020</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1">
-                                            <span class="badge bg-danger ms-auto">Cancelled</span>
-                                            <span class="badge bg-dark text-light ms-auto">Apartement</span>
-                                            <span class="badge bg-dark text-light ms-auto">20 Max People</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group mb-2 me-1">
-                                            <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></button>
-                                            <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
-                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can"></i></button>
-                                        </div>
-                                    </td>
+                                                <span class="font-size-12"><i class="mdi mdi-bed"></i> {{ $properties->number_bedroom }} Bedroom</span>
+                                                <span class="font-size-12"><i class="mdi mdi-shower"></i> {{ $properties->number_bathroom }} Bathroom</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="fst-italic fw-medium font-size-12"> IDR {{ number_format($properties->price_idr, 2, ',', '.') }}</span>
+                                                <hr class="m-1">
+                                                <span class="fst-italic fw-medium font-size-12"> USD {{ number_format($properties->price_usd, 2, ',', '.') }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="badge bg-danger ms-auto">Cancelled</span>
+                                                <span class="badge bg-dark text-light ms-auto">{{ $properties->type_properties }}</span>
+                                                <span class="badge bg-dark text-light ms-auto">{{ $properties->max_people }} Max People</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group mb-2 me-1">
+                                                <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></button>
+                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
 
-                                </tr>
+                                                <input type="hidden" class="propertyId" value="{{ $properties->id }}">
+                                                <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $properties->properties_name }}"><i class="mdi mdi-trash-can"></i></button>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
@@ -107,3 +112,62 @@
 
     </div> <!-- content -->
 @endsection
+
+@push('script')
+    {{-- SweetAlert Delete --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.deleteButton');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    let propertyName = this.getAttribute('data-nama');
+                    let propertyId = this.parentElement.querySelector('.propertyId').value;
+                    const rowToDelete = this.closest('tr');
+
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Delete property " + propertyName + "?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Kirim DELETE request manual lewat JavaScript
+                            fetch('/properties/' + propertyId, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                        'Content-Type': 'application/json'
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    Swal.fire({
+                                        title: data.judul,
+                                        text: data.pesan,
+                                        icon: data.swalFlashIcon,
+                                    });
+
+                                    if (rowToDelete) {
+                                        rowToDelete.remove();
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    Swal.fire('Error', 'Something went wrong!', 'error');
+                                });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    {{-- /* SweetAlert Delete --}}
+@endpush

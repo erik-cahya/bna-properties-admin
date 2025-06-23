@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        User::create([
+            'name' => 'Master',
+            'email' => 'master@gmail.com',
+            'password' => bcrypt('master123'),
+        ]);
+
         $this->call(FeaturePropertiesSeeder::class);
+        $this->call(RegionSeeder::class);
     }
 }

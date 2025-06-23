@@ -6,14 +6,14 @@
         <div class="container-fluid">
 
             <!-- start page title -->
-            <div class="py-3 py-lg-4">
+            <div class="py-lg-4 py-3">
                 <div class="row">
                     <div class="col-lg-6">
                         <h4 class="page-title mb-0">Dashboard</h4>
                     </div>
                     <div class="col-lg-6">
                         <div class="d-none d-lg-block">
-                            <ol class="breadcrumb m-0 float-end">
+                            <ol class="breadcrumb float-end m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Drezoc</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
@@ -135,7 +135,7 @@
                         </div>
                         <div class="card-ody">
                             <div class="table-responsive">
-                                <table class="table table-centered table-striped table-nowrap mb-0">
+                                <table class="table-centered table-striped table-nowrap mb-0 table">
                                     <thead>
                                         <tr>
                                             <th>Customer</th>
@@ -148,7 +148,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-4.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Paul J. Friend</a>
                                             </td>
                                             <td>
@@ -167,7 +167,7 @@
 
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-3.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-3.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Bryan J. Luellen</a>
                                             </td>
                                             <td>
@@ -185,7 +185,7 @@
                                         </tr>
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-8.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-8.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Kathryn S.
                                                     Collier</a>
                                             </td>
@@ -204,7 +204,7 @@
                                         </tr>
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-1.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-1.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Timothy Kauper</a>
                                             </td>
                                             <td>
@@ -222,7 +222,7 @@
                                         </tr>
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-5.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-5.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Zara Raws</a>
                                             </td>
                                             <td>
@@ -241,7 +241,7 @@
 
                                         <tr>
                                             <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-6.jpg" alt="table-user" class="me-2 avatar-sm rounded-circle">
+                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-6.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
                                                 <a href="javascript:void(0);" class="text-body font-weight-semibold">Mike John</a>
                                             </td>
                                             <td>
@@ -275,7 +275,7 @@
 
                         <div class="card-bod">
                             <div class="table-responsive">
-                                <table class="table table-hover table-centered table-nowrap mb-0">
+                                <table class="table-hover table-centered table-nowrap mb-0 table">
                                     <thead>
                                         <tr>
                                             <th>Card Number</th>
@@ -287,20 +287,20 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">4257 **** ****
+                                                <h5 class="font-size-15 font-weight-normal mb-1">4257 **** ****
                                                     7852</h5>
                                                 <span class="text-muted font-size-12">11 April 2019</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">$79.49</h5>
+                                                <h5 class="font-size-15 font-weight-normal mb-1">$79.49</h5>
                                                 <span class="text-muted font-size-12">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-17 mb-1 font-weight-normal"><i class="fab fa-cc-visa"></i></h5>
+                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
                                                 <span class="text-muted font-size-12">Card</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">Helen Warren
+                                                <h5 class="font-size-15 font-weight-normal mb-1">Helen Warren
                                                 </h5>
                                                 <span class="text-muted font-size-12">Pay</span>
                                             </td>
@@ -308,20 +308,20 @@
 
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">4265 **** ****
+                                                <h5 class="font-size-15 font-weight-normal mb-1">4265 **** ****
                                                     0025</h5>
                                                 <span class="text-muted font-size-12">28 Jan 2019</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">$1254.00</h5>
+                                                <h5 class="font-size-15 font-weight-normal mb-1">$1254.00</h5>
                                                 <span class="text-muted font-size-12">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-17 mb-1 font-weight-normal"><i class="fab fa-cc-stripe"></i></h5>
+                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-stripe"></i></h5>
                                                 <span class="text-muted font-size-12">Card</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">Kayla Lambie
+                                                <h5 class="font-size-15 font-weight-normal mb-1">Kayla Lambie
                                                 </h5>
                                                 <span class="text-muted font-size-12">Pay</span>
                                             </td>
@@ -329,20 +329,20 @@
 
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">5570 **** ****
+                                                <h5 class="font-size-15 font-weight-normal mb-1">5570 **** ****
                                                     8547</h5>
                                                 <span class="text-muted font-size-12">08 Dec 2024</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">$784.25</h5>
+                                                <h5 class="font-size-15 font-weight-normal mb-1">$784.25</h5>
                                                 <span class="text-muted font-size-12">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-17 mb-1 font-weight-normal"><i class="fab fa-cc-amazon-pay"></i></h5>
+                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-amazon-pay"></i></h5>
                                                 <span class="text-muted font-size-12">Card</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">Hugo Lavarack
+                                                <h5 class="font-size-15 font-weight-normal mb-1">Hugo Lavarack
                                                 </h5>
                                                 <span class="text-muted font-size-12">Pay</span>
                                             </td>
@@ -350,20 +350,20 @@
 
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">7845 **** ****
+                                                <h5 class="font-size-15 font-weight-normal mb-1">7845 **** ****
                                                     5214</h5>
                                                 <span class="text-muted font-size-12">03 Dec 2024</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">$485.24</h5>
+                                                <h5 class="font-size-15 font-weight-normal mb-1">$485.24</h5>
                                                 <span class="text-muted font-size-12">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-17 mb-1 font-weight-normal"><i class="fab fa-cc-visa"></i></h5>
+                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
                                                 <span class="text-muted font-size-12">Card</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">Amber Scurry
+                                                <h5 class="font-size-15 font-weight-normal mb-1">Amber Scurry
                                                 </h5>
                                                 <span class="text-muted font-size-12">Pay</span>
                                             </td>
@@ -371,20 +371,20 @@
 
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">4257 **** ****
+                                                <h5 class="font-size-15 font-weight-normal mb-1">4257 **** ****
                                                     7852</h5>
                                                 <span class="text-muted font-size-12">12 Nov 2024</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">$8964.04</h5>
+                                                <h5 class="font-size-15 font-weight-normal mb-1">$8964.04</h5>
                                                 <span class="text-muted font-size-12">Amount</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-17 mb-1 font-weight-normal"><i class="fab fa-cc-visa"></i></h5>
+                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
                                                 <span class="text-muted font-size-12">Card</span>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-15 mb-1 font-weight-normal">Caitlyn Gibney
+                                                <h5 class="font-size-15 font-weight-normal mb-1">Caitlyn Gibney
                                                 </h5>
                                                 <span class="text-muted font-size-12">Pay</span>
                                             </td>

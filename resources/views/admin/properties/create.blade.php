@@ -32,24 +32,18 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Create New Property Listing</h4>
+
                             <p class="card-subtitle">Enter your property data according to the form below.</p>
                         </div>
                         <div class="card-body">
 
                             <form method="POST" action="{{ route('properties.store') }}">
                                 @csrf
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control @error('propertiesName') border-invalid-form @enderror" id="propertiesName" name="propertiesName" placeholder="Input Properties Name">
-                                    <label for="propertiesName">Properties Name</label>
 
-                                    @error('propertiesName')
-                                        <div class="invalid-form">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
+                                <x-admin-floating-form type="text" className="col-md-12" label="Properties Name" name="propertiesName" />
 
                                 <div class="row">
+
                                     <div class="col-md-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="statusListing" name="statusListing" aria-label="Floating label select example">
@@ -72,57 +66,23 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="propertiesSize" name="propertiesSize" placeholder="Enter Email address">
-                                            <label for="propertiesSize">Properties Size</label>
-                                        </div>
-                                    </div>
+                                    <x-admin-floating-form type="number" className="col-md-4" label="Properties Size" name="propertiesSize" />
+
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="numberBedroom" name="numberBedroom" placeholder="Enter Email address">
-                                            <label for="numberBedroom">Number Bedroom</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="numberBathroom" name="numberBathroom" placeholder="Enter Email address">
-                                            <label for="numberBathroom">Number Bathroom</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="yearBuild" name="yearBuild" placeholder="Enter Email address">
-                                            <label for="yearBuild">Year Build</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="maxPeople" name="maxPeople" placeholder="Enter Email address">
-                                            <label for="maxPeople">Max People</label>
-                                        </div>
-                                    </div>
+                                    <x-admin-floating-form type="number" className="col-md-3" label="Number Bedroom" name="numberBedroom" />
+                                    <x-admin-floating-form type="number" className="col-md-3" label="Number Bathroom" name="numberBathroom" />
+                                    <x-admin-floating-form type="number" className="col-md-3" label="Year Build" name="yearBuild" />
+                                    <x-admin-floating-form type="number" className="col-md-3" label="Max People" name="maxPeople" />
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="priceIDR" name="priceIDR" placeholder="Input IDR Price">
-                                            <label for="priceIDR">Price Per Month (IDR)</label>
-                                        </div>
-                                    </div>
+                                    <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (IDR)" name="priceIDR" />
+                                    <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (USD) " name="priceUSD" disabled />
 
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="priceUSD" name="priceUSD" placeholder="Input USD Price">
-                                            <label for="priceUSD">Price Per Month (USD)</label>
-                                        </div>
-                                    </div>
+                                    <input type="hidden" name="usd_price" id="usd_price_raw">
+                                    <p id="exchange_rate_info" class="d-none"></p>
+
                                 </div>
 
                                 <div class="row">
@@ -130,8 +90,10 @@
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="region" name="region" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>Choose Region</option>
-                                                <option value="Pending">Pending</option>
-                                                <option value="Listing">Listing</option>
+                                                @foreach ($regions as $region)
+                                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                                @endforeach
+
                                             </select>
                                             <label for="region">Region</label>
                                         </div>
@@ -140,9 +102,7 @@
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="subRegion" name="subRegion" aria-label="Floating label select example">
-                                                <option selected="" disabled readonly>Choose Sub Region</option>
-                                                <option value="Villa">Villa</option>
-                                                <option value="Appartement">Appartement</option>
+                                                <option selected="" disabled readonly>--Select Region--</option>
                                             </select>
                                             <label for="subRegion">Sub Region</label>
                                         </div>
@@ -193,6 +153,7 @@
     <script src="{{ asset('admin') }}/assets/js/pages/form-advanced.js"></script>
 
     <script src="{{ asset('admin/assets/js/cleave.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
         const cleaveFields = [{
@@ -219,4 +180,106 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const regionSelect = document.getElementById('region');
+            const subregionSelect = document.getElementById('subRegion');
+
+            regionSelect.addEventListener('change', function() {
+                const regionId = this.value;
+
+                subregionSelect.innerHTML = '<option value="">-- Select Sub Region --</option>';
+                subregionSelect.disabled = true;
+
+                if (regionId) {
+                    fetch(`/get-subregions/${regionId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            data.forEach(subregion => {
+                                const option = document.createElement('option');
+                                option.value = subregion.id;
+                                option.text = subregion.name;
+                                subregionSelect.appendChild(option);
+                            });
+
+                            subregionSelect.disabled = false;
+                        })
+                        .catch(error => console.error('Error fetching subregions:', error));
+                }
+            });
+        });
+    </script>
+
+    {{-- Convert IDR to USD --}}
+    <script>
+        const defaultKurs = 15000;
+        const cacheKey = 'usd_to_idr_rate';
+        const cacheTimeKey = 'usd_to_idr_rate_time';
+        const cacheTTL = 10 * 60 * 2000; // 20 minutes
+
+        // debounce / batasi eksekusi fungsi (ketika user ketik angka)
+        function debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        function formatCurrency(value, locale, currency, fraction = 2) {
+            return new Intl.NumberFormat(locale, {
+                style: 'currency',
+                currency: currency,
+                minimumFractionDigits: fraction
+            }).format(value);
+        }
+
+        async function getExchangeRate() {
+            const now = new Date().getTime();
+            const storedRate = localStorage.getItem(cacheKey);
+            const storedTime = localStorage.getItem(cacheTimeKey);
+
+            if (storedRate && storedTime && (now - parseInt(storedTime)) < cacheTTL) {
+                return parseFloat(storedRate);
+            }
+
+            try {
+                const response = await axios.get('https://api.exchangerate-api.com/v4/latest/USD');
+                const rate = response.data.rates.IDR;
+                localStorage.setItem(cacheKey, rate);
+                localStorage.setItem(cacheTimeKey, now);
+                return rate;
+            } catch (error) {
+                console.error("Gagal mengambil kurs dari API:", error);
+                return defaultKurs;
+            }
+        }
+
+        async function handleIDRInput() {
+
+            const idrInput = document.getElementById('priceIDR');
+
+            const idrValue = parseFloat(idrInput.value.replace(/[^0-9]/g, '')) || 0;
+
+
+            // if (idrValue <= 0) return;
+
+            const rate = await getExchangeRate();
+            document.getElementById('exchange_rate_info').textContent = `1 USD = ${formatCurrency(rate, 'id-ID', 'IDR', 0)}`;
+            const usdValue = idrValue / rate;
+
+            console.log(idrValue);
+
+
+            // Update USD values
+            document.getElementById('priceUSD').value = formatCurrency(usdValue, 'en-US', 'USD');
+            document.getElementById('usd_price_raw').value = usdValue.toFixed(2);
+
+        }
+
+        document.getElementById('priceIDR').addEventListener('input', debounce(handleIDRInput, 400));
+    </script>
+
+    {{-- /* Convert IDR to USD --}}
 @endpush
