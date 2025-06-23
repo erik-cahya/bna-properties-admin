@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('properties_code');
             $table->string('properties_name');
             $table->text('slug');
+            $table->text('description');
             $table->string('region');
             $table->string('sub_region');
             $table->text('address');
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->integer('max_people');
             $table->decimal('price_idr', 18, 2);
             $table->decimal('price_usd', 18, 2);
+            $table->tinyInteger('status_listing')->comment('1 : Listing | 2:Pending | 0:Cancelled');
 
             $table->timestamps();
         });

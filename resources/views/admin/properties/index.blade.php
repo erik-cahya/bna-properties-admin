@@ -51,7 +51,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <div class="d-flex gap-2 text-start">
-                                                <img src="{{ asset('bna-assets/Property/p-1.jpg') }}" alt="" class="avatar-md border-light border-3 rounded border">
+                                                <img src="{{ asset($properties?->featuredImage->image_path ?? 'admin/assets/images/placeholder.webp') }}" alt="" class="avatar-md border-light border-3 rounded border">
                                                 <div class="align-self-center d-flex flex-column">
                                                     <span class="fw-medium fs-5">{{ $properties->properties_name }}</span>
                                                     <hr class="m-1">
@@ -82,14 +82,23 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column gap-1">
-                                                <span class="badge bg-danger ms-auto">Cancelled</span>
-                                                <span class="badge bg-dark text-light ms-auto">{{ $properties->type_properties }}</span>
-                                                <span class="badge bg-dark text-light ms-auto">{{ $properties->max_people }} Max People</span>
+                                                @php
+                                                    if($properties->status_listing == 1){
+                                                        $label = 'Listing';
+                                                        $className = 'bg-success';
+                                                    }else{
+                                                        $label = 'Pending';
+                                                        $className = 'bg-warning';
+                                                    }
+                                                @endphp
+                                                <span class="badge {{ $className }} ms-auto"><i class="mdi mdi-bed"></i> {{ $label }}</span>
+                                                <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-home"></i> {{ $properties->type_properties }}</span>
+                                                <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-human-female-boy"></i> {{ $properties->max_people }} Max People</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="btn-group mb-2 me-1">
-                                                <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></button>
+                                                <a href="{{ route('properties.show', $properties->slug) }}" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                                 <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
 
                                                 <input type="hidden" class="propertyId" value="{{ $properties->id }}">

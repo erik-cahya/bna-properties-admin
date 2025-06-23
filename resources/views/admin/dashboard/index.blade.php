@@ -98,33 +98,7 @@
             </div>
             <!-- end row-->
 
-            <div class="row">
-                <div class="col-xl-4 col-lg-5">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">All Time Best Products</h4>
-                            <p class="card-subtitle">From date of 1st Jan 2019 to continue</p>
-                        </div>
 
-                        <div class="card-body">
-                            <div id="morris-donut-example" class="morris-chart"></div>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-
-                <div class="col-xl-8 col-lg-7">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Sales Analytics</h4>
-                            <p class="card-subtitle">From date of 1st Jan 2019 to continue</p>
-                        </div>
-                        <div class="card-body">
-                            <div id="morris-bar-example" class="morris-chart"></div>
-                        </div>
-                    </div>
-                </div> <!-- end col-->
-            </div>
-            <!-- end row-->
 
             <div class="row">
                 <div class="col-xl-6">

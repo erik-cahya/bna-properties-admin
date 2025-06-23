@@ -37,10 +37,25 @@
                         </div>
                         <div class="card-body">
 
-                            <form method="POST" action="{{ route('properties.store') }}">
+                            <form method="POST" action="{{ route('properties.store') }}" enctype="multipart/form-data" id="galleryForm">
                                 @csrf
 
                                 <x-admin-floating-form type="text" className="col-md-12" label="Properties Name" name="propertiesName" />
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-2">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 80px"></textarea>
+                                            <label for="description">Description</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-2">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="address" name="address" style="height: 80px"></textarea>
+                                            <label for="address">Address</label>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="row">
 
@@ -109,10 +124,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-floating mb-2">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="address" name="address" style="height: 100px"></textarea>
-                                    <label for="address">Address</label>
-                                </div>
 
                                 <h4 class="my-3">Features</h4>
 
@@ -120,11 +131,29 @@
                                     @foreach ($data_features as $features)
                                         <div class="col-4">
                                             <div class="form-check my-2">
-                                                <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="{{ $features->slug }}" data-size="small" />
+                                                <input type="checkbox" data-plugin="switchery" data-color="#64b0f2" name="feature[{{ $features->slug }}]" data-size="small" />
                                                 <label class="form-check-label" for="flexCheckChecked">{{ $features->name }}</label>
                                             </div>
                                         </div>
                                     @endforeach
+                                </div>
+
+                                <h4 class="my-3">Gallery</h4>
+
+                                <div class="col-lg-12 mb-3">
+                                    <label for="gallery" class="form-label">Property Gallery (min 4)</label>
+
+                                    <input type="file" name="images[]" id="imageInput" multiple accept="image/*" class="form-control mb-1">
+                                    <div id="previewContainer" class="d-flex flex-wrap gap-3"></div>
+
+                                    <input type="hidden" name="order" id="imageOrder">
+
+                                    @error('images')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+
                                 </div>
 
                                 <div>
@@ -282,4 +311,55 @@
     </script>
 
     {{-- /* Convert IDR to USD --}}
+
+
+    {{-- ######################### Gallery Upload ######################### --}}
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const imageOrder = document.getElementById('imageOrder');
+        const galleryForm = document.getElementById('galleryForm');
+        let files = [];
+
+        imageInput.addEventListener('change', (e) => {
+            files = Array.from(e.target.files);
+            previewContainer.innerHTML = '';
+
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const imgDiv = document.createElement('div');
+                    imgDiv.classList.add('img-preview');
+                    imgDiv.setAttribute('data-index', index);
+                    imgDiv.innerHTML = `
+                              <img src="${event.target.result}" alt="Image Preview"
+                                   style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc; padding: 4px;">
+                              <p class="text-center mt-1">Image ${index + 1}</p>
+                         `;
+                    previewContainer.appendChild(imgDiv);
+                };
+                reader.readAsDataURL(file);
+            });
+
+            updateOrder();
+        });
+
+        function updateOrder() {
+            const items = document.querySelectorAll('.img-preview');
+            imageOrder.value = Array.from(items).map(item => item.getAttribute('data-index')).join(',');
+        }
+
+        new Sortable(previewContainer, {
+            animation: 150,
+            onEnd: () => updateOrder(),
+        });
+
+        // 👇 Tambahkan ini agar order selalu terupdate saat form disubmit
+        galleryForm.addEventListener('submit', function(e) {
+            updateOrder(); // pastikan order diperbarui dulu
+        });
+    </script>
+    {{-- /* Gallery Upload */ --}}
 @endpush

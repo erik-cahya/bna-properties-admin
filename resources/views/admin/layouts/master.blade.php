@@ -102,6 +102,8 @@
     <!-- Dashboard init-->
     <script src="{{ asset('admin') }}/assets/js/pages/dashboard.js"></script>
     <script src="{{ asset('admin/assets/js/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/iconify.min.js') }}"></script>
+
 
     <script>
         @if (session('flashData'))
@@ -115,6 +117,8 @@
             });
         @endif
     </script>
+
+
 
     @stack('script')
 

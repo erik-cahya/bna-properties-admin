@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeatureListModel;
+use App\Models\FeaturePropertyModel;
 use App\Models\PropertiesModel;
+use App\Models\PropertyGalleryImageModel;
+use App\Models\PropertyGalleryModel;
 use App\Models\RegionModel;
 use App\Models\SubRegionModel;
 use Carbon\Carbon;
@@ -12,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 
 class PropertyController extends Controller
@@ -21,7 +25,11 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $data['data_properties'] = PropertiesModel::get();
+        $data['data_properties'] = PropertiesModel::with(['featuredImage' => function ($query) {
+                    $query->select('image_path', 'property_gallery.id');
+                    $query->where('is_featured', 1);
+                }])->get();
+
         return view('admin.properties.index', $data);
     }
 
@@ -64,10 +72,16 @@ class PropertyController extends Controller
         $region = RegionModel::where('id', $request->region)->first();
         $subregion = SubRegionModel::where('id', $request->subRegion)->first();
 
-        PropertiesModel::create([
+        $slug = Str::slug($request->propertiesName);
+
+        // ==========================================================================================================================================
+        // ########### Create Property Listing
+        // ==========================================================================================================================================
+        $propertyCreate = PropertiesModel::create([
             'properties_code' => 'BNA-' . random_int(1000000000, 9999999999),
             'properties_name' => $request->propertiesName,
-            'slug' => Str::slug($request->propertiesName),
+            'slug' => $slug,
+            'description' => $request->description,
             'region' => $region->name,
             'sub_region' => $subregion->name,
             'address' => $request->address,
@@ -79,7 +93,49 @@ class PropertyController extends Controller
             'max_people' => $request->maxPeople,
             'price_idr' => $idrPrice,
             'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
+            'status_listing' => $request->statusListing == 'Pending' ? 2 : 1,
         ]);
+
+        // ==========================================================================================================================================
+        // ########### Create Property Feature Data
+        // ==========================================================================================================================================
+        foreach ($request->feature as $index => $feature) {
+            $idFeature = FeatureListModel::select('id')->where('slug', $index)->first();
+            FeaturePropertyModel::create([
+                'properties_id' => $propertyCreate->id,
+                'feature_id' => $idFeature->id
+            ]);
+        }
+
+        // ==========================================================================================================================================
+        // ############## Gallery Handler ##############
+        // ==========================================================================================================================================
+        $gallery = PropertyGalleryModel::create([
+            'properties_id' => $propertyCreate->id,
+            'description' => 'deskripsi',
+        ]);
+
+        if (!file_exists(public_path('admin/gallery/' . $slug))) {
+            mkdir(public_path('admin/gallery/' . $slug), 0755, true);
+        }
+
+        $order = explode(',', $request->order);
+
+        foreach ($order as $i => $index) {
+            if (isset($request->images[$index])) {
+                $image = $request->images[$index];
+                $filename = Str::uuid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('admin/gallery/' . $slug), $filename);
+
+                PropertyGalleryImageModel::create([
+                    'gallery_id' => $gallery->id,
+                    'image_path' => 'admin/gallery/' . $slug . '/' . $filename,
+                    'order' => $i,
+                    'is_featured' => $i === 0,
+                ]);
+            }
+        }
+        // /* Gallery Handler
 
         $flashData = [
             'judul' => 'Listing Success',
@@ -92,9 +148,10 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $data['dataProperties'] = PropertiesModel::where('slug', $slug)->first();
+        return view('admin.properties.details', $data);
     }
 
     /**
@@ -118,7 +175,18 @@ class PropertyController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $slug = PropertiesModel::where('id', $id)->first();
+
+        // Delete File Gallery
+        if (file_exists(public_path('admin/gallery/' . $slug->property_slug))) {
+            File::deleteDirectory(public_path('admin/gallery/' . $slug->property_slug));
+        };
+
+        // Delete File Attachment
+        if (file_exists(public_path('admin/attachment/' . $slug->property_slug))) {
+            File::deleteDirectory(public_path('admin/attachment/' . $slug->property_slug));
+        };
+
         PropertiesModel::destroy($id);
         $flashData = [
             'judul' => 'Delete Success',
