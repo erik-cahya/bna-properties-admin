@@ -71,6 +71,7 @@
 
                                                 <span class="font-size-12"><i class="mdi mdi-bed"></i> {{ $properties->number_bedroom }} Bedroom</span>
                                                 <span class="font-size-12"><i class="mdi mdi-shower"></i> {{ $properties->number_bathroom }} Bathroom</span>
+                                                <span class="font-size-12"><i class="mdi mdi-human-female-boy"></i> {{ $properties->max_people }} Max People</span>
                                             </div>
                                         </td>
                                         <td>
@@ -91,9 +92,8 @@
                                                         $className = 'bg-warning';
                                                     }
                                                 @endphp
-                                                <span class="badge {{ $className }} ms-auto"><i class="mdi mdi-bed"></i> {{ $label }}</span>
+                                                <span class="badge {{ $className }} ms-auto"><iconify-icon icon="mdi:home"></iconify-icon> {{ $label }}</span>
                                                 <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-home"></i> {{ $properties->type_properties }}</span>
-                                                <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-human-female-boy"></i> {{ $properties->max_people }} Max People</span>
                                             </div>
                                         </td>
                                         <td>

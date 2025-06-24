@@ -26,9 +26,9 @@ class PropertyController extends Controller
     public function index()
     {
         $data['data_properties'] = PropertiesModel::with(['featuredImage' => function ($query) {
-                    $query->select('image_path', 'property_gallery.id');
-                    $query->where('is_featured', 1);
-                }])->get();
+            $query->select('image_path', 'property_gallery.id');
+            $query->where('is_featured', 1);
+        }])->get();
 
         return view('admin.properties.index', $data);
     }
@@ -150,7 +150,19 @@ class PropertyController extends Controller
      */
     public function show(string $slug)
     {
-        $data['dataProperties'] = PropertiesModel::where('slug', $slug)->first();
+        $data['dataProperties'] = PropertiesModel::where('slug', $slug)->with(['featuredImage' => function ($query) {
+            $query->select('image_path', 'property_gallery.id');
+            $query->where('is_featured', 1);
+        }])->first();
+
+        $data['feature_list'] = FeaturePropertyModel::where('properties_id', $data['dataProperties']->id)
+            ->join('feature_list', 'feature_list.id', '=', 'feature_property.feature_id')
+            ->select('feature_list.name as feature_name')
+            ->get();
+
+        $data['image_gallery'] = PropertyGalleryImageModel::where('gallery_id', $data['dataProperties']['featuredImage']->id)->get();
+
+
         return view('admin.properties.details', $data);
     }
 
