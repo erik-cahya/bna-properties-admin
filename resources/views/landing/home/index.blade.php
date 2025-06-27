@@ -353,7 +353,7 @@
     <!-- ABOUT US AREA END -->
 
     {{-- PRODUCT SLIDER --}}
-    @include('landing.section.property-slide')
+    @include('landing.home.section.property-slide')
     {{-- /* END PRODUCT SLIDER --}}
 
     <!-- ABOUT US AREA START -->

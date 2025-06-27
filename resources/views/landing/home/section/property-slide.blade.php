@@ -1,4 +1,6 @@
 <!-- PRODUCT SLIDER AREA START -->
+{{ dd($data_properties) }}
+
 <div class="ltn__product-slider-area ltn__product-gutter pb-90 plr--7 pt-100">
     <div class="container-fluid">
         <div class="row">

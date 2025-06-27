@@ -79,7 +79,7 @@
                             <div class="ltn__main-menu">
                                 <ul>
                                     <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
-                                    <li><a href="contact.html">About Us</a></li>
+                                    <li><a href="about.html">About Us</a></li>
 
                                     <li class="menu-icon"><a href="shop.html">Property</a>
                                         <ul>
@@ -102,7 +102,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a style="{{ Route::is('landing.contact') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
                                     <li class="special-link">
                                         <a href="{{ route('login') }}">Login Panel</a>
                                     </li>
@@ -209,11 +209,11 @@
                         <li><a href="add-listing.html">Add Listing</a></li>
                         <li><a href="locations.html">Google Map Locations</a></li>
                         <li><a href="404.html">404</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
             </ul>
         </div>
 

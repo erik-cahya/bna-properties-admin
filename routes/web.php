@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\PropertiesFeatureController;
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Landing\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('landing.home.index');
-})->name('landing.index');
+
+Route::get('/', [HomeController::class, 'index'])->name('landing.index');
+
+Route::get('/contacts', function () {
+    return view('landing.contact.index');
+})->name('landing.contact');
 
 
 Route::get('/dashboard', function () {
