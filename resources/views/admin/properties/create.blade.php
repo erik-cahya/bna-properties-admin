@@ -124,7 +124,6 @@
                                     </div>
                                 </div>
 
-
                                 <h4 class="my-3">Features</h4>
 
                                 <div class="row mb-3">
@@ -311,7 +310,6 @@
     </script>
 
     {{-- /* Convert IDR to USD --}}
-
 
     {{-- ######################### Gallery Upload ######################### --}}
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>

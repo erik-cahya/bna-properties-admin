@@ -84,10 +84,10 @@
                                         <td>
                                             <div class="d-flex flex-column gap-1">
                                                 @php
-                                                    if($properties->status_listing == 1){
+                                                    if ($properties->status_listing == 1) {
                                                         $label = 'Listing';
                                                         $className = 'bg-success';
-                                                    }else{
+                                                    } else {
                                                         $label = 'Pending';
                                                         $className = 'bg-warning';
                                                     }

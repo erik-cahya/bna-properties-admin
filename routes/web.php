@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('landing.index');
-});
+    return view('landing.home.index');
+})->name('landing.index');
 
 
 Route::get('/dashboard', function () {
