@@ -72,7 +72,7 @@ class PropertyController extends Controller
         $region = RegionModel::where('id', $request->region)->first();
         $subregion = SubRegionModel::where('id', $request->subRegion)->first();
 
-        $slug = Str::slug($request->propertiesName);
+        $slug = $this->generateSlug($request->propertiesName);
 
         // ==========================================================================================================================================
         // ########### Create Property Listing
@@ -93,7 +93,7 @@ class PropertyController extends Controller
             'max_people' => $request->maxPeople,
             'price_idr' => $idrPrice,
             'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
-            'status_listing' => $request->statusListing == 'Pending' ? 2 : 1,
+            'status_listing' => $request->statusListing,
         ]);
 
         // ==========================================================================================================================================
@@ -231,5 +231,20 @@ class PropertyController extends Controller
         $subregions = SubRegionModel::where('region_id', $regionId)->get();
 
         return response()->json($subregions);
+    }
+
+    private function generateSlug($name)
+    {
+        $baseSlug = Str::slug($name);
+        $slug = $baseSlug;
+        $counter = 2;
+
+        // Cek property slug if exist in database
+        while (PropertiesModel::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }

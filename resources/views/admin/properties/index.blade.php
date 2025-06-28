@@ -84,8 +84,8 @@
                                         <td>
                                             <div class="d-flex flex-column gap-1">
                                                 @php
-                                                    if ($properties->status_listing == 1) {
-                                                        $label = 'Listing';
+                                                    if ($properties->status_listing == 'For Rent') {
+                                                        $label = 'For Rent';
                                                         $className = 'bg-success';
                                                     } else {
                                                         $label = 'Pending';
@@ -93,12 +93,13 @@
                                                     }
                                                 @endphp
                                                 <span class="badge {{ $className }} ms-auto"><iconify-icon icon="mdi:home"></iconify-icon> {{ $label }}</span>
+
                                                 <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-home"></i> {{ $properties->type_properties }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="btn-group mb-2 me-1">
-                                                <a href="{{ route('properties.show', $properties->slug) }}" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                                <a href="{{ route('landing.properties.detail', $properties->slug) }}" target="_blank" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                                 <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
 
                                                 <input type="hidden" class="propertyId" value="{{ $properties->id }}">
@@ -148,7 +149,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Kirim DELETE request manual lewat JavaScript
-                            fetch('/properties/' + propertyId, {
+                            fetch('/panel/properties/' + propertyId, {
                                     method: 'DELETE',
                                     headers: {
                                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

@@ -32,7 +32,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Create New Property Listing</h4>
-
                             <p class="card-subtitle">Enter your property data according to the form below.</p>
                         </div>
                         <div class="card-body">
@@ -64,7 +63,7 @@
                                             <select class="form-select" id="statusListing" name="statusListing" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>Choose Status Listing</option>
                                                 <option value="Pending">Pending</option>
-                                                <option value="Listed">Listed</option>
+                                                <option value="For Rent">For Rent</option>
                                             </select>
                                             <label for="statusListing">Status Listing</label>
                                         </div>
@@ -97,7 +96,6 @@
 
                                     <input type="hidden" name="usd_price" id="usd_price_raw">
                                     <p id="exchange_rate_info" class="d-none"></p>
-
                                 </div>
 
                                 <div class="row">
@@ -137,10 +135,10 @@
                                     @endforeach
                                 </div>
 
-                                <h4 class="my-3">Gallery</h4>
+                                <h4 class="mt-4">Gallery</h4>
+                                <p class="card-subtitle">The first image is the featured image</p>
 
-                                <div class="col-lg-12 mb-3">
-                                    <label for="gallery" class="form-label">Property Gallery (min 4)</label>
+                                <div class="col-lg-12 mb-3 mt-4">
 
                                     <input type="file" name="images[]" id="imageInput" multiple accept="image/*" class="form-control mb-1">
                                     <div id="previewContainer" class="d-flex flex-wrap gap-3"></div>

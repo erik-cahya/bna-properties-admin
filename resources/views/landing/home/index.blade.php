@@ -1,4 +1,4 @@
-@extends('landing.layouts.master')
+@extends('landing.layouts.landing-master')
 @section('content')
     <!-- SLIDER AREA START (slider-11) -->
     <div class="ltn__slider-area ltn__slider-11 ltn__slider-11-slide-item-count-show--- ltn__slider-11-pagination-count-show--- section-bg-1">

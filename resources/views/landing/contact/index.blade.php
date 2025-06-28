@@ -1,4 +1,4 @@
-@extends('landing.layouts.master')
+@extends('landing.layouts.landing-master')
 @section('content')
     <!-- BREADCRUMB AREA START -->
     <div class="ltn__breadcrumb-area bg-overlay-white-30 bg-image text-left" data-bs-bg="img/bg/14.jpg">

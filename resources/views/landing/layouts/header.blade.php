@@ -79,29 +79,9 @@
                             <div class="ltn__main-menu">
                                 <ul>
                                     <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
+                                    <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
 
-                                    <li class="menu-icon"><a href="shop.html">Property</a>
-                                        <ul>
-                                            <li><a href="shop.html">Property Grid</a></li>
-                                            <li><a href="shop-list.html">Property List</a></li>
-                                            <li><a href="shop-grid.html">Property No Sidebar</a></li>
-                                            <li><a href="shop-left-sidebar.html">Property Left sidebar</a></li>
-                                            <li><a href="shop-right-sidebar.html">Property right sidebar</a></li>
-                                            <li><a href="product-details.html">Property details </a></li>
-                                            <li><a href="#">Other Pages <span class="float-end">>></span></a>
-                                                <ul>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="order-tracking.html">Order Tracking</a></li>
-                                                    <li><a href="account.html">My Account</a></li>
-                                                    <li><a href="login.html">Sign in</a></li>
-                                                    <li><a href="register.html">Register</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li><a style="{{ Route::is('landing.contact') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
                                     <li class="special-link">
                                         <a href="{{ route('login') }}">Login Panel</a>
