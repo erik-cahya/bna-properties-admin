@@ -190,13 +190,8 @@ class PropertyController extends Controller
         $slug = PropertiesModel::where('id', $id)->first();
 
         // Delete File Gallery
-        if (file_exists(public_path('admin/gallery/' . $slug->property_slug))) {
-            File::deleteDirectory(public_path('admin/gallery/' . $slug->property_slug));
-        };
-
-        // Delete File Attachment
-        if (file_exists(public_path('admin/attachment/' . $slug->property_slug))) {
-            File::deleteDirectory(public_path('admin/attachment/' . $slug->property_slug));
+        if (file_exists(public_path('admin/gallery/' . $slug->slug))) {
+            File::deleteDirectory(public_path('admin/gallery/' . $slug->slug));
         };
 
         PropertiesModel::destroy($id);
