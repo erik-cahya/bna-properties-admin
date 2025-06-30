@@ -1,41 +1,42 @@
-<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent--- gradient-color-4--- bg-light">
+<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent--- gradient-color-4---">
     <!-- ltn__header-middle-area start -->
     <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <span class="fw-bold text-dark fs-12">Free Consultation : +62</span>
-                </div>
-                <div class="col-lg-6 d-flex justify-content-end gap-2">
-                    <iconify-icon style="font-size: 20px; color:#061D20" icon="hugeicons:instagram"></iconify-icon>
-                    <iconify-icon style="font-size: 20px; color:#061D20" icon="ic:twotone-whatsapp"></iconify-icon>
-                    <iconify-icon style="font-size: 20px; color:#061D20" icon="mdi:linkedin"></iconify-icon>
-
-                </div>
-            </div>
-            <div class="row mt-3 bg-white p-2 px-5" style="border-radius: 10px">
-                <div class="col-lg-4 col-sm-6">
-                    <img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" width="100">
-                </div>
-                <div class="col-lg-4">
-                    <nav>
-                        <div class="ltn__main-menu">
-                            <ul>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
-
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
-                            </ul>
+                <div class="col">
+                    <div class="site-logo-wrap">
+                        <div class="site-logo">
+                            <a href="index.html"><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="Logo" width="120px"></a>
                         </div>
-                    </nav>
-
+                        <div class="get-support clearfix d-none">
+                            <div class="get-support-icon">
+                                <i class="icon-call"></i>
+                            </div>
+                            <div class="get-support-info">
+                                <h6>Get Support</h6>
+                                <h4><a href="tel:+123456789">123-456-789-10</a></h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-end">
-                    <button class="btn d-flex theme-btn-1 btn-effect-1 gap-1 rounded py-2" style="font-size: 12px">
-                        Search
-                        <iconify-icon style="font-size: 20px;" icon="ic:baseline-search"></iconify-icon>
-                    </button>
+
+                <div class="col header-menu-column">
+                    <div class="header-menu d-none d-xl-block">
+                        <nav>
+                            <div class="ltn__main-menu">
+                                <ul>
+                                    <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
+                                    <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
+                                    <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
+
+                                    <li><a style="{{ Route::is('landing.contact') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
+                                    <li class="special-link">
+                                        <a href="{{ route('login') }}">Login Panel</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
 
                 <div class="col--- ltn__header-options ltn__header-options-2">
@@ -50,9 +51,7 @@
                         </a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
     <!-- ltn__header-middle-area end -->
