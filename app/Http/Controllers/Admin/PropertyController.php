@@ -48,6 +48,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'propertiesName' => 'required:min:4',
             'statusListing' => 'required',
@@ -57,8 +58,8 @@ class PropertyController extends Controller
             'propertiesSize' => 'required',
             'yearBuild' => 'required',
             'maxPeople' => 'required',
-            'priceIDR' => 'required',
-            // 'priceUSD' => 'required',
+            // 'priceIDR' => 'required',
+            'priceUSD' => 'required',
             'region' => 'required',
             'subRegion' => 'required',
             'address' => 'required',
@@ -91,8 +92,9 @@ class PropertyController extends Controller
             'properties_size' => $request->propertiesSize,
             'year_build' => $request->yearBuild,
             'max_people' => $request->maxPeople,
-            'price_idr' => $idrPrice,
-            'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
+            'price_idr' => null,
+            // 'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
+            'price_usd' => floatval(preg_replace('/[^\d.]/', '', $request->priceUSD)),
             'status_listing' => $request->statusListing,
         ]);
 

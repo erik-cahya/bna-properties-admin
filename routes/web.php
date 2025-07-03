@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PropertiesFeatureController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Landing\HomeController;
@@ -32,8 +33,8 @@ Route::get('/contacts', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('admin.dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect()->route('dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::get('/properties/{slug}', [LandingPropertiesController::class, 'details'])->name('landing.properties.detail');
 Route::get('/properties', [LandingPropertiesController::class, 'index'])->name('landing.properties.index');
@@ -44,9 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/panel/dashboard', function () {
-        return view('admin.dashboard.index');
-    })->name('dashboard');
+    Route::get('/panel/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/panel', function () {
         return redirect()->route('dashboard');

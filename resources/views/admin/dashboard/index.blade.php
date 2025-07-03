@@ -14,7 +14,7 @@
                     <div class="col-lg-6">
                         <div class="d-none d-lg-block">
                             <ol class="breadcrumb float-end m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Drezoc</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">BNA Properties</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div>
@@ -24,88 +24,66 @@
             <!-- end page title -->
 
             <div class="row">
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-primary border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Cost per Unit</h6>
-                                    <span class="h3 mb-0"> $85.50 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Properties</h6>
+                                    <span class="h3 mb-0"> {{ $dataProperties->count() }} Properties </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-success">+7.5%</span>
+                                    <iconify-icon icon="material-symbols-light:holiday-village-outline" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
 
-                            <div id="sparkline1" class="mt-3"></div>
+                            {{-- <div id="sparkline1" class="mt-3"></div> --}}
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-success border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Market Revenue</h6>
-                                    <span class="h3 mb-0"> $12,548.25 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Transaction</h6>
+                                    <span class="h3 mb-0"> 12 Transaction </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-danger">-24.5%</span>
+                                    <iconify-icon icon="game-icons:receive-money" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
 
-                            <div id="sparkline2" class="mt-3"></div>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-warning border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Expenses</h6>
-                                    <span class="h3 mb-0"> $8,451.28 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Transaction Pending</h6>
+                                    <span class="h3 mb-0"> 14 Transaction </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-success">+3.5%</span>
+                                    <iconify-icon icon="material-symbols-light:pending-actions-sharp" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
-
-                            <div id="sparkline3" class="mt-3"></div>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Daily Visits</h6>
-                                    <span class="h3 mb-0"> 1,12,584 </span>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="badge badge-soft-success">+53.5%</span>
-                                </div>
-                            </div> <!-- end row -->
-
-                            <div id="sparkline4" class="mt-3"></div>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
             </div>
             <!-- end row-->
 
-
-
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Recent Customers</h4>
-                            <p class="card-subtitle">Transaction period from 21 July to 25 Aug</p>
+                            <h4 class="card-title">Recent Inquiry</h4>
+                            <p class="card-subtitle">Customer data that makes transactions</p>
                         </div>
                         <div class="card-ody">
                             <div class="table-responsive">
@@ -116,7 +94,7 @@
                                             <th>Phone</th>
                                             <th>Email</th>
                                             <th>Location</th>
-                                            <th>Create Date</th>
+                                            <th>Inquiry Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -229,138 +207,6 @@
                                             </td>
                                             <td>
                                                 08/07/2024
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-
-                <div class="col-xl-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Account Transactions</h4>
-                            <p class="card-subtitle">Transaction period from 21 July to 25 Aug</p>
-                        </div>
-
-                        <div class="card-bod">
-                            <div class="table-responsive">
-                                <table class="table-hover table-centered table-nowrap mb-0 table">
-                                    <thead>
-                                        <tr>
-                                            <th>Card Number</th>
-                                            <th>Amount</th>
-                                            <th>Card Type</th>
-                                            <th>User Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">4257 **** ****
-                                                    7852</h5>
-                                                <span class="text-muted font-size-12">11 April 2019</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">$79.49</h5>
-                                                <span class="text-muted font-size-12">Amount</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">Helen Warren
-                                                </h5>
-                                                <span class="text-muted font-size-12">Pay</span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">4265 **** ****
-                                                    0025</h5>
-                                                <span class="text-muted font-size-12">28 Jan 2019</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">$1254.00</h5>
-                                                <span class="text-muted font-size-12">Amount</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-stripe"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">Kayla Lambie
-                                                </h5>
-                                                <span class="text-muted font-size-12">Pay</span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">5570 **** ****
-                                                    8547</h5>
-                                                <span class="text-muted font-size-12">08 Dec 2024</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">$784.25</h5>
-                                                <span class="text-muted font-size-12">Amount</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-amazon-pay"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">Hugo Lavarack
-                                                </h5>
-                                                <span class="text-muted font-size-12">Pay</span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">7845 **** ****
-                                                    5214</h5>
-                                                <span class="text-muted font-size-12">03 Dec 2024</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">$485.24</h5>
-                                                <span class="text-muted font-size-12">Amount</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">Amber Scurry
-                                                </h5>
-                                                <span class="text-muted font-size-12">Pay</span>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">4257 **** ****
-                                                    7852</h5>
-                                                <span class="text-muted font-size-12">12 Nov 2024</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">$8964.04</h5>
-                                                <span class="text-muted font-size-12">Amount</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-15 font-weight-normal mb-1">Caitlyn Gibney
-                                                </h5>
-                                                <span class="text-muted font-size-12">Pay</span>
                                             </td>
                                         </tr>
 

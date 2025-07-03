@@ -27,7 +27,18 @@
             <!-- end page title -->
 
             <div class="row">
+                <div class="d-flex flex-wrap gap-2">
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger p-2" style="font-size: 12px" role="alert">
+                                {{ $error }}
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
 
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -85,17 +96,19 @@
                                 </div>
 
                                 <div class="row">
+                                    <x-admin-floating-form type="text" className="col-md-12" label="Price Per Month (USD)" name="priceUSD" />
+                                    {{-- <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (IDR)" name="priceIDR" /> --}}
+                                    {{-- <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (USD) " name="priceUSD" disabled /> --}}
+
+                                    {{-- <input type="hidden" name="usd_price" id="usd_price_raw"> --}}
+                                    {{-- <p id="exchange_rate_info" class="d-none"></p> --}}
+                                </div>
+
+                                <div class="row">
                                     <x-admin-floating-form type="number" className="col-md-3" label="Number Bedroom" name="numberBedroom" />
                                     <x-admin-floating-form type="number" className="col-md-3" label="Number Bathroom" name="numberBathroom" />
                                     <x-admin-floating-form type="number" className="col-md-3" label="Year Build" name="yearBuild" />
                                     <x-admin-floating-form type="number" className="col-md-3" label="Max People" name="maxPeople" />
-                                </div>
-                                <div class="row">
-                                    <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (IDR)" name="priceIDR" />
-                                    <x-admin-floating-form type="text" className="col-md-6" label="Price Per Month (USD) " name="priceUSD" disabled />
-
-                                    <input type="hidden" name="usd_price" id="usd_price_raw">
-                                    <p id="exchange_rate_info" class="d-none"></p>
                                 </div>
 
                                 <div class="row">
@@ -183,16 +196,9 @@
 
     <script>
         const cleaveFields = [{
-                id: '#priceIDR',
-                options: {
-                    prefix: 'IDR '
-                }
-            },
-            {
-                id: '#priceUSD',
-                options: {}
-            },
-        ];
+            id: '#priceUSD',
+            options: {}
+        }, ];
 
         cleaveFields.forEach(field => {
             new Cleave(field.id, {
@@ -238,7 +244,7 @@
     </script>
 
     {{-- Convert IDR to USD --}}
-    <script>
+    {{-- <script>
         const defaultKurs = 15000;
         const cacheKey = 'usd_to_idr_rate';
         const cacheTimeKey = 'usd_to_idr_rate_time';
@@ -305,8 +311,7 @@
         }
 
         document.getElementById('priceIDR').addEventListener('input', debounce(handleIDRInput, 400));
-    </script>
-
+    </script> --}}
     {{-- /* Convert IDR to USD --}}
 
     {{-- ######################### Gallery Upload ######################### --}}
