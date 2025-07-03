@@ -22,7 +22,8 @@
                             </a>
                             <div class="product-badge">
                                 <ul>
-                                    <li class="sale-badge bg-green">For Rent</li>
+                                    <li class="sale-badge bg-green">{{ $properties->status_listing }}</li>
+                                    <li class="sale-badge bg-secondary-color">{{ $properties->type_properties }}</li>
                                 </ul>
                             </div>
                             <div class="product-img-location-gallery">
@@ -37,7 +38,7 @@
                         </div>
                         <div class="product-info">
                             <div class="product-price">
-                                <span>$34,900<label>/Month</label></span>
+                                <span>$ {{ number_format($properties->price_usd, 2, ',', '.') }}<label>/Month</label></span>
                             </div>
                             <h2 class="product-title"><a href="{{ route('landing.properties.detail', $properties->slug) }}">{{ $properties->properties_name }}</a>
                             </h2>
