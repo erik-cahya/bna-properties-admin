@@ -31,7 +31,7 @@ Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 
 Route::get('/contacts', function () {
     return view('landing.contact.index');
-})->name('landing.contact');
+})->name('landing.contact.index');
 
 
 Route::get('/dashboard', function () {
@@ -57,7 +57,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/panel/properties', PropertyController::class);
     Route::resource('/panel/features', PropertiesFeatureController::class);
-    Route::resource('/panel/transaction', TransactionController::class);
 
     Route::get('/get-subregions/{regionId}', [PropertyController::class, 'getSubregions']);
 });

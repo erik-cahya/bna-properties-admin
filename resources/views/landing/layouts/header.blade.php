@@ -14,24 +14,25 @@
                 </div>
             </div>
             <div class="row mt-3 bg-white p-2 px-5" style="border-radius: 10px">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-2 col-sm-6">
                     <img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" width="100">
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-8 justify-content-center d-flex">
                     <nav>
                         <div class="ltn__main-menu">
                             <ul>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
+                                {{-- <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li> --}}
 
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
 
                 </div>
-                <div class="col-lg-4 d-flex justify-content-end">
+                <div class="col-lg-2 d-flex justify-content-end">
                     <button class="btn d-flex theme-btn-1 btn-effect-1 gap-1 rounded py-2" style="font-size: 12px">
                         Search
                         <iconify-icon style="font-size: 20px;" icon="ic:baseline-search"></iconify-icon>
@@ -71,7 +72,7 @@
                 <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                 <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
                 <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
-                <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact') }}">Contact</a></li>
+                <li><a style="{{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
             </ul>
         </div>
 

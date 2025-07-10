@@ -22,6 +22,8 @@ class BookingController extends Controller
             return redirect()->route('login');
         }
 
+        $data['bookingToday'] = BookingModel::whereDate('created_at', Carbon::today())->get();
+
         $data['bookingData'] = BookingModel::join('properties', 'properties.id', '=', 'bookings.properties_id')
             ->join('customers', 'customers.id', '=', 'bookings.customer_id')
             ->get();

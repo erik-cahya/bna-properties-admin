@@ -31,79 +31,58 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-primary border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Cost per Unit</h6>
-                                    <span class="h3 mb-0"> $85.50 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Booking</h6>
+                                    <span class="h3 mb-0"> {{ $bookingData->count() }} Booking </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-success">+7.5%</span>
+                                    <iconify-icon icon="material-symbols-light:holiday-village-outline" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
 
-                            <div id="sparkline1" class="mt-3"><canvas style="display: inline-block; width: 231px; height: 50px; vertical-align: top;" width="231" height="50"></canvas></div>
+                            {{-- <div id="sparkline1" class="mt-3"></div> --}}
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-success border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Market Revenue</h6>
-                                    <span class="h3 mb-0"> $12,548.25 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">New Booking</h6>
+                                    <span class="h3 mb-0"> {{ $bookingData->where('status', 'new booking')->count() }} Transaction </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-danger">-24.5%</span>
+                                    <iconify-icon icon="game-icons:receive-money" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
 
-                            <div id="sparkline2" class="mt-3"><canvas style="display: inline-block; width: 231px; height: 50px; vertical-align: top;" width="231" height="50"></canvas></div>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-warning border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Expenses</h6>
-                                    <span class="h3 mb-0"> $8,451.28 </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Booking Today</h6>
+                                    <span class="h3 mb-0"> {{ $bookingToday->count() }} Transaction </span>
                                 </div>
                                 <div class="col-auto">
-                                    <span class="badge badge-soft-success">+3.5%</span>
+                                    <iconify-icon icon="material-symbols-light:pending-actions-sharp" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
                             </div> <!-- end row -->
-
-                            <div id="sparkline3" class="mt-3"><canvas style="display: inline-block; width: 231px; height: 50px; vertical-align: top;" width="231" height="50"></canvas></div>
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-                <div class="col-lg-6 col-xl-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Daily Visits</h6>
-                                    <span class="h3 mb-0"> 1,12,584 </span>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="badge badge-soft-success">+53.5%</span>
-                                </div>
-                            </div> <!-- end row -->
-
-                            <div id="sparkline4" class="mt-3"><canvas style="display: inline-block; width: 231px; height: 50px; vertical-align: top;" width="231" height="50"></canvas></div>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
             </div>
-
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
@@ -119,10 +98,12 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Customer Name</th>
-                                            <th>Contact</th>
+                                            {{-- <th>Contact</th> --}}
                                             <th>Properties</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -139,24 +120,24 @@
                                                             <h6 class="font-size-14 font-weight-normal m-0">
                                                                 {{ $booking->customer_name }}
                                                             </h6>
-                                                            <span class="text-muted font-size-12">{{ $booking->customer_address }}</span>
+                                                            <span class="text-muted font-size-12">{{ implode('-', str_split(preg_replace('/\D/', '', $booking->customer_phone), 4)) }}</span>
                                                         </div>
 
                                                     </div>
                                                 </td>
-                                                <td>
+                                                {{-- <td>
                                                     <div class="d-flex align-items-start gap-1">
                                                         <div class="flex-column">
 
-                                                            <h6 class="font-size-12 font-weight-normal m-0">
+                                                            <h6 class="font-size-14 font-weight-normal m-0">
                                                                 {{ $booking->customer_email }}
                                                             </h6>
-                                                            <span class="text-muted font-size-12">{{ implode('-', str_split(preg_replace('/\D/', '', $booking->customer_phone), 4)) }}</span>
+                                                            <span class="text-muted font-size-14">{{ implode('-', str_split(preg_replace('/\D/', '', $booking->customer_phone), 4)) }}</span>
 
                                                         </div>
 
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                                 <td>
                                                     <div class="d-flex align-items-start gap-1">
                                                         <iconify-icon icon="material-symbols-light:house-outline"></iconify-icon>
@@ -175,41 +156,84 @@
                                                     <h6 class="font-size-14 font-weight-normal mb-1">{{ \Carbon\Carbon::parse($booking->end_date)->format('d F, Y') }}</h6>
                                                     <span class="text-muted font-size-12">Time Remaining {{ $bookingData->remainingDays }} days</span>
                                                 </td>
-                                                {{-- <td>
-                                                <h5 class="font-size-17 font-weight-normal mb-1"><i class="fab fa-cc-visa"></i></h5>
-                                                <span class="text-muted font-size-12">Card</span>
-                                            </td> --}}
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <span class="badge bg-blue ms-auto">New Book</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{-- <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-heart-half-full"></i></button> --}}
 
-                                            </tr>
-                                        @endforeach
+                                                    <div class="button-list" id="tooltip-container">
+                                                        <div class="btn-group mb-2 me-1">
+                                                            <button type="button" class="btn btn-xs btn-success waves-effect waves-light" data-bs-toggle="modal"
+                                                                data-bs-target="#staticBackdrop-{{ $booking->id }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Details"><i class="mdi mdi-account-details"></i></button>
+                                                            <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit Data"><i class="mdi mdi-lead-pencil"></i></button>
+                                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete Data"><i class="mdi mdi-trash-can"></i></button>
+                                                        </div>
+                                                    </div>
 
-                                    </tbody>
-                                </table>
+                                                    {{-- <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#staticBackdrop">
+                                                        Launch static backdrop modal
+                                                    </button> --}}
+
+                                                </td>
+
                             </div>
 
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
+                            </tr>
+                            @endforeach
+
+                            </tbody>
+                            </table>
+                        </div>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    @foreach ($bookingData as $booking)
+        <div class="modal fade" id="staticBackdrop-{{ $booking->id }}" data-bs-backdrop="static"
+            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+            aria-hidden="true">
+            {{-- <div class="modal-dialog modal-full-width"> --}}
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Transaction Details | {{ $booking->customer_name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
+                            cursus magna, vel scelerisque nisl
+                            consectetur et. Donec sed odio dui. Donec ullamcorper nulla non
+                            metus auctor fringilla.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
+        {{-- /* Modal --}}
+    @endforeach
 @endsection
 @push('script')
     <!-- third party js -->
+
     <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
     <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script> --}}
-    {{-- <script src="{{ asset('admin') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script> --}}
     <!-- third party js ends -->
 
     <!-- Datatables js -->
