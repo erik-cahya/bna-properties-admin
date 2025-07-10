@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Log In | Drezoc - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>Log In | BNA Properties Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Drezoc - Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -56,7 +56,7 @@
 
                                             <div class="form-group mb-3">
                                                 <label class="form-label" for="emailaddress">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email">
+                                                <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email" value="{{ old('email') }}">
                                             </div>
 
                                             <div class="form-group mb-3">

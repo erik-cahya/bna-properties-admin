@@ -1,4 +1,7 @@
 @extends('landing.layouts.landing-master')
+@push('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endpush
 @section('content')
     <!-- BREADCRUMB AREA START -->
     <div class="ltn__breadcrumb-area bg-overlay-white-30 bg-image mb-0 text-left" data-bs-bg="img/bg/14.jpg">
@@ -112,7 +115,7 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Living Room</h6>
-                                            <small>20 x 16 sq feet</small>
+
                                         </div>
                                     </div>
                                 </li>
@@ -121,7 +124,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Garage</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -130,7 +132,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Dining Area</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -139,7 +140,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Bedroom</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -148,7 +148,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Bathroom</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -157,7 +156,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Gym Area</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -166,7 +164,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Garden</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -175,7 +172,6 @@
                                         <i class="flaticon-double-bed"></i>
                                         <div>
                                             <h6>Parking</h6>
-                                            <small>20 x 16 sq feet</small>
                                         </div>
                                     </div>
                                 </li>
@@ -197,120 +193,6 @@
                                     <a href="img/others/16.jpg" data-rel="lightcase:myCollection">
                                         <img class="mb-30" src="{{ asset('landing') }}/img/others/16.jpg" alt="Image">
                                     </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h4 class="title-2 mb-10">Amenities</h4>
-                        <div class="property-details-amenities mb-60">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="ltn__menu-widget">
-                                        <ul>
-                                            <li>
-                                                <label class="checkbox-item">Air Conditioning
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Gym
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Microwave
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Swimming Pool
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">WiFi
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="ltn__menu-widget">
-                                        <ul>
-                                            <li>
-                                                <label class="checkbox-item">Barbeque
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Recreation
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Microwave
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Basketball Cout
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Fireplace
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="ltn__menu-widget">
-                                        <ul>
-                                            <li>
-                                                <label class="checkbox-item">Refrigerator
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Window Coverings
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Washer
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">24x7 Security
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="checkbox-item">Indoor Game
-                                                    <input type="checkbox" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -552,6 +434,9 @@
                 </div>
                 <div class="col-lg-4">
                     <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar---">
+
+                        <!-- Form Widget -->
+                        @include('landing.properties.partials.boking-form')
                         <!-- Author Widget -->
                         <div class="widget ltn__author-widget">
                             <div class="ltn__author-widget-inner text-center">
@@ -581,99 +466,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Search Widget -->
-                        <div class="widget ltn__search-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border-2">Search Objects</h4>
-                            <form action="#">
-                                <input type="text" name="search" placeholder="Search your keyword...">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </form>
-                        </div>
-                        <!-- Form Widget -->
-                        <div class="widget ltn__form-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border-2">Drop Messege For Book</h4>
-                            <form action="#">
-                                <input type="text" name="yourname" placeholder="Your Name*">
-                                <input type="text" name="youremail" placeholder="Your e-Mail*">
-                                <textarea name="yourmessage" placeholder="Write Message..."></textarea>
-                                <button type="submit" class="btn theme-btn-1">Send Messege</button>
-                            </form>
-                        </div>
-                        <!-- Top Rated Product Widget -->
-                        <div class="widget ltn__top-rated-product-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border-2">Top Rated Product</h4>
-                            <ul>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product/1.png" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Luxury House In Greenville </a></h6>
-                                            <div class="product-price">
-                                                <span>$30,000.00</span>
-                                                <del>$35,000.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product/2.png" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Apartment with Subunits</a></h6>
-                                            <div class="product-price">
-                                                <span>$30,000.00</span>
-                                                <del>$35,000.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product/3.png" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">3 Rooms Manhattan</a></h6>
-                                            <div class="product-price">
-                                                <span>$30,000.00</span>
-                                                <del>$35,000.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+
                         <!-- Popular Product Widget -->
                         <div class="widget ltn__popular-product-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border-2">Popular Properties</h4>
@@ -1182,3 +975,74 @@
     </div>
     <!-- PRODUCT SLIDER AREA END -->
 @endsection
+@push('script')
+    <script src="{{ asset('js/flatpickr-min.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
+
+    <script>
+        $(document).ready(function() {
+            // Hapus nice-select dari select tertentu
+            $('#duration').next('.nice-select').remove(); // hapus UI palsu
+            $('#duration').show(); // tampilkan asli kembali
+        });
+    </script>
+
+    {{-- /* Flatpickr --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookedRanges = @json($bookedRanges);
+
+            let startDateInstance = flatpickr("#start_date", {
+                dateFormat: "Y-m-d",
+                disable: bookedRanges,
+                minDate: "today",
+                onChange: updateEndDate
+            });
+
+            const durationInput = document.getElementById('duration');
+            const startInput = document.getElementById('start_date');
+
+            // Tambahkan log untuk cek
+            console.log('Duration element:', durationInput);
+            console.log('Start date element:', startInput);
+
+            // Pastikan elemen ditemukan sebelum pasang event
+            if (durationInput) {
+                durationInput.addEventListener('change', updateEndDate);
+            }
+            if (startInput) {
+                startInput.addEventListener('input', updateEndDate);
+            }
+
+            function updateEndDate() {
+                console.log("updateEndDate triggered");
+
+                const startInputVal = startInput.value;
+                const duration = parseInt(durationInput.value || 1);
+                const endInput = document.getElementById('end_date');
+
+                if (!startInputVal || isNaN(duration)) {
+                    endInput.value = '';
+                    return;
+                }
+
+                const startDate = new Date(startInputVal);
+                if (isNaN(startDate)) {
+                    endInput.value = '';
+                    return;
+                }
+
+                const endDate = new Date(startDate);
+                const originalDay = startDate.getDate();
+
+                endDate.setMonth(endDate.getMonth() + duration);
+
+                if (endDate.getDate() !== originalDay) {
+                    endDate.setDate(0);
+                }
+
+                endInput.value = endDate.toISOString().split('T')[0];
+            }
+        });
+    </script>
+@endpush

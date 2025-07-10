@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\BookingModel;
 use App\Models\PropertiesModel;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class LandingPropertiesController extends Controller
 {
@@ -24,6 +27,15 @@ class LandingPropertiesController extends Controller
             $query->select('image_path', 'property_gallery.id');
             $query->where('is_featured', 1);
         }])->first();
+
+        $idProperties = PropertiesModel::where('slug', $slug)->first();
+
+        $data['bookedRanges'] = BookingModel::where('properties_id', $idProperties->id)->get()->map(function ($rental) {
+            return [
+                'from' => $rental->start_date->toDateString(),
+                'to' => $rental->end_date->toDateString(),
+            ];
+        });
         return view('landing.properties.details', $data);
     }
 }

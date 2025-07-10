@@ -25,6 +25,8 @@
             color: #FF5A3B;
         }
     </style>
+
+    @stack('style')
 </head>
 
 <body>
@@ -67,7 +69,9 @@
     <script src="{{ asset('landing') }}/js/plugins.js"></script>
     <!-- Main JS -->
     <script src="{{ asset('landing') }}/js/main.js"></script>
+
     <script src="{{ asset('admin/assets/js/iconify.min.js') }}"></script>
+    @stack('script')
 
 </body>
 
