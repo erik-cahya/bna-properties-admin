@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\BookingModel;
+use App\Models\FeatureListModel;
+use App\Models\FeatureListPropertyModel;
 use App\Models\PropertiesModel;
 use App\Models\PropertyGalleryImageModel;
 use App\Models\PropertyGalleryModel;
@@ -45,7 +47,11 @@ class LandingPropertiesController extends Controller
             ->select('property_gallery_image.image_path', 'property_gallery.id')
             ->get();
 
-        // dd($data['imageGallery']);
+        $data['featuresData'] = FeatureListPropertyModel::where('properties_id', $dataProperties->id)
+            ->join('feature_list', 'feature_list.id', '=', 'feature_property.feature_id')
+            ->get();
+
+        // dd($data['featuresData']);
 
         // dd($data['bookedRanges']);
         return view('landing.properties.details', $data);

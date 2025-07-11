@@ -83,91 +83,48 @@
 
                         <h4 class="title-2">Features</h4>
                         <div class="property-detail-feature-list clearfix mb-45">
-                            <ul>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Living Room</h6>
+                            {{-- <ul>
+                                @foreach ($featuresData as $feature)
+                                    <li>
+                                        <div class="property-detail-feature-list-item">
+                                            <i class="flaticon-double-bed"></i>
+                                            <div>
+                                                <h6>{{ $feature->name }}</h6>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul> --}}
+
+                            <div class="row">
+
+                                @foreach ($featuresData as $feature)
+                                    <div class="col-md-6 mb-3">
+                                        <div class="property-detail-feature-list-item">
+                                            {{-- <i class="flaticon-double-bed"></i> --}}
+                                            <iconify-icon icon="iconamoon:check-bold" class="align-self-center ltn__secondary-bg mx-2 p-2 text-white"></iconify-icon>
+
+                                            <div>
+                                                <h6>{{ $feature->name }}</h6>
+                                            </div>
 
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Garage</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Dining Area</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Bedroom</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Bathroom</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Gym Area</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Garden</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="flaticon-double-bed"></i>
-                                        <div>
-                                            <h6>Parking</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                @endforeach
+                            </div>
+
                         </div>
 
                         <h4 class="title-2">From Our Gallery</h4>
                         <div class="ltn__property-details-gallery mb-30">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <a href="img/others/14.jpg" data-rel="lightcase:myCollection">
-                                        <img class="mb-30" src="{{ asset('landing') }}/img/others/14.jpg" alt="Image">
-                                    </a>
-                                    <a href="img/others/15.jpg" data-rel="lightcase:myCollection">
-                                        <img class="mb-30" src="{{ asset('landing') }}/img/others/15.jpg" alt="Image">
-                                    </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="img/others/16.jpg" data-rel="lightcase:myCollection">
-                                        <img class="mb-30" src="{{ asset('landing') }}/img/others/16.jpg" alt="Image">
-                                    </a>
-                                </div>
+                                @foreach ($imageGallery as $gallery)
+                                    <div class="col-md-3">
+                                        <a href="{{ asset($gallery->image_path) }}" data-rel="lightcase:myCollection">
+                                            <img class="mb-10" src="{{ asset($gallery->image_path) }}" alt="Image">
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
 

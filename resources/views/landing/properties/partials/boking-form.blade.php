@@ -19,7 +19,7 @@
 
         <div class="">
             <label for="start_date">Tanggal Mulai Sewa</label>
-            <input type="text" id="start_date" name="start_date" class="form-control" required>
+            <input type="text" id="start_date" name="start_date" class="form-control bg-white" required>
         </div>
 
         <div class="">
