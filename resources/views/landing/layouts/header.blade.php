@@ -22,8 +22,9 @@
                         <div class="ltn__main-menu">
                             <ul>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Real Estate</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">Management</a></li>
                                 {{-- <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li> --}}
 
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
@@ -71,7 +72,8 @@
             <ul>
                 <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                 <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
-                <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li>
+                <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Real Estate</a></li>
+                <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">Management</a></li>
                 <li><a style="{{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
             </ul>
         </div>
