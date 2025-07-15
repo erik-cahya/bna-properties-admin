@@ -1,6 +1,12 @@
 @extends('landing.layouts.landing-master')
 @push('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <style>
+        .flatpickr-disabled {
+            color: rgba(237, 0, 0, 0.32) !important;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- BREADCRUMB AREA START -->

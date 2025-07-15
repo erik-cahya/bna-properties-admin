@@ -11,19 +11,19 @@
             <label for="start_date">Tanggal Mulai Sewa</label>
 
             <select id="duration" name="duration" class="form-control no-nice-select" required>
-                <option value="1">1 Bulan</option>
-                <option value="2">2 Bulan</option>
-                <option value="3">3 Bulan</option>
+                <option value="1">1 Month</option>
+                <option value="2">2 Month</option>
+                <option value="3">3 Month</option>
             </select>
         </div>
 
         <div class="">
-            <label for="start_date">Tanggal Mulai Sewa</label>
+            <label for="start_date">Rental Start Date</label>
             <input type="text" id="start_date" name="start_date" class="form-control bg-white" required>
         </div>
 
         <div class="">
-            <label for="end_date">Tanggal Akhir Sewa (otomatis 1 bulan)</label>
+            <label for="end_date">Lease End Date (min 1 Month)</label>
             <input type="text" id="end_date" name="end_date" class="form-control" readonly>
         </div>
 
