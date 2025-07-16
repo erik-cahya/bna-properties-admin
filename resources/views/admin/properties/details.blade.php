@@ -41,7 +41,7 @@
                                             <div class="carousel-inner" role="listbox">
                                                 @foreach ($image_gallery as $gallery)
                                                     <div class="carousel-item {{ $loop->iteration - 1 == 0 ? 'active' : '' }}">
-                                                        <img class="d-block img-fluid" src="{{ asset($gallery->image_path) }}" alt="First slide">
+                                                        <img class="d-block img-fluid" src="{{ asset($gallery->image_path) }}" alt="First slide" style="object-fit: contain">
                                                     </div>
                                                 @endforeach
                                             </div>

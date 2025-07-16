@@ -84,10 +84,10 @@
                                         <td>
                                             <div class="d-flex flex-column gap-1">
                                                 @php
-                                                    if($properties->status_listing == 1){
+                                                    if ($properties->status_listing == 1) {
                                                         $label = 'Listing';
                                                         $className = 'bg-success';
-                                                    }else{
+                                                    } else {
                                                         $label = 'Pending';
                                                         $className = 'bg-warning';
                                                     }
@@ -99,7 +99,7 @@
                                         <td>
                                             <div class="btn-group mb-2 me-1">
                                                 <a href="{{ route('properties.show', $properties->slug) }}" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
+                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" disabled><i class="mdi mdi-lead-pencil"></i></button>
 
                                                 <input type="hidden" class="propertyId" value="{{ $properties->id }}">
                                                 <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $properties->properties_name }}"><i class="mdi mdi-trash-can"></i></button>
