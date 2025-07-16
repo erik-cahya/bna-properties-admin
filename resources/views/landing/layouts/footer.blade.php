@@ -23,7 +23,7 @@
      <div class="footer-top-area section-bg-2 plr--5">
          <div class="container-fluid">
              <div class="row">
-                 <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                 <div class="col-xl-4 col-md-6 col-sm-6 col-12">
                      <div class="footer-widget footer-about-widget">
                          <div class="footer-logo">
                              <div class="site-logo">
@@ -69,22 +69,21 @@
                          </div>
                      </div>
                  </div>
-                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
+                 <div class="col-xl-4 col-md-6 col-sm-6 col-12">
                      <div class="footer-widget footer-menu-widget clearfix">
-                         <h4 class="footer-title">Company</h4>
+                         <h4 class="footer-title">Quick Links</h4>
                          <div class="footer-menu">
                              <ul>
-                                 <li><a href="about.html">About</a></li>
-                                 <li><a href="blog.html">Blog</a></li>
-                                 <li><a href="shop.html">All Products</a></li>
-                                 <li><a href="locations.html">Locations Map</a></li>
-                                 <li><a href="faq.html">FAQ</a></li>
-                                 <li><a href="contact.html">Contact us</a></li>
+                                 <li><a href="{{ route('landing.index') }}">Home</a></li>
+                                 <li><a href="{{ route('landing.about.index') }}">About</a></li>
+                                 <li><a href="{{ route('landing.properties.index') }}">Real Estate</a></li>
+                                 <li><a href="#">Management</a></li>
+                                 <li><a href="{{ route('landing.contact.index') }}">Contact Us</a></li>
                              </ul>
                          </div>
                      </div>
                  </div>
-                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
+                 {{-- <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                      <div class="footer-widget footer-menu-widget clearfix">
                          <h4 class="footer-title">Services</h4>
                          <div class="footer-menu">
@@ -113,8 +112,8 @@
                              </ul>
                          </div>
                      </div>
-                 </div>
-                 <div class="col-xl-3 col-md-6 col-sm-12 col-12">
+                 </div> --}}
+                 <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                      <div class="footer-widget footer-newsletter-widget">
                          <h4 class="footer-title">We Accept</h4>
                          <img src="{{ asset('landing') }}/img/icons/payment-4.png" alt="Payment Image">
