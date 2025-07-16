@@ -48,6 +48,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'propertiesName' => 'required:min:4',
             'statusListing' => 'required',
@@ -57,8 +58,8 @@ class PropertyController extends Controller
             'propertiesSize' => 'required',
             'yearBuild' => 'required',
             'maxPeople' => 'required',
-            'priceIDR' => 'required',
-            // 'priceUSD' => 'required',
+            // 'priceIDR' => 'required',
+            'priceUSD' => 'required',
             'region' => 'required',
             'subRegion' => 'required',
             'address' => 'required',
@@ -72,7 +73,7 @@ class PropertyController extends Controller
         $region = RegionModel::where('id', $request->region)->first();
         $subregion = SubRegionModel::where('id', $request->subRegion)->first();
 
-        $slug = Str::slug($request->propertiesName);
+        $slug = $this->generateSlug($request->propertiesName);
 
         // ==========================================================================================================================================
         // ########### Create Property Listing
@@ -91,9 +92,10 @@ class PropertyController extends Controller
             'properties_size' => $request->propertiesSize,
             'year_build' => $request->yearBuild,
             'max_people' => $request->maxPeople,
-            'price_idr' => $idrPrice,
-            'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
-            'status_listing' => $request->statusListing == 'Pending' ? 2 : 1,
+            'price_idr' => null,
+            // 'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
+            'price_usd' => floatval(preg_replace('/[^\d.]/', '', $request->priceUSD)),
+            'status_listing' => $request->statusListing,
         ]);
 
         // ==========================================================================================================================================
@@ -190,13 +192,8 @@ class PropertyController extends Controller
         $slug = PropertiesModel::where('id', $id)->first();
 
         // Delete File Gallery
-        if (file_exists(public_path('admin/gallery/' . $slug->property_slug))) {
-            File::deleteDirectory(public_path('admin/gallery/' . $slug->property_slug));
-        };
-
-        // Delete File Attachment
-        if (file_exists(public_path('admin/attachment/' . $slug->property_slug))) {
-            File::deleteDirectory(public_path('admin/attachment/' . $slug->property_slug));
+        if (file_exists(public_path('admin/gallery/' . $slug->slug))) {
+            File::deleteDirectory(public_path('admin/gallery/' . $slug->slug));
         };
 
         PropertiesModel::destroy($id);
@@ -231,5 +228,20 @@ class PropertyController extends Controller
         $subregions = SubRegionModel::where('region_id', $regionId)->get();
 
         return response()->json($subregions);
+    }
+
+    private function generateSlug($name)
+    {
+        $baseSlug = Str::slug($name);
+        $slug = $baseSlug;
+        $counter = 2;
+
+        // Cek property slug if exist in database
+        while (PropertiesModel::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }

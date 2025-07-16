@@ -28,7 +28,7 @@
             <!-- end page title -->
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-8">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title">Property Feature List</h4>
@@ -49,8 +49,10 @@
                         </div> <!-- end card -->
                     </div> <!-- end card body-->
                 </div><!-- end col-->
+            </div>
+            <div class="row">
 
-                <div class="col-6">
+                <div class="col-8">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title">Property Feature List</h4>
@@ -77,10 +79,13 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-sm btn-warning waves-effect waves-light"><i class="mdi mdi-book-edit-outline"></i></button>
+                                                <div class="btn-group mb-2 me-1">
 
-                                                <input type="hidden" class="propertyId" value="{{ $feature->id }}">
-                                                <button type="button" class="btn btn-sm btn-danger waves-effect waves-light deleteButton" data-nama="{{ $feature->name }}"><i class="mdi mdi-trash-can"></i></button>
+                                                    <button type="button" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-pencil-outline"></i></button>
+
+                                                    <input type="hidden" class="propertyId" value="{{ $feature->id }}">
+                                                    <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $feature->name }}"><i class="mdi mdi-trash-can"></i></button>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -147,7 +152,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Kirim DELETE request manual lewat JavaScript
-                            fetch('/features/' + propertyId, {
+                            fetch('/panel/features/' + propertyId, {
                                     method: 'DELETE',
                                     headers: {
                                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

@@ -71,21 +71,20 @@
 
                                                 <span class="font-size-12"><i class="mdi mdi-bed"></i> {{ $properties->number_bedroom }} Bedroom</span>
                                                 <span class="font-size-12"><i class="mdi mdi-shower"></i> {{ $properties->number_bathroom }} Bathroom</span>
-                                                <span class="font-size-12"><i class="mdi mdi-human-female-boy"></i> {{ $properties->max_people }} Max People</span>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="d-flex flex-column">
-                                                <span class="fst-italic fw-medium font-size-12"> IDR {{ number_format($properties->price_idr, 2, ',', '.') }}</span>
-                                                <hr class="m-1">
-                                                <span class="fst-italic fw-medium font-size-12"> USD {{ number_format($properties->price_usd, 2, ',', '.') }}</span>
-                                            </div>
+                                            <span class="fst-italic fw-bold font-size-14 d-flex justify-content-center gap-1">
+                                                <iconify-icon icon="solar:dollar-broken" style="font-size: 20px" class="align-self-center"></iconify-icon> USD {{ number_format($properties->price_usd, 2, ',', '.') }}
+                                            </span>
+                                            <span class="font-size-12"><i class="mdi mdi-human-female-boy"></i> {{ $properties->max_people }} Max People</span>
+
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column gap-1">
                                                 @php
-                                                    if ($properties->status_listing == 1) {
-                                                        $label = 'Listing';
+                                                    if ($properties->status_listing == 'For Rent') {
+                                                        $label = 'For Rent';
                                                         $className = 'bg-success';
                                                     } else {
                                                         $label = 'Pending';
@@ -93,13 +92,14 @@
                                                     }
                                                 @endphp
                                                 <span class="badge {{ $className }} ms-auto"><iconify-icon icon="mdi:home"></iconify-icon> {{ $label }}</span>
+
                                                 <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-home"></i> {{ $properties->type_properties }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="btn-group mb-2 me-1">
-                                                <a href="{{ route('properties.show', $properties->slug) }}" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" disabled><i class="mdi mdi-lead-pencil"></i></button>
+                                                <a href="{{ route('landing.properties.detail', $properties->slug) }}" target="_blank" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
 
                                                 <input type="hidden" class="propertyId" value="{{ $properties->id }}">
                                                 <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $properties->properties_name }}"><i class="mdi mdi-trash-can"></i></button>
@@ -148,7 +148,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Kirim DELETE request manual lewat JavaScript
-                            fetch('/properties/' + propertyId, {
+                            fetch('/panel/properties/' + propertyId, {
                                     method: 'DELETE',
                                     headers: {
                                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

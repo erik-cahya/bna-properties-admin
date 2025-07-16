@@ -58,6 +58,13 @@
                  </a>
              </li>
 
+             <li class="menu-item">
+                 <a href="{{ route('booking.index') }}" class="menu-link waves-effect">
+                     <span class="menu-icon"><i class="mdi mdi-ballot-outline"></i></span>
+                     <span class="menu-text">Booking</span>
+                 </a>
+             </li>
+
          </ul>
      </div>
  </div>

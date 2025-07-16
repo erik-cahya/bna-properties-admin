@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Drezoc - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>Dashboard | BNA Properties</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Drezoc - Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -104,7 +104,6 @@
     <script src="{{ asset('admin/assets/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/iconify.min.js') }}"></script>
 
-
     <script>
         @if (session('flashData'))
             var flashData = @json(session('flashData'));
@@ -117,8 +116,6 @@
             });
         @endif
     </script>
-
-
 
     @stack('script')
 
