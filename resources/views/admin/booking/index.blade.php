@@ -187,11 +187,13 @@
 
                                                             {{-- <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit Data"><i class="mdi mdi-lead-pencil"></i></button> --}}
 
+                                                            <input type="hidden" class="bookingID" value="{{ $booking->id }}">
+
                                                             <button type="button" class="btn btn-xs btn-warning waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true"><iconify-icon icon="subway:menu" class="fs-14"></iconify-icon></button>
                                                             <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 39.5px, 0px);" data-popper-placement="bottom-start">
-                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="simple-line-icons:check"></iconify-icon> Accept</a>
-                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="bitcoin-icons:clock-outline"></iconify-icon> Pending</a>
-                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="maki:cross"></iconify-icon> Decline</a>
+                                                                <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="accept"><iconify-icon icon="simple-line-icons:check"></iconify-icon> Accept</button>
+                                                                <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="pending"><iconify-icon icon="bitcoin-icons:clock-outline"></iconify-icon> Pending</button>
+                                                                <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="decline"><iconify-icon icon="maki:cross"></iconify-icon> Decline</button>
                                                             </div>
 
                                                             <input type="hidden" class="propertyId" value="{{ $booking->id }}">
@@ -248,7 +250,6 @@
                         </div>
                         <div class="modal-body">
                             <form class="px-4 py-2">
-
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="card border-primary border">
@@ -428,4 +429,63 @@
             });
         </script>
         {{-- /* SweetAlert Delete --}}
+
+        {{-- SweetAlert Change Status --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const changeStatus = document.querySelectorAll('.changeStatus');
+
+                changeStatus.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        let dataStatus = this.getAttribute('data-status');
+                        let bookingId = document.querySelector('.bookingID').value;
+
+                        // console.log(dataStatus);
+                        const rowToDelete = this.closest('tr');
+
+
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "Change status booking to " + dataStatus + "?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, change it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Kirim DELETE request manual lewat JavaScript
+                                fetch('/booking/change-status', {
+                                        method: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            booking_id: bookingId,
+                                            status: dataStatus
+                                        })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        Swal.fire({
+                                            title: data.judul,
+                                            text: data.pesan,
+                                            icon: data.swalFlashIcon,
+                                        });
+                                        window.location.reload();
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        Swal.fire('Error', 'Something went wrong!', 'error');
+                                    });
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+        {{-- /* SweetAlert Change Status --}}
     @endpush

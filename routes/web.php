@@ -42,6 +42,7 @@ Route::get('/properties/{slug}', [LandingPropertiesController::class, 'details']
 Route::get('/properties', [LandingPropertiesController::class, 'index'])->name('landing.properties.index');
 Route::get('/about', [LandingAboutController::class, 'index'])->name('landing.about.index');
 
+Route::post('/booking/change-status', [BookingController::class, 'changeStatus']);
 Route::resource('/booking', BookingController::class);
 
 Route::middleware('auth')->group(function () {

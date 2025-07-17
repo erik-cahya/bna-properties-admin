@@ -15,6 +15,20 @@ class BookingController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function changeStatus(Request $request)
+    {
+        $bookingId = $request->input('booking_id');
+        $status = $request->input('status');
+
+        BookingModel::where('id', $bookingId)->update(['status' => $status]);
+
+        return response()->json([
+            'judul' => 'Success!',
+            'pesan' => 'Status berhasil diubah.',
+            'swalFlashIcon' => 'success'
+        ]);
+    }
     public function index()
     {
 
