@@ -108,6 +108,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($bookingData as $booking)
+                                            {{-- {{ dd($bookingData) }} --}}
                                             <tr>
                                                 <td>
                                                     <span class="badge bg-primary ms-auto p-2">{{ $loop->iteration }}</span>
@@ -157,8 +158,23 @@
                                                     <span class="text-muted font-size-12">Time Remaining {{ $bookingData->remainingDays }} days</span>
                                                 </td>
                                                 <td>
+                                                    @php
+                                                        if ($booking->status == 'pending') {
+                                                            $label = 'Pending';
+                                                            $className = 'bg-warning';
+                                                        } elseif ($booking->status == 'new booking') {
+                                                            $label = 'New Booking';
+                                                            $className = 'bg-blue';
+                                                        } elseif ($booking->status == 'accept') {
+                                                            $label = 'Accept';
+                                                            $className = 'bg-success';
+                                                        } else {
+                                                            $label = 'Decline';
+                                                            $className = 'bg-danger';
+                                                        }
+                                                    @endphp
                                                     <div class="d-flex">
-                                                        <span class="badge bg-blue ms-auto">New Book</span>
+                                                        <span class="badge {{ $className }} ms-auto">{{ $label }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -167,10 +183,30 @@
                                                     <div class="button-list" id="tooltip-container">
                                                         <div class="btn-group mb-2 me-1">
                                                             <button type="button" class="btn btn-xs btn-success waves-effect waves-light" data-bs-toggle="modal"
-                                                                data-bs-target="#staticBackdrop-{{ $booking->id }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Details"><i class="mdi mdi-account-details"></i></button>
-                                                            <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit Data"><i class="mdi mdi-lead-pencil"></i></button>
-                                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete Data"><i class="mdi mdi-trash-can"></i></button>
+                                                                data-bs-target="#staticBackdrop-{{ $booking->id }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Details"><i class="mdi mdi-eye"></i></button>
+
+                                                            {{-- <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit Data"><i class="mdi mdi-lead-pencil"></i></button> --}}
+
+                                                            <button type="button" class="btn btn-xs btn-warning waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true"><iconify-icon icon="subway:menu" class="fs-14"></iconify-icon></button>
+                                                            <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 39.5px, 0px);" data-popper-placement="bottom-start">
+                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="simple-line-icons:check"></iconify-icon> Accept</a>
+                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="bitcoin-icons:clock-outline"></iconify-icon> Pending</a>
+                                                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><iconify-icon icon="maki:cross"></iconify-icon> Decline</a>
+                                                            </div>
+
+                                                            <input type="hidden" class="propertyId" value="{{ $booking->id }}">
+                                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $booking->customer_name }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete Data"><i class="mdi mdi-trash-can"></i></button>
                                                         </div>
+
+                                                        {{-- <div class="btn-group mb-2">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true"> <i class="mdi mdi-lead-pencil"></i></button>
+                                                                <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 39.5px, 0px);" data-popper-placement="bottom-start">
+                                                                    <a class="dropdown-item" href="#">Dropdown link</a>
+                                                                    <a class="dropdown-item" href="#">Dropdown link</a>
+                                                                </div>
+                                                            </div>
+                                                        </div> --}}
                                                     </div>
 
                                                     {{-- <!-- Button trigger modal -->
@@ -181,61 +217,215 @@
 
                                                 </td>
 
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
                             </div>
 
-                            </tr>
-                            @endforeach
-
-                            </tbody>
-                            </table>
-                        </div>
-
-                    </div> <!-- end card-body-->
-                </div> <!-- end card-->
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <!-- Modal -->
+        @foreach ($bookingData as $booking)
+            <div class="modal fade" id="staticBackdrop-{{ $booking->id }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                aria-hidden="true">
+                {{-- <div class="modal-dialog modal-full-width"> --}}
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header p-3">
+                            <h5 class="modal-title" id="staticBackdropLabel">
+                                <iconify-icon icon="bxs:user" class="fs-14"></iconify-icon> Transaction Details | {{ $booking->customer_name }}
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="px-4 py-2">
 
-    <!-- Modal -->
-    @foreach ($bookingData as $booking)
-        <div class="modal fade" id="staticBackdrop-{{ $booking->id }}" data-bs-backdrop="static"
-            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-            aria-hidden="true">
-            {{-- <div class="modal-dialog modal-full-width"> --}}
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Transaction Details | {{ $booking->customer_name }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                            cursus magna, vel scelerisque nisl
-                            consectetur et. Donec sed odio dui. Donec ullamcorper nulla non
-                            metus auctor fringilla.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card border-primary border">
+                                            <div class="card-body">
+                                                <h4 class="header-title mb-3">Customer Data</h4>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputEmail4" class="form-label">Customer Name</label>
+                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ $booking->customer_name }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputPassword4" class="form-label">Email</label>
+                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $booking->customer_email }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputAddress" class="form-label">Phone Number</label>
+                                                        <input type="text" class="form-control" id="inputAddress" value="{{ $booking->customer_phone }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputAddress" class="form-label">Booking Date</label>
+                                                        <input type="text" class="form-control" id="inputAddress" value="{{ \Carbon\Carbon::parse($booking->created_at)->format('d F, Y') }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="inputAddress" class="form-label">Address</label>
+                                                    <input type="text" class="form-control" id="inputAddress" value="{{ $booking->customer_address }}" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card border-primary border">
+                                            <div class="card-body">
+                                                <h4 class="header-title mb-3">Properties Data</h4>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputEmail4" class="form-label">Properties Name</label>
+                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ $booking->properties_name }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputPassword4" class="form-label">Properties Type</label>
+                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $booking->type_properties }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputAddress" class="form-label">Property Price /month</label>
+                                                        <input type="text" class="form-control" id="inputAddress" value="$ {{ number_format($booking->price_usd, 2, ',', '.') }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputAddress" class="form-label">Max People</label>
+                                                        <input type="text" class="form-control" id="inputAddress" value="{{ $booking->max_people }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="inputAddress" class="form-label">Property Address</label>
+                                                    <input type="text" class="form-control" id="inputAddress" value="{{ $booking->address }}" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card border-success border">
+                                            <div class="card-body">
+                                                <h4 class="header-title mb-3">Booking Data</h4>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputEmail4" class="form-label">Start Booking Date</label>
+                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ \Carbon\Carbon::parse($booking->start_date)->format('d F, Y') }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputPassword4" class="form-label">End Booking Date</label>
+                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ \Carbon\Carbon::parse($booking->end_date)->format('d F, Y') }}" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputPassword4" class="form-label">Total Days</label>
+                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $bookingData->remainingDays }} Days" readonly>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="inputPassword4" class="form-label">Status Booking</label>
+                                                        <input type="text" class="form-control text-capitalize" id="inputPassword4" value="{{ $booking->status }}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {{-- /* Modal --}}
-    @endforeach
-@endsection
-@push('script')
-    <!-- third party js -->
+            {{-- /* Modal --}}
+        @endforeach
+    @endsection
+    @push('script')
+        <!-- third party js -->
 
-    <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-    <!-- third party js ends -->
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+        <!-- third party js ends -->
 
-    <!-- Datatables js -->
-    <script src="{{ asset('admin') }}/assets/js/pages/datatables.js"></script>
-@endpush
+        <!-- Datatables js -->
+        <script src="{{ asset('admin') }}/assets/js/pages/datatables.js"></script>
+
+        {{-- SweetAlert Delete --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const deleteButtons = document.querySelectorAll('.deleteButton');
+
+                deleteButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        let propertyName = this.getAttribute('data-nama');
+                        let propertyId = this.parentElement.querySelector('.propertyId').value;
+                        const rowToDelete = this.closest('tr');
+
+
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "Delete Customer " + propertyName + "?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Kirim DELETE request manual lewat JavaScript
+                                fetch('/booking/' + propertyId, {
+                                        method: 'DELETE',
+                                        headers: {
+                                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                            'Content-Type': 'application/json'
+                                        }
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        Swal.fire({
+                                            title: data.judul,
+                                            text: data.pesan,
+                                            icon: data.swalFlashIcon,
+                                        });
+
+                                        if (rowToDelete) {
+                                            rowToDelete.remove();
+                                        }
+
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        Swal.fire('Error', 'Something went wrong!', 'error');
+                                    });
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+        {{-- /* SweetAlert Delete --}}
+    @endpush

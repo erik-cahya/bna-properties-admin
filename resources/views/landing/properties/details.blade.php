@@ -4,7 +4,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-
     <style>
         .flatpickr-disabled {
             color: rgba(237, 0, 0, 0.32) !important;
@@ -146,7 +145,7 @@
                                 <img src="{{ asset('landing') }}/img/team/4.jpg" alt="Image">
                                 <h5>BNA Properties</h5>
                                 <small>Property Agency</small>
-                                <hr class="p-0 m-2">
+                                <hr class="m-2 p-0">
                                 <p>BNA Properties is a trusted real estate agency connecting you with the finest residential and investment opportunities. We offer professional and secure property solutions tailored to your needs — from buying and selling to rentals. With a wide network and experienced team, BNA Properties is here to help you find your ideal property with confidence.</p>
                             </div>
                         </div>
@@ -157,7 +156,6 @@
         </div>
     </div>
     <!-- SHOP DETAILS AREA END -->
-
 
     <!-- PRODUCT SLIDER AREA START -->
     <div class="ltn__product-slider-area ltn__product-gutter pb-70 d-block">
@@ -213,7 +211,6 @@
                     </div>
                 @endforeach
 
-
             </div>
         </div>
     </div>
@@ -238,6 +235,8 @@
     <script>
         window.addEventListener('load', function() {
             const bookedRanges = @json($bookedRanges);
+
+            console.log(bookedRanges);
 
             const startDateInstance = flatpickr("#start_date", {
                 dateFormat: "Y-m-d",

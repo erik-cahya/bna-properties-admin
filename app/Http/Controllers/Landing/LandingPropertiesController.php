@@ -54,7 +54,7 @@ class LandingPropertiesController extends Controller
         // dd($data['featuresData']);
 
         // dd($data['bookedRanges']);
-        $data['getAllProperties'] = PropertiesModel::get();
+        $data['getAllProperties'] = PropertiesModel::where('id', '!=', $dataProperties->id)->get();
 
         // dd($data['getAllProperties']);
 

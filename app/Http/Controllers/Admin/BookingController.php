@@ -26,6 +26,21 @@ class BookingController extends Controller
 
         $data['bookingData'] = BookingModel::join('properties', 'properties.id', '=', 'bookings.properties_id')
             ->join('customers', 'customers.id', '=', 'bookings.customer_id')
+            ->select(
+                'bookings.*',
+
+                'properties.properties_name',
+                'properties.address',
+                'properties.type_properties',
+                'properties.max_people',
+                'properties.price_usd',
+
+                'customers.customer_name',
+                'customers.customer_email',
+                'customers.customer_phone',
+                'customers.customer_address',
+
+            )
             ->get();
 
         foreach ($data['bookingData'] as $booking) {
@@ -111,6 +126,14 @@ class BookingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        BookingModel::destroy($id);
+        $flashData = [
+            'judul' => 'Delete Success',
+            'pesan' => 'Data Booking Successfully Delete',
+            'swalFlashIcon' => 'success',
+        ];
+
+        return response()->json($flashData);
     }
 }
