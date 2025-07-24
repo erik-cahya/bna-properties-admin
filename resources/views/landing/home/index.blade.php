@@ -18,9 +18,9 @@
                                                 </a>
                                             </div>
                                             <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                            <h1 class="slide-title animated">Search and Find <br><span>Luxury</span> House</h1>
+                                            <h1 class="slide-title animated">Bali <span>Best</span><br> Villa Rentals</h1>
                                             <div class="slide-brief animated">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
                                             </div>
                                             <div class="btn-wrapper animated">
                                                 <a href="about.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
@@ -52,9 +52,9 @@
                                                 </a>
                                             </div>
                                             <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                            <h1 class="slide-title animated">Find Your Dream <br> House By Us</h1>
+                                            <h1 class="slide-title animated">Bali <span>Best</span><br> Villa Rentals</h1>
                                             <div class="slide-brief animated">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                                <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
                                             </div>
                                             <div class="btn-wrapper animated">
                                                 <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
@@ -64,70 +64,6 @@
                                     </div>
                                     <div class="slide-item-img">
                                         <img src="{{ asset('landing') }}/img/slider/62.jpg" alt="#">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- slide-item -->
-                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11">
-                    <div class="ltn__slide-item-inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 align-self-center">
-                                    <div class="slide-item-info">
-                                        <div class="slide-item-info-inner ltn__slide-animation">
-                                            <div class="slide-video mb-50 d-none">
-                                                <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
-                                                    <i class="fa fa-play"></i>
-                                                </a>
-                                            </div>
-                                            <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                            <h1 class="slide-title animated">Find Your Dream <br> House By Us</h1>
-                                            <div class="slide-brief animated">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                            </div>
-                                            <div class="btn-wrapper animated">
-                                                <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                                <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-item-img">
-                                        <img src="{{ asset('landing') }}/img/slider/63.jpg" alt="#">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- slide-item -->
-                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11">
-                    <div class="ltn__slide-item-inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 align-self-center">
-                                    <div class="slide-item-info">
-                                        <div class="slide-item-info-inner ltn__slide-animation">
-                                            <div class="slide-video mb-50 d-none">
-                                                <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
-                                                    <i class="fa fa-play"></i>
-                                                </a>
-                                            </div>
-                                            <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                            <h1 class="slide-title animated">Find Your Dream <br> House By Us</h1>
-                                            <div class="slide-brief animated">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                            </div>
-                                            <div class="btn-wrapper animated">
-                                                <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                                <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-item-img">
-                                        <img src="{{ asset('landing') }}/img/slider/64.jpg" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -306,18 +242,16 @@
                     <div class="about-us-info-wrap">
                         <div class="section-title-area ltn__section-title-2--- mb-30">
                             <h6 class="section-subtitle section-subtitle-2--- ltn__secondary-color">About Us</h6>
-                            <h1 class="section-title">Dream Living Spaces
-                                Setting New Build</h1>
-                            <p>Over 39,000 people work for us in more than 70 countries all over the
-                                This breadth of global coverage, combined with specialist services</p>
+                            <h1 class="section-title">More Than Rental</h1>
+                            <p> BNA Property Rental offers trusted, stress-free villa rentals in Bali. We connect guests with handpicked villas that blend comfort, privacy, and local charm—backed by clear communication and personalized service from start to finish</p>
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-3">
                             <div class="ltn__feature-icon">
                                 <span><i class="flaticon-house-4"></i></span>
                             </div>
                             <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">The Perfect Residency</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
+                                <h4><a href="service-details.html">Accessible Comfort</a></h4>
+                                <p>Thoughtfully priced, professionally managed stays.</p>
                             </div>
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-3">
@@ -325,8 +259,8 @@
                                 <span><i class="flaticon-call-center-agent"></i></span>
                             </div>
                             <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">Global Architect Experts</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
+                                <h4><a href="service-details.html">Personal Support</a></h4>
+                                <p>From booking to departure, we're here to help every step of the way.</p>
                             </div>
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-3">
@@ -334,8 +268,8 @@
                                 <span><i class="flaticon-maps-and-location"></i></span>
                             </div>
                             <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">Built-in Storage Cupboards</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
+                                <h4><a href="service-details.html">Unique Locations</a></h4>
+                                <p>We focus on areas with true character and charm</p>
                             </div>
                         </div>
                     </div>
@@ -352,7 +286,7 @@
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2--- text-center">
                         <h6 class="section-subtitle section-subtitle-2--- ltn__secondary-color">Our Services</h6>
-                        <h1 class="section-title">Our Main Focus</h1>
+                        <h1 class="section-title">Our Main Service</h1>
                     </div>
                 </div>
             </div>
@@ -364,8 +298,8 @@
                             <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Buy a home</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">Real Estate</a></h3>
+                            <p>Helping you buy or sell property in Bali with confidence, clarity, and local expertise.</p>
                             <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
                         </div>
                     </div>
@@ -377,8 +311,8 @@
                             <img src="{{ asset('landing') }}/img/icons/icon-img/22.png" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Rent a home</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">Villa Rentals</a></h3>
+                            <p>Connecting travelers with handpicked Bali villas for short or long-term stays.</p>
                             <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
                         </div>
                     </div>
@@ -390,8 +324,8 @@
                             <img src="{{ asset('landing') }}/img/icons/icon-img/23.png" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Sell a home</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">Villa Management</a></h3>
+                            <p>Comprehensive property care and guest services to keep your villa performing at its best</p>
                             <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
                         </div>
                     </div>
@@ -425,8 +359,8 @@
                             </div>
                         </div>
                         <div class="search-by-place-info">
-                            <h6><a href="locations.html">San Francisco</a></h6>
-                            <h4><a href="product-details.html">Mission District Area</a></h4>
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Seminyak</a></h4>
                             <div class="search-by-place-btn">
                                 <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
@@ -444,8 +378,8 @@
                             </div>
                         </div>
                         <div class="search-by-place-info">
-                            <h6><a href="locations.html">New York</a></h6>
-                            <h4><a href="product-details.html">Pacific Heights Area</a></h4>
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Canggu</a></h4>
                             <div class="search-by-place-btn">
                                 <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
@@ -463,38 +397,45 @@
                             </div>
                         </div>
                         <div class="search-by-place-info">
-                            <h6><a href="locations.html">Sedona, Arizona</a></h6>
-                            <h4><a href="product-details.html">Noe Valley Zones</a></h4>
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Kerobokan</a></h4>
                             <div class="search-by-place-btn">
                                 <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="ltn__search-by-place-item">
-                        <div class="search-by-place-img">
-                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product-3/2.jpg" alt="#"></a>
-                            <div class="search-by-place-badge">
-                                <ul>
-                                    <li>5 Properties</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="search-by-place-info">
-                            <h6><a href="locations.html">New York</a></h6>
-                            <h4><a href="product-details.html">Pacific Heights Area</a></h4>
-                            <div class="search-by-place-btn">
-                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!--  -->
             </div>
         </div>
     </div>
     <!-- SEARCH BY PLACE AREA END -->
+
+
+    <div class="container my-4">
+        <div class="row g-0 rounded overflow-hidden shadow" style="height: 300px;">
+            <!-- Text Section -->
+            <div class="col-md-4 d-flex flex-column justify-content-start align-items-start p-4 text-white ltn__secondary-bg" style=" border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
+                <div class="coll-to-info text-color-white">
+                    <h1>Manage Your Villa with Us</h1>
+                    <a class="btn btn-effect-3 btn-white p-3" href="contact.html">
+                        Explore Properties <i class="icon-next"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-md-8 p-0">
+                <img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="villa" class="w-100 h-100" style="object-fit: cover; background-position: center center">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- CALL TO ACTION END -->
 
     <!-- TESTIMONIAL AREA START (testimonial-8) -->
     <div class="ltn__testimonial-area section-bg-1--- bg-image-top pb-65" data-bs-bg="img/bg/23.jpg">
@@ -661,8 +602,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2--- text-center">
-                        <h6 class="section-subtitle section-subtitle-2--- ltn__secondary-color">News & Blogs</h6>
-                        <h1 class="section-title">Leatest News Feeds</h1>
+                        <h1 class="section-title">Leatest Properties Listings</h1>
                     </div>
                 </div>
             </div>
