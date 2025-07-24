@@ -151,11 +151,11 @@
                                                 </td>
                                                 <td>
                                                     <h6 class="font-size-14 font-weight-normal mb-1">{{ \Carbon\Carbon::parse($booking->start_date)->format('d F, Y') }}</h6>
-                                                    <span class="text-muted font-size-12">Already booked for {{ $bookingData->alreadyBooked }} days</span>
+                                                    {{-- <span class="text-muted font-size-12">Already booked for {{ $bookingData->alreadyBooked }} days</span> --}}
                                                 </td>
                                                 <td>
                                                     <h6 class="font-size-14 font-weight-normal mb-1">{{ \Carbon\Carbon::parse($booking->end_date)->format('d F, Y') }}</h6>
-                                                    <span class="text-muted font-size-12">Time Remaining {{ $bookingData->remainingDays }} days</span>
+                                                    {{-- <span class="text-muted font-size-12">Time Remaining {{ $bookingData->remainingDays }} days</span> --}}
                                                 </td>
                                                 <td>
                                                     @php
@@ -243,7 +243,7 @@
                     <div class="modal-content">
                         <div class="modal-header p-3">
                             <h5 class="modal-title" id="staticBackdropLabel">
-                                <iconify-icon icon="bxs:user" class="fs-14"></iconify-icon> Transaction Details | {{ $booking->customer_name }}
+                                <iconify-icon icon="bxs:user" class="fs-14"></iconify-icon> Booking Details | {{ $booking->customer_name }}
                             </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
@@ -351,9 +351,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                         </div>
                     </div>
                 </div>
@@ -470,12 +469,17 @@
                                     })
                                     .then(response => response.json())
                                     .then(data => {
+
                                         Swal.fire({
                                             title: data.judul,
                                             text: data.pesan,
                                             icon: data.swalFlashIcon,
+                                            timer: 2000,
+
+                                        }).then(() => {
+                                            // Reload setelah user menutup SweetAlert
+                                            window.location.reload();
                                         });
-                                        window.location.reload();
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
