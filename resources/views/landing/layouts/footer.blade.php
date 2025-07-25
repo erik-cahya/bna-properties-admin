@@ -25,12 +25,12 @@
              <div class="row">
                  <div class="col-xl-4 col-md-6 col-sm-6 col-12">
                      <div class="footer-widget footer-about-widget">
-                         <div class="footer-logo">
+                         <div class="footer-logo mb-3">
                              <div class="site-logo">
                                  <img src="{{ asset('bna-assets/logo-bna-light.png') }}" width="200" alt="Logo">
                              </div>
                          </div>
-                         <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
+                         <p>BNA Property Rental offers trusted, stress-free villa rentals in Bali.</p>
                          <div class="footer-address">
                              <ul>
                                  <li>
@@ -38,7 +38,9 @@
                                          <i class="icon-placeholder"></i>
                                      </div>
                                      <div class="footer-address-info">
-                                         <p>Brooklyn, New York, United States</p>
+                                         <p>
+                                             Jl. Pd. Tegal Sari Indah II No.A28, Padangsambian Klod, Kec. Denpasar Bar., Kota Denpasar, Bali 80117, Indonesia
+                                         </p>
                                      </div>
                                  </li>
                                  <li>
@@ -46,7 +48,7 @@
                                          <i class="icon-call"></i>
                                      </div>
                                      <div class="footer-address-info">
-                                         <p><a href="tel:+0123-456789">+0123-456789</a></p>
+                                         <p><a href="tel:+62-852-1756-0982">+62-852-1756-0982</a></p>
                                      </div>
                                  </li>
                                  <li>
@@ -69,7 +71,7 @@
                          </div>
                      </div>
                  </div>
-                 <div class="col-xl-4 col-md-6 col-sm-6 col-12">
+                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                      <div class="footer-widget footer-menu-widget clearfix">
                          <h4 class="footer-title">Quick Links</h4>
                          <div class="footer-menu">
@@ -79,6 +81,18 @@
                                  <li><a href="{{ route('landing.properties.index') }}">Real Estate</a></li>
                                  <li><a href="#">Management</a></li>
                                  <li><a href="{{ route('landing.contact.index') }}">Contact Us</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
+                     <div class="footer-widget footer-menu-widget clearfix">
+                         <h4 class="footer-title">Our Services</h4>
+                         <div class="footer-menu">
+                             <ul>
+                                 <li><a href="http://bnaproperty.com/">Real Estate</a></li>
+                                 <li><a href="http://management.bnaproperty.com/">Management</a></li>
+                                 <li><a href="http://rent.bnaproperty.com/">Rental</a></li>
                              </ul>
                          </div>
                      </div>
@@ -127,18 +141,10 @@
              <div class="row">
                  <div class="col-md-6 col-12">
                      <div class="ltn__copyright-design clearfix">
-                         <p>All Rights Reserved @ Company <span class="current-year"></span></p>
+                         <p>All Rights Reserved @ BNA Property Group <span class="current-year"></span></p>
                      </div>
                  </div>
-                 <div class="col-md-6 col-12 align-self-center">
-                     <div class="ltn__copyright-menu text-end">
-                         <ul>
-                             <li><a href="#">Terms & Conditions</a></li>
-                             <li><a href="#">Claim</a></li>
-                             <li><a href="#">Privacy & Policy</a></li>
-                         </ul>
-                     </div>
-                 </div>
+
              </div>
          </div>
      </div>

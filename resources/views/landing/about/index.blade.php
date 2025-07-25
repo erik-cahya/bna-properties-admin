@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-5 align-self-center">
                     <div class="about-us-img-wrap ltn__img-shape-left about-img-left">
-                        <img src="{{ asset('landing') }}/img/service/11.jpg" alt="Image">
+                        <img src="{{ asset('landing') }}/img/blog/2.jpg" alt="#">
                     </div>
                 </div>
                 <div class="col-lg-7 align-self-center">
@@ -46,9 +46,6 @@
                                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                                 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                                 pariatur.</p>
-                        </div>
-                        <div class="btn-wrapper animated">
-                            <a href="about.html" class="theme-btn-1 btn btn-effect-1 text-uppercase">About Us</a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +171,9 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="{{ asset('landing') }}/img/blog/1.jpg" alt="#"></a>
+                            <a href="blog-details.html">
+                                <img src="{{ asset('landing') }}/img/blog/1.jpg" alt="#">
+                            </a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">

@@ -21,7 +21,6 @@
     </div>
     <!-- BREADCRUMB AREA END -->
 
-
     <!-- CONTACT MESSAGE AREA START -->
     <div class="ltn__contact-message-area mb-120 mb--100">
         <div class="container">
@@ -34,8 +33,7 @@
                                     <img src="{{ asset('landing') }}/img/icons/10.png" alt="Icon Image">
                                 </div>
                                 <h3>Email Address</h3>
-                                <p>info@webmail.com <br>
-                                    jobs@webexample.com</p>
+                                <p>info@webmail.com</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -44,7 +42,7 @@
                                     <img src="{{ asset('landing') }}/img/icons/11.png" alt="Icon Image">
                                 </div>
                                 <h3>Phone Number</h3>
-                                <p>+0123-456789 <br> +987-6543210</p>
+                                <p>+62-852-1756-0982</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -53,8 +51,8 @@
                                     <img src="{{ asset('landing') }}/img/icons/12.png" alt="Icon Image">
                                 </div>
                                 <h3>Office Address</h3>
-                                <p>18/A, New Born Town Hall <br>
-                                    New York, US
+                                <p>
+                                    Jl. Pd. Tegal Sari Indah II No.A28, Padangsambian Klod, Kec. Denpasar Bar., <br> Kota Denpasar, Bali 80117, Indonesia
                                 </p>
                             </div>
                         </div>
