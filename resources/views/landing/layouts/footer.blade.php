@@ -56,17 +56,16 @@
                                          <i class="icon-mail"></i>
                                      </div>
                                      <div class="footer-address-info">
-                                         <p><a href="mailto:example@example.com">example@example.com</a></p>
+                                         <p><a href="mailto:admin@bnaproperty.com">admin@bnaproperty.com</a></p>
                                      </div>
                                  </li>
                              </ul>
                          </div>
                          <div class="ltn__social-media mt-20">
                              <ul>
-                                 <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                 <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                 <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                 <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                 <li><a href="https://www.facebook.com/profile.php?id=61576880249876" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                 <li><a href="https://api.whatsapp.com/send?phone=6285217560982" title="Whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                 <li><a href="https://www.instagram.com/bna_property/" title="Twitter"><i class="fa-brands fa-instagram"></i></a></li>
                              </ul>
                          </div>
                      </div>

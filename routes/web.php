@@ -38,8 +38,8 @@ Route::get('/dashboard', function () {
     return redirect()->route('dashboard');
 })->middleware(['auth', 'verified']);
 
-Route::get('/properties/{slug}', [LandingPropertiesController::class, 'details'])->name('landing.properties.detail');
-Route::get('/properties', [LandingPropertiesController::class, 'index'])->name('landing.properties.index');
+Route::get('/villa-rental/{slug}', [LandingPropertiesController::class, 'details'])->name('landing.properties.detail');
+Route::get('/villa-rental', [LandingPropertiesController::class, 'index'])->name('landing.properties.index');
 Route::get('/about', [LandingAboutController::class, 'index'])->name('landing.about.index');
 
 Route::post('/booking/change-status', [BookingController::class, 'changeStatus']);

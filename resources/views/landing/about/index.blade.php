@@ -69,13 +69,13 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-house"></i></span>
+                            <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#">
+
                             <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Property Management</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
+                            <h3><a href="service-details.html">Real Estate</a></h3>
+                            <p>Helping you buy or sell property in Bali with confidence, clarity, and local expertise.</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -83,13 +83,13 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-mortgage"></i></span>
+                            <img src="{{ asset('landing') }}/img/icons/icon-img/22.png" alt="#">
+
                             <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Mortgage Service</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
+                            <h3><a href="service-details.html">Villa Rentals</a></h3>
+                            <p>Connecting travelers with handpicked Bali villas for short or long-term stays.</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -97,59 +97,19 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-operator"></i></span>
-                            <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
+                            {{-- <span><i class="flaticon-operator"></i></span> --}}
+                            <img src="{{ asset('landing') }}/img/icons/icon-img/23.png" alt="#">
+
+                            {{-- <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> --> --}}
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Consulting Service</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
+                            <h3><a href="service-details.html">Villa Management</a></h3>
+                            <p>Comprehensive property care and guest services to keep your villa performing at its best.</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
-                        <div class="ltn__feature-icon">
-                            <span><i class="flaticon-house-1"></i></span>
-                            <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
-                        </div>
-                        <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Home Buying</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
-                            <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
-                        <div class="ltn__feature-icon">
-                            <span><i class="flaticon-house-3"></i></span>
-                            <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
-                        </div>
-                        <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Home Selling</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
-                            <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-6 box-shadow-1 bg-white text-center">
-                        <div class="ltn__feature-icon">
-                            <span><i class="flaticon-official-documents"></i></span>
-                            <!-- <img src="{{ asset('landing') }}/img/icons/icon-img/21.png" alt="#"> -->
-                        </div>
-                        <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Escrow Services</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a
-                                house you will want to call home.</p>
-                            <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -161,179 +121,70 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2--- text-center">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">News & Blogs</h6>
-                        <h1 class="section-title">Leatest News Feeds</h1>
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Properties</h6>
+                        <h1 class="section-title">Leatest Property</h1>
                     </div>
                 </div>
             </div>
-            <div class="row ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal">
-                <!-- Blog Item -->
-                <div class="col-lg-12">
-                    <div class="ltn__blog-item ltn__blog-item-3">
-                        <div class="ltn__blog-img">
-                            <a href="blog-details.html">
-                                <img src="{{ asset('landing') }}/img/blog/1.jpg" alt="#">
-                            </a>
-                        </div>
-                        <div class="ltn__blog-brief">
-                            <div class="ltn__blog-meta">
+            <div class="row ltn__search-by-place-slider-1-active slick-arrow-1">
+                <div class="col-lg-4">
+                    <div class="ltn__search-by-place-item">
+                        <div class="search-by-place-img">
+                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product-3/1.jpg" alt="#"></a>
+                            <div class="search-by-place-badge">
                                 <ul>
-                                    <li class="ltn__blog-author">
-                                        <a href="#"><i class="far fa-user"></i>by: Admin</a>
-                                    </li>
-                                    <li class="ltn__blog-tags">
-                                        <a href="#"><i class="fas fa-tags"></i>Decorate</a>
-                                    </li>
+                                    <li>2 Properties</li>
                                 </ul>
                             </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">10 Brilliant Ways To Decorate
-                                    Your Home</a></h3>
-                            <div class="ltn__blog-meta-btn">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i>June 24, 2021
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
-                                </div>
+                        </div>
+                        <div class="search-by-place-info">
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Seminyak</a></h4>
+                            <div class="search-by-place-btn">
+                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
-                <div class="col-lg-12">
-                    <div class="ltn__blog-item ltn__blog-item-3">
-                        <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="{{ asset('landing') }}/img/blog/2.jpg" alt="#"></a>
-                        </div>
-                        <div class="ltn__blog-brief">
-                            <div class="ltn__blog-meta">
+                <div class="col-lg-4">
+                    <div class="ltn__search-by-place-item">
+                        <div class="search-by-place-img">
+                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product-3/2.jpg" alt="#"></a>
+                            <div class="search-by-place-badge">
                                 <ul>
-                                    <li class="ltn__blog-author">
-                                        <a href="#"><i class="far fa-user"></i>by: Admin</a>
-                                    </li>
-                                    <li class="ltn__blog-tags">
-                                        <a href="#"><i class="fas fa-tags"></i>Interior</a>
-                                    </li>
+                                    <li>5 Properties</li>
                                 </ul>
                             </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">The Most Inspiring Interior
-                                    Design Of 2021</a></h3>
-                            <div class="ltn__blog-meta-btn">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i>July 23, 2021
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
-                                </div>
+                        </div>
+                        <div class="search-by-place-info">
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Canggu</a></h4>
+                            <div class="search-by-place-btn">
+                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
-                <div class="col-lg-12">
-                    <div class="ltn__blog-item ltn__blog-item-3">
-                        <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="{{ asset('landing') }}/img/blog/3.jpg" alt="#"></a>
-                        </div>
-                        <div class="ltn__blog-brief">
-                            <div class="ltn__blog-meta">
+                <div class="col-lg-4">
+                    <div class="ltn__search-by-place-item">
+                        <div class="search-by-place-img">
+                            <a href="product-details.html"><img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="#"></a>
+                            <div class="search-by-place-badge">
                                 <ul>
-                                    <li class="ltn__blog-author">
-                                        <a href="#"><i class="far fa-user"></i>by: Admin</a>
-                                    </li>
-                                    <li class="ltn__blog-tags">
-                                        <a href="#"><i class="fas fa-tags"></i>Estate</a>
-                                    </li>
+                                    <li>9 Properties</li>
                                 </ul>
                             </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">Recent Commercial Real Estate
-                                    Transactions</a></h3>
-                            <div class="ltn__blog-meta-btn">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i>May 22, 2021
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
-                                </div>
+                        </div>
+                        <div class="search-by-place-info">
+                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
+                            <h4><a href="product-details.html">Kerobokan</a></h4>
+                            <div class="search-by-place-btn">
+                                <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
-                <div class="col-lg-12">
-                    <div class="ltn__blog-item ltn__blog-item-3">
-                        <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="{{ asset('landing') }}/img/blog/4.jpg" alt="#"></a>
-                        </div>
-                        <div class="ltn__blog-brief">
-                            <div class="ltn__blog-meta">
-                                <ul>
-                                    <li class="ltn__blog-author">
-                                        <a href="#"><i class="far fa-user"></i>by: Admin</a>
-                                    </li>
-                                    <li class="ltn__blog-tags">
-                                        <a href="#"><i class="fas fa-tags"></i>Room</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">Renovating a Living Room?
-                                    Experts Share Their Secrets</a></h3>
-                            <div class="ltn__blog-meta-btn">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i>June 24, 2021
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Blog Item -->
-                <div class="col-lg-12">
-                    <div class="ltn__blog-item ltn__blog-item-3">
-                        <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="{{ asset('landing') }}/img/blog/5.jpg" alt="#"></a>
-                        </div>
-                        <div class="ltn__blog-brief">
-                            <div class="ltn__blog-meta">
-                                <ul>
-                                    <li class="ltn__blog-author">
-                                        <a href="#"><i class="far fa-user"></i>by: Admin</a>
-                                    </li>
-                                    <li class="ltn__blog-tags">
-                                        <a href="#"><i class="fas fa-tags"></i>Trends</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">7 home trends that will shape
-                                    your house in 2021</a></h3>
-                            <div class="ltn__blog-meta-btn">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i>June 24, 2021
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!--  -->
             </div>
         </div>

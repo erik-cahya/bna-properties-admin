@@ -300,7 +300,7 @@
                         <div class="ltn__feature-info">
                             <h3><a href="service-details.html">Real Estate</a></h3>
                             <p>Helping you buy or sell property in Bali with confidence, clarity, and local expertise.</p>
-                            <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                            {{-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -313,7 +313,7 @@
                         <div class="ltn__feature-info">
                             <h3><a href="service-details.html">Villa Rentals</a></h3>
                             <p>Connecting travelers with handpicked Bali villas for short or long-term stays.</p>
-                            <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                            {{-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -326,7 +326,7 @@
                         <div class="ltn__feature-info">
                             <h3><a href="service-details.html">Villa Management</a></h3>
                             <p>Comprehensive property care and guest services to keep your villa performing at its best</p>
-                            <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                            {{-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -410,30 +410,49 @@
             </div>
         </div>
     </div>
-    <!-- SEARCH BY PLACE AREA END -->
 
+    {{-- Custom --}}
 
-    <div class="container my-4">
-        <div class="row g-0 rounded overflow-hidden shadow" style="height: 300px;">
-            <!-- Text Section -->
-            <div class="col-md-4 d-flex flex-column justify-content-start align-items-start p-4 text-white ltn__secondary-bg" style=" border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
-                <div class="coll-to-info text-color-white">
-                    <h1>Manage Your Villa with Us</h1>
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-4 text-color-white" style="background-color: #FF5A3B; height: 18rem; padding: 3rem;">
+                <div class="d-flex flex-column justify-content-center h-100 align-items-start">
+
+                    <h2>Manage Your Villa with Us</h2>
                     <a class="btn btn-effect-3 btn-white p-3" href="contact.html">
                         Explore Properties <i class="icon-next"></i>
                     </a>
                 </div>
             </div>
-
-            <!-- Image Section -->
-            <div class="col-md-8 p-0">
-                <img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="villa" class="w-100 h-100" style="object-fit: cover; background-position: center center">
+            <div class="col-md-8 overflow-hidden p-0">
+                <img src="https://bnaproperty.com/wp-content/uploads/2025/06/img4.jpg" height="288px" alt="villa" style="object-fit: cover; background-position: center center">
             </div>
         </div>
     </div>
+    {{-- END Custom --}}
 
+    {{-- <!-- SEARCH BY PLACE AREA END -->
 
+    <div class="ltn__search-by-place-area before-bg-top bg-image-top--- pt-115 pb-70" data-bs-bg="img/bg/20.jpg">
+        <div class="container">
+            <div class="row g-0 overflow-hidden rounded shadow" style="height: 100px;">
+                <!-- Text Section -->
+                <div class="col-md-4 d-flex flex-column justify-content-center align-items-start ltn__secondary-bg p-4 text-white" style=" border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
+                    <div class="coll-to-info text-color-white">
+                        <h2>Manage Your Villa with Us</h2>
+                        <a class="btn btn-effect-3 btn-white p-3" href="contact.html">
+                            Explore Properties <i class="icon-next"></i>
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Image Section -->
+                <div class="col-md-8 p-0">
+                    <img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="villa" class="w-100 h-100" style="object-fit: cover; background-position: center center">
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
     <!-- CALL TO ACTION END -->
 

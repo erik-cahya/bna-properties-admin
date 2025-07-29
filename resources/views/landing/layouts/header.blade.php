@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row pt-4">
             <div class="col-lg-6">
-                <span class="fw-bold text-dark fs-12">Free Consultation : +62</span>
+                <span class="fw-bold text-dark fs-12">Free Consultation : +62 852-1756-0982</span>
             </div>
             <div class="col-lg-6 d-flex justify-content-end gap-2">
                 <iconify-icon style="font-size: 20px; color:#061D20" icon="hugeicons:instagram"></iconify-icon>
@@ -26,10 +26,9 @@
                             <ul>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px;" href="https://bnaproperty.com/">Villa</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Real Estate</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Villa</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px;" href="https://bnaproperty.com/">Real Estate</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px;" href="https://management.bnaproperty.com/">Management</a></li>
-                                {{-- <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Property List</a></li> --}}
 
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
                             </ul>
@@ -76,18 +75,19 @@
             <ul>
                 <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                 <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
-                <li><a style="{{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Real Estate</a></li>
-                <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="#">Management</a></li>
+                <li><a style="{{ Route::is('landing.properties.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Villa</a></li>
+                <li><a href="https://bnaproperty.com/">Real Estate</a></li>
+                <li><a href="https://management.bnaproperty.com/">Management</a></li>
                 <li><a style="{{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
+
             </ul>
         </div>
 
         <div class="ltn__social-media-2">
             <ul>
-                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61576880249876" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=6285217560982" title="Whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><a href="https://www.instagram.com/bna_property/" title="Twitter"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>

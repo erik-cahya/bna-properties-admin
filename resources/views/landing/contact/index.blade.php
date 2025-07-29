@@ -33,7 +33,7 @@
                                     <img src="{{ asset('landing') }}/img/icons/10.png" alt="Icon Image">
                                 </div>
                                 <h3>Email Address</h3>
-                                <p>info@webmail.com</p>
+                                <p>admin@bnaproperty.com</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
