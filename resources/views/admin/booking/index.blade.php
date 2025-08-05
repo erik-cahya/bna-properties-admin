@@ -87,8 +87,16 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Booking List</h4>
-                            <p class="card-subtitle">Customer data for booking villas/properties</p>
+                            <div class="d-flex justify-content-between">
+
+                                <div class="flex-column">
+                                    <h4 class="card-title">Booking List</h4>
+                                    <p class="card-subtitle">Customer data for booking villas/properties</p>
+                                </div>
+                                <div class="flex-column">
+                                    <a href="{{ route('booking.export') }}" class="btn btn-sm btn-primary">Export Excel</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="card-bod">

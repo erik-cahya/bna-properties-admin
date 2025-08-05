@@ -20,7 +20,7 @@
                 <div class="col-lg-2 col-sm-6">
                     <img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" width="100">
                 </div>
-                <div class="col-lg-8 justify-content-center d-flex">
+                <div class="col-lg-8 justify-content-center d-none d-lg-flex">
                     <nav>
                         <div class="ltn__main-menu">
                             <ul>
@@ -36,7 +36,7 @@
                     </nav>
 
                 </div>
-                <div class="col-lg-2 d-flex justify-content-end">
+                <div class="col-lg-2 d-none d-lg-flex justify-content-end">
                     <button class="btn d-flex theme-btn-1 btn-effect-1 gap-1 rounded py-2" style="font-size: 12px">
                         Search
                         <iconify-icon style="font-size: 20px;" icon="ic:baseline-search"></iconify-icon>

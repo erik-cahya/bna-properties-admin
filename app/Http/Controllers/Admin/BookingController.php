@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\BookingModel;
 use App\Models\CustomerModel;
 use App\Models\PropertiesModel;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel as ExcelType;
+use Maatwebsite\Excel\Concerns\FromArray;
+
 
 class BookingController extends Controller
 {
@@ -149,5 +154,39 @@ class BookingController extends Controller
         ];
 
         return response()->json($flashData);
+    }
+
+    public function exportExcel()
+    {
+        $users = BookingModel::select('customer_id', 'properties_id', 'start_date', 'end_date', 'status')->get();
+
+        $data = [
+            ['Customer ID', 'Properties ID', 'Start Date', 'End Date', 'Status'], // header
+        ];
+
+        foreach ($users as $user) {
+            $data[] = [
+                $user->customer_id,
+                $user->properties_id,
+                $user->start_date,
+                $user->end_date,
+                $user->status,
+            ];
+        }
+
+        // Export tanpa membuat class terpisah
+        return Excel::download(new class($data) implements FromArray {
+            protected $data;
+
+            public function __construct(array $data)
+            {
+                $this->data = $data;
+            }
+
+            public function array(): array
+            {
+                return $this->data;
+            }
+        }, 'booking.xlsx', ExcelType::XLSX);
     }
 }

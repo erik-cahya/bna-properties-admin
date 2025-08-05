@@ -33,6 +33,7 @@ Route::get('/contacts', function () {
     return view('landing.contact.index');
 })->name('landing.contact.index');
 
+Route::get('/export', [BookingController::class, 'exportExcel'])->name('booking.export');
 
 Route::get('/dashboard', function () {
     return redirect()->route('dashboard');
