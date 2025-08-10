@@ -5,11 +5,11 @@
              <div class="col-lg-12">
                  <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
                      <div class="coll-to-info text-color-white">
-                         <h1>Looking for a dream vacation villa?</h1>
-                         <p>We help you reach your dream!</p>
+                         <h1>Looking for a dream home?</h1>
+                         <p>We help you make the dream of new house a reality</p>
                      </div>
                      <div class="btn-wrapper">
-                         <a class="btn btn-effect-3 btn-white" href="{{ route('landing.contact.index') }}">Contact us </a>
+                         <a class="btn btn-effect-3 btn-white" href="contact.html">Explore Properties <i class="icon-next"></i></a>
                      </div>
                  </div>
              </div>
@@ -27,9 +27,7 @@
                      <div class="footer-widget footer-about-widget">
                          <div class="footer-logo mb-3">
                              <div class="site-logo">
-                                <a href="{{ route('landing.index') }}">
-                                    <img src="{{ asset('bna-assets/new-bna-light.png') }}" width="200" alt="Logo">
-                                </a>
+                                 <img src="{{ asset('bna-assets/logo-bna-light.png') }}" width="200" alt="Logo">
                              </div>
                          </div>
                          <p>BNA Property Rental offers trusted, stress-free villa rentals in Bali.</p>
@@ -79,9 +77,8 @@
                              <ul>
                                  <li><a href="{{ route('landing.index') }}">Home</a></li>
                                  <li><a href="{{ route('landing.about.index') }}">About</a></li>
-                                 <li><a href="{{ route('landing.properties.index') }}">Villa</a></li>
-                                 <li><a href="https://bnaproperty.com/">Real Estate</a></li>
-                                 <li><a href="https://management.bnaproperty.com/">Management</a></li>
+                                 <li><a href="{{ route('landing.properties.index') }}">Real Estate</a></li>
+                                 <li><a href="#">Management</a></li>
                                  <li><a href="{{ route('landing.contact.index') }}">Contact Us</a></li>
                              </ul>
                          </div>
@@ -99,12 +96,40 @@
                          </div>
                      </div>
                  </div>
+                 {{-- <div class="col-xl-2 col-md-6 col-sm-6 col-12">
+                     <div class="footer-widget footer-menu-widget clearfix">
+                         <h4 class="footer-title">Services</h4>
+                         <div class="footer-menu">
+                             <ul>
+                                 <li><a href="order-tracking.html">Order tracking</a></li>
+                                 <li><a href="wishlist.html">Wish List</a></li>
+                                 <li><a href="login.html">Login</a></li>
+                                 <li><a href="account.html">My account</a></li>
+                                 <li><a href="about.html">Terms & Conditions</a></li>
+                                 <li><a href="about.html">Promotional Offers</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
+                     <div class="footer-widget footer-menu-widget clearfix">
+                         <h4 class="footer-title">Customer Care</h4>
+                         <div class="footer-menu">
+                             <ul>
+                                 <li><a href="login.html">Login</a></li>
+                                 <li><a href="account.html">My account</a></li>
+                                 <li><a href="wishlist.html">Wish List</a></li>
+                                 <li><a href="order-tracking.html">Order tracking</a></li>
+                                 <li><a href="faq.html">FAQ</a></li>
+                                 <li><a href="contact.html">Contact us</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div> --}}
                  <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                      <div class="footer-widget footer-newsletter-widget">
                          <h4 class="footer-title">We Accept</h4>
-                         <img src="{{ asset('landing') }}/img/icons/visa.png" alt="Payment Image" width="80" class="pad-r-4">
-                         <img src="{{ asset('landing') }}/img/icons/paypal.png" alt="Payment Image" width="80" class="pad-r-4">
-                         <img src="{{ asset('landing') }}/img/icons/mastercard.png" alt="Payment Image" width="80" class="pad-r-4">
+                         <img src="{{ asset('landing') }}/img/icons/payment-4.png" alt="Payment Image">
                      </div>
                  </div>
              </div>
@@ -115,7 +140,7 @@
              <div class="row">
                  <div class="col-md-6 col-12">
                      <div class="ltn__copyright-design clearfix">
-                         <p>All Rights Reserved @ BNA Property <span class="current-year"></span></p>
+                         <p>All Rights Reserved @ BNA Property Group <span class="current-year"></span></p>
                      </div>
                  </div>
 

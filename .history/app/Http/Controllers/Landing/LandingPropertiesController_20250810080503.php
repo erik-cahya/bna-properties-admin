@@ -11,8 +11,6 @@ use App\Models\PropertyGalleryImageModel;
 use App\Models\PropertyGalleryModel;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\RegionModel;
-
 
 
 class LandingPropertiesController extends Controller
@@ -23,13 +21,10 @@ class LandingPropertiesController extends Controller
         $data['data_properties'] = PropertiesModel::with(['featuredImage' => function ($query) {
             $query->select('image_path', 'property_gallery.id');
             $query->where('is_featured', 1);
-        }])->where('status_listing', '!=', 'Pending')->paginate(8);
+        }])->where('status_listing', '!=', 'Pending')->get();
 
-        $regions = RegionModel::all();
-
-        return view('landing.properties.index', $data, compact('regions'));
+        return view('landing.properties.index', $data);
     }
-    
     public function details($slug)
     {
 
