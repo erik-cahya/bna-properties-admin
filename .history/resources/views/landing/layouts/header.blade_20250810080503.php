@@ -4,14 +4,12 @@
     <div class="container">
         <div class="row pt-4">
             <div class="col-lg-6">
-                <span class="fw-bold text-dark fs-12">Free Consultation : <a href="https://api.whatsapp.com/send?phone=6285217560982">+62 852-1756-0982</a></span>
+                <span class="fw-bold text-dark fs-12">Free Consultation : +62 852-1756-0982</span>
             </div>
             <div class="col-lg-6 d-flex justify-content-end gap-2">
-                <a href="https://www.instagram.com/bna_property/"><iconify-icon style="font-size: 20px; color:#061D20" icon="hugeicons:instagram" ></iconify-icon></a>
-                <a href="https://api.whatsapp.com/send?phone=6285217560982"><iconify-icon style="font-size: 20px; color:#061D20" icon="ic:twotone-whatsapp" ></iconify-icon></a>
-                <a href="https://www.facebook.com/profile.php?id=61576880249876">
-                    <iconify-icon style="font-size: 20px; color:#061D20" icon="mdi:facebook" ></iconify-icon>
-                </a>
+                <iconify-icon style="font-size: 20px; color:#061D20" icon="hugeicons:instagram"></iconify-icon>
+                <iconify-icon style="font-size: 20px; color:#061D20" icon="ic:twotone-whatsapp"></iconify-icon>
+                <iconify-icon style="font-size: 20px; color:#061D20" icon="mdi:linkedin"></iconify-icon>
 
             </div>
         </div>
@@ -20,9 +18,7 @@
         <div class="container">
             <div class="row mt-3 bg-white p-2" style="border-radius: 10px">
                 <div class="col-lg-2 col-sm-6">
-                    <a href="{{ route('landing.index') }}">
-                        <img src="{{ asset('bna-assets/bna-new-dark.png') }}" alt="" width="100">
-                    </a>
+                    <img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" width="100">
                 </div>
                 <div class="col-lg-8 justify-content-center d-none d-lg-flex">
                     <nav>
@@ -41,12 +37,10 @@
 
                 </div>
                 <div class="col-lg-2 d-none d-lg-flex justify-content-end">
-                    <a href="{{ route('landing.properties.index') }}">
                     <button class="btn d-flex theme-btn-1 btn-effect-1 gap-1 rounded py-2" style="font-size: 12px">
                         Search
                         <iconify-icon style="font-size: 20px;" icon="ic:baseline-search"></iconify-icon>
                     </button>
-                    </a>
                 </div>
 
                 <div class="col--- ltn__header-options ltn__header-options-2">

@@ -33,7 +33,7 @@
                                     <img src="{{ asset('landing') }}/img/icons/10.png" alt="Icon Image">
                                 </div>
                                 <h3>Email Address</h3>
-                                <a href="mailto:admin@bnaproperty.com">admin@bnaproperty.com</a>
+                                <p>admin@bnaproperty.com</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -42,7 +42,7 @@
                                     <img src="{{ asset('landing') }}/img/icons/11.png" alt="Icon Image">
                                 </div>
                                 <h3>Phone Number</h3>
-                                <a href="tel:+62-852-1756-0982">+62-852-1756-0982</a>
+                                <p>+62-852-1756-0982</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -51,9 +51,9 @@
                                     <img src="{{ asset('landing') }}/img/icons/12.png" alt="Icon Image">
                                 </div>
                                 <h3>Office Address</h3>
-                                <a href="https://maps.app.goo.gl/7VoC6q4xSm6TKxXL9">
+                                <p>
                                     Jl. Pd. Tegal Sari Indah II No.A28, Padangsambian Klod, Kec. Denpasar Bar., <br> Kota Denpasar, Bali 80117, Indonesia
-                                </a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -95,8 +95,8 @@
                     <div class="google-map mt-40">
 
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.1413129232437!2d115.17989327576215!3d-8.678108888358482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2473135164a93%3A0x2d94fc2aec21329e!2sJl.%20Pd.%20Tegal%20Sari%20Indah%20II%2C%20Padangsambian%20Klod%2C%20Kec.%20Denpasar%20Bar.%2C%20Kota%20Denpasar%2C%20Bali%2080117!5e0!3m2!1sid!2sid!4v1754572459157!5m2!1sid!2sid"
-                            width="100%" height="500px" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
+                            width="100%" height="500px" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
                     </div>
                 </div>

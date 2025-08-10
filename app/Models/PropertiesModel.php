@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PropertyGalleryModel;
+use App\Models\RegionModel;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PropertyGalleryImageModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PropertiesModel extends Model
 {
@@ -24,5 +27,10 @@ class PropertiesModel extends Model
             'id',            // Local key on Properties table
             'id'             // Local key on PropertyGallery table
         );
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(RegionModel::class);
     }
 }

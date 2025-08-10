@@ -101,18 +101,27 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__car-dealer-form-tab">
-
+                        <div class="ltn__tab-menu text-uppercase d-none">
+                            <div class="nav">
+                                <a class="active show" data-bs-toggle="tab" href="#ltn__form_tab_1_1"><i
+                                        class="fas fa-car"></i>Find A Car</a>
+                                <a data-bs-toggle="tab" href="#ltn__form_tab_1_2" class=""><i
+                                        class="far fa-user"></i>Get a Dealer</a>
+                            </div>
+                        </div>
                         <div class="tab-content box-shadow-1 ltn__border position-relative bg-white pb-10">
                             <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                 <div class="car-dealer-form-inner">
-                                    <form method="GET" action="{{ route('landing.properties.index') }}" class="ltn__car-dealer-form-box row">
+                                    <form method="GET" action="{{ route('properties.index') }}" class="ltn__car-dealer-form-box row">
                                         <div
                                             class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
                                             <select class="nice-select">
-                                                <option>Area</option>
-                                                @foreach($regions as $region)
-                                                    <option>{{ $region->name }}</option>
-                                                @endforeach
+                                                <option>Choose Area</option>
+                                                <option>chicago</option>
+                                                <option>London</option>
+                                                <option>Los Angeles</option>
+                                                <option>New York</option>
+                                                <option>New Jersey</option>
                                             </select>
                                         </div>
                                         <div
@@ -285,7 +294,7 @@
                 <div class="col-lg-4">
                     <div class="ltn__search-by-place-item">
                         <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/1.jpg" alt="#"></a>
+                            <a href="{{ route('properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/1.jpg" alt="#"></a>
                             <div class="search-by-place-badge">
                                 <ul>
                                     <li>2 Properties</li>
@@ -294,9 +303,9 @@
                         </div>
                         <div class="search-by-place-info">
                             <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Seminyak</a></h4>
+                            <h4><a href="{{ route('properties.index') }}">Seminyak</a></h4>
                             <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
+                                <a href="{{ route('properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
@@ -304,7 +313,7 @@
                 <div class="col-lg-4">
                     <div class="ltn__search-by-place-item">
                         <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/2.jpg" alt="#"></a>
+                            <a href="{{ route('properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/2.jpg" alt="#"></a>
                             <div class="search-by-place-badge">
                                 <ul>
                                     <li>5 Properties</li>
@@ -313,9 +322,9 @@
                         </div>
                         <div class="search-by-place-info">
                             <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Canggu</a></h4>
+                            <h4><a href="{{ route('properties.index') }}">Canggu</a></h4>
                             <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
+                                <a href="{{ route('properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
@@ -323,7 +332,7 @@
                 <div class="col-lg-4">
                     <div class="ltn__search-by-place-item">
                         <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="#"></a>
+                            <a href="{{ route('properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="#"></a>
                             <div class="search-by-place-badge">
                                 <ul>
                                     <li>9 Properties</li>
@@ -332,9 +341,9 @@
                         </div>
                         <div class="search-by-place-info">
                             <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Kerobokan</a></h4>
+                            <h4><a href="{{ route('properties.index') }}">Kerobokan</a></h4>
                             <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
+                                <a href="{{ route('properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
                             </div>
                         </div>
                     </div>
@@ -344,7 +353,6 @@
             </div>
         </div>
     </div>
-    <!-- Area Section end -->
 
     {{-- MANAGE VILLA --}}
     <div class="container">
