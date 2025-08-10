@@ -127,8 +127,4 @@ class PropertySeeder extends Seeder
             PropertiesModel::create($property);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> HEAD@{1}
