@@ -58,7 +58,6 @@ class BookingController extends Controller
                 'customers.customer_email',
                 'customers.customer_phone',
                 'customers.customer_address',
-
             )
             ->get();
 
@@ -158,19 +157,54 @@ class BookingController extends Controller
 
     public function exportExcel()
     {
+
+        $bookings = BookingModel::join('properties', 'properties.id', '=', 'bookings.properties_id')
+            ->join('customers', 'customers.id', '=', 'bookings.customer_id')
+            ->select(
+                'bookings.*',
+
+                'properties.properties_name',
+                'properties.address',
+                'properties.type_properties',
+                'properties.max_people',
+                'properties.price_usd',
+
+                'customers.customer_name',
+                'customers.customer_email',
+                'customers.customer_phone',
+                'customers.customer_address',
+            )
+            ->get();
+        // dd($bookings);
+
         $users = BookingModel::select('customer_id', 'properties_id', 'start_date', 'end_date', 'status')->get();
 
         $data = [
-            ['Customer ID', 'Properties ID', 'Start Date', 'End Date', 'Status'], // header
+            [
+                'Number',
+                'Name',
+                'Email',
+                'Phone',
+                'Villa',
+                'Address',
+                'Start Date',
+                'End Date',
+                'Status'
+            ], // header
         ];
 
-        foreach ($users as $user) {
+        $number = 1;
+        foreach ($bookings as $booking) {
             $data[] = [
-                $user->customer_id,
-                $user->properties_id,
-                $user->start_date,
-                $user->end_date,
-                $user->status,
+                $number++,
+                $booking->customer_name,
+                $booking->customer_email,
+                $booking->customer_phone,
+                $booking->properties_name,
+                $booking->address,
+                $booking->start_date,
+                $booking->end_date,
+                $booking->status,
             ];
         }
 
@@ -187,6 +221,6 @@ class BookingController extends Controller
             {
                 return $this->data;
             }
-        }, 'booking.xlsx', ExcelType::XLSX);
+        }, 'booking_' . Carbon::today() . '.xlsx', ExcelType::XLSX);
     }
 }

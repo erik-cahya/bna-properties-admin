@@ -27,9 +27,9 @@
                      <div class="footer-widget footer-about-widget">
                          <div class="footer-logo mb-3">
                              <div class="site-logo">
-                                <a href="{{ route('landing.index') }}">
-                                    <img src="{{ asset('bna-assets/new-bna-light.png') }}" width="200" alt="Logo">
-                                </a>
+                                 <a href="{{ route('landing.index') }}">
+                                     <img src="{{ asset('bna-assets/logo-bna-light.png') }}" width="200" alt="Logo">
+                                 </a>
                              </div>
                          </div>
                          <p>BNA Property Rental offers trusted, stress-free villa rentals in Bali.</p>

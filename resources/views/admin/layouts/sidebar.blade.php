@@ -1,6 +1,6 @@
  <div class="main-menu">
      <!-- Brand Logo -->
-     <div class="logo-box">
+     <div class="logo-box mt-4">
          <!-- Brand Logo Light -->
          <a href="index.html" class="logo-light">
              <img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="logo" class="logo-lg" height="80">
