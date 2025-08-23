@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\PropertiesModel;
+
 class PropertySeeder extends Seeder
 {
     /**
@@ -127,8 +128,4 @@ class PropertySeeder extends Seeder
             PropertiesModel::create($property);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> HEAD@{1}

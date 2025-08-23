@@ -29,7 +29,7 @@ class LandingPropertiesController extends Controller
 
         return view('landing.properties.index', $data, compact('regions'));
     }
-    
+
     public function details($slug)
     {
 
@@ -37,6 +37,7 @@ class LandingPropertiesController extends Controller
             $query->select('image_path', 'property_gallery.id');
             $query->where('is_featured', 1);
         }])->first();
+
 
         $dataProperties = PropertiesModel::where('slug', $slug)->first();
 
@@ -65,4 +66,6 @@ class LandingPropertiesController extends Controller
 
         return view('landing.properties.details', $data);
     }
+
+    public function search() {}
 }

@@ -60,8 +60,11 @@
                                         <!-- Search Widget -->
                                         <div class="ltn__search-widget mb-30">
                                             <form action="#">
-                                                <input type="text" name="search" placeholder="Search your keyword...">
+                                                {{-- <input type="text" name="search" placeholder="Search your keyword..."> --}}
+                                                <input class="widget__search--input__field" id="search_props" placeholder="Search property" type="text">
+
                                                 <button type="submit"><i class="fas fa-search"></i></button>
+
                                             </form>
                                         </div>
                                     </div>
@@ -111,7 +114,7 @@
                                                 </div>
                                                 <div class="product-info-bottom">
                                                     <div class="product-price">
-                                                        <span>$34,900<label>/Month</label></span>
+                                                        <span>${{ number_format($properties->price_usd, 2, ',', '.') }}<label>/Month</label></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,10 +131,10 @@
                                     <div class="col-lg-12">
                                         <!-- Search Widget -->
                                         <div class="ltn__search-widget mb-30">
-                                            <form action="#">
-                                                <input type="text" name="search" placeholder="Search your keyword...">
-                                                <button type="submit"><i class="fas fa-search"></i></button>
-                                            </form>
+                                            {{-- <input type="text" name="search" id="search_props" placeholder="Search your keyword..."> --}}
+                                            <input class="widget__search--input__field" id="search_props" placeholder="Search property" type="text">
+
+                                            <button type="submit"><i class="fas fa-search"></i></button>
                                         </div>
                                     </div>
                                     @foreach ($data_properties as $properties)
@@ -147,11 +150,11 @@
                                                     <div class="product-badge-price">
                                                         <div class="product-badge">
                                                             <ul>
-                                                                <li class="sale-badg">For Rent</li>
+                                                                <li class="sale-badg">{{ $properties->status_listing }}</li>
                                                             </ul>
                                                         </div>
                                                         <div class="product-price">
-                                                            <span>$34,900<label>/Month</label></span>
+                                                            <span>$ {{ number_format($properties->price_usd, 2, ',', '.') }}<label>/Month</label></span>
                                                         </div>
                                                     </div>
                                                     <h2 class="product-title"><a href="{{ route('landing.properties.detail', $properties->slug) }}">{{ $properties->properties_name }}</a></h2>
@@ -175,17 +178,11 @@
                                                     </ul>
                                                 </div>
                                                 <div class="product-info-bottom">
-                                                    <div class="real-estate-agent">
-                                                        <div class="agent-img">
-                                                            <a href="team-details.html"><img src="{{ asset('landing') }}/img/blog/author.jpg" alt="#"></a>
-                                                        </div>
-
-                                                    </div>
                                                     <div class="product-hover-action">
                                                         <ul>
                                                             <li>
                                                                 <a href="{{ route('landing.properties.detail', $properties->slug) }}" title="Product Details">
-                                                                   <span>Detail</span> <iconify-icon icon="weui:eyes-on-outlined"></iconify-icon>
+                                                                    <span>Detail</span> <iconify-icon icon="weui:eyes-on-outlined"></iconify-icon>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -204,6 +201,8 @@
                     {{ $data_properties->links('vendor.pagination.custom-pagination') }}
 
                 </div>
+
+                {{-- Filtering Data --}}
                 <div class="col-lg-4">
                     <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar">
                         <h3 class="mb-10">Advance Information</h3>
@@ -252,31 +251,7 @@
                                     </label>
                                 </li>
                             </ul> --}}
-                            {{-- Price Range --}}
-                            <h4 class="ltn__widget-title pad-t-8">Price Range</h4>
-                            <ul>
-                                <li>
-                                    <label class="checkbox-item">Low Budget
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <span class="categorey-no">$100 - $1000</span>
-                                </li>
-                                <li>
-                                    <label class="checkbox-item">Medium
-                                        <input type="checkbox" checked="checked">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <span class="categorey-no">$1,000 - $5,000</span>
-                                </li>
-                                <li>
-                                    <label class="checkbox-item">High Budget
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <span class="categorey-no">$5,000 Up</span>
-                                </li>
-                            </ul>
+
                             {{-- <hr> --}}
                             {{-- <!-- Price Filter Widget -->
                             <div class="widget--- ltn__price-filter-widget">
@@ -288,8 +263,7 @@
                                     </div>
                                     <div class="slider-range"></div>
                                 </div>
-                            </div> --}}
-                            <hr>
+                            </div> --}
                             {{-- Bedroom & bathroom --}}
                             <h4 class="ltn__widget-title">Bed/bath</h4>
                             <ul>
@@ -327,22 +301,76 @@
                             <hr>
                             <h4 class="ltn__widget-title">Area</h4>
                             <ul>
-                                @foreach($regions as $region)                                                
+                                @foreach ($regions as $region)
                                     <li>
                                         <label class="checkbox-item">{{ $region->name }}
                                             <input type="checkbox">
                                             <span class="checkmark"></span>
                                         </label>
-                                </li>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
 
-
                     </aside>
                 </div>
+                {{-- /* Filtering Data --}}
             </div>
         </div>
     </div>
     <!-- PRODUCT DETAILS AREA END -->
 @endsection
+@push('script')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function debounce(func, delay) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        $(document).ready(function() {
+            function fetchFilteredProperties() {
+
+                let formData = {
+                    query: $('#search_props').val(),
+                    price_min: $('.input-min').val(),
+                    price_max: $('.input-max').val(),
+                    bedroom: $('[name="bedroom"]').val(),
+                    property_type: [],
+                    location: [],
+                };
+
+                console.log(formData);
+
+
+
+                // Ambil data dari checkbox
+                $('[name="property_type[]"]:checked').each(function() {
+                    formData.property_type.push($(this).val());
+                });
+                $('[name="location[]"]:checked').each(function() {
+                    formData.location.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '{{ route('property.search') }}',
+                    type: 'GET',
+                    data: formData,
+                    beforeSend: function() {
+                        $('#property-list').html('<p>Loading...</p>');
+                    },
+                    success: function(data) {
+                        $('#property-list').html(data);
+                    }
+                });
+            }
+
+            // Event untuk semua filter
+            $('#search_props').on('keyup', fetchFilteredProperties);
+            $('.input-min, .input-max, [name="bedroom"], [name="property_type[]"], [name="location[]"]').on('change', fetchFilteredProperties);
+        });
+    </script>
+@endpush

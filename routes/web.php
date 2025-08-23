@@ -4,7 +4,6 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PropertiesFeatureController;
 use App\Http\Controllers\Admin\PropertyController;
-use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Landing\HomeController;
 use App\Http\Controllers\Landing\LandingAboutController;
 use App\Http\Controllers\Landing\LandingPropertiesController;
@@ -26,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-
+Route::get('/search-property', [LandingPropertiesController::class, 'search'])->name('property.search');
 Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 
 Route::get('/contacts', function () {

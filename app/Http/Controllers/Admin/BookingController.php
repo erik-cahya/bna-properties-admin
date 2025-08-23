@@ -68,7 +68,6 @@ class BookingController extends Controller
 
             $alreadyBooked = Carbon::parse($booking->start_date)->diffInDays(now(), false);
 
-
             // dd($alreadyBooked);
 
             $data['bookingData']->remainingDays = $remainingDays;
@@ -88,13 +87,13 @@ class BookingController extends Controller
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $propertyData = PropertiesModel::where('slug', $request->propertySlug)->first();
-
         $newCustomerData = CustomerModel::create([
             'customer_name' => $request->name,
             'customer_email' => $request->email,

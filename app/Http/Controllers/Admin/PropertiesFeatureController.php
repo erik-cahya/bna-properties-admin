@@ -37,7 +37,6 @@ class PropertiesFeatureController extends Controller
             'slug' => Str::slug($request->featuresName)
         ]);
 
-
         $flashData = [
             'judul' => 'Create Success',
             'pesan' => 'Data Feature Added Successfully',
@@ -75,7 +74,6 @@ class PropertiesFeatureController extends Controller
      */
     public function destroy(string $id)
     {
-
         FeatureListModel::destroy($id);
         $flashData = [
             'judul' => 'Delete Success',
