@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RegionModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,6 @@ class RegionSeeder extends Seeder
     public function run(): void
     {
         $regions = [
-            "badung" => [
                 "Kuta",
                 "Seminyak",
                 "Canggu",
@@ -22,24 +22,27 @@ class RegionSeeder extends Seeder
                 "Nusa Dua",
                 "Pecatu",
                 "Uluwatu"
-            ],
         ];
 
-        foreach ($regions as $region => $subRegions) {
-            $regionId = DB::table('regions')->insertGetId([
-                'name' => ucfirst($region),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-
-            foreach ($subRegions as $subRegion) {
-                DB::table('sub_regions')->insert([
-                    'region_id' => $regionId,
-                    'name' => $subRegion,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-            }
+        foreach ($regions as $name) {
+            RegionModel::create(['name' => $name]);
         }
+
+        // foreach ($regions as $region => $subRegions) {
+        //     $regionId = DB::table('regions')->insertGetId([
+        //         'name' => ucfirst($region),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+
+        //     foreach ($subRegions as $subRegion) {
+        //         DB::table('sub_regions')->insert([
+        //             'region_id' => $regionId,
+        //             'name' => $subRegion,
+        //             'created_at' => now(),
+        //             'updated_at' => now(),
+        //         ]);
+        //     }
+        // }
     }
 }

@@ -60,7 +60,7 @@
 
                                     <div class="col-lg-6 ">
                                         <h4 class="card-title">{{ $dataProperties->properties_name }}</h4>
-                                        <p class="card-subtitle"><i class="mdi mdi-map-marker"></i> {{ $dataProperties->address . ', ' . $dataProperties->sub_region . ', ' . $dataProperties->region }}</p>
+                                        <p class="card-subtitle"><i class="mdi mdi-map-marker"></i> {{ $dataProperties->address . ' , ' . $dataProperties->region }}</p>
                                         <hr>
                                         <span class="font-size-12">
                                             {{ $dataProperties->description }}

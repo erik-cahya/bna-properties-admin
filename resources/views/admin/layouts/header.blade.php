@@ -5,15 +5,15 @@
             <!-- Brand Logo -->
             <div class="logo-box">
                 <!-- Brand Logo Light -->
-                <a href="index.html" class="logo-light">
-                    <img src="{{ asset('admin') }}/assets/images/logo-light.png" alt="logo" class="logo-lg" height="20">
-                    <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="20">
+                <a href="{{ route('dashboard') }}" class="logo-light">
+                    <img src="{{ asset('admin') }}/assets/images/new-bna-light.png" alt="logo" class="logo-lg" height="20">
+                    <img src="{{ asset('admin') }}/assets/images/new-bna-light.png" alt="small logo" class="logo-sm" height="20">
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a href="index.html" class="logo-dark">
-                    <img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="dark logo" class="logo-lg" height="20">
-                    <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="20">
+                <a href="{{ route('dashboard') }}" class="logo-dark">
+                    <img src="{{ asset('admin') }}/assets/images/bna-new-dark.png" alt="dark logo" class="logo-lg" height="20">
+                    <img src="{{ asset('admin') }}/assets/images/bna-new-dark.png" alt="small logo" class="logo-sm" height="20">
                 </a>
             </div>
 
@@ -37,25 +37,12 @@
 
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user waves-effect waves-dark me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{ asset('admin') }}/assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
-                    <span class="d-none d-md-inline-block ms-1">
-                        {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
+                    <span class="d-none d-md-inline-block ms-1 font-size-18">
+                        {{ Auth::user()->name }} <i class="mdi mdi-chevron-down font-size-18"></i>
                     </span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown">
-                    <!-- item-->
-                    <div class="dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Welcome !</h6>
-                    </div>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i data-lucide="user" class="font-size-16 me-2"></i>
-                        <span>My Account</span>
-                    </a>
-
-                    <div class="dropdown-divider"></div>
 
                     <!-- item-->
                     <form action="{{ route('logout') }}" method="POST">

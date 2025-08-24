@@ -100,43 +100,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ltn__car-dealer-form-tab">
 
+                    {{-- FILTER --}}
+                    <div class="ltn__car-dealer-form-tab">
                         <div class="tab-content box-shadow-1 ltn__border position-relative bg-white pb-10">
                             <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                 <div class="car-dealer-form-inner">
-                                    <form method="GET" action="{{ route('landing.properties.index') }}" class="ltn__car-dealer-form-box row">
-                                        <div
-                                            class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
-                                            <select class="nice-select">
-                                                <option>Area</option>
+                                    <form method="GET" action="{{ route('landing.properties.index') }}" class="ltn__car-dealer-form-box row pb-10 mb-10">
+                                        <div class="col-lg-3 col-md-6">
+                                            <select name="region[]" class="nice-select">
+                                                <option selected="" disabled readonly>Area</option>
                                                 @foreach($regions as $region)
-                                                    <option>{{ $region->name }}</option>
+                                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div
-                                            class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
-                                            <select class="nice-select">
-                                                <option>Price Range</option>
-                                                <option value="0-1000" {{ request('price_range') == '0-1000' ? 'selected' : '' }}>$0 - $1,000</option>
-                                                <option value="1000-5000" {{ request('price_range') == '1000-5000' ? 'selected' : '' }}>$1,000 - $5,000</option>
-                                                <option value="5000+" {{ request('price_range') == '5000+' ? 'selected' : '' }}>$5,000+</option>
+
+                                        <div class="col-lg-3 col-md-6">
+                                            <select name="price_usd[]" class="nice-select">
+                                                <option selected="" disabled readonly>Price Range</option>
+                                                <option value="0-1000">$0 - $1,000</option>
+                                                <option value="1000-5000">$1,000 - $5,000</option>
+                                                <option value="5000-10000">$5,000 - $10,000</option>
+                                                <option value="10000-20000">$10,000 - $20,000</option>
+                                                <option value="20000+">$20,000+</option>
                                             </select>
                                         </div>
-                                        <div
-                                            class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
-                                            <select class="nice-select">
-                                                <option>Bedrooms</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5+</option>
+
+                                        <div class="col-lg-3 col-md-6">
+                                            <select name="number_bedroom[]" class="nice-select">
+                                                <option selected="" disabled readonly>Bedrooms</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5+">5+</option>
                                             </select>
                                         </div>
-                                        <div
-                                            class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
+
+                                        <div class="col-lg-3 col-md-6">
                                             <div class="btn-wrapper mt-0 text-center">
                                                 <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Find Villa</button>
                                             </div>
@@ -144,10 +146,9 @@
                                     </form>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -578,7 +579,7 @@
                                     <div class="product-img-location">
                                         <ul>
                                             <li>
-                                                <a href="{{ route('landing.properties.detail', $properties->slug) }}"><i class="flaticon-pin"></i> {{ $properties->address . ', ' . $properties->sub_region . ' ' . $properties->region }}</a>
+                                                <a href="{{ route('landing.properties.detail', $properties->slug) }}"><i class="flaticon-pin"></i> {{ $properties->address . ', ' . $properties->region->name }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -586,27 +587,23 @@
                             </div>
                             <div class="product-info">
                                 <div class="product-price">
-                                    <span>$ {{ number_format($properties->price_usd, 2, ',', '.') }}<label>/Month</label></span>
+                                    <span>$ {{ number_format($properties->price_usd, 0, ',', '.') }}<label>/Night</label></span>
                                 </div>
                                 <h2 class="product-title"><a href="{{ route('landing.properties.detail', $properties->slug) }}">{{ $properties->properties_name }}</a>
                                 </h2>
                                 <div class="product-description">
-                                    <p>{{ Str::limit($properties->description, 200) }}</p>
+                                    <p>{{ Str::limit($properties->description, 100) }}</p>
                                 </div>
                                 <ul class="ltn__list-item-2 ltn__list-item-2-before">
-                                    <li><span>{{ $properties->number_bedroom }} <i class="flaticon-bed"></i></span>
-                                        Bedrooms
-                                    </li>
-                                    <li><span>{{ $properties->number_bathroom }} <i class="flaticon-clean"></i></span>
-                                        Bathrooms
-                                    </li>
-                                    <li><span>{{ $properties->properties_size }} <i
-                                                class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
-                                        square Ft
-                                    </li>
-                                    <li><span>{{ $properties->max_people }} <iconify-icon icon="ph:user" style="font-size: 16px"></iconify-icon> </span>
-                                        Max People
-                                    </li>
+                                <li><span>{{ $properties->number_bedroom }} <i class="flaticon-bed"></i></span>
+                                </li>
+                                <li><span>{{ $properties->number_bathroom }} <i class="flaticon-clean"></i></span>
+                                </li>
+                                <li><span>{{ $properties->properties_size }} Sqm &nbsp;<i
+                                            class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                </li>
+                                <li><span>{{ $properties->max_people }} <iconify-icon icon="ph:user" style="font-size: 16px"></iconify-icon> </span>
+                                </li>
                                 </ul>
                             </div>
                         </div>

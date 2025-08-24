@@ -62,12 +62,17 @@
                                     <a href="#">{{ $data_properties->type_properties }}</a>
                                 </li>
                                 <li class="ltn__blog-category">
-                                    <a class="bg-orange" href="#">{{ $data_properties->status_listing }}</a>
+                                    <a 
+                                    class="
+                                    {{ $data_properties->status_listing === 'Available' ? 'bg-success' : ''}}
+                                    {{ $data_properties->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                    {{ $data_properties->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                     " href="#">{{ $data_properties->status_listing }}</a>
                                 </li>
                             </ul>
                         </div>
                         <h1>{{ $data_properties->properties_name }}</h1>
-                        <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> {{ $data_properties->address . ', ' . $data_properties->sub_region . ' ' . $data_properties->region }}</label>
+                        <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> {{ $data_properties->address . ', ' . $data_properties->region->name }}</label>
                         <h4 class="title-2">Description</h4>
                         <p>{{ $data_properties->description }}</p>
 
@@ -81,7 +86,7 @@
                             </ul>
                             <ul>
                                 <li><label>Max People:</label> <span>{{ $data_properties->max_people }} People</span></li>
-                                <li><label>Region:</label> <span>{{ $data_properties->region }}</span></li>
+                                <li><label>Area:</label> <span>{{ $data_properties->region->name }}</span></li>
                                 <li><label>Type:</label> <span>{{ $data_properties->type_properties }}</span></li>
                                 <li><label>Year built:</label> <span>{{ $data_properties->year_build }}</span></li>
 
@@ -139,16 +144,7 @@
 
                         <!-- Form Widget -->
                         @include('landing.properties.partials.boking-form')
-                        <!-- Author Widget -->
-                        <div class="widget ltn__author-widget">
-                            <div class="ltn__author-widget-inner text-center">
-                                <img src="{{ asset('landing') }}/img/team/4.jpg" alt="Image">
-                                <h5>BNA Properties</h5>
-                                <small>Property Agency</small>
-                                <hr class="m-2 p-0">
-                                <p>BNA Properties is a trusted real estate agency connecting you with the finest residential and investment opportunities. We offer professional and secure property solutions tailored to your needs — from buying and selling to rentals. With a wide network and experienced team, BNA Properties is here to help you find your ideal property with confidence.</p>
-                            </div>
-                        </div>
+
 
                     </aside>
                 </div>
@@ -218,10 +214,10 @@
 @endsection
 @push('script')
     {{-- <script src="{{ asset('js/flatpickr-min.js') }}"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
 
     <script>
         $(document).ready(function() {
@@ -236,9 +232,7 @@
         window.addEventListener('load', function() {
             const bookedRanges = @json($bookedRanges);
 
-            console.log(bookedRanges);
-
-            const startDateInstance = flatpickr("#start_date", {
+            flatpickr("#start_date", {
                 dateFormat: "Y-m-d",
                 disable: bookedRanges,
                 minDate: "today",

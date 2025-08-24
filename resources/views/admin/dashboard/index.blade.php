@@ -23,15 +23,15 @@
             </div>
             <!-- end page title -->
 
-
+            {{-- top row --}}
             <div class="row">
                 <div class="col-lg-6 col-xl-4">
                     <div class="card border-primary border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Properties</h6>
-                                    <span class="h3 mb-0"> {{ $dataProperties->count() }} Properties </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Villa</h6>
+                                    <span class="h3 mb-0"> {{ $dataProperties->count() }} Villas </span>
                                 </div>
                                 <div class="col-auto">
                                     <iconify-icon icon="material-symbols-light:holiday-village-outline" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
@@ -44,12 +44,12 @@
                 </div> <!-- end col-->
 
                 <div class="col-lg-6 col-xl-4">
-                    <div class="card border-success border">
+                    <div class="card border-warning  border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Transaction</h6>
-                                    <span class="h3 mb-0"> 12 Transaction </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Booking</h6>
+                                    <span class="h3 mb-0"> {{ $boookingCount }} Bookings </span>
                                 </div>
                                 <div class="col-auto">
                                     <iconify-icon icon="game-icons:receive-money" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
@@ -60,157 +60,92 @@
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
+                {{-- <div class="col-lg-6 col-xl-4">
+                    <div class="card border-success border">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Villa Available</h6>
+                                    <span class="h3 mb-0"> {{ $availableVillas }} Villas </span>
+                                </div>
+                                <div class="col-auto">
+                                    <iconify-icon icon="fa6-regular:calendar-check" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
+                                </div>
+                            </div> <!-- end row -->
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div> <!-- end col--> --}}
+
                 <div class="col-lg-6 col-xl-4">
                     <div class="card border-warning border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Transaction Pending</h6>
-                                    <span class="h3 mb-0"> 14 Transaction </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">New Inquiry</h6>
+                                    <span class="h3 mb-0">
+                                        <span id="pendingCount">{{ $bookings->whereIn('status', ['Pending', 'pending'])->count() }}</span> Pending Inquiry
+                                    </span>
                                 </div>
                                 <div class="col-auto">
                                     <iconify-icon icon="material-symbols-light:pending-actions-sharp" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
-                            </div> <!-- end row -->
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- end row-->
 
+            {{-- Table Start --}}
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Recent Inquiry</h4>
-                            <p class="card-subtitle">Customer data that makes transactions</p>
+                            <h4 class="card-title">Booking Overview</h4>
                         </div>
                         <div class="card-ody">
                             <div class="table-responsive">
-                                <table class="table-centered table-striped table-nowrap mb-0 table">
-                                    <thead>
+                                <table class="table table-bordered table-striped table-centered">
+                                    <thead class="table-dark">
                                         <tr>
-                                            <th>Customer</th>
+                                            <th>Customer Name</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Location</th>
-                                            <th>Inquiry Date</th>
+                                            <th>Villa Name</th>
+                                            <th>Villa Location</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Payment</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-4.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Paul J. Friend</a>
-                                            </td>
-                                            <td>
-                                                937-330-1634
-                                            </td>
-                                            <td>
-                                                pauljfrnd@jourrapide.com
-                                            </td>
-                                            <td>
-                                                New York
-                                            </td>
-                                            <td>
-                                                07/07/2024
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-3.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Bryan J. Luellen</a>
-                                            </td>
-                                            <td>
-                                                215-302-3376
-                                            </td>
-                                            <td>
-                                                bryuellen@dayrep.com
-                                            </td>
-                                            <td>
-                                                New York
-                                            </td>
-                                            <td>
-                                                09/12/2024
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-8.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Kathryn S.
-                                                    Collier</a>
-                                            </td>
-                                            <td>
-                                                828-216-2190
-                                            </td>
-                                            <td>
-                                                collier@jourrapide.com
-                                            </td>
-                                            <td>
-                                                Canada
-                                            </td>
-                                            <td>
-                                                06/30/2024
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-1.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Timothy Kauper</a>
-                                            </td>
-                                            <td>
-                                                (216) 75 612 706
-                                            </td>
-                                            <td>
-                                                thykauper@rhyta.com
-                                            </td>
-                                            <td>
-                                                Denmark
-                                            </td>
-                                            <td>
-                                                09/08/2024
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-5.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Zara Raws</a>
-                                            </td>
-                                            <td>
-                                                (02) 75 150 655
-                                            </td>
-                                            <td>
-                                                austin@dayrep.com
-                                            </td>
-                                            <td>
-                                                Germany
-                                            </td>
-                                            <td>
-                                                07/15/2024
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="table-user">
-                                                <img src="{{ asset('admin') }}/assets/images/users/avatar-6.jpg" alt="table-user" class="avatar-sm rounded-circle me-2">
-                                                <a href="javascript:void(0);" class="text-body font-weight-semibold">Mike John</a>
-                                            </td>
-                                            <td>
-                                                798-4651-455
-                                            </td>
-                                            <td>
-                                                mikejohn@jourrapide.com
-                                            </td>
-                                            <td>
-                                                New York
-                                            </td>
-                                            <td>
-                                                08/07/2024
-                                            </td>
-                                        </tr>
-
+                                        @foreach($bookings as $booking)
+                                            <tr>
+                                                <td>{{ $booking->customer?->customer_name ?? 'N/A' }}</td>
+                                                <td>{{ $booking->customer?->customer_phone ?? 'N/A' }}</td>
+                                                <td>{{ $booking->customer?->customer_email ?? 'N/A' }}</td>
+                                                <td>{{ $booking->properties?->properties_name ?? 'N/A' }}</td>
+                                                <td>{{ $booking->properties?->region?->name ?? 'N/A' }}</td>
+                                                <td>{{ $booking->start_date }}</td>
+                                                <td>{{ $booking->end_date }}</td>
+                                                <td>
+                                                    @if(strtolower($booking->dp_status) === 'paid')
+                                                    <span class="badge bg-success">Paid</span>
+                                                    @elseif(strtolower($booking->dp_status) === 'unpaid')
+                                                    <span class="badge bg-warning text-dark">Unpaid</span>
+                                                    @elseif(strtolower($booking->dp_status) === 'cancel')
+                                                    <span class="badge bg-danger">Cancel</span>
+                                                    @else
+                                                    <span class="badge bg-secondary">{{ $booking->dp_status }}</span>
+                                                    @endif
+                                                </td>
+                                                <td>                                                            
+                                                    <a href="{{ route('booking.index') }}"><button type="button" class="btn btn-xs btn-success waves-effect waves-light" data-bs-toggle="modal">View &nbsp; <i class="mdi mdi-eye"></i> </button></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -219,7 +154,7 @@
                     </div> <!-- end card-->
                 </div> <!-- end col -->
             </div>
-            <!-- end row-->
+            <!-- end Table -->
 
         </div> <!-- container -->
 

@@ -12,10 +12,10 @@
         <input type="{{ $type }}" class="form-control @error($name) border-invalid-form @enderror" id="{{ $name }}" name="{{ $name }}" placeholder="Input Properties Name" value="{{ isset($value) ? old($name, $value) : old($name) }}" {{ $disabled ? 'disabled' : '' }}>
         <label for="{{ $name }}">{{ $label }}</label>
 
-        {{-- @error($name)
+        @error($name)
             <div class="invalid-form">
                 {{ $message }}
             </div>
-        @enderror --}}
+        @enderror
     </div>
 </div>

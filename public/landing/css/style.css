@@ -4037,9 +4037,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 ---------------------------------------------------- */
 .ltn__breadcrumb-area {
     background-color: var(--section-bg-1);
-    margin-bottom: 120px;
-    padding-top: 110px;
-    padding-bottom: 110px;
+    margin-bottom: 48px;
+    padding-top: 24px;
+    padding-bottom: 64px;
 }
 
 .ltn__breadcrumb-list ul {
@@ -8753,8 +8753,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Product Area
 ---------------------------------------------------- */
 .ltn__product-item {
+    width: 100%;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 24px;
 }
 
 .product-img {

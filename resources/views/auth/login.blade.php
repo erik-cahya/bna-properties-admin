@@ -17,7 +17,19 @@
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .p-top-16{
+            padding-top: 32px;
+        }
 
+        .p-top-32{
+            padding-top: 64px;
+        }
+
+        .p-bottom-16{
+            padding-bottom: 32px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,13 +43,13 @@
                                 {{-- <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div> --}}
                                 <div class="col-lg-12">
                                     <div class="px-5 pb-5">
-                                        <div class="w-75 auth-logo mx-auto mb-4 text-center">
-                                            <a href="index.html" class="logo-dark pt-4">
-                                                <span><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="" height="100"></span>
+                                        <div class="w-75 auth-logo mx-auto mb-4 text-center p-top-32 p-bottom-16">
+                                            <a href="{{ route('landing.index') }}" class="logo-dark pt-4">
+                                                <span><img src="{{ asset('bna-assets/bna-new-dark.png') }}" alt="" height="100"></span>
                                             </a>
 
-                                            <a href="index.html" class="logo-light">
-                                                <span><img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="" height="120"></span>
+                                            <a href="{{ route('landing.index') }}" class="logo-light">
+                                                <span><img src="{{ asset('bna-assets/new-bna-light.png') }}" alt="" height="120"></span>
                                             </a>
                                         </div>
 
@@ -47,11 +59,11 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <h1 class="h5 mb-1">Welcome Back!</h1>
+                                        <h1 class="h5 mb-1 text-center">Welcome Back!</h1>
 
                                         <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
 
-                                        <form class="mt-4 pt-2" action="{{ route('login') }}" method="POST">
+                                        <form class="mt-4 pt-2 p-bottom-16" action="{{ route('login') }}" method="POST">
                                             @csrf
 
                                             <div class="form-group mb-3">
@@ -81,13 +93,16 @@
                                             </div>
                                         </form>
 
-                                        <div class="row mt-4">
+                                        {{-- SIGN UP --}}
+                                        {{-- <div class="row mt-4">
                                             <div class="col-12 text-center">
                                                 <p class="text-muted mb-0">Don't have an account?
                                                     <a class="text-muted font-weight-medium ms-1" href='{{ route('register') }}'><b>Sign Up</b></a>
                                                 </p>
                                             </div> <!-- end col -->
-                                        </div>
+                                        </div> --}}
+                                        {{-- SIGN UP END --}}
+
                                         <!-- end row -->
                                     </div> <!-- end .padding-5 -->
                                 </div> <!-- end col -->

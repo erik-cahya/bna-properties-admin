@@ -11,4 +11,9 @@ class CustomerModel extends Model
     protected $table = 'customers';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
+
+    public function bookings()
+    {
+        return $this->hasMany(BookingModel::class, 'customer_id');
+    }
 }

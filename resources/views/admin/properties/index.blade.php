@@ -1,4 +1,17 @@
 @extends('admin.layouts.master')
+@push('styles')
+    <!-- third party css -->
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
+    <!-- App css -->
+    <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <script src="assets/js/config.js"></script>
+@endpush
 @section('content')
     <div class="px-3">
 
@@ -9,12 +22,12 @@
             <div class="py-lg-4 py-3">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4 class="page-title mb-0">Properties List</h4>
+                        <h4 class="page-title mb-0">Property List</h4>
                     </div>
                     <div class="col-lg-6">
                         <div class="d-none d-lg-block">
                             <ol class="breadcrumb float-end m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Properties</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Property</a></li>
                                 <li class="breadcrumb-item active">List</li>
                             </ol>
                         </div>
@@ -26,12 +39,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Property Feature List</h4>
-                        <p class="text-muted font-size-13 mb-4">
-                            This data will appear in each detailed properties.
-                        </p>
 
-                        <table id="basic-datatable" class="dt-responsive table-nowrap table">
+                        <table class="table-hover table-centered nowrap table" id="basic-datatable">
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
@@ -61,8 +70,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column">
-
-                                                <span class="fst-italic fw-bold font-size-16"><i class="mdi mdi-map-marker"></i> {{ $properties->sub_region . ', ' . $properties->region }}</span>
+                                                <span class="fst-italic fw-bold font-size-16"><i class="mdi mdi-map-marker"></i> {{ $properties->region->name }}</span>
                                                 <span class="fst-italic text-muted font-size-12"> {{ $properties->address }}</span>
                                             </div>
                                         </td>
@@ -83,26 +91,33 @@
                                         <td>
                                             <div class="d-flex flex-column gap-1">
                                                 @php
-                                                    if ($properties->status_listing == 'For Rent') {
-                                                        $label = 'For Rent';
+                                                    if ($properties->status_listing == 'Available') {
+                                                        $label = 'Available';
                                                         $className = 'bg-success';
-                                                    } else {
+                                                    } else if ($properties->status_listing == 'Pending') {
                                                         $label = 'Pending';
                                                         $className = 'bg-warning';
+                                                    } else {
+                                                        $label = 'Rented';
+                                                        $className = 'bg-danger';
                                                     }
                                                 @endphp
-                                                <span class="badge {{ $className }} ms-auto"><iconify-icon icon="mdi:home"></iconify-icon> {{ $label }}</span>
+                                                <span class="badge {{ $className }} ms-auto">{{ $label }}</span>
 
                                                 <span class="badge bg-dark text-light ms-auto"><i class="mdi mdi-home"></i> {{ $properties->type_properties }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="btn-group mb-2 me-1">
+                                                {{-- detail button --}}
                                                 <a href="{{ route('landing.properties.detail', $properties->slug) }}" target="_blank" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                                <button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button>
 
+                                                {{-- edit button --}}
+                                                <a href="{{ route('properties.edit', $properties->id) }}"><button type="button" class="btn btn-xs btn-warning waves-effect waves-light"><i class="mdi mdi-lead-pencil"></i></button></a>
+
+                                                {{-- delete button --}}
                                                 <input type="hidden" class="propertyId" value="{{ $properties->id }}">
-                                                <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $properties->properties_name }}"><i class="mdi mdi-trash-can"></i></button>
+                                                <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-name="{{ $properties->properties_name }}"><i class="mdi mdi-trash-can"></i></button>
 
                                             </div>
                                         </td>
@@ -116,13 +131,22 @@
                     </div> <!-- end card body-->
                 </div> <!-- end card -->
             </div><!-- end col-->
-
         </div> <!-- container -->
-
     </div> <!-- content -->
 @endsection
 
 @push('script')
+
+    <!-- third party js -->
+    <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <!-- third party js ends -->
+
+    <!-- Datatables js -->
+    <script src="{{ asset('admin') }}/assets/js/pages/datatables.js"></script>
+
     {{-- SweetAlert Delete --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -132,9 +156,13 @@
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
 
-                    let propertyName = this.getAttribute('data-nama');
+                    let propertyName = this.getAttribute('data-name');
                     let propertyId = this.parentElement.querySelector('.propertyId').value;
                     const rowToDelete = this.closest('tr');
+
+
+                    console.log("Delete clicked for ID:", propertyId);
+                    console.log("Fetching URL:", '{{ url("panel/properties") }}/' + propertyId);
 
 
                     Swal.fire({
@@ -148,10 +176,12 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Kirim DELETE request manual lewat JavaScript
-                            fetch('/panel/properties/' + propertyId, {
+                            fetch('/panel/properties/'+propertyId, {
                                     method: 'DELETE',
+                                    credentials: 'same-origin',
                                     headers: {
                                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                        'Accept': 'application/json',
                                         'Content-Type': 'application/json'
                                     }
                                 })

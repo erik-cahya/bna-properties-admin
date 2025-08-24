@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id')->comment('fk to table customers');
             $table->unsignedBigInteger('properties_id')->comment('fk to table properties');
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->string('status')->nullable();
+            $table->date('start_date')->required();
+            $table->date('end_date')->required();
+            $table->decimal('dp_amount', 18, 2)->nullable();
+            $table->string('dp_status')->default('No DP')->required();
+            $table->string('status')->required();
             $table->timestamps();
 
 

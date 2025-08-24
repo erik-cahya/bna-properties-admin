@@ -10,7 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin') }}/assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('admin') }}/assets/images/bna-icon.webp">
+    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/assets/images/bna-icon.webp">
+    <link rel="shortcut icon" href="{{ asset('admin') }}/assets/images/bna-icon.webp">
 
     <link href="{{ asset('admin') }}/assets/libs/morris.js/morris.css" rel="stylesheet" type="text/css" />
 
@@ -34,6 +36,94 @@
         .border-invalid-form {
             border-color: var(--bs-danger);
         }
+        
+        /* CUSTOM CSS */
+
+        .font-size-18{
+            font-size: 18px;
+        }
+
+        .pad-8{
+            padding: 16px;
+        }
+
+        .pad-16{
+            padding: 32px;
+        }
+
+        .pad-t-8{
+            padding-top: 16px;
+        }
+
+        .pad-t-16{
+            padding-top: 32px !important;
+        }
+
+        .pad-t-32{
+            padding-top: 64px;
+        }
+
+        .pad-b-8{
+            padding-bottom: 16px;
+        }
+
+        .pad-b-16{
+            padding-bottom: 32px;
+        }
+
+        .pad-b-32{
+            padding-bottom: 64px;
+        }
+
+        .no-border-radius{
+            border-radius: 0 !important;
+        }
+
+        .center-items{
+            display: flex !important;
+            justify-items: center !important;
+            align-items: center;
+            margin-left: 0 !important;
+        }
+
+        .img-preview {
+            position: relative;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .img-preview img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(255, 0, 0, 0.85);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .delete-btn:hover {
+            background: rgba(200, 0, 0, 1);
+        }
+
+
     </style>
 
     @stack('styles')

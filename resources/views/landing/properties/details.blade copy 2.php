@@ -525,7 +525,7 @@
         });
     </script>
 
-    {{-- /* Flatpickr --}}
+    <!-- {{-- /* Flatpickr --}}
     {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const bookedRanges = @json($bookedRanges);
@@ -582,7 +582,7 @@
                 endInput.value = endDate.toISOString().split('T')[0];
             }
         });
-    </script> --}}
+    </script> --}} -->
 
 
 

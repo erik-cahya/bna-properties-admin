@@ -16,7 +16,6 @@ class PropertiesModel extends Model
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
 
-    // PropertiesModel.php
     public function featuredImage()
     {
         return $this->hasOneThrough(
@@ -28,9 +27,24 @@ class PropertiesModel extends Model
             'id'             // Local key on PropertyGallery table
         );
     }
-
     public function region()
     {
         return $this->belongsTo(RegionModel::class);
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(BookingModel::class);
+    }
+
+    public function features()
+    {
+        return $this->belongsToMany(
+            FeatureListModel::class,
+            'feature_property', 
+            'properties_id',     
+            'feature_id'        
+        );
+    }
+
 }

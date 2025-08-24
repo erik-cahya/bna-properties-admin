@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PropertiesModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +13,8 @@ class RegionModel extends Model
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
 
-    public function subregions()
+    public function properties()
     {
-        return $this->hasMany(SubRegionModel::class);
+        return $this->hasMany(PropertiesModel::class);
     }
 }

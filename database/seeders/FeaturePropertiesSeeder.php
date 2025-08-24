@@ -29,20 +29,16 @@ class FeaturePropertiesSeeder extends Seeder
 
             ],
             [
-                'name' => 'Dressing Room or Built-in Wardobes',
-                'slug' => 'dressing-room-built-wardobe',
+                'name' => 'Dressing Room',
+                'slug' => 'dressing-room',
             ],
             [
-                'name' => 'Bathub in Master Bedroom',
+                'name' => 'Bathub',
                 'slug' => 'bathub-master-bedroom',
             ],
             [
-                'name' => 'Laundry Room with Washing Machince',
+                'name' => 'Laundry Room',
                 'slug' => 'laundry-room',
-            ],
-            [
-                'name' => 'Home Cinema or Projector',
-                'slug' => 'home-cinema',
             ],
             [
                 'name' => 'Office Spaces',
@@ -57,24 +53,12 @@ class FeaturePropertiesSeeder extends Seeder
                 'slug' => 'safe-box',
             ],
             [
-                'name' => 'Smart Home System',
-                'slug' => 'smart-home-system',
-            ],
-            [
-                'name' => 'Integrated Audio System',
-                'slug' => 'integrated-audio-system',
-            ],
-            [
                 'name' => 'CCTY System',
                 'slug' => 'cctv-system',
             ],
             [
-                'name' => 'Infinity Pool',
-                'slug' => 'infinity-pool',
-            ],
-            [
-                'name' => 'Pool Deck / Sun Loungers Included',
-                'slug' => 'pool-deck-sun-loungers',
+                'name' => 'Pool',
+                'slug' => 'pool',
             ],
             [
                 'name' => 'Landscape Garden',
@@ -85,45 +69,13 @@ class FeaturePropertiesSeeder extends Seeder
                 'slug' => 'gazebo-outdoor-lounges',
             ],
             [
-                'name' => 'Outdoor Shower',
-                'slug' => 'outdoor-shower',
-            ],
-            [
-                'name' => 'Outdoor Kitchen or Barbeque Area',
-                'slug' => 'outdoor-kitchen-barbeque-area',
+                'name' => 'Rooftop',
+                'slug' => 'rooftop',
             ],
             [
                 'name' => 'Garage / Carport',
                 'slug' => 'garage-carport',
-            ],
-            [
-                'name' => 'Automatic Gate',
-                'slug' => 'automatic-gate',
-            ],
-            [
-                'name' => 'Ocean View',
-                'slug' => 'ocean-view',
-            ],
-            [
-                'name' => 'Rice Field View',
-                'slug' => 'rice-field-view',
-            ],
-            [
-                'name' => 'Jungle View',
-                'slug' => 'jungle-view',
-            ],
-            [
-                'name' => 'West Facing (Sunset View)',
-                'slug' => 'west-facing',
-            ],
-            [
-                'name' => 'Direct Beach Access',
-                'slug' => 'direct-beach-access',
-            ],
-            [
-                'name' => 'Rooftop Terrace',
-                'slug' => 'rooftop-terrace',
-            ],
+            ]
         ];
 
         foreach ($dataFeature as $row) {

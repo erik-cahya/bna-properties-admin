@@ -30,7 +30,7 @@
                                 <div class="product-img-location">
                                     <ul>
                                         <li>
-                                            <a href="{{ route('landing.properties.detail', $properties->slug) }}"><i class="flaticon-pin"></i> {{ $properties->address . ', ' . $properties->sub_region . ' ' . $properties->region }}</a>
+                                            <a href="{{ route('landing.properties.detail', $properties->slug) }}"><i class="flaticon-pin"></i> {{ $properties->address . ', ' . $properties->region->name }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -38,26 +38,22 @@
                         </div>
                         <div class="product-info">
                             <div class="product-price">
-                                <span>$ {{ number_format($properties->price_usd, 2, ',', '.') }}<label>/Month</label></span>
+                                <span>$ {{ number_format($properties->price_usd, 0, ',', '.') }}<label>/Night</label></span>
                             </div>
                             <h2 class="product-title"><a href="{{ route('landing.properties.detail', $properties->slug) }}">{{ $properties->properties_name }}</a>
                             </h2>
                             <div class="product-description">
-                                <p>{{ Str::limit($properties->description, 200) }}</p>
+                                <p>{{ Str::limit($properties->description, 100) }}</p>
                             </div>
                             <ul class="ltn__list-item-2 ltn__list-item-2-before">
                                 <li><span>{{ $properties->number_bedroom }} <i class="flaticon-bed"></i></span>
-                                    Bedrooms
                                 </li>
                                 <li><span>{{ $properties->number_bathroom }} <i class="flaticon-clean"></i></span>
-                                    Bathrooms
                                 </li>
-                                <li><span>{{ $properties->properties_size }} <i
+                                <li><span>{{ $properties->properties_size }} Sqm &nbsp;<i
                                             class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
-                                    square Ft
                                 </li>
                                 <li><span>{{ $properties->max_people }} <iconify-icon icon="ph:user" style="font-size: 16px"></iconify-icon> </span>
-                                    Max People
                                 </li>
                             </ul>
                         </div>

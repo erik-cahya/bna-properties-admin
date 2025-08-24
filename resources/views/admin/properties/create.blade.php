@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-2">
-                                            <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 80px"></textarea>
+                                            <textarea class="form-control" placeholder="Write something" id="description" name="description" style="height: 80px"></textarea>
                                             <label for="description">Description</label>
                                         </div>
                                     </div>
@@ -68,13 +68,13 @@
                                 </div>
 
                                 <div class="row">
-
                                     <div class="col-md-4">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="statusListing" name="statusListing" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>Choose Status Listing</option>
+                                                <option value="Rented">Rented</option>
                                                 <option value="Pending">Pending</option>
-                                                <option value="For Rent">For Rent</option>
+                                                <option value="Available">Available</option>
                                             </select>
                                             <label for="statusListing">Status Listing</label>
                                         </div>
@@ -125,14 +125,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="subRegion" name="subRegion" aria-label="Floating label select example">
                                                 <option selected="" disabled readonly>--Select Region--</option>
                                             </select>
                                             <label for="subRegion">Sub Region</label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <h4 class="my-3">Features</h4>
@@ -216,30 +216,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const regionSelect = document.getElementById('region');
-            const subregionSelect = document.getElementById('subRegion');
+            // const subregionSelect = document.getElementById('subRegion');
 
-            regionSelect.addEventListener('change', function() {
-                const regionId = this.value;
+            // regionSelect.addEventListener('change', function() {
+            //     const regionId = this.value;
 
-                subregionSelect.innerHTML = '<option value="">-- Select Sub Region --</option>';
-                subregionSelect.disabled = true;
+            //     subregionSelect.innerHTML = '<option value="">-- Select Sub Region --</option>';
+            //     subregionSelect.disabled = true;
 
-                if (regionId) {
-                    fetch(`/get-subregions/${regionId}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            data.forEach(subregion => {
-                                const option = document.createElement('option');
-                                option.value = subregion.id;
-                                option.text = subregion.name;
-                                subregionSelect.appendChild(option);
-                            });
+            //     if (regionId) {
+            //         fetch(`/get-subregions/${regionId}`)
+            //             .then(response => response.json())
+            //             .then(data => {
+            //                 data.forEach(subregion => {
+            //                     const option = document.createElement('option');
+            //                     option.value = subregion.id;
+            //                     option.text = subregion.name;
+            //                     subregionSelect.appendChild(option);
+            //                 });
 
-                            subregionSelect.disabled = false;
-                        })
-                        .catch(error => console.error('Error fetching subregions:', error));
-                }
-            });
+            //                 subregionSelect.disabled = false;
+            //             })
+            //             .catch(error => console.error('Error fetching subregions:', error));
+            //     }
+            // });
         });
     </script>
 
@@ -334,10 +334,11 @@
                     const imgDiv = document.createElement('div');
                     imgDiv.classList.add('img-preview');
                     imgDiv.setAttribute('data-index', index);
-                    imgDiv.innerHTML = `
-                              <img src="${event.target.result}" alt="Image Preview"
-                                   style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc; padding: 4px;">
-                              <p class="text-center mt-1">Image ${index + 1}</p>
+                imgDiv.innerHTML = `
+                            <button type="button" class="delete-btn">&times;</button>
+                            <img src="${event.target.result}" alt="Image Preview"
+                                style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc; padding: 4px;">
+                            <p class="text-center mt-1">Image ${index + 1}</p>
                          `;
                     previewContainer.appendChild(imgDiv);
                 };
@@ -363,4 +364,35 @@
         });
     </script>
     {{-- /* Gallery Upload */ --}}
+
+    <script>
+    // // Delete
+    // Track deleted IDs
+    let deletedIds = [];
+
+    previewContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('delete-btn')) {
+            const parent = e.target.closest('.img-preview');
+            const imgId = parent.getAttribute('data-id');
+
+            if (parent.getAttribute('data-type') === 'existing' && imgId) {
+                deletedIds.push(imgId); // store DB IDs for deletion
+            }
+
+            parent.remove(); // remove from preview
+            updateOrder();
+        }
+    });
+
+    // Before form submit, put deleted IDs in a hidden input
+    galleryForm.addEventListener('submit', function(e) {
+        updateOrder();
+        const deletedInput = document.createElement('input');
+        deletedInput.type = 'hidden';
+        deletedInput.name = 'deleted_ids';
+        deletedInput.value = deletedIds.join(',');
+        galleryForm.appendChild(deletedInput);
+    });
+
+    </script>
 @endpush

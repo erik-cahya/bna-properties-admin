@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->text('properties_code');
+            $table->string('properties_code')->unique();
             $table->string('properties_name');
             $table->text('slug');
             $table->text('description')->nullable();
-            $table->string('region')->nullable();
-            $table->string('sub_region')->nullable();
+            $table->unsignedBigInteger('region_id');
             $table->text('address')->nullable();
             $table->string('type_properties')->nullable();
             $table->integer('number_bedroom')->nullable();
@@ -29,8 +28,10 @@ return new class extends Migration
             $table->decimal('price_idr', 18, 2)->nullable();
             $table->decimal('price_usd', 18, 2)->nullable();
             $table->text('status_listing')->nullable();
-
             $table->timestamps();
+
+
+            $table->foreign('region_id')->references('id')->on('regions');
         });
     }
 

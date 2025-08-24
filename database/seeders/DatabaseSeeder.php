@@ -27,9 +27,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('master123'),
         ]);
 
-        $this->call(RegionSeeder::class);
-        $this->call(FeaturePropertiesSeeder::class);
-        $this->call(PropertySeeder::class);
+        $this->call([
+            RegionSeeder::class,
+            PropertySeeder::class,
+            CustomerSeeder::class,
+            FeaturePropertiesSeeder::class,
+            BookingSeeder::class,
+        ]);
 
     }
 }

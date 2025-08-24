@@ -15,6 +15,7 @@
 @section('content')
     <div class="px-3">
         <div class="container-fluid">
+
             <div class="py-lg-4 py-3">
                 <div class="row">
                     <div class="col-lg-6">
@@ -30,7 +31,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
+
                 <div class="col-lg-6 col-xl-4">
                     <div class="card border-primary border">
                         <div class="card-body">
@@ -50,39 +53,43 @@
                 </div> <!-- end col-->
 
                 <div class="col-lg-6 col-xl-4">
-                    <div class="card border-success border">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">New Booking</h6>
-                                    <span class="h3 mb-0"> {{ $bookingData->where('status', 'new booking')->count() }} Transaction </span>
-                                </div>
-                                <div class="col-auto">
-                                    <iconify-icon icon="game-icons:receive-money" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
-                                </div>
-                            </div> <!-- end row -->
-
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-
-                <div class="col-lg-6 col-xl-4">
                     <div class="card border-warning border">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Booking Today</h6>
-                                    <span class="h3 mb-0"> {{ $bookingToday->count() }} Transaction </span>
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">New Inquiry</h6>
+                                    <span class="h3 mb-0">
+                                        <span id="pendingCount">{{ $bookingData->whereIn('status', ['Pending', 'pending'])->count() }}</span> Pending Inquiry
+                                    </span>
                                 </div>
                                 <div class="col-auto">
                                     <iconify-icon icon="material-symbols-light:pending-actions-sharp" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
                                 </div>
-                            </div> <!-- end row -->
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card border-danger border">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase font-size-12 text-muted mb-3">Payment</h6>
+                                    <span class="h3 mb-0">
+                                        <span id="unpaidCount">{{ $bookingData->whereIn('dp_status', ['Unpaid', 'unpaid'])->count() }}</span> Unpaid Deposit
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <iconify-icon icon="game-icons:receive-money" style="font-size: 55px" class="text-muted mt-2"></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
+
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
@@ -99,15 +106,16 @@
                             </div>
                         </div>
 
-                        <div class="card-bod">
+                        <div class="card-body">
                             <div class="table-responsive m-4">
                                 <table class="table-hover table-centered nowrap table" id="basic-datatable">
                                     <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Customer Name</th>
-                                            {{-- <th>Contact</th> --}}
                                             <th>Properties</th>
+                                            <th>DP Amount</th>
+                                            <th>DP Status</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Status</th>
@@ -116,11 +124,13 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($bookingData as $booking)
-                                            {{-- {{ dd($bookingData) }} --}}
                                             <tr>
+                                                {{-- Number --}}
                                                 <td>
                                                     <span class="badge bg-primary ms-auto p-2">{{ $loop->iteration }}</span>
                                                 </td>
+
+                                                {{-- Client detail --}}
                                                 <td>
                                                     <div class="d-flex align-items-start font-size-20 gap-1">
                                                         <iconify-icon icon="ph:user-bold"></iconify-icon>
@@ -134,6 +144,8 @@
 
                                                     </div>
                                                 </td>
+                                                
+                                                {{-- Client Email --}}
                                                 {{-- <td>
                                                     <div class="d-flex align-items-start gap-1">
                                                         <div class="flex-column">
@@ -147,6 +159,8 @@
 
                                                     </div>
                                                 </td> --}}
+
+                                                {{-- Properties Detail --}}
                                                 <td>
                                                     <div class="d-flex align-items-start gap-1">
                                                         <iconify-icon icon="material-symbols-light:house-outline"></iconify-icon>
@@ -157,55 +171,89 @@
                                                         </div>
                                                     </div>
                                                 </td>
+
+                                                {{-- DP Amount --}}
                                                 <td>
-                                                    <h6 class="font-size-14 font-weight-normal mb-1">{{ \Carbon\Carbon::parse($booking->start_date)->format('d F, Y') }}</h6>
-                                                    {{-- <span class="text-muted font-size-12">Already booked for {{ $bookingData->alreadyBooked }} days</span> --}}
+                                                    <span class="dpAmountDisplay d-flex align-items-center gap-1" 
+                                                        data-id="{{ $booking->id }}" 
+                                                        data-original="{{ $booking->dp_amount }}">
+                                                        <iconify-icon icon="solar:dollar-broken" style="font-size: 20px"></iconify-icon> 
+                                                        <span class="amountValue">USD {{ number_format($booking->dp_amount, 0, ',', '.') }}</span>
+                                                        <iconify-icon icon="mdi:pencil" class="text-primary editDpIcon" style="cursor:pointer; font-size:16px"></iconify-icon>
+                                                    </span>
+
+
+                                                    <input type="number" 
+                                                        class="form-control changeDpAmount d-none"
+                                                        data-id="{{ $booking->id }}"
+                                                        data-original="{{ $booking->dp_amount }}"
+                                                        value="{{ number_format($booking->dp_amount, 0, '', '') }}"
+                                                        min="0" step="1">
                                                 </td>
+
+                                                {{-- DP Status --}}
                                                 <td>
-                                                    <h6 class="font-size-14 font-weight-normal mb-1">{{ \Carbon\Carbon::parse($booking->end_date)->format('d F, Y') }}</h6>
-                                                    {{-- <span class="text-muted font-size-12">Time Remaining {{ $bookingData->remainingDays }} days</span> --}}
-                                                </td>
-                                                <td>
-                                                    @php
-                                                        if ($booking->status == 'pending') {
-                                                            $label = 'Pending';
-                                                            $className = 'bg-warning';
-                                                        } elseif ($booking->status == 'new booking') {
-                                                            $label = 'New Booking';
-                                                            $className = 'bg-blue';
-                                                        } elseif ($booking->status == 'accept') {
-                                                            $label = 'Accept';
-                                                            $className = 'bg-success';
-                                                        } else {
-                                                            $label = 'Decline';
-                                                            $className = 'bg-danger';
-                                                        }
-                                                    @endphp
-                                                    <div class="d-flex">
-                                                        <span class="badge {{ $className }} ms-auto">{{ $label }}</span>
+                                                    <div class="d-flex align-items-start gap-1">
+                                                        <select name="status" class="form-select changeDpStatus" data-id="{{ $booking->id }}"  data-original="{{ $booking->dp_status }}">
+                                                            <option class="changeDpStatus" value="Paid" {{ $booking->dp_status == 'Paid' ? 'selected' : '' }}>Paid</option>
+                                                            <option class="changeDpStatus" value="Unpaid" {{ $booking->dp_status == 'Unpaid' ? 'selected' : '' }}>Unpaid</option>
+                                                            <option class="changeDpStatus" value="No Deposit" {{ $booking->dp_status == 'No Deposit' ? 'selected' : '' }}>No Deposit</option>
+                                                        </select>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    {{-- <button type="button" class="btn btn-xs btn-success waves-effect waves-light"><i class="mdi mdi-heart-half-full"></i></button> --}}
 
-                                                    <div class="button-list" id="tooltip-container">
-                                                        <div class="btn-group mb-2 me-1">
-                                                            <button type="button" class="btn btn-xs btn-success waves-effect waves-light" data-bs-toggle="modal"
-                                                                data-bs-target="#staticBackdrop-{{ $booking->id }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Details"><i class="mdi mdi-eye"></i></button>
+                                                {{-- End Date --}}
+                                                <td>
+                                                    <input type="date" 
+                                                        class="form-control changeStartDate"
+                                                        data-id="{{ $booking->id }}"
+                                                        data-original="{{ \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d') }}"
+                                                        value="{{ \Carbon\Carbon::parse($booking->start_date)->format('Y-m-d') }}">
+                                                </td>
+
+                                                {{-- Start Date --}}
+                                                <td>
+                                                    <input type="date" 
+                                                        class="form-control changeEndDate"
+                                                        data-id="{{ $booking->id }}"
+                                                        data-original="{{ \Carbon\Carbon::parse($booking->end_date)->format('Y-m-d') }}"
+                                                        value="{{ \Carbon\Carbon::parse($booking->end_date)->format('Y-m-d') }}">
+                                                </td>
+
+                                                {{-- Status --}}
+                                                <td>
+                                                    <select name="status" class="form-select changeStatus" data-id="{{ $booking->id }}"  data-original="{{ $booking->status }}">
+                                                        <option class="changeStatus" value="Pending" {{ $booking->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                        <option value="On Going" {{ $booking->status == 'On Going' ? 'selected' : '' }}>On Going</option>
+                                                        <option class="changeStatus" value="Confirmed" {{ $booking->status == 'Confirmed' ? 'selected' : '' }}>Confirmed</option>
+                                                        <option class="changeStatus" value="Cancelled" {{ $booking->status == 'Cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                                        <option class="changeStatus" value="Completed" {{ $booking->status == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                                    </select>
+                                                </td>
+
+                                                {{-- Action --}}
+                                                <td>
+                                                    <div class="button-list center-items" id="tooltip-container">
+                                                        <div class="btn-group mb-2 me-2">
+                                                            
+                                                            {{-- <button type="button" class="btn btn-xs btn-success waves-effect waves-light" data-bs-toggle="modal"
+                                                                data-bs-target="#staticBackdrop-{{ $booking->id }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Details"><i class="mdi mdi-eye"></i></button> --}}
 
                                                             {{-- <button type="button" class="btn btn-xs btn-warning waves-effect waves-light" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit Data"><i class="mdi mdi-lead-pencil"></i></button> --}}
 
-                                                            <input type="hidden" class="bookingID" value="{{ $booking->id }}">
+                                                            {{-- <input type="hidden" class="bookingID" value="{{ $booking->id }}">
 
                                                             <button type="button" class="btn btn-xs btn-warning waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true"><iconify-icon icon="subway:menu" class="fs-14"></iconify-icon></button>
+
                                                             <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 39.5px, 0px);" data-popper-placement="bottom-start">
-                                                                <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="accept"><iconify-icon icon="simple-line-icons:check"></iconify-icon> Accept</button>
+                                                                <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="confirm"><iconify-icon icon="simple-line-icons:check"></iconify-icon> Confirm</button>
                                                                 <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="pending"><iconify-icon icon="bitcoin-icons:clock-outline"></iconify-icon> Pending</button>
                                                                 <button class="dropdown-item d-flex align-items-center changeStatus gap-2" data-status="decline"><iconify-icon icon="maki:cross"></iconify-icon> Decline</button>
+                                                            </div> --}}
+                                                            <div>
+                                                                <input type="hidden" class="propertyId" value="{{ $booking->id }}">
+                                                                <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton no-border-radius" data-nama="{{ $booking->customer_name }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete Data"><i class="mdi mdi-trash-can"></i></button>
                                                             </div>
-
-                                                            <input type="hidden" class="propertyId" value="{{ $booking->id }}">
-                                                            <button type="button" class="btn btn-xs btn-danger waves-effect waves-light deleteButton" data-nama="{{ $booking->customer_name }}" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete Data"><i class="mdi mdi-trash-can"></i></button>
                                                         </div>
 
                                                         {{-- <div class="btn-group mb-2">
@@ -218,13 +266,6 @@
                                                             </div>
                                                         </div> --}}
                                                     </div>
-
-                                                    {{-- <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#staticBackdrop">
-                                                        Launch static backdrop modal
-                                                    </button> --}}
-
                                                 </td>
 
                                             </tr>
@@ -241,136 +282,10 @@
 
         </div>
 
-        <!-- Modal -->
-        @foreach ($bookingData as $booking)
-            <div class="modal fade" id="staticBackdrop-{{ $booking->id }}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                aria-hidden="true">
-                {{-- <div class="modal-dialog modal-full-width"> --}}
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header p-3">
-                            <h5 class="modal-title" id="staticBackdropLabel">
-                                <iconify-icon icon="bxs:user" class="fs-14"></iconify-icon> Booking Details | {{ $booking->customer_name }}
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="px-4 py-2">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card border-primary border">
-                                            <div class="card-body">
-                                                <h4 class="header-title mb-3">Customer Data</h4>
 
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputEmail4" class="form-label">Customer Name</label>
-                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ $booking->customer_name }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputPassword4" class="form-label">Email</label>
-                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $booking->customer_email }}" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputAddress" class="form-label">Phone Number</label>
-                                                        <input type="text" class="form-control" id="inputAddress" value="{{ $booking->customer_phone }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputAddress" class="form-label">Booking Date</label>
-                                                        <input type="text" class="form-control" id="inputAddress" value="{{ \Carbon\Carbon::parse($booking->created_at)->format('d F, Y') }}" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="inputAddress" class="form-label">Address</label>
-                                                    <input type="text" class="form-control" id="inputAddress" value="{{ $booking->customer_address }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card border-primary border">
-                                            <div class="card-body">
-                                                <h4 class="header-title mb-3">Properties Data</h4>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputEmail4" class="form-label">Properties Name</label>
-                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ $booking->properties_name }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputPassword4" class="form-label">Properties Type</label>
-                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $booking->type_properties }}" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputAddress" class="form-label">Property Price /month</label>
-                                                        <input type="text" class="form-control" id="inputAddress" value="$ {{ number_format($booking->price_usd, 2, ',', '.') }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputAddress" class="form-label">Max People</label>
-                                                        <input type="text" class="form-control" id="inputAddress" value="{{ $booking->max_people }}" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="inputAddress" class="form-label">Property Address</label>
-                                                    <input type="text" class="form-control" id="inputAddress" value="{{ $booking->address }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card border-success border">
-                                            <div class="card-body">
-                                                <h4 class="header-title mb-3">Booking Data</h4>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputEmail4" class="form-label">Start Booking Date</label>
-                                                        <input type="text" class="form-control" id="inputEmail4" value="{{ \Carbon\Carbon::parse($booking->start_date)->format('d F, Y') }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputPassword4" class="form-label">End Booking Date</label>
-                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ \Carbon\Carbon::parse($booking->end_date)->format('d F, Y') }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputPassword4" class="form-label">Total Days</label>
-                                                        <input type="text" class="form-control" id="inputPassword4" value="{{ $bookingData->remainingDays }} Days" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="inputPassword4" class="form-label">Status Booking</label>
-                                                        <input type="text" class="form-control text-capitalize" id="inputPassword4" value="{{ $booking->status }}" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- /* Modal --}}
-        @endforeach
     @endsection
     @push('script')
         <!-- third party js -->
-
         <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
         <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
@@ -414,6 +329,7 @@
                                     })
                                     .then(response => response.json())
                                     .then(data => {
+                                        console.log();
                                         Swal.fire({
                                             title: data.judul,
                                             text: data.pesan,
@@ -423,7 +339,8 @@
                                         if (rowToDelete) {
                                             rowToDelete.remove();
                                         }
-
+                                        // update the top bar data
+                                        updateBookingCounts();
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
@@ -439,23 +356,232 @@
 
         {{-- SweetAlert Change Status --}}
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const changeStatus = document.querySelectorAll('.changeStatus');
+            document.querySelectorAll('.changeStatus').forEach(select  => {
+                select .addEventListener('change', function(e) {
+                    e.preventDefault(); // ⛔ stop any default page reload
+                    e.stopPropagation(); // ⛔ stop event bubbling
 
-                changeStatus.forEach(button => {
-                    button.addEventListener('click', function(e) {
+                    let dataStatus = this.value;
+                    let bookingId = this.getAttribute('data-id');
+
+                    // console.log(dataStatus);
+                    const rowToDelete = this.closest('tr');
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Change status booking to " + dataStatus + "?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, change it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch('/booking/change-status', {
+                                    method: 'POST',
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        booking_id: bookingId,
+                                        status: dataStatus
+                                    })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log(data.property)
+                                    Swal.fire({
+                                        title: data.judul,
+                                        text: data.pesan,
+                                        icon: data.swalFlashIcon,
+                                        timer: 2000,
+                                    });
+
+                                    // update the top bar data
+                                    updateBookingCounts();
+
+                                    // update the data-original so cancel works next time
+                                    select.setAttribute('data-original', dataStatus); 
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    Swal.fire('Error', 'Something went wrong!', 'error');
+                                });
+                        }else{
+                            e.target.value = e.target.getAttribute('data-original');
+                        }
+                    });
+                });
+            });
+        </script>
+        {{-- /* SweetAlert Change Status --}}
+
+        {{-- SweetAlert Change DP Status --}}
+        <script>
+            document.querySelectorAll('.changeDpStatus').forEach(select => {
+                select.addEventListener('change', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    let newStatus = this.value;
+                    let bookingId = this.getAttribute('data-id');
+                    let oldStatus = this.getAttribute('data-original');
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Change booking status to " + newStatus + "?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, change it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch('/booking/update-dp-status', {
+                                method: 'POST',
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    booking_id: bookingId,
+                                    status: newStatus
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                Swal.fire({
+                                    title: data.judul ?? 'Updated!',
+                                    text: data.pesan ?? 'Status updated successfully.',
+                                    icon: data.swalFlashIcon ?? 'success',
+                                    timer: 2000,
+                                });
+
+                                // update the top bar data
+                                updateBookingCounts();
+
+                                // save new status as original
+                                select.setAttribute('data-original', newStatus);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                Swal.fire('Error', 'Something went wrong!', 'error');
+                                select.value = oldStatus; // revert on error
+                            });
+                        } else {
+                            select.value = oldStatus; // revert on cancel
+                        }
+                    });
+                });
+            });
+        </script>
+        {{-- SweetAlert Change DP Status --}}
+        
+        {{-- SweetAlert Change DP Amount --}}
+        <script>
+            // Show input when clicking the pencil or the number itself
+            document.querySelectorAll('.dpAmountDisplay').forEach(span => {
+                let pencil = span.querySelector('.editDpIcon');
+                let input = span.nextElementSibling;
+
+                function activateInput() {
+                    span.classList.add('d-none');
+                    input.classList.remove('d-none');
+                    input.focus();
+                }
+
+                span.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('editDpIcon')) return; // only pencil triggers
+                    activateInput();
+                });
+            });
+
+
+            document.querySelectorAll('.changeDpAmount').forEach(input => {
+                input.addEventListener('change', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    let newAmount = this.value;
+                    let bookingId = this.getAttribute('data-id');
+                    let oldAmount = this.getAttribute('data-original');
+                    let span = this.previousElementSibling;
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Change deposit amount to USD " + parseInt(newAmount).toLocaleString() + "?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, change it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch('/booking/update-dp-amount', {
+                                method: 'POST',
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    booking_id: bookingId,
+                                    dp_amount: newAmount
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                Swal.fire({
+                                    title: data.judul ?? 'Updated!',
+                                    text: data.pesan ?? 'Deposit amount updated successfully.',
+                                    icon: data.swalFlashIcon ?? 'success',
+                                    timer: 2000,
+                                });
+
+                                // update display with formatted value
+                                let display = input.previousElementSibling;
+                                let formatted = newAmount.toLocaleString();
+
+                                // update only the text, keep pencil
+                                display.querySelector('.amountValue').textContent = `USD ${formatted}`;
+
+                                input.classList.add('d-none');
+                                display.classList.remove('d-none');
+                                this.setAttribute('data-original', newAmount);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                Swal.fire('Error', 'Something went wrong!', 'error');
+                                this.value = oldAmount; // revert if failed
+                                span.classList.remove('d-none');
+                                this.classList.add('d-none');
+                            });
+                        } else {
+                            this.value = oldAmount; // revert if canceled
+                            span.classList.remove('d-none');
+                            this.classList.add('d-none');
+                        }
+                    });
+                });
+            });
+        </script>
+        {{-- SweetAlert Change DP Amount --}}
+
+        {{-- /* SweetAlert Change Date --}}
+        <script>
+            function handleDateChange(selector, fieldName, url) {
+                document.querySelectorAll(selector).forEach(input => {
+                    input.addEventListener('change', function(e) {
                         e.preventDefault();
+                        e.stopPropagation();
 
-                        let dataStatus = this.getAttribute('data-status');
-                        let bookingId = document.querySelector('.bookingID').value;
-
-                        // console.log(dataStatus);
-                        const rowToDelete = this.closest('tr');
-
+                        let newDate = this.value;
+                        let bookingId = this.getAttribute('data-id');
+                        let oldDate = this.getAttribute('data-original');
 
                         Swal.fire({
                             title: 'Are you sure?',
-                            text: "Change status booking to " + dataStatus + "?",
+                            text: "Change booking " + fieldName + " to " + newDate + "?",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
@@ -463,41 +589,63 @@
                             confirmButtonText: 'Yes, change it!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                // Kirim DELETE request manual lewat JavaScript
-                                fetch('/booking/change-status', {
-                                        method: 'POST',
-                                        headers: {
-                                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({
-                                            booking_id: bookingId,
-                                            status: dataStatus
-                                        })
+                                fetch(url, {
+                                    method: 'POST',
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        booking_id: bookingId,
+                                        [fieldName]: newDate
                                     })
-                                    .then(response => response.json())
-                                    .then(data => {
-
-                                        Swal.fire({
-                                            title: data.judul,
-                                            text: data.pesan,
-                                            icon: data.swalFlashIcon,
-                                            timer: 2000,
-
-                                        }).then(() => {
-                                            // Reload setelah user menutup SweetAlert
-                                            window.location.reload();
-                                        });
-                                    })
-                                    .catch(error => {
-                                        console.error('Error:', error);
-                                        Swal.fire('Error', 'Something went wrong!', 'error');
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    Swal.fire({
+                                        title: data.judul ?? 'Updated!',
+                                        text: data.pesan ?? fieldName + ' updated successfully.',
+                                        icon: data.swalFlashIcon ?? 'success',
+                                        timer: 2000,
                                     });
+
+                                    // update stored original
+                                    input.setAttribute('data-original', newDate);
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    Swal.fire('Error', 'Something went wrong!', 'error');
+                                    input.value = oldDate; // revert if failed
+                                });
+                            } else {
+                                input.value = oldDate; // revert if canceled
                             }
                         });
                     });
+
+                    // Always open date picker on field click
+                    input.addEventListener('click', function() {
+                        if (this.showPicker) this.showPicker();
+                    });
                 });
-            });
+            }
+
+            // Apply for start_date and end_date
+            handleDateChange('.changeStartDate', 'start_date', '/booking/update-start-date');
+            handleDateChange('.changeEndDate', 'end_date', '/booking/update-end-date');
         </script>
-        {{-- /* SweetAlert Change Status --}}
+        {{-- SweetAlert Change Date --}}
+
+        {{-- to ajax fetch top data --}}
+        <script>
+            function updateBookingCounts() {
+                fetch('/booking-counts')
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById('pendingCount').textContent = data.pending;
+                        document.getElementById('unpaidCount').textContent = data.unpaid;
+                    });
+            }
+        </script>
+
     @endpush

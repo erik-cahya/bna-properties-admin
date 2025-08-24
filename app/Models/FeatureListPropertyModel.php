@@ -12,4 +12,15 @@ class FeatureListPropertyModel extends Model
     protected $table = 'feature_property';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
+
+    public function properties()
+    {
+        return $this->belongsToMany(
+            PropertiesModel::class,
+            'feature_property',
+            'feature_id',     // pivot key for features
+            'properties_id'   // pivot key for properties
+        );
+    }
+
 }

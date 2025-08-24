@@ -1,22 +1,24 @@
  <div class="main-menu">
-     <!-- Brand Logo -->
-     <div class="logo-box">
-         <!-- Brand Logo Light -->
-         <a href="index.html" class="logo-light">
-             <img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="logo" class="logo-lg" height="80">
-             <img src="{{ asset('bna-assets/logo-bna-light.png') }}" alt="small logo" class="logo-sm" height="30">
-         </a>
 
-         <!-- Brand Logo Dark -->
-         <a href="index.html" class="logo-dark">
-             <img src="{{ asset('admin') }}/assets/images/logo-dark.png" alt="dark logo" class="logo-lg" height="18">
-             <img src="{{ asset('admin') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm" height="24">
-         </a>
-     </div>
+    <!-- Brand Logo -->
+    <div class="logo-box">
+        <!-- Brand Logo Light -->
+        <a href="{{ route('dashboard') }}" class="logo-light pad-t-32 pad-b-8">
+            <img src="{{ asset('admin') }}/assets/images/new-bna-light.png" alt="logo" class="logo-lg pad-8" height="100">
+            <img src="{{ asset('admin') }}/assets/images/new-bna-light.png" alt="small logo" class="logo-sm" height="30">
+        </a>
+
+        <!-- Brand Logo Dark -->
+        <a href="{{ route('dashboard') }}" class="logo-dark">
+            <img src="{{ asset('admin') }}/assets/images/bna-new-dark.png" alt="dark logo" class="logo-lg pad-8" height="100">
+            <img src="{{ asset('admin') }}/assets/images/bna-new-dark.png" alt="small logo" class="logo-sm" height="30">
+        </a>
+    </div>
+
 
      <!--- Menu -->
      <div data-simplebar>
-         <ul class="app-menu">
+         <ul class="app-menu pad-t-16">
 
              <li class="menu-title">Menu</li>
 
@@ -24,6 +26,13 @@
                  <a href="{{ route('dashboard') }}" class="menu-link waves-effect">
                      <span class="menu-icon"><i data-lucide="airplay "></i></span>
                      <span class="menu-text"> Dashboards </span>
+                 </a>
+             </li>
+
+            <li class="menu-item">
+                 <a href="{{ route('booking.index') }}" class="menu-link waves-effect">
+                     <span class="menu-icon"><i class="mdi mdi-ballot-outline"></i></span>
+                     <span class="menu-text">Bookings</span>
                  </a>
              </li>
 
@@ -58,10 +67,12 @@
                  </a>
              </li>
 
+
+
              <li class="menu-item">
-                 <a href="{{ route('booking.index') }}" class="menu-link waves-effect">
-                     <span class="menu-icon"><i class="mdi mdi-ballot-outline"></i></span>
-                     <span class="menu-text">Booking</span>
+                 <a href="{{ route('customers.index') }}" class="menu-link waves-effect">
+                     <span class="menu-icon"><i class="mdi mdi-account-multiple"></i></span>
+                     <span class="menu-text">Customers</span>
                  </a>
              </li>
 
