@@ -189,7 +189,7 @@
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 // Kirim DELETE request manual lewat JavaScript
-                                fetch('/booking/' + propertyId, {
+                                fetch('/customers/' + propertyId, {
                                         method: 'DELETE',
                                         headers: {
                                             'X-CSRF-TOKEN': '{{ csrf_token() }}',

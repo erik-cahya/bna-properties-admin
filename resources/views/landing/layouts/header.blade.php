@@ -1,12 +1,12 @@
 <header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent--- gradient-color-4--- bg-light">
     <!-- ltn__header-middle-area start -->
 
-    <div class="container">
+    <div class="container d-none d-md-block">
         <div class="row pt-4">
-            <div class="col-lg-6">
+            <div class="col-6 cold-md-6 col-lg-6">
                 <span class="fw-bold text-dark fs-12">Free Consultation : <a href="https://api.whatsapp.com/send?phone=6285217560982">+62 852-1756-0982</a></span>
             </div>
-            <div class="col-lg-6 d-flex justify-content-end gap-2">
+            <div class="col-6 cold-md-6 col-lg-6 d-flex justify-content-end gap-2">
                 <a href="https://www.instagram.com/bna_property/"><iconify-icon style="font-size: 20px; color:#061D20" icon="hugeicons:instagram" ></iconify-icon></a>
                 <a href="https://api.whatsapp.com/send?phone=6285217560982"><iconify-icon style="font-size: 20px; color:#061D20" icon="ic:twotone-whatsapp" ></iconify-icon></a>
                 <a href="https://www.facebook.com/profile.php?id=61576880249876">
@@ -16,10 +16,12 @@
             </div>
         </div>
     </div>
+
+
     <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
         <div class="container">
-            <div class="row mt-3 bg-white p-2" style="border-radius: 10px">
-                <div class="col-lg-2 col-sm-6">
+            <div class="row mt-3 bg-white p-4" style="border-radius: 10px">
+                <div class="col-6 col-md-6 col-lg-2">
                     <a href="{{ route('landing.index') }}">
                         <img src="{{ asset('bna-assets/bna-new-dark.png') }}" alt="" width="100">
                     </a>
@@ -51,7 +53,7 @@
 
                 <div class="col--- ltn__header-options ltn__header-options-2">
                     <!-- Mobile Menu Button -->
-                    <div class="mobile-menu-toggle d-xl-none">
+                    <div class="mobile-menu-toggle d-lg-none d-xl-none">
                         <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
                             <svg viewBox="0 0 800 600">
                                 <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
@@ -68,6 +70,7 @@
     </div>
     <!-- ltn__header-middle-area end -->
 </header>
+
 <!-- Utilize Mobile Menu Start -->
 <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
     <div class="ltn__utilize-menu-inner ltn__scrollbar">

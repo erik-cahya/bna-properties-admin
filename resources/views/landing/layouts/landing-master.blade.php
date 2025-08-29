@@ -19,8 +19,40 @@
     <link rel="stylesheet" href="{{ asset('landing') }}/css/style.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ asset('landing') }}/css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
+        
+        .home-sec-1-padding {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .home-text-padding{
+            padding: 16px 16px 16px 0px;
+        }
+
+        /* Apply only for mobile screens */
+        @media (min-width: 768px) {
+            .home-sec-1-padding {
+                padding-top: 40px;   /* smaller on mobile */
+                padding-bottom: 140px;
+            }
+            .home-text-padding{
+                padding: 48px 16px 16px 0px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .home-sec-1-padding {
+                padding-top: 40px;
+                padding-bottom: 120px;
+            }
+            .home-text-padding{
+                padding: 96px 16px 16px 0px;
+            }
+        }
+
         .header-active {
             color: #FF5A3B;
         }
@@ -37,7 +69,7 @@
     <!-- Add your site or application content here -->
 
     <!-- Body main wrapper start -->
-    <div class="body-wrapper">
+    <div class="body-wrapper bg-light">
 
         <!-- HEADER AREA START (header-5) -->
         @include('landing.layouts.header')

@@ -21,7 +21,9 @@ class RegionSeeder extends Seeder
                 "Jimbaran",
                 "Nusa Dua",
                 "Pecatu",
-                "Uluwatu"
+                "Uluwatu",
+                "Kerobokan",
+                "Umalas"
         ];
 
         foreach ($regions as $name) {

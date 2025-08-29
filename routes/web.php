@@ -55,13 +55,15 @@ Route::get('/booking-counts', function () {
     ]);
 });
 
+Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/customer', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/customer', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/panel/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/panel', function () {

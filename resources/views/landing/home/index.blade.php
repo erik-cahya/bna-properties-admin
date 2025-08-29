@@ -1,112 +1,40 @@
 @extends('landing.layouts.landing-master')
 @section('content')
     <!-- SECTION 1 -->
-    <div class="ltn__slider-area ltn__slider-11 ltn__slider-11-slide-item-count-show--- ltn__slider-11-pagination-count-show--- section-bg-1">
-        <div class="ltn__slider-11-inner">
-            <div class="ltn__slider-11-active">
-                <!-- slide-item -->
-                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11">
-                    <div class="ltn__slide-item-inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 align-self-center">
-                                    <div class="slide-item-info">
-                                        <div class="slide-item-info-inner ltn__slide-animation">
-                                            <h1 class="slide-title animated">Bali <span>Best</span><br> Villa Rentals</h1>
-                                            <div class="slide-brief animated">
-                                                <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
-                                            </div>
-                                            <div class="btn-wrapper animated">
-                                                <a href="{{ route('landing.contact.index') }}" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-item-img">
-                                        <img src="{{ asset('landing') }}/img/slider/61.jpg" alt="#">
-                                    </div>
-                                </div>
-                            </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 align-self-center">
+                <div class="row home-sec-1-padding">
+                    <div class="col-12 col-md-6 pb-4 pe-4 home-text-padding">
+                        <h1 class="ps-0 ps-lg-4">Bali <span>Best</span><br> Villa Rentals</h1>
+                        <div class="ps-0 ps-lg-4">
+                            <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
+                        </div>
+                        <div class="btn-wrapper ps-0 ps-lg-4">
+                            <a href="{{ route('landing.contact.index') }}" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
                         </div>
                     </div>
-                </div>
-                <!-- slide-item -->
-                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11">
-                    <div class="ltn__slide-item-inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 align-self-center">
-                                    <div class="slide-item-info">
-                                        <div class="slide-item-info-inner ltn__slide-animation">
-                                            <div class="slide-video mb-50 d-none">
-                                                <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
-                                                    <i class="fa fa-play"></i>
-                                                </a>
-                                            </div>
-                                            <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                            <h1 class="slide-title animated">Bali <span>Best</span><br> Villa Rentals</h1>
-                                            <div class="slide-brief animated">
-                                                <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
-                                            </div>
-                                            <div class="btn-wrapper animated">
-                                                <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                                <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-item-img">
-                                        <img src="{{ asset('landing') }}/img/slider/62.jpg" alt="#">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-12 col-md-6 p-0">
+                        <img src="{{ asset('landing') }}/img/slider/61.jpg" alt="#">
                     </div>
                 </div>
             </div>
-            <!-- slider-4-pagination -->
-            <div class="ltn__slider-11-pagination-count">
-                <span class="count"></span>
-                <span class="total"></span>
-            </div>
-            <!-- slider-sticky-icon -->
-            <div class="slider-sticky-icon-2">
-                <ul>
-                    <li><a href="https://www.instagram.com/bna_property/" title="instagram"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=6285217560982" title="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
-                    <li>
-                        <a href="https://www.facebook.com/profile.php?id=61576880249876" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- slider-4-img-slide-arrow -->
-            <div class="ltn__slider-11-img-slide-arrow">
-                <div class="ltn__slider-11-img-slide-arrow-inner">
-                    <div class="ltn__slider-11-img-slide-arrow-active">
-
-                    </div>
-                    <!-- slider-4-slide-item-count -->
-                    <div class="ltn__slider-11-slide-item-count">
-                        <span class="count"></span>
-                        <span class="total"></span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-    <!-- SLIDER AREA END -->
+    <!-- SECTION 1 END -->
 
     <!-- BOOKING FORM START -->
     <div class="ltn__car-dealer-form-area" style="margin-top: -80px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 p-0">
 
                     {{-- FILTER --}}
                     <div class="ltn__car-dealer-form-tab">
                         <div class="tab-content box-shadow-1 ltn__border position-relative bg-white pb-10">
                             <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                 <div class="car-dealer-form-inner">
-                                    <form method="GET" action="{{ route('landing.properties.index') }}" class="ltn__car-dealer-form-box row pb-10 mb-10">
+                                    <form method="GET" action="{{ route('landing.properties.index') }}" class="ltn__car-dealer-form-box row pb-10 mb-10 gap-4 gap-md-0">
                                         <div class="col-lg-3 col-md-6">
                                             <select name="region[]" class="nice-select">
                                                 <option selected="" disabled readonly>Area</option>
@@ -283,65 +211,82 @@
                 </div>
             </div>
             <div class="row ltn__search-by-place-slider-1-active slick-arrow-1">
+
+                {{-- Seminyak --}}
                 <div class="col-lg-4">
                     <div class="ltn__search-by-place-item">
                         <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/1.jpg" alt="#"></a>
+                            <a href="{{ route('landing.properties.index', ['region' => [$counts['Seminyak']['id']]]) }}">
+                                <img src="{{ asset('landing/img/region/Seminyak.jpg') }}" alt="Seminyak">
+                            </a>
                             <div class="search-by-place-badge">
                                 <ul>
-                                    <li>2 Properties</li>
+                                    <li>{{ $counts['Seminyak']['count'] }} Properties</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="search-by-place-info">
-                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Seminyak</a></h4>
+                            <h6><a href="{{ route('landing.properties.index', ['region' => [$counts['Seminyak']['id']]]) }}">Bali, Indonesia</a></h6>
+                            <h4><a href="{{ route('landing.properties.index', ['region' => [$counts['Seminyak']['id']]]) }}">Seminyak</a></h4>
                             <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ltn__search-by-place-item">
-                        <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/2.jpg" alt="#"></a>
-                            <div class="search-by-place-badge">
-                                <ul>
-                                    <li>5 Properties</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="search-by-place-info">
-                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Canggu</a></h4>
-                            <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ltn__search-by-place-item">
-                        <div class="search-by-place-img">
-                            <a href="{{ route('landing.properties.index') }}"><img src="{{ asset('landing') }}/img/product-3/3.jpg" alt="#"></a>
-                            <div class="search-by-place-badge">
-                                <ul>
-                                    <li>9 Properties</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="search-by-place-info">
-                            <h6><a href="locations.html">Bali, Indonesia</a></h6>
-                            <h4><a href="{{ route('landing.properties.index') }}">Kerobokan</a></h4>
-                            <div class="search-by-place-btn">
-                                <a href="{{ route('landing.properties.index') }}">View Property <i class="flaticon-right-arrow"></i></a>
+                                <a href="{{ route('landing.properties.index', ['region' => [$counts['Seminyak']['id']]]) }}">
+                                    View Property <i class="flaticon-right-arrow"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!--  -->
+                {{-- Canggu --}}
+                <div class="col-lg-4">
+                    <div class="ltn__search-by-place-item">
+                        <div class="search-by-place-img">
+                            <a href="{{ route('landing.properties.index', ['region' => [$counts['Canggu']['id']]]) }}">
+                                <img src="{{ asset('landing/img/region/Canggu.jpg') }}" alt="Canggu">
+                            </a>
+                            <div class="search-by-place-badge">
+                                <ul>
+                                    <li>{{ $counts['Canggu']['count'] }} Properties</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search-by-place-info">
+                            <h6><a href="{{ route('landing.properties.index', ['region' => [$counts['Canggu']['id']]]) }}">Bali, Indonesia</a></h6>
+                            <h4><a href="{{ route('landing.properties.index', ['region' => [$counts['Canggu']['id']]]) }}">Canggu</a></h4>
+                            <div class="search-by-place-btn">
+                                <a href="{{ route('landing.properties.index', ['region' => [$counts['Canggu']['id']]]) }}">
+                                    View Property <i class="flaticon-right-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Kerobokan --}}
+                <div class="col-lg-4">
+                    <div class="ltn__search-by-place-item">
+                        <div class="search-by-place-img">
+                            <a href="{{ route('landing.properties.index', ['region' => [$counts['Kerobokan']['id']]]) }}">
+                                <img src="{{ asset('landing/img/region/Kerobokan.jpg') }}" alt="Kerobokan">
+                            </a>
+                            <div class="search-by-place-badge">
+                                <ul>
+                                    <li>{{ $counts['Kerobokan']['count'] }} Properties</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search-by-place-info">
+                            <h6><a href="{{ route('landing.properties.index', ['region' => [$counts['Kerobokan']['id']]]) }}">Bali, Indonesia</a></h6>
+                            <h4><a href="{{ route('landing.properties.index', ['region' => [$counts['Kerobokan']['id']]]) }}">Kerobokan</a></h4>
+                            <div class="search-by-place-btn">
+                                <a href="{{ route('landing.properties.index', ['region' => [$counts['Kerobokan']['id']]]) }}">
+                                    View Property <i class="flaticon-right-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -398,7 +343,7 @@
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2--- text-center---">
                         <h6 class="section-subtitle section-subtitle-2--- ltn__secondary-color--- white-color">Client,s Testimonial</h6>
-                        <h1 class="section-title white-color">See What,s Our Client <br>
+                        <h1 class="section-title">See What,s Our Client <br>
                             Says About Us</h1>
                     </div>
                 </div>
