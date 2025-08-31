@@ -311,7 +311,7 @@
 
                         Swal.fire({
                             title: 'Are you sure?',
-                            text: "Delete Customer " + propertyName + "?",
+                            text: "Delete " + propertyName + "?",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',

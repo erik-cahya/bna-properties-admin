@@ -70,6 +70,13 @@
 
 
              <li class="menu-item">
+                 <a href="{{ route('region.index') }}" class="menu-link waves-effect">
+                    <span class="menu-icon"><i class="mdi mdi-map-marker-radius"></i></span>
+                    <span class="menu-text">Areas</span>
+                 </a>
+             </li>
+
+             <li class="menu-item">
                  <a href="{{ route('customers.index') }}" class="menu-link waves-effect">
                      <span class="menu-icon"><i class="mdi mdi-account-multiple"></i></span>
                      <span class="menu-text">Customers</span>

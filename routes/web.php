@@ -12,6 +12,8 @@ use App\Http\Controllers\Landing\LandingPropertiesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\RegionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +67,7 @@ Route::middleware('auth')->group(function () {
     
     // Route::get('/customer', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/panel/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+    
     Route::get('/panel', function () {
         return redirect()->route('dashboard');
     });
@@ -78,10 +80,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/booking/update-end-date', [BookingController::class, 'updateEndDate']);
     Route::post('/booking/update-dp-status', [BookingController::class, 'updateDpStatus']);
     Route::post('/booking/update-dp-amount', [BookingController::class, 'updateDpAmount']);
-
+    
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
     Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy'); 
-
+    
+    Route::resource('region', RegionController::class);
     // Route::get('/get-subregions/{regionId}', [PropertyController::class, 'getSubregions']);
 });
 

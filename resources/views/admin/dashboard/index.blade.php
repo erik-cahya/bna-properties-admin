@@ -1,4 +1,17 @@
 @extends('admin.layouts.master')
+@push('styles')
+    <!-- third party css -->
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin') }}/assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
+    <!-- App css -->
+    <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <script src="assets/js/config.js"></script>
+@endpush
 @section('content')
     <div class="px-3">
 
@@ -104,11 +117,12 @@
                         <div class="card-header">
                             <h4 class="card-title">Booking Overview</h4>
                         </div>
-                        <div class="card-ody">
+                        <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-centered">
+                                <table class="table-hover table-centered nowrap table" id="basic-datatable">
                                     <thead class="table-dark">
                                         <tr>
+                                            <th>No</th>
                                             <th>Customer Name</th>
                                             <th>Phone</th>
                                             <th>Email</th>
@@ -123,6 +137,9 @@
                                     <tbody>
                                         @foreach($bookings as $booking)
                                             <tr>
+                                                <td>
+                                                    <span class="badge bg-primary ms-auto p-2">{{ $loop->iteration }}</span>
+                                                </td>
                                                 <td>{{ $booking->customer?->customer_name ?? 'N/A' }}</td>
                                                 <td>{{ $booking->customer?->customer_phone ?? 'N/A' }}</td>
                                                 <td>{{ $booking->customer?->customer_email ?? 'N/A' }}</td>
@@ -151,6 +168,7 @@
                             </div>
 
                         </div> <!-- end card-body-->
+
                     </div> <!-- end card-->
                 </div> <!-- end col -->
             </div>
@@ -160,3 +178,15 @@
 
     </div> <!-- content -->
 @endsection
+@push('script')
+        <!-- third party js -->
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="{{ asset('admin') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+        <!-- third party js ends -->
+
+        <!-- Datatables js -->
+        <script src="{{ asset('admin') }}/assets/js/pages/datatables.js"></script>
+    
+@endpush
