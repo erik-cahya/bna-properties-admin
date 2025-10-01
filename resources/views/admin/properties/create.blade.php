@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @push('styles')
     <link href="{{ asset('admin') }}/assets/libs/mohithg-switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 @endpush
 @section('content')
     <div class="px-3">
@@ -166,6 +167,13 @@
 
                                 </div>
 
+                                <div class="col-lg-12 mb-3 mt-4">
+                                    <input type="hidden" id="latitude" name="latitude">
+                                    <input type="hidden" id="longitude" name="longitude">
+
+                                    <div id="map" style="height:400px;"></div>
+                                </div>
+
                                 <div>
                                     <button type="submit" class="btn btn-primary w-md">Submit</button>
                                 </div>
@@ -193,6 +201,28 @@
 
     <script src="{{ asset('admin/assets/js/cleave.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    {{-- map --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([-8.409518, 115.188919], 12); // Bali default
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        let marker;
+
+        function setMarker(lat, lng) {
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([lat, lng]).addTo(map);
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lng;
+        }
+
+        map.on('click', function(e) {
+            setMarker(e.latlng.lat, e.latlng.lng);
+        });
+    </script>
 
     <script>
         const cleaveFields = [{

@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @push('styles')
     <link href="{{ asset('admin') }}/assets/libs/mohithg-switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 @endpush
 @section('content')
     <div class="px-3">
@@ -177,6 +178,14 @@
                                         {{-- Hidden input for tracking deleted images --}}
                                         <input type="hidden" name="deleteImages" id="deleteImages">
                                     </div>
+
+                                <div class="col-lg-12 mb-3 mt-4">
+                                    <input type="hidden" id="latitude" name="latitude">
+                                    <input type="hidden" id="longitude" name="longitude">
+
+                                    <div id="map" style="height:400px;"></div>
+                                </div>
+
                                 <div>
                                     <button type="submit" class="btn btn-primary w-md">Submit</button>
                                 </div>
@@ -201,6 +210,40 @@
 
     {{-- ######################### Gallery Upload ######################### --}}
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+    {{-- map --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Default to villa’s saved coordinates OR fallback (e.g., Bali center)
+        const defaultLat = {{ $property->latitude ?? -8.409518 }};
+        const defaultLng = {{ $property->longitude ?? 115.188919 }};
+        const defaultZoom = {{ $property->latitude && $property->longitude ? 15 : 12 }};
+
+        const map = L.map('map').setView([defaultLat, defaultLng], defaultZoom);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        let marker;
+
+        // If villa already has a location, place marker
+        if ({{ $property->latitude ? 'true' : 'false' }}) {
+            marker = L.marker([defaultLat, defaultLng]).addTo(map);
+        }
+
+        function setMarker(lat, lng) {
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([lat, lng]).addTo(map);
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lng;
+        }
+
+        // Allow clicking on map to move the marker
+        map.on('click', function(e) {
+            setMarker(e.latlng.lat, e.latlng.lng);
+        });
+    </script>
 
     <!-- Demo js -->
     <script src="{{ asset('admin') }}/assets/js/pages/form-advanced.js"></script>

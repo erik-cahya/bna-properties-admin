@@ -247,7 +247,17 @@ class LandingPropertiesController extends Controller
         // dd($data['bookedRanges']);
         $data['getAllProperties'] = PropertiesModel::where('id', '!=', $dataProperties->id)->get();
 
-        // dd($data['getAllProperties']);
+                    
+        $latestBooking = BookingModel::where('properties_id', $dataProperties->id)
+            ->whereIn('status', ['Confirmed', 'On Going'])
+            ->orderBy('end_date', 'desc')
+            ->first();
+
+        if ($latestBooking) {
+            $data['availableDate'] = \Carbon\Carbon::parse($latestBooking->end_date)->addDay();
+        } else {
+            $data['availableDate'] = now(); // Available immediately
+        }
 
         return view('landing.properties.details', $data);
     }

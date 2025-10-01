@@ -1016,6 +1016,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
+input[type="tel"],
 textarea {
     background-color: var(--white);
     border: 2px solid;
@@ -1027,7 +1028,7 @@ textarea {
     font-size: 16px;
     color: var(--ltn__paragraph-color);
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-radius: 0;
     padding-right: 40px;
 }

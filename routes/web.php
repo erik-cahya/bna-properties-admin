@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\RegionController;
 
+use App\Mail\InquiryMail;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +61,19 @@ Route::get('/booking-counts', function () {
 });
 
 Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+
+Route::get('/send-email', function () {
+    $details = [
+        'name' => 'Agung',
+        'email' => 'agungcantona11@gmail.com',
+        'phone' => '0812345678909',
+        'message' => 'hello',
+    ];
+
+    Mail::to('agungcantona11@gmail.com')->send(new InquiryMail($details));
+
+    return "Email sent!";
+});
 
 
 Route::middleware('auth')->group(function () {

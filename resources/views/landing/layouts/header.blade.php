@@ -26,7 +26,7 @@
                         <img src="{{ asset('bna-assets/bna-new-dark.png') }}" alt="" width="100">
                     </a>
                 </div>
-                <div class="col-lg-8 justify-content-center d-none d-lg-flex">
+                <div class="col-12 col-lg-8 justify-content-center d-none d-lg-flex">
                     <nav>
                         <div class="ltn__main-menu">
                             <ul>

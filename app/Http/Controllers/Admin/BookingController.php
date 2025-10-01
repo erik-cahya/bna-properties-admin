@@ -14,6 +14,10 @@ use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Excel as ExcelType;
 use Maatwebsite\Excel\Concerns\FromArray;
 
+use App\Mail\InquiryMail;
+use App\Mail\ConfirmMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class BookingController extends Controller
 {
@@ -42,6 +46,20 @@ class BookingController extends Controller
                 $property->status_listing = 'Available';
                 $property->save();
             }
+        }
+
+        $customer = $booking->customer;
+
+        // Send email only if status is confirmed
+        if (strtolower($status) === 'confirmed') {
+            $details = [
+                'property_name' => $property->properties_name,
+                'start_date' => $booking->start_date,
+                'end_date' => $booking->end_date,
+                'customer_name' => $customer->customer_name,
+            ];
+
+            Mail::to($customer->customer_email)->send(new ConfirmMail($details));
         }
 
         return response()->json([
@@ -126,45 +144,61 @@ class BookingController extends Controller
             return redirect()->route('login');
         }
 
-        $data['bookingToday'] = BookingModel::whereDate('created_at', Carbon::today())->get();
+        // Bookings for today
+        $bookingToday = BookingModel::whereDate('created_at', Carbon::today())->get();
 
-        $data['bookingData'] = BookingModel::join('properties', 'properties.id', '=', 'bookings.properties_id')
+        // All booking details with joins
+        $bookingData = BookingModel::join('properties', 'properties.id', '=', 'bookings.properties_id')
             ->join('customers', 'customers.id', '=', 'bookings.customer_id')
             ->select(
                 'bookings.*',
-
                 'properties.properties_name',
                 'properties.address',
                 'properties.type_properties',
                 'properties.max_people',
                 'properties.price_usd',
-
                 'customers.customer_name',
                 'customers.customer_email',
                 'customers.customer_phone',
                 'customers.message',
-
             )
             ->get();
 
-        foreach ($data['bookingData'] as $booking) {
-            // $start = Carbon::parse($booking->start_date);
-            // $end = Carbon::parse($booking->end_date);
-            $remainingDays = now()->diffInDays(Carbon::parse($booking->end_date));
-
-            $alreadyBooked = Carbon::parse($booking->start_date)->diffInDays(now(), false);
-
-
-            // dd($alreadyBooked);
-
-            $data['bookingData']->remainingDays = $remainingDays;
-            $data['bookingData']->alreadyBooked = $alreadyBooked;
+        foreach ($bookingData as $booking) {
+            $booking->remainingDays = now()->diffInDays(Carbon::parse($booking->end_date));
+            $booking->alreadyBooked = Carbon::parse($booking->start_date)->diffInDays(now(), false);
         }
 
-        // dd($data['bookingData']);
+        // Villas for dropdown
+        $properties = PropertiesModel::select('id', 'slug', 'properties_code', 'properties_name')->get();
 
-        return view('admin.booking.index', $data);
+        // Build disabled date ranges for each villa
+        $villas = PropertiesModel::all();
+        $villaRanges = [];
+
+        foreach ($villas as $villa) {
+            $bookings = BookingModel::where('properties_id', $villa->id)
+                ->whereIn('status', ['confirmed', 'Confirmed', 'On Going', 'on going', 'On going'])
+                ->orderBy('start_date')
+                ->get();
+
+            foreach ($bookings as $booking) {
+                $start = Carbon::parse($booking->start_date);
+                $end   = Carbon::parse($booking->end_date);
+
+                $villaRanges[$villa->id][] = [
+                    'from' => $start->toDateString(),
+                    'to'   => $end->toDateString(),
+                ];
+            }
+        }
+        // dd($villaRanges);
+
+        return view('admin.booking.index', compact('properties', 'bookingToday', 'bookingData', 'villaRanges'));
     }
+
+    
+
 
     /**
      * Show the form for creating a new resource.
@@ -179,26 +213,58 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+        
         $propertyData = PropertiesModel::where('slug', $request->propertySlug)->first();
 
+        $validated = $request->validate([
+            // Customer validations
+            'name'       => 'required|string|max:255',
+            'email'      => 'required|email|max:255',
+            'full_phone' => 'required|string|max:20',
+            'message'    => 'nullable|string',
+
+            // Booking validations
+            'start_date' => 'required|date|after_or_equal:today',
+            'end_date'   => 'required|date|after:start_date',
+        ]);
+
+        // Create customer
         $newCustomerData = CustomerModel::create([
-            'customer_name' => $request->name,
-            'customer_email' => $request->email,
-            'customer_phone' => $request->phone,
-            'message' => $request->message,
+            'customer_name'  => $validated['name'],
+            'customer_email' => $validated['email'],
+            'customer_phone' => $validated['full_phone'],
+            'message'        => $validated['message'] ?? null,
         ]);
 
+        // Create booking
         BookingModel::create([
-            'customer_id' => $newCustomerData->id,
-            'properties_id' => $propertyData->id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'dp_status' => 'Unpaid',
-            'dp_amount' => 0,
-            'status' => 'Pending',
+            'customer_id'  => $newCustomerData->id,
+            'properties_id'=> $propertyData->id, // make sure $propertyData is defined earlier
+            'start_date'   => $validated['start_date'],
+            'end_date'     => $validated['end_date'],
+            'dp_status'    => 'Unpaid',
+            'dp_amount'    => 0,
+            'status'       => 'Pending',
         ]);
 
-        return redirect()->route('landing.index');
+        $details = [
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['full_phone'],
+            'message' => $validated['message'],
+            'property_id' => $propertyData->properties_code,
+            'property_name' => $propertyData->properties_name,
+        ];
+
+        Mail::to('agungcantona11@gmail.com')->send(new InquiryMail($details));
+
+        return response()->json([
+            'judul' => 'Success!',
+            'pesan' => 'Inquiry has been sent.',
+            'swalFlashIcon' => 'success'
+        ]);
+
+        // return redirect()->route('landing.index');
 
         // BookingModel::create([]);
     }

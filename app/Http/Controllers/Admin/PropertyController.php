@@ -61,6 +61,8 @@ class PropertyController extends Controller
             'region' => 'required',
             // 'subRegion' => 'required',
             'address' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
         
         // dd($request->all());
@@ -106,6 +108,8 @@ class PropertyController extends Controller
             // 'price_usd' => round((float)$idrPrice / $this->getUSDtoIDRRate(), 2),
             'price_usd' => floatval(preg_replace('/[^\d.]/', '', $request->priceUSD)),
             'status_listing' => $request->statusListing,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
 
         // ==================================================== //
@@ -224,6 +228,8 @@ class PropertyController extends Controller
             'priceUSD' => 'required',
             'region' => 'required',
             'address' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         $property = PropertiesModel::findOrFail($id);
@@ -247,6 +253,8 @@ class PropertyController extends Controller
             'max_people' => $request->maxPeople,
             'price_usd' => floatval(preg_replace('/[^\d.]/', '', $request->priceUSD)),
             'status_listing' => $request->statusListing,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
 
         // ====================== Update Features ====================== //

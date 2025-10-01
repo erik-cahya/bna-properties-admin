@@ -38,7 +38,7 @@
                         </div>
                         <div class="product-info">
                             <div class="product-price">
-                                <span>$ {{ number_format($properties->price_usd, 0, ',', '.') }}<label>/Night</label></span>
+                                <span>$ {{ number_format($properties->price_usd, 0, ',', '.') }}<label>/Month</label></span>
                             </div>
                             <h2 class="product-title"><a href="{{ route('landing.properties.detail', $properties->slug) }}">{{ $properties->properties_name }}</a>
                             </h2>

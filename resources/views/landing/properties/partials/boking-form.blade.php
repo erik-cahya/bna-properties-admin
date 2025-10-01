@@ -4,18 +4,26 @@
         @csrf
         <!-- hidden field for property -->
         <input type="hidden" name="propertySlug" value="{{ $data_properties->slug }}">
-        <input type="hidden" id="message" name="message" value="I want to rent this villa {{ $data_properties->properties_name }}">
 
-        <label for="start_date">Your Name</label>
+
+        <label for="name">Your Name</label>
         <input type="text" name="name" placeholder="Your Name*">
 
-        <label for="start_date">Your Email</label>
+        <label for="email">Your Email</label>
         <input type="text" name="email" placeholder="Your e-Mail*">
 
-        <label for="start_date">Contact</label>
-        <input type="text" name="phone" placeholder="Your Phone Number*">
+        <div class="mb-4">
+            <label for="phone">Contact</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number*" required>
+            <input type="hidden" id="full_phone" name="full_phone"> <!-- will store international format -->
+        </div>
 
-        <div class="mb-3">
+        <div class="">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message"></textarea>
+        </div>
+
+        <div class="mb-4">
             <label for="start_date">Rental Duration</label>
 
             <select id="duration" name="duration" class="form-control no-nice-select" required>
@@ -38,6 +46,6 @@
             <input type="text" id="end_date" name="end_date" class="form-control" readonly>
         </div>
 
-        <button type="submit" class="btn theme-btn-1">Send Messege</button>
+        <button type="submit" class="btn theme-btn-1 submitButton">Send Messege</button>
     </form>
 </div>

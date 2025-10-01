@@ -11,7 +11,27 @@
     <link href="{{ asset('admin') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="assets/js/config.js"></script>
+
+    <style>
+        /* style disabled booked days as red */
+        .flatpickr-day.booked {
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            cursor: not-allowed;
+        }
+
+        /* make disabled days text red */
+        .flatpickr-day.flatpickr-disabled {
+            color: red !important;
+            opacity: 1 !important; /* keep text visible */
+        }
+
+    </style>
+
+
 @endpush
+
 @section('content')
     <div class="px-3">
         <div class="container-fluid">
@@ -114,6 +134,7 @@
                                             <th>No</th>
                                             <th>Customer Name</th>
                                             <th>Properties</th>
+                                            {{-- <th>Message</th> --}}
                                             <th>DP Amount</th>
                                             <th>DP Status</th>
                                             <th>Start Date</th>
@@ -171,6 +192,15 @@
                                                         </div>
                                                     </div>
                                                 </td>
+
+                                                {{-- Message--}}
+                                                {{-- <td>
+                                                    <div class="flex-column">
+                                                        <h6 class="font-size-14 font-weight-normal m-0">
+                                                            {{ $booking->message }}
+                                                        </h6>
+                                                    </div>
+                                                </td> --}}
 
                                                 {{-- DP Amount --}}
                                                 <td>
@@ -277,6 +307,108 @@
 
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Book Property</h4>
+                                <p class="text-muted font-size-13 mb-4">
+                                    Fill out the form below to send a booking request.
+                                </p>
+
+                                <form action="{{ route('booking.store') }}" method="POST">
+                                    @csrf
+                                    <!-- Select Villa -->
+
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="propertySlug">Villa</label>
+                                        <div class="col-md-9">
+                                            <select id="propertySlug" class="form-control" name="propertySlug" required>
+                                                <option value="">-- Choose a villa --</option>
+                                                @foreach($properties as $property)
+                                                    <option value="{{ $property->slug }}" data-id="{{ $property->id }}">
+                                                        {{ $property->properties_code }} - {{ $property->properties_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @error('propertySlug')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <!-- Name -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="name">Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="name" class="form-control" name="name" placeholder="Full name" required>
+                                        </div>
+                                    </div>
+                                    @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <!-- Email -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="email">Email</label>
+                                        <div class="col-md-9">
+                                            <input type="email" id="email" class="form-control" name="email" placeholder="Email address" required>
+                                        </div>
+                                    </div>
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <!-- Phone Number -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="phone">Phone</label>
+                                        <div class="col-md-9">
+                                            <input type="tel" id="phone" class="form-control" name="phone" placeholder="Phone number*" required>
+                                            <input type="hidden" id="full_phone" name="full_phone">
+                                        </div>
+                                    </div>
+                                    @error('phone')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <!-- Message -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="message">Message</label>
+                                        <div class="col-md-9">
+                                            <textarea id="message" class="form-control" name="message" rows="3" placeholder="Write message..."></textarea>
+                                        </div>
+                                    </div>
+                                    @error('message')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <!-- Start Date -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="start_date">Start Date</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="start_date" class="form-control" name="start_date" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- End Date -->
+                                    <div class="row mb-2">
+                                        <label class="col-md-3 col-form-label" for="end_date">End Date</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="end_date" class="form-control" name="end_date" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-sm btn-dark">Save Data</button>
+                                </form>
+
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+
                 </div>
             </div>
 
@@ -294,6 +426,126 @@
 
         <!-- Datatables js -->
         <script src="{{ asset('admin') }}/assets/js/pages/datatables.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        
+        {{-- date --}}
+<script>
+    const villaRanges = @json($villaRanges);
+
+    const startPicker = flatpickr("#start_date", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+    });
+
+    const endPicker = flatpickr("#end_date", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+    });
+
+    function applyDisabledRanges(villaId) {
+        if (!villaId || !villaRanges[villaId]) {
+            startPicker.set("disable", []);
+            endPicker.set("disable", []);
+            return;
+        }
+
+        const disabledRanges = villaRanges[villaId];
+
+        startPicker.set("disable", disabledRanges);
+        endPicker.set("disable", disabledRanges);
+
+        // mark booked days in red
+        [startPicker, endPicker].forEach(picker => {
+            picker.set("onDayCreate", [
+                function(dObj, dStr, fp, dayElem) {
+                    const dateStr = dayElem.dateObj.toISOString().slice(0, 10);
+                    disabledRanges.forEach(range => {
+                        if (dateStr >= range.from && dateStr <= range.to) {
+                            dayElem.classList.add("booked");
+                        }
+                    });
+                }
+            ]);
+        });
+    }
+
+    function initDatepickers(villaId, ranges) {
+        const disabled = ranges
+            .filter(r => r.id == villaId)
+            .map(r => ({ from: r.from, to: r.to }));
+
+        const commonOptions = {
+            dateFormat: "Y-m-d",
+            disable: disabled,
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+                if (dayElem.classList.contains("flatpickr-disabled")) {
+                    dayElem.classList.add("booked"); // keep red style
+                }
+            },
+            onChange: function(selectedDates, dateStr, instance) {
+                // if user somehow picked a disabled date (or clicked on it)
+                if (instance.isEnabled(dateStr) === false) {
+                    // find the next enabled date
+                    const nextDate = instance.config.disable
+                        ? findNextAvailable(instance, new Date(dateStr))
+                        : null;
+
+                    if (nextDate) {
+                        instance.setDate(nextDate, true); // auto-move to available
+                    }
+                }
+            }
+        };
+
+        flatpickr("#start_date", commonOptions);
+        flatpickr("#end_date", commonOptions);
+    }
+
+    // helper to find next available date
+    function findNextAvailable(instance, date) {
+        let next = new Date(date);
+        for (let i = 0; i < 365; i++) { // max 1 year scan
+            next.setDate(next.getDate() + 1);
+            if (instance.isEnabled(next)) {
+                return next;
+            }
+        }
+        return null;
+    }
+
+    document.getElementById("propertySlug").addEventListener("change", function() {
+        const villaId = this.options[this.selectedIndex].dataset.id;
+        applyDisabledRanges(villaId);
+    });
+
+</script>
+
+
+
+        {{-- phone --}}
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const phoneInput = document.querySelector("#phone");
+                const fullPhoneInput = document.querySelector("#full_phone");
+
+                const iti = window.intlTelInput(phoneInput, {
+                    initialCountry: "id",  // default to Indonesia
+                    preferredCountries: ["id", "sg", "au", "us"], // customize if needed
+                    separateDialCode: true,
+                });
+                
+                // update hidden input on submit
+                const form = phoneInput.closest("form");
+                
+                if (form) {
+                    form.addEventListener("submit", function () {
+                        fullPhoneInput.value = iti.getNumber(); // full international format
+                    });
+                }
+            });
+        </script>
 
         {{-- SweetAlert Delete --}}
         <script>
@@ -647,5 +899,8 @@
                     });
             }
         </script>
+
+
+
 
     @endpush

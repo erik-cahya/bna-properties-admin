@@ -3,6 +3,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> --}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <style>
         .flatpickr-disabled {
@@ -71,7 +72,15 @@
                                 </li>
                             </ul>
                         </div>
+
                         <h1>{{ $data_properties->properties_name }}</h1>
+
+                        @if($availableDate->isToday())
+                            <p>This property is available now!</p>
+                        @else
+                            <p>This property will be available after: {{ $availableDate->format('d F Y') }}</p>
+                        @endif
+
                         <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> {{ $data_properties->address . ', ' . $data_properties->region->name }}</label>
                         <h4 class="title-2">Description</h4>
                         <p>{{ $data_properties->description }}</p>
@@ -92,6 +101,11 @@
 
                             </ul>
                         </div>
+
+                        <div class="col-lg-12 mb-3 mt-4">
+                            <div id="villa-map" style="height:400px;"></div>
+                        </div>
+
 
                         <h4 class="title-2">Features</h4>
                         <div class="property-detail-feature-list clearfix mb-45">
@@ -218,6 +232,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+    {{-- map --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const villaLat = {{ $data_properties->latitude }};
+        const villaLng = {{ $data_properties->longitude }};
+
+        const map = L.map('villa-map', {
+            center: [villaLat, villaLng],
+            zoom: 15,
+            dragging: false,      // disable dragging
+            scrollWheelZoom: false, // disable zoom on scroll
+            doubleClickZoom: false, // disable double click zoom
+            boxZoom: false,         // disable box zoom
+            keyboard: false,        // disable keyboard nav
+            zoomControl: false      // hide zoom controls
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([villaLat, villaLng]).addTo(map)
+            .bindPopup("{{ $data_properties->properties_name }}")
+            .openPopup();
+    </script>
+
 
     <script>
         $(document).ready(function() {
@@ -277,4 +317,78 @@
             }
         });
     </script>
+
+    {{-- Country Flag --}}
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const phoneInput = document.querySelector("#phone");
+            const fullPhoneInput = document.querySelector("#full_phone");
+
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: "id", // default Indonesia
+                separateDialCode: true, // show country code separately
+                preferredCountries: ["id", "sg", "us", "au"], // customize as you like
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
+            });
+
+            // On form submit, set full international number into hidden input
+            phoneInput.form.addEventListener("submit", function () {
+                fullPhoneInput.value = iti.getNumber();
+            });
+        });
+    </script> --}}
+
+    {{-- SweetAlert Delete --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector("form");
+            const phoneInput = document.querySelector("#phone");
+            const fullPhoneInput = document.querySelector("#full_phone");
+
+            // init intl-tel-input
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: "id", // default Indonesia
+                separateDialCode: true,
+                preferredCountries: ["id", "sg", "us", "au"],
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"
+            });
+
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                // set full phone number before sending
+                fullPhoneInput.value = iti.getNumber();
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": form.querySelector("input[name=_token]").value
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire({
+                        title: data.judul,
+                        text: data.pesan,
+                        icon: data.swalFlashIcon,
+                        timer: 2000,
+                    });
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Something went wrong!"
+                    });
+                    console.error(err);
+                });
+            });
+        });
+    </script>
+    {{-- /* SweetAlert Delete --}}
+
 @endpush

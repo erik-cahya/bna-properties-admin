@@ -21,6 +21,12 @@
     <link href="{{ asset('admin') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
 
+    <!-- Country flag CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/css/intlTelInput.css" />
+    <!-- Country flag JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/utils.js"></script>
+
     <style>
         .invalid-form {
             z-index: 5;
@@ -193,7 +199,7 @@
     <script src="{{ asset('admin') }}/assets/js/pages/dashboard.js"></script>
     <script src="{{ asset('admin/assets/js/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/iconify.min.js') }}"></script>
-
+    
     <script>
         @if (session('flashData'))
             var flashData = @json(session('flashData'));
