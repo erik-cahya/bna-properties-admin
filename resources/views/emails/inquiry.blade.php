@@ -92,7 +92,7 @@
         </div>
         <div class="footer">
             This is an automated notification from your website.<br>
-            &copy; {{ date('Y') }} Ilot Property Bali
+            &copy; {{ date('Y') }} BNA Property
         </div>
     </div>
 </body>
