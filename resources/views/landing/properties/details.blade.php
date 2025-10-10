@@ -5,11 +5,135 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
+    {{-- gallery style --}}
     <style>
         .flatpickr-disabled {
             color: rgba(237, 0, 0, 0.32) !important;
         }
+
+        .ltn__image-gallery-area .gallery-grid {
+            display: flex;
+            width: 1000px;          /* total gallery width */
+            height: 600px;          /* total gallery height */
+            gap: 8px;               /* spacing between columns */
+        }
+
+        .gallery-left,
+        .gallery-right {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .gallery-left {
+            flex: 2;
+        }
+
+        .gallery-right {
+            flex: 1;
+        }
+
+        .gallery-left .image-wrapper,
+        .gallery-right .image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .gallery-left .image-wrapper {
+            height: 100%;
+        }
+
+        .gallery-right .image-wrapper {
+            flex: 1;
+        }
+
+        .gallery-left img,
+        .gallery-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Overlay for "+X more" */
+        .image-wrapper .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            opacity: 1;
+            transition: background 0.3s;
+        }
+
+        .image-wrapper:hover .overlay {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ltn__image-gallery-area .gallery-grid {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+            }
+
+            .gallery-left,
+            .gallery-right {
+                flex: none;
+                width: 100%;
+            }
+
+            .gallery-left .image-wrapper,
+            .gallery-right .image-wrapper {
+                height: 250px;
+            }
+        }
+
+
     </style>
+
+    {{-- card style --}}
+    <style>
+        .product-img {
+            position: relative;
+            width: 100%;
+            height: 300px; /* fixed height for consistent cards */
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            object-position: center center !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .product-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info .product-description{
+            min-height: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .product-img {
+                height: 200px;
+            }
+        }
+
+    </style>
+
 @endpush
 @section('content')
     <!-- BREADCRUMB AREA START -->
@@ -32,23 +156,66 @@
     </div>
     <!-- BREADCRUMB AREA END -->
 
-    <!-- IMAGE SLIDER AREA START (img-slider-3) -->
-    <div class="ltn__img-slider-area mb-90">
-        <div class="container-fluid px-0">
-            <div class="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all">
-                @foreach ($imageGallery as $gallery)
-                    <div class="col-lg-12 p-0">
-                        <div class="image-wrapper" style="height: 560px; overflow: hidden;">
-                            <a href="{{ asset($gallery->image_path) }}" data-rel="lightcase:myCollection">
-                                <img src="{{ asset($gallery->image_path) }}" alt="Image"
-                                    style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            </a>
-                        </div>
+    <!-- IMAGE SLIDER AREA START -->
+<!-- Gallery Layout -->
+<div class="ltn__image-gallery-area mb-90">
+    <div class="container-fluid px-0 d-flex justify-content-center">
+        <div class="gallery-grid d-flex">
+            @php
+                // Sort by 'order' field before splitting
+                
+                $sortedGallery = $imageGallery->sortBy('order')->values();
+
+                $mainImage = $sortedGallery->first();
+                $otherImages = $sortedGallery->skip(1)->take(2);
+                $remainingImages = $sortedGallery->skip(3);
+                $remainingCount = max($sortedGallery->count() - 3, 0);
+            @endphp
+            {{-- {{ dd($imageGallery) }} --}}
+
+            <!-- Left -->
+            @if ($mainImage)
+                <div class="gallery-left">
+                    <div class="image-wrapper">
+                        <a href="{{ asset($mainImage->image_path) }}" class="glightbox" data-gallery="villaGallery">
+                            <img src="{{ asset($mainImage->image_path) }}" alt="Main Image">
+                        </a>
+                    </div>
+                </div>
+            @endif
+
+            <!-- Right -->
+            <div class="gallery-right d-flex flex-column">
+                @foreach ($otherImages as $image)
+                    <div class="image-wrapper position-relative">
+                        <a href="{{ asset($image->image_path) }}" class="glightbox" data-gallery="villaGallery">
+                            <img src="{{ asset($image->image_path) }}" alt="Gallery Image">
+                            @if ($loop->last && $remainingCount > 0)
+                                <div class="overlay">+{{ $remainingCount }} more</div>
+                            @endif
+                        </a>
                     </div>
                 @endforeach
             </div>
+
+            <!-- Hidden Images -->
+            @foreach ($remainingImages as $image)
+                <a href="{{ asset($image->image_path) }}" class="glightbox d-none" data-gallery="villaGallery">
+                    <img src="{{ asset($image->image_path) }}" alt="Hidden Image">
+                </a>
+            @endforeach
         </div>
     </div>
+</div>
+
+    <!-- Hidden images for lightbox -->
+    {{-- @foreach ($imageGallery as $gallery)
+    <a href="{{ asset($gallery->image_path) }}" class="glightbox" data-gallery="villaGallery">
+        <img src="{{ asset($gallery->image_path) }}" alt="Villa image"
+            style="width:100%;height:100%;object-fit:cover;">
+    </a>
+    @endforeach --}}
+
     <!-- IMAGE SLIDER AREA END -->
 
     <!-- SHOP DETAILS AREA START -->
@@ -138,7 +305,7 @@
 
                         </div>
 
-                        <h4 class="title-2">From Our Gallery</h4>
+                        {{-- <h4 class="title-2">From Our Gallery</h4>
                         <div class="ltn__property-details-gallery mb-30">
                             <div class="row">
                                 @foreach ($imageGallery as $gallery)
@@ -149,7 +316,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -231,6 +398,10 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
 
     {{-- map --}}
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -390,5 +561,21 @@
         });
     </script>
     {{-- /* SweetAlert Delete --}}
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: false,
+    width: '90vw',
+    height: '90vh'
+  });
+});
+</script>
+
+
 
 @endpush

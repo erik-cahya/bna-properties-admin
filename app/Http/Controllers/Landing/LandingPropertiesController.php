@@ -235,7 +235,13 @@ class LandingPropertiesController extends Controller
 
         $data['imageGallery'] = PropertyGalleryModel::where('properties_id', $dataProperties->id)
             ->join('property_gallery_image', 'property_gallery_image.gallery_id', '=', 'property_gallery.id')
-            ->select('property_gallery_image.image_path', 'property_gallery.id')
+            ->select(
+                'property_gallery_image.image_path',
+                'property_gallery_image.order',
+                'property_gallery_image.id as image_id',
+                'property_gallery.id as gallery_id'
+            )
+            ->orderBy('property_gallery_image.order', 'asc')
             ->get();
 
         $data['featuresData'] = FeatureListPropertyModel::where('properties_id', $dataProperties->id)

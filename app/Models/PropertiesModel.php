@@ -25,7 +25,7 @@ class PropertiesModel extends Model
             'gallery_id',    // Foreign key on PropertyGalleryImage table
             'id',            // Local key on Properties table
             'id'             // Local key on PropertyGallery table
-        );
+        )->orderBy('property_gallery_image.order', 'asc');
     }
     public function region()
     {

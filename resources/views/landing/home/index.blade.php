@@ -1,4 +1,37 @@
 @extends('landing.layouts.landing-master')
+@push('style')
+    <style>
+        .product-img {
+            position: relative;
+            width: 100%;
+            height: 300px; /* fixed height for consistent cards */
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            object-position: center center !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .product-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info .product-description{
+            min-height: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .product-img {
+                height: 200px;
+            }
+        }
+    </style>
+@endpush
 @section('content')
     <!-- SECTION 1 -->
     <div class="container">

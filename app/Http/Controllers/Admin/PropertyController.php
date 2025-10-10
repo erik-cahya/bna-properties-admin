@@ -228,8 +228,8 @@ class PropertyController extends Controller
             'priceUSD' => 'required',
             'region' => 'required',
             'address' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
         ]);
 
         $property = PropertiesModel::findOrFail($id);

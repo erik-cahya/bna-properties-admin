@@ -1,3 +1,4 @@
+
 @forelse ($properties as $property)
     <!-- ltn__product-item -->
       <div class="col-xl-6 col-sm-6 col-lg-12">
