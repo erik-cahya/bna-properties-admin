@@ -12,7 +12,14 @@
               <div class="product-badge-price">
                   <div class="product-badge">
                       <ul>
-                          <li class="sale-badg">{{ $property->status_listing }}</li>
+                        <li class="sale-badge me-2 p-1 text-white" style="background-color: #ff5a3c">
+                            {{ $property->type_properties }}
+                        </li>
+                        <li class="sale-badge p-1 text-white
+                                {{ $property->status_listing === 'Available' ? 'bg-success' : ''}}
+                                {{ $property->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                {{ $property->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                ">{{ $property->status_listing }}</li>
                       </ul>
                   </div>
                   <div class="product-price">

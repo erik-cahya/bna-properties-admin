@@ -3,25 +3,26 @@
     <!-- ltn__product-item -->
       <div class="col-xl-6 col-sm-6 col-lg-12">
           <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-              <div class="product-img">
+                <div class="product-img">
                   <a href="{{ route('landing.properties.detail', $property->slug) }}">
                       <img src="{{ asset($property?->featuredImage->image_path ?? 'admin/assets/images/placeholder.webp') }}" alt="#">
                   </a>
-              </div>
-              <div class="product-info">
-                    <div class="product-badge">
+                <div class="product-badge ms-4 ps-2">
                         <ul>
-                            <li class="sale-badge">
-                                {{ $properties->type_properties }}
+                            <li class="sale-badge me-2 p-1 text-white" style="background-color: #ff5a3c">
+                                {{ $property->type_properties }}
                             </li>
-                            <li  class="sale-badge 
-                                {{ $properties->status_listing === 'Available' ? 'bg-success' : ''}}
-                                {{ $properties->status_listing === 'Rented' ? 'bg-danger' : ''}}
-                                {{ $properties->status_listing === 'Pending' ? 'bg-warning' : ''}}
-                                "> {{ $properties->status_listing }}
+                            <li  class="sale-badge p-1 text-white
+                                {{ $property->status_listing === 'Available' ? 'bg-success' : ''}}
+                                {{ $property->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                {{ $property->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                "> {{ $property->status_listing }}
                             </li>
                         </ul>
                     </div>
+              </div>
+              <div class="product-info">
+
                   <h2 class="product-title"><a href="{{ route('landing.properties.detail', $property->slug) }}">{{ $property->properties_name }}</a></h2>
                   <div class="product-img-location">
                       <ul>
