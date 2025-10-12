@@ -39,11 +39,11 @@
             <div class="col-12 align-self-center">
                 <div class="row home-sec-1-padding">
                     <div class="col-12 col-md-6 pb-4 pe-4 home-text-padding">
-                        <h1 class="ps-0 ps-lg-4">Bali <span>Best</span><br> Villa Rentals</h1>
-                        <div class="ps-0 ps-lg-4">
+                        <h1 class="ps-4 ps-lg-4">Bali <span>Best</span><br> Villa Rentals</h1>
+                        <div class="ps-4 ps-lg-4">
                             <p>Explore a curated selection of stylish, fully serviced villas across Bali—ideal for holidays, remote work, or long-term stays.</p>
                         </div>
-                        <div class="btn-wrapper ps-0 ps-lg-4">
+                        <div class="btn-wrapper ps-4 ps-lg-4">
                             <a href="{{ route('landing.contact.index') }}" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
                         </div>
                     </div>
@@ -548,9 +548,16 @@
                                     <img src="{{ asset($properties?->featuredImage->image_path ?? 'admin/assets/images/placeholder.webp') }}" alt="#">
                                 </a>
                                 <div class="product-badge">
-                                <ul>
-                                        <li class="sale-badge bg-green">{{ $properties->status_listing }}</li>
-                                        <li class="sale-badge bg-secondary-color">{{ $properties->type_properties }}</li>
+                                    <ul>
+                                        <li class="sale-badge">
+                                            {{ $properties->type_properties }}
+                                        </li>
+                                        <li  class="sale-badge 
+                                            {{ $properties->status_listing === 'Available' ? 'bg-success' : ''}}
+                                            {{ $properties->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                            {{ $properties->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                            "> {{ $properties->status_listing }}
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">

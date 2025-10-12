@@ -9,11 +9,19 @@
                   </a>
               </div>
               <div class="product-info">
-                  <div class="product-badge">
-                      <ul>
-                          <li class="sale-badg">{{ $property->status_listing }}</li>
-                      </ul>
-                  </div>
+                    <div class="product-badge">
+                        <ul>
+                            <li class="sale-badge">
+                                {{ $properties->type_properties }}
+                            </li>
+                            <li  class="sale-badge 
+                                {{ $properties->status_listing === 'Available' ? 'bg-success' : ''}}
+                                {{ $properties->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                {{ $properties->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                "> {{ $properties->status_listing }}
+                            </li>
+                        </ul>
+                    </div>
                   <h2 class="product-title"><a href="{{ route('landing.properties.detail', $property->slug) }}">{{ $property->properties_name }}</a></h2>
                   <div class="product-img-location">
                       <ul>

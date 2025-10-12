@@ -32,8 +32,8 @@
                             <ul>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Villa</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px;" href="https://bnaproperty.com/">Real Estate</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Rental</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px;" href="https://bnaproperty.com/">Sales</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px;" href="https://management.bnaproperty.com/">Management</a></li>
 
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
@@ -76,29 +76,29 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
-                <a href="index.html"><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="Logo" width="100"></a>
+                {{-- <a href="index.html"><img src="{{ asset('bna-assets/logo-bna-dark.png') }}" alt="Logo" width="100"></a> --}}
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
         <div class="ltn__utilize-menu">
             <ul>
                 <li><a style="{{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
-                <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About Us</a></li>
-                <li><a style="{{ Route::is('landing.properties.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Villa</a></li>
-                <li><a href="https://bnaproperty.com/">Real Estate</a></li>
+                <li><a style="{{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About</a></li>
+                <li><a style="{{ Route::is('landing.properties.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Rental</a></li>
+                <li><a href="https://bnaproperty.com/">Sales</a></li>
                 <li><a href="https://management.bnaproperty.com/">Management</a></li>
                 <li><a style="{{ Route::is('landing.contact.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.contact.index') }}">Contact</a></li>
 
             </ul>
         </div>
 
-        <div class="ltn__social-media-2">
+        {{-- <div class="ltn__social-media-2">
             <ul>
                 <li><a href="https://www.facebook.com/profile.php?id=61576880249876" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="https://api.whatsapp.com/send?phone=6285217560982" title="Whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
                 <li><a href="https://www.instagram.com/bna_property/" title="Twitter"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- Utilize Mobile Menu End -->

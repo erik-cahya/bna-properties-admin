@@ -6776,7 +6776,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .ltn__utilize-menu > ul > li > a {
     display: block;
     padding: 8px 24px 8px 0;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .ltn__utilize-menu > ul > li .sub-menu {

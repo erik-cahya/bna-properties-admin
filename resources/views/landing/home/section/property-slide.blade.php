@@ -23,8 +23,15 @@
                             </a>
                             <div class="product-badge">
                                 <ul>
-                                    <li class="sale-badge bg-green">{{ $properties->status_listing }}</li>
-                                    <li class="sale-badge bg-secondary-color">{{ $properties->type_properties }}</li>
+                                    <li class="sale-badge">
+                                        {{ $properties->type_properties }}
+                                    </li>
+                                    <li  class="sale-badge 
+                                        {{ $properties->status_listing === 'Available' ? 'bg-success' : ''}}
+                                        {{ $properties->status_listing === 'Rented' ? 'bg-danger' : ''}}
+                                        {{ $properties->status_listing === 'Pending' ? 'bg-warning' : ''}}
+                                        "> {{ $properties->status_listing }}
+                                    </li>
                                 </ul>
                             </div>
                             <div class="product-img-location-gallery">
