@@ -88,7 +88,7 @@
                 <p><strong>Property Name:</strong><br>{{ $details['property_name'] }}</p>
             </div>
 
-            <a href="{{ url('/bookings') }}" class="btn">View in Dashboard</a>
+            <a href="{{ url('/booking') }}" class="btn">View in Dashboard</a>
         </div>
         <div class="footer">
             This is an automated notification from your website.<br>
