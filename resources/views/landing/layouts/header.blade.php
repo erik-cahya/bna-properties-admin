@@ -32,7 +32,7 @@
                             <ul>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.index') }}">Home</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.about.index') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.about.index') }}">About</a></li>
-                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="{{ route('landing.properties.index') }}">Rental</a></li>
+                                <li><a class="fw-bold" style=" font-size:16px; {{ Route::is('landing.properties.*') ? 'color: #FF5A3B' : '' }}" href="`">Rental</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px;" href="https://bnaproperty.com/">Sales</a></li>
                                 <li><a class="fw-bold" style=" font-size:16px;" href="https://management.bnaproperty.com/">Management</a></li>
 

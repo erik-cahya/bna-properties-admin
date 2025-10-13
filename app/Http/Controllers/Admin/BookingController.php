@@ -256,7 +256,7 @@ class BookingController extends Controller
             'property_name' => $propertyData->properties_name,
         ];
 
-        Mail::to('agungcantona11@gmail.com')->send(new InquiryMail($details));
+        Mail::to('bnaconsult.management@gmail.com')->send(new InquiryMail($details));
 
         return response()->json([
             'judul' => 'Success!',
