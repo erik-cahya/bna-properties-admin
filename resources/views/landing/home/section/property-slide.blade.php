@@ -3,7 +3,7 @@
 
 
 <div class="ltn__product-slider-area ltn__product-gutter plr--7 pt-100">
-    <div class="container-fluid">
+    <div class="container-fluid" style="max-width: 1140px;">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
